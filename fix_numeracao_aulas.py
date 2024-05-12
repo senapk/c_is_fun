@@ -24,7 +24,7 @@ for line in lines:
         parts.insert(2, str(count).zfill(2))
         count += 1
         line = ' '.join(parts)
-        print(line)
+        # print(line)
     output.append(line)
 
 with open('Readme.md', 'w') as f:

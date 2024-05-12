@@ -11,7 +11,7 @@
   - [Forks](#forks)
 <!-- toc -->
 
-O **Replit** é uma IDE online que permite programar em diversas linguagens, incluindo **C++**. Ele é uma ótima opção para quem não quer instalar nada no computador, para sessões colaborativas e para quem quer programar em qualquer lugar.
+O **Replit** é uma IDE online que permite programar em diversas linguagens, incluindo **C**. Ele é uma ótima opção para quem não quer instalar nada no computador, para sessões colaborativas e para quem quer programar em qualquer lugar.
 
 ## Primeiros passos
 
@@ -30,14 +30,14 @@ A plataforma do **Replit** é bem intuitiva e fácil de usar. Iremos fazer o pas
 **Repl** é o nome dado aos projetos no **Replit**.
 
 - Clique em **Create Repl**.
-- Na aba `Template` selecione `C++`.
+- Na aba `Template` selecione `C`.
 - Dê um nome ao seu projeto e clique em `Create Repl`.
 
 ![GIF](replit_2.gif)
 
 ### Executando o código
 
-- Na aba `main.cpp`, escreva o código desejado.
+- Na aba `main.c`, escreva o código desejado.
 - Clique em `Run` para executar o código.
 - A saída será exibida na aba `Console`.
 
@@ -49,7 +49,7 @@ O Replit possui diversas funcionalidades que facilitam a programação. Iremos m
 
 ### Criando pastas e manipulando arquivos
 
-- Com o seu Repl aberto, clique na aba `Files` à esquerda. Você verá que já existe um arquivo `main.cpp` criado. Essa aba é o corpo do seu projeto, onde você pode criar pastas e arquivos.
+- Com o seu Repl aberto, clique na aba `Files` à esquerda. Você verá que já existe um arquivo `main.c` criado. Essa aba é o corpo do seu projeto, onde você pode criar pastas e arquivos.
 
 ![Image](replit_4.png)
 
@@ -57,7 +57,7 @@ O Replit possui diversas funcionalidades que facilitam a programação. Iremos m
 
 O Replit possui um visualizador de recursos do sistema para que você possa acompanhar o desempenho do programa.
 
-![Image](repit_5.png)
+![Image](replit_5.png)
 
 - **Todo usuário** tem permissão **gratuita** a **0.5 vCPUs**, **512 MiB** (ou 534 MB) de **RAM** e **10 GiB** (ou 10.7 GB) de **armazenamento**.
   - O armazenamento é **compartilhado** entre **todos** os seus **Repls**, use-o com sabedoria.
