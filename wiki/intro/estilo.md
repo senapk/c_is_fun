@@ -1,5 +1,9 @@
 # Estilo
 
+[Guia de estilo javascript](https://javascript.info/coding-style)
+
+![estilo.png](estilo.png)
+
 Estilo para escrita de código em C++ utilizado nesse curso. O objetivo é manter o código legível e fácil de entender. Mesmo que o compilador consiga entender código feio, é importante que seu código seja legível para humanos. Essas regras de estilo vão deixar seu código mais legível, fácil de entender por você mesmo e por outras pessoas e menos propenso a erros.
 
 ## Nomes

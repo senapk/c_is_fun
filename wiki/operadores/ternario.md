@@ -43,7 +43,7 @@ std::string resultado = (nota >= 60) ? (nota >= 90 ? "excelente" : "aprovado") :
 
 Nesse caso, a variável `resultado` receberá o valor "excelente" se a nota for maior ou igual a 90, "aprovado" se a nota for maior ou igual a 60, e "reprovado" caso contrário.
 
-Note que o aninhamento do operador adiciona uma certa ilegibilidade ao código, por isso, quando precisar de condições mais complexas considere usar um [bloco condicional](../wiki/selecao_if_else.md).
+Note que o aninhamento do operador adiciona uma certa ilegibilidade ao código, por isso, quando precisar de condições mais complexas considere usar um [bloco condicional](../selecao/selecao_if_else.md).
 
 ## Regras
 

@@ -9,7 +9,7 @@
 
 Uma **linguagem de programação** é um conjunto estruturado de regras, símbolos e palavras-chave que nos permite instruir um computador a executar tarefas específicas.
 
-Cotidianamente, usamos o português como linguagem de comunicação, mas os computadores não possuem a nossa capacidade linguística de interpretação e por isso precisamos de uma gramática muito simplificada e que não permita ambiguidades como visto no tópico sobre [algoritmos](o_que_sao_algoritmos.md).
+Cotidianamente, usamos o português como linguagem de comunicação, mas os computadores não possuem a nossa capacidade linguística de interpretação e por isso precisamos de uma gramática muito simplificada e que não permita ambiguidades como visto no tópico sobre [algoritmos](../o_que_sao_algoritmos/o_que_sao_algoritmos.md).
 
 O ato de escrever um algoritmo em uma linguagem de programação específica é chamado de **implementar** o algoritmo.
 

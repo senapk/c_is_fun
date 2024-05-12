@@ -1,6 +1,6 @@
 # FUP is FUN
 
-- [Instruções aos Monitores](wiki/instrucoes_monitores.md)
+- [Instruções aos Monitores](wiki/intro/instrucoes_monitores.md)
 
 ## Vídeo Aulas do Youtube
 
@@ -12,42 +12,42 @@
 
 ### Aula 01 - O que são linguagens de programação?
 
-- [x] [O que são algoritmos?](wiki/o_que_sao_algoritmos.md)
-- [x] [Exemplos de códigos e linguagens](wiki/exemplos_de_codigos_e_linguagens.md)
+- [x] [O que são algoritmos?](wiki/o_que_sao_algoritmos/o_que_sao_algoritmos.md)
+- [x] [Exemplos de códigos e linguagens](wiki/intro/exemplos.md)
 
 ### Aula 02 - Configuração do ambiente
-- [ ] [Pista Rápida](wiki/fast_intro.md)
-- [x] [Ferramentas úteis](wiki/ferramentas_uteis.md) File Manager, Terminal, Text Editor
-- [x] [Instalação do C++ (Mingw)](wiki/configure_cpp.md)
-- [x] [IDE: Visual Studio Code (vscode)](wiki/configure_vscode.md)
-- [x] [IDE: Replit](wiki/configure_replit.md)
-- [x] [Uso do Bash e Instalação do Git Bash](wiki/configure_bash_and_git_bash.md)
+
+- [x] [Ferramentas úteis](wiki/configure/ferramentas_uteis.md) File Manager, Terminal, Text Editor
+- [x] [Instalação do C++ (Mingw)](wiki/configure/cpp.md)
+- [x] [IDE: Visual Studio Code (vscode)](wiki/configure/vscode.md)
+- [x] [IDE: Replit](wiki/configure/replit.md)
+- [x] [Uso do Bash e Instalação do Git Bash](wiki/configure/bash_git.md)
 
 ### Aula 03 - Primeiro código
 
-- [x] [Primeiro código](wiki/primeiro_codigo.md)
-- [x] [Compilando e Executando](wiki/compilando.md)
-- [x] [Segundo código](wiki/segundo_codigo.md)
-- [x] [Guia de estilo de escrita](wiki/guia_de_estilo.md)
-- [x] [Aprenda a indentar](wiki/indentacao.md)
+- [x] [Primeiro código](wiki/primeiro_codigo/primeiro_codigo.md)
+- [x] [Compilando e Executando](wiki/compilando/Readme.md)
+- [x] [Segundo código](wiki/intro/segundo_codigo.md)
+- [x] [Guia de estilo de escrita](wiki/intro/estilo.md)
+- [x] [Aprenda a indentar](wiki/intro/indentacao.md)
 
 ### Aula 04 - Entendendo melhor os tipos
 
-- [x] [Tipos de dados primitivos](wiki/tipos_primitivos.md)
-- [ ] [O tipo string](wiki/tipo_string.md)
-- [x] [Limites e Modificadores de tipo](wiki/modificadores.md)
-- [x] [Conversão entre tipos (casting)](wiki/casting.md)
-- [x] [Variáveis](wiki/variaveis.md): Boas práticas
-- [x] [Operações aritméticas +, -, *, /](wiki/operacoes.md)
-- [x] [Não tenha medo de erros](wiki/erros_variaveis.md)
+- [x] [Tipos de dados primitivos](wiki/variaveis/tipos_primitivos.md)
+- [ ] [O tipo string](wiki/string/tipo_string.md)
+- [x] [Limites e Modificadores de tipo](wiki/modificadores/modificadores.md)
+- [x] [Conversão entre tipos (casting)](wiki/variaveis/casting.md)
+- [x] [Variáveis](wiki/variaveis/variaveis.md): Boas práticas
+- [x] [Operações aritméticas +, -, *, /](wiki/operacoes/operacoes.md)
+- [x] [Não tenha medo de erros](wiki/erros/variaveis.md)
 
 ### Aula 05 - Operações Básicas
 
-- [x] [math.h (pow, sqrt)](wiki/biblioteca_math.md)
-- [x] [Problema da divisão de dois inteiros](wiki/problema_divisao_inteiros.md)
-- [x] [Entrada de dados básica com cin](wiki/entrada_dados.md)
-- [ ] [Ferramenta de Testes: TKTest](wiki/configure_test_kit.md)
-- [x] [Impressão formatada](wiki/impressao_formatada.md)
+- [x] [math.h (pow, sqrt)](wiki/biblioteca_math/Readme.md)
+- [x] [Problema da divisão de dois inteiros](wiki/problema_divisao_inteiros/problema_divisao_inteiros.md)
+- [x] [Entrada de dados básica com cin](wiki/entrada/Readme.md)
+- [ ] [Ferramenta de Testes: TKTest](wiki/tko/Readme.md)
+- [x] [Impressão formatada](wiki/impressao_formatada/Readme.md)
 - [ ] Exercícios Resolvidos:
  [@000 Operações Básicas](https://github.com/qxcodefup/arcade/blob/master/base/000/Readme.md)
 - [ ] Exercícios Classe:
@@ -60,10 +60,10 @@
 
 ### Aula 06 - Seleção Básica
 
-- [x] [Atribuição e incremento](wiki/atribuicao_incremento.md)
-- [x] [Estruturas de seleção](wiki/selecao_if_else.md)
-- [x] [Técnica da seleção intervalada](wiki/selecao_tecnica_intervalos.md)
-- [x] [Operador ternário](wiki/operador_ternario.md)
+- [x] [Atribuição e incremento](wiki/atribuicao_incremento/Readme.md)
+- [x] [Estruturas de seleção](wiki/selecao/selecao_if_else.md)
+- [x] [Técnica da seleção intervalada](wiki/selecao/selecao_tecnica_intervalos.md)
+- [x] [Operador ternário](wiki/operadores/ternario.md)
 - [ ] Exercícios Resolvidos:
  [@015 Calculadora Numérica](https://github.com/qxcodefup/arcade/blob/master/base/015/Readme.md),
  [@155 Plantação de Morangos](https://github.com/qxcodefup/arcade/blob/master/base/155/Readme.md)
@@ -77,12 +77,12 @@
 
 ### Aula 07 - Debugando
 
-- [x] [Debugando o primeiro código](wiki/debugando.md)
+- [x] [Debugando o primeiro código](wiki/debugando/intro.md)
 
 ### Aula 08 - Técnicas de seleção I
 
-- [x] [Operadores lógicos &&, ||, ==, ()](wiki/operadores_logicos.md)
-- [x] [Técnicas de if e else](wiki/selecao_tecnica_agrupamento.md)
+- [x] [Operadores lógicos &&, ||, ==, ()](wiki/operadores/logicos.md)
+- [x] [Técnicas de if e else](wiki/selecao/selecao_tecnica_agrupamento.md)
 - [ ] Exercícios Classe:
   [@014 Quantos são Iguais?](https://github.com/qxcodefup/arcade/blob/master/base/014/Readme.md),
   [@021 Aumento de Salário](https://github.com/qxcodefup/arcade/blob/master/base/021/Readme.md),
@@ -92,12 +92,11 @@
   [@156 Jogo de Par ou Ímpar](https://github.com/qxcodefup/arcade/blob/master/base/156/Readme.md),
   [@194 Nota Cortada](https://github.com/qxcodefup/arcade/blob/master/base/194/Readme.md)
 
-
 ### Aula 09 - Técnicas de seleção II
 
-- [x] [Switch case](wiki/seleção_switch_case.md)
-- [x] [Operador de módulo](wiki/operador_modulo.md)
-- [x] [Exercícios de módulo](wiki/exercicios_modulo.md)
+- [x] [Switch case](wiki/selecao/seleção_switch_case.md)
+- [x] [Operador de módulo](wiki/operadores/modulo.md)
+- [x] [Exercícios de módulo](wiki/exercicios_modulo/Readme.md)
 - [ ] Exercícios Resolvidos:
   [@022 Teleférico](https://github.com/qxcodefup/arcade/blob/master/base/022/Readme.md)
 - [ ] Exercícios Classe:
@@ -113,25 +112,25 @@
 
 ### Aula 10 - Funções I
 
-- [ ] [Variáveis locais e globais](wiki/variaveis_locais_e_globais.md)
-- [ ] [Tratando Conflitos de Nomes com Namespaces](wiki/conflitos_e_namespaces.md)
-- [ ] [Funções: parâmetros e retornos](wiki/funcoes_parametros_e_retorno.md)
+- [ ] [Variáveis locais e globais](wiki/variaveis/variaveis_locais_e_globais.md)
+- [ ] [Tratando Conflitos de Nomes com Namespaces](wiki/conflitos_e_namespaces/Readme.md)
+- [ ] [Funções: parâmetros e retornos](wiki/funcao/parametros_e_retornos.md)
 - [ ] Exercícios Classe:
   [@091 MMC](https://github.com/qxcodefup/arcade/blob/master/base/091/Readme.md),
   [@072 Soldados PMG!](https://github.com/qxcodefup/arcade/blob/master/base/072/Readme.md)
 
 ### Aula 11 - Funções II
 
-- [ ] [Retornando no meio da função](wiki/retornando_no_meio_da_funcao.md)
-- [ ] [Debugando em funções](wiki/debugando_em_funcoes.md)
-- [ ] [Variáveis estáticas em funções](wiki/variaveis_estaticas_em_funcoes.md)
-- [ ] [Valores default em funções](wiki/valores_default_em_funcoes.md)
+- [ ] [Retornando no meio da função](wiki/funcao/retornando_no_meio_da_funcao.md)
+- [ ] [Debugando em funções](wiki/debugando/funcoes.md)
+- [ ] [Variáveis estáticas em funções](wiki/variaveis/variaveis_estaticas_em_funcoes.md)
+- [ ] [Valores default em funções](wiki/variaveis/valores_default_em_funcoes.md)
 
 ## Bloco - Repetição
 
 ### Aula 12 - While
 
-- [x] [while(true), continue e break](wiki/while_break_continue.md)
+- [x] [while(true), continue e break](wiki/repeticao/while_break_continue.md)
 - [ ] Exercícios Classe:
   [@045 Soma dos Pares](https://github.com/qxcodefup/arcade/blob/master/base/045/Readme.md)
 - [ ] Exercícios Casa:
@@ -140,7 +139,7 @@
 
 ### Aula 13 - for
 
-- [ ] [Aula 13 - Uso do for](wiki/repeticao_for.md)
+- [ ] [Aula 13 - Uso do for](wiki/repeticao/repeticao_for.md)
 - [ ] Exercícios Resolvidos:
   [@046 Jogo da Concentração](https://github.com/qxcodefup/arcade/blob/master/base/046/Readme.md),
   [@090 Primo](https://github.com/qxcodefup/arcade/blob/master/base/090/Readme.md)
@@ -154,16 +153,16 @@
 
 ### Aula 14 - Números Aleatórios
 
-- [ ] [Números Aleatórios: Introdução](wiki/num_aleatorios_introducao.md)
-- [ ] [As funções `rand()` e `srand()`](wiki/rand_e_srand.md)
-- [ ] [Gerando números aleatórios com o Mersenne Twister](wiki/mersenne_twister.md)
-- [ ] [argc e argv](wiki/argc_argv.md)
+- [ ] [Números Aleatórios: Introdução](wiki/rand/num_aleatorios_introducao.md)
+- [ ] [As funções `rand()` e `srand()`](wiki/rand/rand_e_srand.md)
+- [ ] [Gerando números aleatórios com o Mersenne Twister](wiki/mersenne/Readme.md)
+- [ ] [argc e argv](wiki/argc_argv/Readme.md)
 
 ## Bloco - Listas
 
 ### Aula 15
 
-- [ ] [Array simples](wiki/array_simples.md)
+- [ ] [Array simples](wiki/array_simples/Readme.md)
 - [ ] Exercícios Resolvidos:
   [@060 Casamento](https://github.com/qxcodefup/arcade/blob/master/base/060/Readme.md)
 - [ ] Exercícios Classe:
@@ -177,8 +176,8 @@
 
 ### Aula 16
 
-- [ ] [Vector](wiki/vector.md)
-- [ ] [For Indexado](wiki/for_indexado.md)
+- [ ] [Vector](wiki/vetores/vector.md)
+- [ ] [For Indexado](wiki/repeticao/for_indexado.md)
 - [ ] Exercícios Casa:
   [@068 Fila do RU](https://github.com/qxcodefup/arcade/blob/master/base/068/Readme.md),
   [@061 Invertendo Vetor](https://github.com/qxcodefup/arcade/blob/master/base/061/Readme.md),
@@ -187,18 +186,18 @@
 
 ### Aula 17
 
-- [ ] [Cópia e Referência](wiki/copia_e_referencia.md)
-- [ ] [For-each e loops com referência](wiki/for_each_e_loops.md)
+- [ ] [Cópia e Referência](wiki/copia_e_referencia/Readme.md)
+- [ ] [For-each e loops com referência](wiki/repeticao/foreach.md)
 
 ## Bloco - Texto
 
 ### Aula 18
 
-- [Tabela ASC](wiki/tabela_asc2.md)
-- [Manipulação de caracteres](wiki/manipulacao_caracteres.md)
-- [Métodos da classe string](wiki/metodos_string.md)
-- [ ] [Métodos `split()` e `join()`](wiki/metodos_split_e_join.md)
-- [ ] [Stringstream e Manipulação de Streams](wiki/stringstream.md)
+- [Tabela ASC](wiki/string/tabela_asc2.md)
+- [Manipulação de caracteres](wiki/manipulacao_caracteres/Readme.md)
+- [Métodos da classe string](wiki/metodos_string/metodos_string.md)
+- [ ] [Métodos `split()` e `join()`](wiki/split_join/Readme.md)
+- [ ] [Stringstream e Manipulação de Streams](wiki/string/stringstream.md)
 - [ ] Exercícios Classe:
   [@173 Eribelton e a Ascologia V1](https://github.com/qxcodefup/arcade/blob/master/base/173/Readme.md),
   [@104 Maiúsculo, Minusculo e Dígito!](https://github.com/qxcodefup/arcade/blob/master/base/104/Readme.md)
@@ -215,11 +214,11 @@
 
 ### Aula 19
 
-- [ ] [structs construtores com {}](wiki/structs.md)
+- [ ] [structs construtores com {}](wiki/struct/structs.md)
 
 ### Aula 20
 
-- [ ] [Iteradores](wiki/iteradores.md)
+- [ ] [Iteradores](wiki/iteradores/Readme.md)
 - vetores de structs
 
 ### Aula 21
@@ -231,8 +230,8 @@
 
 ### Aula 22 matrizes
 
-- [ ] [O que são matrizes e para que usar?](wiki/o_que_sao_matrizes.md)
-- [ ] [Noções básicas sobre matrizes: diagonais e outras propriedades](wiki/nocoes_basicas_de_matrizes.md)
+- [ ] [O que são matrizes e para que usar?](wiki/matrizes/o_que_sao_matrizes.md)
+- [ ] [Noções básicas sobre matrizes: diagonais e outras propriedades](wiki/matrizes/nocoes_basicas_de_matrizes.md)
 
 ### Aula 23 tecnicas em matrizes
 

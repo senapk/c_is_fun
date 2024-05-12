@@ -145,7 +145,7 @@ enquanto os números ímpares (1, 3, 5, 7 e 9) são impressos no console.
 
 ### Utilizando um loop infinito para ler entradas do usuário
 
-Na seção sobre [entrada de dados](entrada_dados.md) vimos algumas técnicas de uso do `cin`.
+Na seção sobre [entrada de dados](../entrada/Readme.md) vimos algumas técnicas de uso do `cin`.
 
 - Podemos fazer um teste para saber se o `cin` conseguiu fazer a leitura corretamente.
 - Podemos usar o `cin.ignore()` para limpar o buffer de entrada.

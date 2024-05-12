@@ -1,5 +1,4 @@
-compile = ["make", "-s"]
-run = "./main"
+run = "./update.sh"
 entrypoint = "main.c"
 hidden = ["main", "main-debug", "**/*.o", "**/*.d", ".ccls-cache", "Makefile"]
 modules = ["python-3.10:v25-20230920-d4ad2e4"]

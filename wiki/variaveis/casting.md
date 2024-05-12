@@ -36,7 +36,7 @@ double x = 5;
 std::cout << x; //5.0
 ```
 
-- Um inteiro para `char` vai ser convertido de acordo com a [tabela ASCII](tabela_asc2.md).
+- Um inteiro para `char` vai ser convertido de acordo com a [tabela ASCII](../string/tabela_asc2.md).
 
 ```c++
 int x = `a`;

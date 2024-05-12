@@ -32,7 +32,7 @@ Isso acontece por conta da forma como o C++ trata os tipos de dados dentro de um
 
 A abordagem de resolução desse problema é transformar pelo menos um dos valores em um tipo de dado de ponto flutuante, dessa forma a divisão não será inteira.
 
-Dessa forma, precisamos realizar um cast como visto em [Tipos de dados e casts](tipos_primitivos.md) ou utilizar um dos argumentos como ponto flutuante.
+Dessa forma, precisamos realizar um cast como visto em [Tipos de dados e casts](../variaveis/tipos_primitivos.md) ou utilizar um dos argumentos como ponto flutuante.
 
 ```cpp
 #include <iostream>
