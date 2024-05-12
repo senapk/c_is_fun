@@ -58,13 +58,13 @@ O Visual Studio Code é uma **IDE (Integrated Development Environment)** desenvo
 
 O **Terminal Integrado** é uma ferramenta que permite executar comandos diretamente no VSCode. Para abrir, use a combinação de teclas `Ctrl + '` ou arraste de baixo para cima na aba do terminal.
 
-![GIF](https://github.com/senapk/fupisfun/assets/103089400/419ed8f7-0684-4ee9-a7b4-11f65a88f367)
+![GIF](ide_1.gif)
 
 ### Explorer
 
 Para abrir o **Explorer**, use a combinação de teclas `Ctrl + Shift + E` ou clique no **ícone** do Explorer na barra lateral. Você pode usar o Explorer para **navegar** entre os arquivos do seu projeto.
 
-![GIF](https://github.com/senapk/fupisfun/assets/103089400/439fecde-6932-4187-811b-6c1795e093d7)
+![GIF](ide_2.gif)
 
 ### Usando o Editor de Texto
 
@@ -94,7 +94,7 @@ Muitas vezes é comum ver os iniciantes escrevendo o código e esquecendo de sal
 - No campo de busca de configuração digite `auto save`.
 - Na opção do `auto save` escolha `after delay`.
 
-![image](https://github.com/senapk/fupisfun/assets/4747652/a421f29d-9525-426c-94a2-7f7057219f78)
+![image](ide_3.png)
 
 ### Extensões no VSCode
 
@@ -102,7 +102,7 @@ As extensões são ferramentas que podem ser instaladas no VSCode para adicionar
 
 Para instalar uma extensão, clique no ícone de **extensões** na barra lateral e digite o nome da extensão que você quer instalar. Clique em **instalar** para instalar a extensão.
 
-![GIF](https://github.com/senapk/fupisfun/assets/103089400/7a52d544-5f68-47a4-b583-2d2982b64e92)
+![GIF](ide_4.gif)
 
 - **Algumas extensões que iremos usar:**
   - **C/C++**: Adiciona suporte para a linguagem C++

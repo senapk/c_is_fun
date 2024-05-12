@@ -25,11 +25,11 @@ Como o **Bash** não é o interpretador padrão do Windows, é necessário insta
 
 - Para abrir o **Git Bash**, basta clicar com o botão direito em uma pasta e selecionar a opção `Git Bash Here`:
 
-    ![GIF](https://github.com/senapk/fupisfun/assets/103089400/71e1b93e-6db3-4555-a477-a5c0618b24bf)
+    ![GIF](bash_1.gif)
 
 - Alternativamente, você pode abrir o **Git Bash** pelo **menu iniciar**:
 
-    ![Imagem](https://github.com/senapk/fupisfun/assets/103089400/0f31cf83-8874-4b52-9c0f-95e07bc5f2bb)
+    ![Imagem](bash_2.png)
 
   - Porém, ao fazer isso, o Git Bash será aberto na pasta do seu usuário. Para navegar até a pasta desejada, utilize o comando `cd`.
 
@@ -38,7 +38,7 @@ Como o **Bash** não é o interpretador padrão do Windows, é necessário insta
 O **Bash** tem uma sintaxe muito simples. Para executar um comando, basta escrevê-lo e apertar `Enter`. Exemplificando, para listar os arquivos de uma pasta, basta usar `ls`.
 Você pode combinar parâmetros de um comando para alterar seu comportamento. Por exemplo, para listar todos os arquivos de uma pasta, incluindo os ocultos, basta escrever `ls -la`. (`ls -l` + `ls -a`)
 
-![GIF](https://github.com/senapk/fupisfun/assets/103089400/f6e3850b-6783-4796-8eeb-a69ece072f3b)
+![GIF](bash_3.gif)
 
 ### Comandos básicos
 
@@ -47,29 +47,29 @@ Você pode combinar parâmetros de um comando para alterar seu comportamento. Po
     - Arquivos ocultos são arquivos que começam com um ponto, como `.gitignore`
   - `ls -l`: lista os arquivos com mais detalhes
 
-  ![GIF](https://github.com/senapk/fupisfun/assets/103089400/37a594cc-fdb4-45e2-898b-7d56facc53dd)
+  ![GIF](bash_4.gif)
 
 - `cd`: navega entre pastas
   - `cd ..`: volta uma pasta
 
-  ![GIF](https://github.com/senapk/fupisfun/assets/103089400/a4bec9ae-438f-4ff4-89ad-2ba626326f74)
+  ![GIF](bash_5.gif)
 
 - `mkdir`: cria uma pasta
   - `mkdir -p`: cria uma pasta e todas as pastas necessárias para chegar até ela
 
-  ![GIF](https://github.com/senapk/fupisfun/assets/103089400/dd6a7daf-f922-4082-a90d-c2b843dfd497)
+  ![GIF](bash_6.gif)
 
 - `rm`: remove um arquivo
   - `rm -rf` remove uma pasta
 
-  ![GIF](https://github.com/senapk/fupisfun/assets/103089400/78a4b043-7308-4831-83f5-7771189f9b76)
+  ![GIF](bash_7.gif)
 
 - `cat`: mostra o conteúdo de um arquivo
-  ![GIF](https://github.com/senapk/fupisfun/assets/103089400/d7494f0b-8fa5-4297-8e4d-6d89dbe92587)
+  ![GIF](bash_8.gif)
 
 - `clear`: limpa o terminal
 
-  ![GIF](https://github.com/senapk/fupisfun/assets/103089400/8cc50e26-30ab-44b8-9b9c-ddd1f7c2a4a0)
+  ![GIF](bash_9.gif)
 
 - `exit`: fecha o terminal
 

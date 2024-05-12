@@ -15,17 +15,17 @@
   - Extraia o Arquivo ***"mingw64"*** para o diretório `C:`
 
   - Após, digite na pesquisa do Windows **"ambiente"** e, em seguida, clique em **"Editar as variáveis de ambiente do sistema"**
-    - ![Imagem](https://github.com/senapk/fupisfun/assets/103089400/d859f639-8e4e-4305-913a-1265912ce650)
+    - ![Imagem](passo_1.png)
 
   - Ao abrir, clique no botão **"Variáveis de Ambiente..."**
-    - ![Imagem](https://github.com/senapk/fupisfun/assets/103089400/60e89d4f-c556-4f7c-a8fe-b1b7e73de9b6)
+    - ![Imagem](passo_2.png)
 
   - Na nova janela, você terá que colocar o caminho do mingw na variável ***"Path"***
     - Observe que você terá duas abas, uma para o usuário atual e outra para o sistema. Escolha de acordo com suas necessidades.
-    - ![Imagem](https://user-images.githubusercontent.com/103089400/256557320-e8a0e682-1cc3-4db3-bfa5-fe174d21346f.png)
+    - ![Imagem](passo_3.png)
 
   - Selecione o ***"Path"*** desejado e clique em **"Editar..."**. Uma janela será aberta, clique em **"Novo"** e digite o caminho do mingw. No nosso caso é `C:\mingw64\bin`
-    - ![Imagem](https://github.com/senapk/fupisfun/assets/103089400/a9f4f4e4-6a0e-45e3-bb9f-afebd81aa2a6)
+    - ![Imagem](passo_4.png)
 
   - Clique em **"OK"** para todas as janelas.
 
@@ -37,7 +37,7 @@
     ```
 
   - Deverá aparecer isto:
-    - ![Imagem](https://github.com/senapk/fupisfun/assets/103089400/e422193c-9911-4758-921a-75c15cf993b2)
+    - ![Imagem](passo_5.png)
   - E pronto, seu compilador para Windows está instalado e configurado.
 
 ## Arch-Based Linux

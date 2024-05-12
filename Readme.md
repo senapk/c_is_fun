@@ -6,24 +6,19 @@
 
 - [Playlist](https://youtube.com/playlist?list=PLpaKFn4Q4GMOBAeqC1S5_Fna_Y5XaOQS2&si=9MTRX0hUc8vGCLdl)
 
-
-
 ## Bloco - Introdução
 
 ### Aula 01 - O que são linguagens de programação?
 
-- [x] [O que são algoritmos?](wiki/o_que_sao_algoritmos/o_que_sao_algoritmos.md)
+- [x] [O que são algoritmos?](wiki/intro/o_que_sao_algoritmos.md)
 - [x] [Exemplos de códigos e linguagens](wiki/intro/exemplos.md)
-
-### Aula 02 - Configuração do ambiente
-
 - [x] [Ferramentas úteis](wiki/configure/ferramentas_uteis.md) File Manager, Terminal, Text Editor
 - [x] [Instalação do C++ (Mingw)](wiki/configure/cpp.md)
 - [x] [IDE: Visual Studio Code (vscode)](wiki/configure/vscode.md)
 - [x] [IDE: Replit](wiki/configure/replit.md)
 - [x] [Uso do Bash e Instalação do Git Bash](wiki/configure/bash_git.md)
 
-### Aula 03 - Primeiro código
+### Aula 02 - Primeiro código
 
 - [x] [Primeiro código](wiki/primeiro_codigo/primeiro_codigo.md)
 - [x] [Compilando e Executando](wiki/compilando/Readme.md)
@@ -31,7 +26,7 @@
 - [x] [Guia de estilo de escrita](wiki/intro/estilo.md)
 - [x] [Aprenda a indentar](wiki/intro/indentacao.md)
 
-### Aula 04 - Entendendo melhor os tipos
+### Aula 03 - Entendendo melhor os tipos
 
 - [x] [Tipos de dados primitivos](wiki/variaveis/tipos_primitivos.md)
 - [ ] [O tipo string](wiki/string/tipo_string.md)
@@ -41,7 +36,7 @@
 - [x] [Operações aritméticas +, -, *, /](wiki/operacoes/operacoes.md)
 - [x] [Não tenha medo de erros](wiki/erros/variaveis.md)
 
-### Aula 05 - Operações Básicas
+### Aula 04 - Operações Básicas
 
 - [x] [math.h (pow, sqrt)](wiki/biblioteca_math/Readme.md)
 - [x] [Problema da divisão de dois inteiros](wiki/problema_divisao_inteiros/problema_divisao_inteiros.md)
@@ -58,7 +53,7 @@
 
 ## Bloco - Seleção
 
-### Aula 06 - Seleção Básica
+### Aula 05 - Seleção Básica
 
 - [x] [Atribuição e incremento](wiki/atribuicao_incremento/Readme.md)
 - [x] [Estruturas de seleção](wiki/selecao/selecao_if_else.md)
@@ -75,11 +70,11 @@
  [@040 Está Trabalhando ou Não?](https://github.com/qxcodefup/arcade/blob/master/base/040/Readme.md),
  [@164 Triângulo de Varetas](https://github.com/qxcodefup/arcade/blob/master/base/164/Readme.md)
 
-### Aula 07 - Debugando
+### Aula 06 - Debugando
 
 - [x] [Debugando o primeiro código](wiki/debugando/intro.md)
 
-### Aula 08 - Técnicas de seleção I
+### Aula 07 - Técnicas de seleção I
 
 - [x] [Operadores lógicos &&, ||, ==, ()](wiki/operadores/logicos.md)
 - [x] [Técnicas de if e else](wiki/selecao/selecao_tecnica_agrupamento.md)
@@ -92,7 +87,7 @@
   [@156 Jogo de Par ou Ímpar](https://github.com/qxcodefup/arcade/blob/master/base/156/Readme.md),
   [@194 Nota Cortada](https://github.com/qxcodefup/arcade/blob/master/base/194/Readme.md)
 
-### Aula 09 - Técnicas de seleção II
+### Aula 08 - Técnicas de seleção II
 
 - [x] [Switch case](wiki/selecao/seleção_switch_case.md)
 - [x] [Operador de módulo](wiki/operadores/modulo.md)
@@ -110,7 +105,7 @@
 
 ## Bloco - Funções
 
-### Aula 10 - Funções I
+### Aula 09 - Funções I
 
 - [ ] [Variáveis locais e globais](wiki/variaveis/variaveis_locais_e_globais.md)
 - [ ] [Tratando Conflitos de Nomes com Namespaces](wiki/conflitos_e_namespaces/Readme.md)
@@ -119,7 +114,7 @@
   [@091 MMC](https://github.com/qxcodefup/arcade/blob/master/base/091/Readme.md),
   [@072 Soldados PMG!](https://github.com/qxcodefup/arcade/blob/master/base/072/Readme.md)
 
-### Aula 11 - Funções II
+### Aula 10 - Funções II
 
 - [ ] [Retornando no meio da função](wiki/funcao/retornando_no_meio_da_funcao.md)
 - [ ] [Debugando em funções](wiki/debugando/funcoes.md)
@@ -128,7 +123,7 @@
 
 ## Bloco - Repetição
 
-### Aula 12 - While
+### Aula 11 - While
 
 - [x] [while(true), continue e break](wiki/repeticao/while_break_continue.md)
 - [ ] Exercícios Classe:
@@ -137,7 +132,7 @@
   [@013 Sapatos para 3](https://github.com/qxcodefup/arcade/blob/master/base/013/Readme.md),
   [@053 Fuga em Helicóptero](https://github.com/qxcodefup/arcade/blob/master/base/053/Readme.md)
 
-### Aula 13 - for
+### Aula 12 - for
 
 - [ ] [Aula 13 - Uso do for](wiki/repeticao/repeticao_for.md)
 - [ ] Exercícios Resolvidos:
@@ -151,7 +146,7 @@
   [@059 Sapinho 2 Morrendo no Poço](https://github.com/qxcodefup/arcade/blob/master/base/059/Readme.md),
   [@054 Quebrador de Copos](https://github.com/qxcodefup/arcade/blob/master/base/054/Readme.md)
 
-### Aula 14 - Números Aleatórios
+### Aula 13 - Números Aleatórios
 
 - [ ] [Números Aleatórios: Introdução](wiki/rand/num_aleatorios_introducao.md)
 - [ ] [As funções `rand()` e `srand()`](wiki/rand/rand_e_srand.md)
@@ -160,7 +155,7 @@
 
 ## Bloco - Listas
 
-### Aula 15
+### Aula 14
 
 - [ ] [Array simples](wiki/array_simples/Readme.md)
 - [ ] Exercícios Resolvidos:
@@ -174,7 +169,7 @@
   [@058 Busca Intervalada](https://github.com/qxcodefup/arcade/blob/master/base/051/Readme.md),
   [@100 Pião Perto da Linha](https://github.com/qxcodefup/arcade/blob/master/base/100/Readme.md)
 
-### Aula 16
+### Aula 15
 
 - [ ] [Vector](wiki/vetores/vector.md)
 - [ ] [For Indexado](wiki/repeticao/for_indexado.md)
@@ -184,14 +179,14 @@
   [@078 Jogo do Avesso](https://github.com/qxcodefup/arcade/blob/master/base/078/Readme.md),
   [@088 Mediana](https://github.com/qxcodefup/arcade/blob/master/base/088/Readme.md)
 
-### Aula 17
+### Aula 16
 
 - [ ] [Cópia e Referência](wiki/copia_e_referencia/Readme.md)
 - [ ] [For-each e loops com referência](wiki/repeticao/foreach.md)
 
 ## Bloco - Texto
 
-### Aula 18
+### Aula 17
 
 - [Tabela ASC](wiki/string/tabela_asc2.md)
 - [Manipulação de caracteres](wiki/manipulacao_caracteres/Readme.md)
@@ -212,39 +207,39 @@
 
 ## Bloco - Structs
 
-### Aula 19
+### Aula 18
 
 - [ ] [structs construtores com {}](wiki/struct/structs.md)
 
-### Aula 20
+### Aula 19
 
 - [ ] [Iteradores](wiki/iteradores/Readme.md)
 - vetores de structs
 
-### Aula 21
+### Aula 20
 
 - tipos de passagem de parâmetros
   - cópias, referências e referências constantes
 
 ## Bloco 07 - Texto
 
-### Aula 22 matrizes
+### Aula 21 matrizes
 
 - [ ] [O que são matrizes e para que usar?](wiki/matrizes/o_que_sao_matrizes.md)
 - [ ] [Noções básicas sobre matrizes: diagonais e outras propriedades](wiki/matrizes/nocoes_basicas_de_matrizes.md)
 
-### Aula 23 tecnicas em matrizes
+### Aula 22 tecnicas em matrizes
 
 ## Bloco 08 - avançado
 
-### Aula 24 - ponteiros
+### Aula 23 - ponteiros
 
-### Aula 25 - enum
+### Aula 24 - enum
 
-### Aula 26 - arquivos
+### Aula 25 - arquivos
 
-### Aula 27 - funções lambda
+### Aula 26 - funções lambda
 
-### Aula 28 - templates
+### Aula 27 - templates
 
-### Aula 29 - biblioteca algorithm find, sort, reverse, shuffle
+### Aula 28 - biblioteca algorithm find, sort, reverse, shuffle

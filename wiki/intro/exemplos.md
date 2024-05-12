@@ -9,7 +9,7 @@
 
 Uma **linguagem de programação** é um conjunto estruturado de regras, símbolos e palavras-chave que nos permite instruir um computador a executar tarefas específicas.
 
-Cotidianamente, usamos o português como linguagem de comunicação, mas os computadores não possuem a nossa capacidade linguística de interpretação e por isso precisamos de uma gramática muito simplificada e que não permita ambiguidades como visto no tópico sobre [algoritmos](../o_que_sao_algoritmos/o_que_sao_algoritmos.md).
+Cotidianamente, usamos o português como linguagem de comunicação, mas os computadores não possuem a nossa capacidade linguística de interpretação e por isso precisamos de uma gramática muito simplificada e que não permita ambiguidades como visto no tópico sobre [algoritmos](./o_que_sao_algoritmos.md).
 
 O ato de escrever um algoritmo em uma linguagem de programação específica é chamado de **implementar** o algoritmo.
 
@@ -23,28 +23,31 @@ Embora pareça óbvia a escolha de linguagens de alto-nível, as linguagens de b
 
 ## Exemplos de linguagens de programação
 
-Para exemplificar o mundo das linguagens de programação iremos implementar o algoritmo de somar dois números em uma linguagem de baixo-nível: o *C++*, e em uma linguagem de alto-nível: o *Python*.
+Para exemplificar o mundo das linguagens de programação iremos implementar o algoritmo de somar dois números em uma linguagem de baixo-nível: o *C*, e em uma linguagem de alto-nível: o *Python*.
 
-```c++
-#include <iostream>
+<!-- load soma.c fenced -->
+
+```c
+#include <stdio.h> // inclui a biblioteca padrão de entrada e saída
 
 int main() {
     int num1 = 0; //cria um lugar
-    std::cout << "Digite o primeiro número\n";
-    std::cin >> num1; //lê o número
+    puts("Digite o primeiro número"); //imprime uma mensagem
+    scanf("%d", &num1); //lê o número e guarda no lugar num1
 
     int num2 = 0;
-    std::cout << "Digite o segundo número\n";
-    std::cin >> num2; //lê o número
+    puts("Digite o segundo número");
+    scanf("%d", &num2);
 
-    int soma = num1 + num2;
-
-    std::cout << "A soma é " << soma << "\n";
+    int soma = num1 + num2; //soma e guarda na variável soma
+    printf("A soma de %d e %d é %d\n", num1, num2, soma); //imprime a soma
     return 0;
 }
 ```
 
-O código acima é um código em C++. Ele utiliza o `std::cout` para enviar uma mensagem para o terminal e o `std::cin` para receber uma valor do terminal. Ele guarda os valores recebidos em variáveis e depois as soma e exibe o resultado.
+<!-- load -->
+
+O código acima é um código em C. Ele utiliza o `puts` e `printf` para enviar uma mensagem para o terminal e o `scanf` para receber uma valor do terminal. Ele guarda os valores recebidos em variáveis e depois as soma e exibe o resultado.
 
 Executar o código acima no terminal resulta em:
 
@@ -53,20 +56,24 @@ Digite o primeiro número
 5
 Digite o segundo número
 7
-A soma é 12
+A soma de 5 e 7 é 12
 ```
 
 O mesmo código em Python:
 
+<!-- load soma.py fenced -->
+
 ```py
-print("Digite o primeiro número)
-num1 = int(input()) //lê o número
+print("Digite o primeiro número")
+num1 = int(input()) # lê o número
 
-print("Digite o segundo número)
-num2 = int(input()) //lê o número
+print("Digite o segundo número")
+num2 = int(input()) # lê o número
 
-soma = a + b
-print("A soma é", soma)
+soma = num1 + num2
+print(f"A soma de {num1} e {num2} é {soma}")
 ```
 
-O código acima é uma implementação do mesmo algoritmo em Python. Observe que o código é muito mais simples que a implementação em C++ e se aproxima muito das linguagens humanas. No entanto, o código em C++ é executado de forma mais eficiente pelo computador, ou seja, mais rápido e usando menos memória.
+<!-- load -->
+
+O código acima é uma implementação do mesmo algoritmo em Python. Observe que o código é um pouco mais simples que a implementação em C e se aproxima mais das linguagens humanas. No entanto, o código em C é executado de forma mais eficiente pelo computador, ou seja, mais rápido e usando menos memória.
