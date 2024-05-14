@@ -38,7 +38,7 @@ Os tipos de dados fundamentais em C++ podem ser agrupados em três categorias pr
 
 Exemplo de declaração e atribuição de uma variável do tipo int:
 
-```c++
+```c
 int idade = 25;
 ```
 
@@ -49,7 +49,7 @@ int idade = 25;
 
 Exemplo de declaração e atribuição de uma variável do tipo char:
 
-```c++
+```c
 char letra = 'a';
 ```
 
@@ -62,7 +62,7 @@ char letra = 'a';
 
 Exemplo de declaração e atribuição de uma variável do tipo float:
 
-```cpp
+```c
 float altura = 1.75f; //o f depois do número indica que é um float
 ```
 
@@ -74,7 +74,7 @@ float altura = 1.75f; //o f depois do número indica que é um float
 
 Exemplo de declaração e atribuição de uma variável do tipo double:
 
-```cpp
+```c
 double pi = 3.14159265359;
 ```
 
@@ -90,36 +90,26 @@ Double é o valor padrão de ponto flutuante e, na dúvida, use sempre double.
 
 Exemplo de declaração e atribuição de uma variável do tipo bool:
 
-```c++
+```c
+#include <stdbool.h>
+
 bool eh_par = true;
 ```
 
-## Uso do `auto` para inferir tipo
-
-O C++11 introduziu o uso da palavra-chave `auto` para permitir a inferência de tipo de variáveis em tempo de compilação. Quando usamos `auto` ao declarar uma variável, o compilador automaticamente infere o tipo com base no valor atribuído à variável. Isso torna a declaração de variáveis mais concisa e legível.
-
-Exemplo:
-
-```c++
-auto idade = 25; // O tipo da variável idade será inferido como int.
-auto altura = 1.75; // O tipo da variável altura será inferido como double.
-auto largura = 1.8f; // O tipo da variável largura será inferido como float.
-auto eh_par = false; // O tipo da variável eh_par será inferido como bool.
-auto letra = 'a'; // O tipo da variável letra será inferido como char.
-```
+- No `C` é necessária a inclusão da biblioteca `<stdbool.h>` para o uso de variáveis tipo bool e das keywords `true` e `false`.
+- Os tipos booleanos também têm suas representações inteiras: 0 ou 1, com 1 sendo verdadeiro.
 
 ## Curiosidade 1 - imprecisão
 
 Só por curiosidade, o código abaixo mostra como o número 0.1 é representado em memória usando `float` e `double`.
 
-```cpp
-#include <iostream>
-#include <iomanip>
+```c
+#include <stdio.h>
 
-int main (){
-    std::cout << std::fixed;
-    std::cout << "float : " << std::setprecision(20) << (float) 0.1 << '\n';  // 0.10000000149011611938
-    std::cout << "double: " << std::setprecision(20) << (double) 0.1 << '\n'; // 0.10000000000000000555
+int main() {
+    printf("float : %.20f\n", (float)0.1);  // 0.10000000149011611938
+    printf("double: %.20f\n", (double)0.1); // 0.10000000000000000555
+    return 0;
 }
 ```
 
@@ -136,14 +126,16 @@ Dá pra ver como é a aproximação do número 0.1 em cada tipo de dado e como o
 
 A função `sizeof` pode ser utilizada para descobrir o tamanho em bytes de um tipo de dado. O código abaixo vai imprimir o tamanho em bytes de cada tipo de dado:
 
-```cpp
-#include <iostream>
+```c
+#include <stdio.h>
+#include <stdbool.h>
 
 int main() {
-  std::cout << "int : " << sizeof(int) << '\n';      // 4
-  std::cout << "char: " << sizeof(char) << '\n';     // 1
-  std::cout << "float: " << sizeof(float) << '\n';   // 4
-  std::cout << "double: " << sizeof(double) << '\n'; // 8
-  std::cout << "bool: " << sizeof(bool) << '\n';     // 1
+  printf("int : %lu\n", sizeof(int));      // 4
+  printf("char: %lu\n", sizeof(char));     // 1
+  printf("float: %lu\n", sizeof(float));   // 4
+  printf("double: %lu\n", sizeof(double)); // 8
+  printf("bool: %lu\n", sizeof(bool));     // 1
+  return 0;
 }
 ```

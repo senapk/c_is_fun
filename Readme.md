@@ -12,19 +12,19 @@
 
 - [x] [O que são algoritmos?](wiki/intro/o_que_sao_algoritmos.md)
 - [x] [Exemplos de códigos e linguagens](wiki/intro/exemplos.md)
-- [x] [Ferramentas úteis](wiki/configure/ferramentas_uteis.md) File Manager, Terminal, Text Editor
-- [x] [Instalação do C++ (Mingw)](wiki/configure/cpp.md)
-- [x] [IDE: Visual Studio Code (vscode)](wiki/configure/vscode.md)
-- [x] [IDE: Replit](wiki/configure/replit.md)
-- [x] [Uso do Bash e Instalação do Git Bash](wiki/configure/bash_git.md)
+- [x] [Tipos de variáveis](wiki/variaveis/tipos_primitivos.md)
+- [x] [Sintaxe e linguagens C-Like](wiki/variaveis/sintaxe.md)
+- [x] [Aprenda a indentar](wiki/intro/indentacao.md)
+- [x] [Guia de Estilo](wiki/intro/estilo.md])
+- [x] [Exemplos de Código](wiki/intro/exemplos.md)
 
 ### Aula 02 - Primeiro código
 
-- [x] [Primeiro código](wiki/primeiro_codigo/primeiro_codigo.md)
+- [x] [IDE: VSCode](wiki/configure/vscode.md)
+- [x] [Instalando o MinGW](wiki/configure/mingw.md)
 - [x] [Compilando e Executando](wiki/compilando/Readme.md)
-- [x] [Segundo código](wiki/intro/segundo_codigo.md)
-- [x] [Guia de estilo de escrita](wiki/intro/estilo.md)
-- [x] [Aprenda a indentar](wiki/intro/indentacao.md)
+- [x] [Primeiro Código](wiki/intro/primeiro_codigo.md)
+- [x] [Primeiro Exercício: L0 - Soma @tres inteiros](https://github.com/qxcodefup/arcade/blob/master/base/tres/Readme.md)
 
 ### Aula 03 - Entendendo melhor os tipos
 

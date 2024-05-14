@@ -1,4 +1,4 @@
-# Configurando o Compilador GCC (G++)
+# Configurando o Compilador GCC
 
 <!-- toc -->
 - [Windows](#windows)
@@ -33,7 +33,7 @@
   - Abra o terminal do Windows (CMD) e digite
 
     ```shell
-    g++ --version
+    gcc --version
     ```
 
   - Deverá aparecer isto:
@@ -42,13 +42,13 @@
 
 ## Arch-Based Linux
 
-- **Instalando o GDB e o G++**
+- **Instalando o GCC e o GDB**
 
 ```bash
 # atualize seu sistema
 sudo pacman -Syyu
 
-#instalação das ferramentas de compilação e do gdb
+# instalação das ferramentas de compilação e do gdb
 sudo pacman -S base-devel gdb
 ```
 
@@ -56,29 +56,27 @@ sudo pacman -S base-devel gdb
 
 ```bash
 gdb --version
-g++ --version
+gcc --version
 ```
 
 ## Debian-Based Linux
 
-- **Instalando o GDB e o G++11**
+- **Instalando o GCC e o GDB**
 
 ```bash
 #gdb
 sudo apt-get update
 sudo apt-get install build-essential gdb
 
-#g++11
-sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-sudo apt install -y g++-11
-
-#configurando o g++11 como padrão
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 11
+#gcc
+sudo apt install -y gcc
 ```
 
 - **Testando a Instalação:**
 
 ```bash
 gdb --version
-g++ --version
+gcc --version
 ```
+
+Essas instruções orientam a instalação e configuração do compilador GCC (para C) em diferentes sistemas operacionais, semelhante ao que você faria para configurar o G++ (para C++).

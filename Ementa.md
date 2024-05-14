@@ -1,6 +1,8 @@
 
 ## Aula 1
 
+  - [ ] ação tal
+
   ### Introduçao ao C
 
   ### Variáveis
@@ -26,9 +28,6 @@
     - exemplo dado pelo professor
 
 ## Aula 2
-
-  ### Atribuição
-    - '=' vs '=='
 
   ### Compilação
     - compilar no terminal com gcc
@@ -78,24 +77,41 @@
 ## Aula 7
 
   ### Funções? (preciso de opinião p ver se isso da certo)
+    - Parâmetros
+    - Retorno
+    
+## Aula 8
 
+  ### Funções 
+    - Simplificando if/else
+  
+## Aula 9
 
+  ### Repetição
+    - While
+    - Continue
+    - Break
+
+  ### Exemplo de exercício
+
+## Aula 10
+
+  ### Repetição
+    
+    - For
+    - Importância do índice
+    - boas práticas
 
 ### Trabalhando com múltiplos arquivos
   - Declaração e Definição
   - Avançado: Externe e protótipo
 ### Debug
+  
 
-### Funções
-  - Parâmetros
-  - Retorno
-  - Simplificando if/else
 
 ### Repetição
 
-  - While
-    - Continue
-    - Break
+  
   - Do - While
   - For
   - 
