@@ -2,61 +2,9 @@
 
 - [Instruções aos Monitores](../wiki/intro/instrucoes_monitores.md)
 
-<!-- toc -->
-- [Flow](#flow)
-  - [O que são linguagens de programação?](#o-que-são-linguagens-de-programação)
-  - [Uso do bash](#uso-do-bash)
-  - [Configuração do Ambiente](#configuração-do-ambiente)
-  - [Makefile](#makefile)
-  - [Primeiro código](#primeiro-código)
-  - [O tipo string](#o-tipo-string)
-  - [Clean Code - Estilo](#clean-code---estilo)
-  - [Clean Code - Indentação](#clean-code---indentação)
-  - [Manipulando tipos](#manipulando-tipos)
-  - [Casting e Conversão](#casting-e-conversão)
-  - [Conversão](#conversão)
-  - [Operações Básicas](#operações-básicas)
-  - [Biblioteca matemática](#biblioteca-matemática)
-  - [Entrada e Saída - puts, printf, scanf](#entrada-e-saída---puts-printf-scanf)
-  - [Lendo e escrevendo em strings sprintf e sscanf](#lendo-e-escrevendo-em-strings-sprintf-e-sscanf)
-  - [Tratamento de erros de entrada fflush](#tratamento-de-erros-de-entrada-fflush)
-  - [Macros: include, define, if, ifdef, endif](#macros-include-define-if-ifdef-endif)
-  - [TKO - Ferramenta de Testes](#tko---ferramenta-de-testes)
-  - [Seleção Básica](#seleção-básica)
-  - [Debugando](#debugando)
-  - [Técnicas de seleção I](#técnicas-de-seleção-i)
-  - [Técnicas de seleção II](#técnicas-de-seleção-ii)
-  - [Funções I](#funções-i)
-  - [Funções II](#funções-ii)
-  - [While](#while)
-  - [for](#for)
-  - [Números Aleatórios](#números-aleatórios)
-  - [Game Zero a Cem](#game-zero-a-cem)
-  - [argc e argv](#argc-e-argv)
-  - [Array Iniciante](#array-iniciante)
-  - [Array avançado](#array-avançado)
-  - [Array Expert](#array-expert)
-  - [Aula 16](#aula-16)
-- [Bloco - Texto](#bloco---texto)
-  - [Strings](#strings)
-  - [Strings II](#strings-ii)
-  - [Strings Expert](#strings-expert)
-  - [Ponteiros](#ponteiros)
-  - [Structs](#structs)
-  - [matrizes](#matrizes)
-  - [tecnicas em matrizes](#tecnicas-em-matrizes)
-  - [merged tecnique](#merged-tecnique)
-  - [Aula 24 - enum](#aula-24---enum)
-  - [Ponteiros ii](#ponteiros-ii)
-  - [Alocação Dinâmica](#alocação-dinâmica)
-  - [Alocação Dinâmica](#alocação-dinâmica)
-  - [arquivos texto](#arquivos-texto)
-  - [arquivos binario](#arquivos-binario)
-<!-- toc -->
-
 ## Flow
 
-[Clique aqui](https://raw.githubusercontent.com/senapk/c_is_fun/facc5250259f57bd2f4b324dc89ca1b317ee57c0/graph/graph.svg) e abra em uma nova aba para carregar links clicáveis.
+[Clique aqui](https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/graph.svg) e abra em uma nova aba para carregar links clicáveis.
 
 ![_](graph.svg)
 

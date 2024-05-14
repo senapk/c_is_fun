@@ -2,6 +2,8 @@
 
 import argparse
 
+baseurl = "https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md"
+
 def rm_comments(title: str) -> str:
     if "<!--" in title and "-->" in title:
         title = title.split("<!--")[0] + title.split("-->")[1]
@@ -27,7 +29,7 @@ def get_md_link(title: str) -> str:
 
 class Entry:
     def __init__(self):
-        self.baseurl = ""
+        baseurl = ""
         self.line = ""
         self.label = ""
         self.main = False
@@ -38,8 +40,10 @@ class Entry:
         color = "#lime" if self.main else "#pink"
         description = rm_comments(self.line)
         description = " ".join(description.split(" ")[1:])
-        link = self.baseurl + "/" + get_md_link(description)
-        return f"\"[[{link}{description} ({self.count})]]\" {color}"
+        link = get_md_link(description)
+        print(link)
+        link = baseurl + "#" + link
+        return f"\"[[{link} {description} ({self.count})]]\" {color}"
 
     def __str__(self):
         return f"{self.label} {self.main} {self.requires} {self.count}"
