@@ -2,9 +2,11 @@
 
 - [Instruções aos Monitores](../wiki/intro/instrucoes_monitores.md)
 
-## Vídeo Aulas do Youtube
+## Flow
 
-- [Playlist](https://youtube.com/playlist?list=PLpaKFn4Q4GMOBAeqC1S5_Fna_Y5XaOQS2&si=9MTRX0hUc8vGCLdl)
+[Clique aqui](https://raw.githubusercontent.com/senapk/c_is_fun/facc5250259f57bd2f4b324dc89ca1b317ee57c0/graph/graph.svg) e abra em uma nova aba para carregar links clicáveis.
+
+![_](graph.svg)
 
 ### O que são linguagens de programação? [](l:tools_basic t:main +tools)
 
