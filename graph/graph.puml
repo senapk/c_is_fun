@@ -1,4 +1,6 @@
 @startuml graph
+skinparam defaultFontName Hasklig
+skinparam defaulttextalignment left
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação O que são linguagens de programação? (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#uso-do-bash Uso do bash (1)]]" #pink
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#uso-do-bash Uso do bash (1)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#configuração-do-ambiente Configuração do Ambiente (2)]]" #pink
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação O que são linguagens de programação? (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#makefile Makefile (3)]]" #pink
@@ -41,12 +43,12 @@
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-ii Strings II (0)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-expert Strings Expert (1)]]" #pink
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-ii Funções II (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros Ponteiros (1)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i Funções I (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs Structs (2)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante Array Iniciante (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#matrizes matrizes (2)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#matrizes matrizes (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#tecnicas-em-matrizes tecnicas em matrizes (2)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique merged tecnique (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#tecnicas-em-matrizes tecnicas em matrizes (2)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros Ponteiros (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique merged tecnique (2)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante Array Iniciante (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique merged tecnique (2)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs Structs (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique merged tecnique (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante Array Iniciante (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#matrizes Matrizes (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#matrizes Matrizes (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-em-matrizes Técnicas em matrizes (2)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique Merged tecnique (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-em-matrizes Técnicas em matrizes (2)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros Ponteiros (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique Merged tecnique (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante Array Iniciante (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique Merged tecnique (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs Structs (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique Merged tecnique (2)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica Seleção Básica (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#aula-24---enum Aula 24 - enum (2)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros Ponteiros (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-ii Ponteiros ii (2)]]" #pink
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros Ponteiros (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#alocação-dinâmica Alocação Dinâmica (0)]]" #pink
@@ -54,4 +56,15 @@
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-ii Ponteiros ii (2)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-texto arquivos texto (1)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-texto arquivos texto (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-binario arquivos binario (1)]]" #pink
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-texto arquivos texto (1)]]" #lime -> (*)
+legend top right
+  ..tools: 8
+  ..types: 13
+  ..style: 2
+  ..logic: 11
+  .....io: 4
+  .select: 10
+  .repeat: 7
+  project: 1
+  ..array: 2
+end legend
 @enduml

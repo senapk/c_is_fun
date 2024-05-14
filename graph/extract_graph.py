@@ -34,6 +34,7 @@ class Entry:
         self.label = ""
         self.main = False
         self.requires = []
+        self.skills = []
         self.count = 0
 
     def format(self):
@@ -81,6 +82,8 @@ def load_entries(file: str):
                 entry.label = value
             if tag == "r":
                 entry.requires.append(value)
+            if tag == "s":
+                entry.skills.append(value)
         entries.append(entry)
     return entries
 
@@ -88,8 +91,9 @@ def create_diag(entries):
     map = {e.label: e for e in entries}
     saida = []
     saida.append("@startuml graph")
+    saida.append("skinparam defaultFontName Hasklig")
 
-    #saida.append("skinparam defaulttextalignment center")
+    saida.append("skinparam defaulttextalignment left")
     #saida.append("left to right direction")
 
     for e in entries:
@@ -100,6 +104,21 @@ def create_diag(entries):
     main_list = [e for e in entries if e.main]
 
     saida.append(f"{map[main_list[-1].label].format()} -> (*)")
+
+    skills = {}
+    for e in entries:
+        for s in e.skills:
+            if s not in skills:
+                skills[s] = 1
+            else:
+                skills[s] += 1
+
+    saida.append("legend top right")
+    for s in skills:
+        name = s.rjust(7, ".")
+        print(name)
+        saida.append(f"  {name}: {skills[s]}")
+    saida.append("end legend")
     saida.append("@enduml")
 
     open("graph.puml", "w").write("\n".join(saida))
