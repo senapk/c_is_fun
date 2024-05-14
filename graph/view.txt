@@ -1,0 +1,39 @@
+## Quests em Andamento
+
+- Aprendendo Seleção (3/10)
+- Utilizando Makefiles (2/3)
+
+## Próximas Ações
+
+- Aprendendo Seleção
+  - [ ] video: `if`
+- Utilizando Makefiles
+  - [ ] video: `make clean`
+
+## Quest Disponíveis
+
+- Config Local
+- Repetição
+- Ponteiros
+- Struct 
+
+## Quests Completas
+
+- Intro ao C (4/4)
+- Configuração Ambiente (3/3)
+
+## Skill Tree
+
+- Tools     - 3
+- Básico    - 2
+- Seleção   - 1
+- Repetição - 0
+- Funções   - 1
+- Ponteiros - 0
+- Vetores   - 0
+- Strings   - 0
+- Matrizes  - 0
+- Arquivos  - 0
+
+## Porcentagem do Curso - 12.5 %
+
