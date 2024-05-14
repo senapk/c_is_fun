@@ -1,5 +1,5 @@
 @startuml graph
-"tools_basic (0)" #lime --> "tools_bash (1)" #pink
+"tools_basic (0)" #lime --> "[[http://google.com tools_bash (1)]]"  #pink
 "tools_bash (1)" #pink --> "tools_local_ide (2)" #pink
 "tools_basic (0)" #lime --> "tools_makefile (3)" #pink
 "tools_basic (0)" #lime --> "types_basic (7)" #lime
