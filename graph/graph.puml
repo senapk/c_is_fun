@@ -1,56 +1,57 @@
 @startuml graph
-"tools_basic (0)" #lime --> "[[http://google.com tools_bash (1)]]"  #pink
-"tools_bash (1)" #pink --> "tools_local_ide (2)" #pink
-"tools_basic (0)" #lime --> "tools_makefile (3)" #pink
-"tools_basic (0)" #lime --> "types_basic (7)" #lime
-"types_basic (7)" #lime --> "style_guide (1)" #lime
-"types_basic (7)" #lime --> "style_indentation (1)" #lime
-"types_basic (7)" #lime --> "types_modifiers (1)" #pink
-"types_basic (7)" #lime --> "types_casting (2)" #pink
-"types_basic (7)" #lime --> "types_conversion (0)" #pink
-"types_basic (7)" #lime --> "types_operations (3)" #lime
-"tools_tko (1)" #lime --> "types_operations (3)" #lime
-"types_operations (3)" #lime --> "tools_math.h (1)" #pink
-"types_operations (3)" #lime --> "io_basic (6)" #lime
-"string_novice (3)" #lime --> "io_string (0)" #pink
-"repeat_novice (3)" #lime --> "io_error (0)" #pink
-"repeat_novice (3)" #lime --> "tools_macros (0)" #pink
-"tools_basic (0)" #lime --> "tools_tko (1)" #lime
-"io_basic (6)" #lime --> "select_novice (10)" #lime
-"style_guide (1)" #lime --> "select_novice (10)" #lime
-"style_indentation (1)" #lime --> "select_novice (10)" #lime
-"tools_basic (0)" #lime --> "tools_debug (1)" #pink
-"functions_novice (4)" #lime --> "select_advanced (4)" #pink
-"select_advanced (4)" #pink --> "select_expert (6)" #pink
-"select_novice (10)" #lime --> "functions_novice (4)" #lime
-"functions_novice (4)" #lime --> "function_advanced (4)" #lime
-"select_novice (10)" #lime --> "repeat_novice (3)" #lime
-"repeat_novice (3)" #lime --> "repeat_advanced (4)" #lime
-"select_novice (10)" #lime --> "tools_rand (3)" #lime
-"tools_rand (3)" #lime --> "game_zero_cem (0)" #pink
-"functions_novice (4)" #lime --> "game_zero_cem (0)" #pink
-"types_conversion (0)" #pink --> "io_argc_argv (1)" #pink
-"repeat_advanced (4)" #lime --> "array_novice (3)" #lime
-"functions_novice (4)" #lime --> "array_novice (3)" #lime
-"array_novice (3)" #lime --> "array_advanced (1)" #lime
-"array_advanced (1)" #lime --> "array_expert (5)" #pink
-"array_advanced (1)" #lime --> "string_novice (3)" #lime
-"string_novice (3)" #lime --> "string_advanced (0)" #pink
-"pointers_novice (1)" #lime --> "string_advanced (0)" #pink
-"string_advanced (0)" #pink --> "string_expert (1)" #pink
-"function_advanced (4)" #lime --> "pointers_novice (1)" #lime
-"functions_novice (4)" #lime --> "structs_novice (2)" #lime
-"array_novice (3)" #lime --> "matrix_novice (2)" #lime
-"matrix_novice (2)" #lime --> "matrix_advanced (2)" #pink
-"structs_advanced (2)" #lime --> "matrix_advanced (2)" #pink
-"pointers_novice (1)" #lime --> "structs_advanced (2)" #lime
-"array_novice (3)" #lime --> "structs_advanced (2)" #lime
-"structs_novice (2)" #lime --> "structs_advanced (2)" #lime
-"select_novice (10)" #lime --> "enum (2)" #lime
-"pointers_novice (1)" #lime --> "pointers_advanced (2)" #pink
-"pointers_novice (1)" #lime --> "memory_novice (0)" #pink
-"memory_novice (0)" #pink --> "memory_advanced (2)" #pink
-"pointers_advanced (2)" #pink --> "files_novice (1)" #lime
-"files_novice (1)" #lime --> "files_advanced (1)" #pink
-"files_novice (1)" #lime -> (*)
+"[[/o-que-são-linguagens-de-programaçãoO que são linguagens de programação? (0)]]" #lime --> "[[/uso-do-bashUso do bash (1)]]" #pink
+"[[/uso-do-bashUso do bash (1)]]" #pink --> "[[/configuração-do-ambienteConfiguração do Ambiente (2)]]" #pink
+"[[/o-que-são-linguagens-de-programaçãoO que são linguagens de programação? (0)]]" #lime --> "[[/makefileMakefile (3)]]" #pink
+"[[/o-que-são-linguagens-de-programaçãoO que são linguagens de programação? (0)]]" #lime --> "[[/primeiro-códigoPrimeiro código (6)]]" #lime
+"[[/entrada-e-saída---puts-printf-scanfEntrada e Saída - puts, printf, scanf (6)]]" #lime --> "[[/stringsStrings (3)]]" #lime
+"[[/primeiro-códigoPrimeiro código (6)]]" #lime --> "[[/clean-code---estiloClean Code - Estilo (1)]]" #lime
+"[[/primeiro-códigoPrimeiro código (6)]]" #lime --> "[[/clean-code---indentaçãoClean Code - Indentação (1)]]" #lime
+"[[/primeiro-códigoPrimeiro código (6)]]" #lime --> "[[/manipulando-tiposManipulando tipos (1)]]" #pink
+"[[/primeiro-códigoPrimeiro código (6)]]" #lime --> "[[/casting-e-conversãoCasting e Conversão (2)]]" #pink
+"[[/primeiro-códigoPrimeiro código (6)]]" #lime --> "[[/conversãoConversão (0)]]" #pink
+"[[/primeiro-códigoPrimeiro código (6)]]" #lime --> "[[/operações-básicasOperações Básicas (3)]]" #lime
+"[[/tko---ferramenta-de-testesTKO - Ferramenta de Testes (1)]]" #lime --> "[[/operações-básicasOperações Básicas (3)]]" #lime
+"[[/operações-básicasOperações Básicas (3)]]" #lime --> "[[/biblioteca-matemáticaBiblioteca matemática (1)]]" #pink
+"[[/operações-básicasOperações Básicas (3)]]" #lime --> "[[/entrada-e-saída---puts-printf-scanfEntrada e Saída - puts, printf, scanf (6)]]" #lime
+"[[/stringsStrings (3)]]" #lime --> "[[/lendo-e-escrevendo-em-strings-sprintf-e-sscanfLendo e escrevendo em strings sprintf e sscanf (0)]]" #pink
+"[[/whileWhile (3)]]" #lime --> "[[/tratamento-de-erros-de-entrada-fflushTratamento de erros de entrada fflush (0)]]" #pink
+"[[/whileWhile (3)]]" #lime --> "[[/macros-include-define-if-ifdef-endifMacros: include, define, if, ifdef, endif (0)]]" #pink
+"[[/o-que-são-linguagens-de-programaçãoO que são linguagens de programação? (0)]]" #lime --> "[[/tko---ferramenta-de-testesTKO - Ferramenta de Testes (1)]]" #lime
+"[[/entrada-e-saída---puts-printf-scanfEntrada e Saída - puts, printf, scanf (6)]]" #lime --> "[[/seleção-básicaSeleção Básica (10)]]" #lime
+"[[/clean-code---estiloClean Code - Estilo (1)]]" #lime --> "[[/seleção-básicaSeleção Básica (10)]]" #lime
+"[[/clean-code---indentaçãoClean Code - Indentação (1)]]" #lime --> "[[/seleção-básicaSeleção Básica (10)]]" #lime
+"[[/o-que-são-linguagens-de-programaçãoO que são linguagens de programação? (0)]]" #lime --> "[[/debugandoDebugando (1)]]" #pink
+"[[/funções-iFunções I (4)]]" #lime --> "[[/técnicas-de-seleção-iTécnicas de seleção I (4)]]" #pink
+"[[/técnicas-de-seleção-iTécnicas de seleção I (4)]]" #pink --> "[[/técnicas-de-seleção-iiTécnicas de seleção II (6)]]" #pink
+"[[/seleção-básicaSeleção Básica (10)]]" #lime --> "[[/funções-iFunções I (4)]]" #lime
+"[[/funções-iFunções I (4)]]" #lime --> "[[/funções-iiFunções II (4)]]" #lime
+"[[/seleção-básicaSeleção Básica (10)]]" #lime --> "[[/whileWhile (3)]]" #lime
+"[[/whileWhile (3)]]" #lime --> "[[/forfor (4)]]" #lime
+"[[/seleção-básicaSeleção Básica (10)]]" #lime --> "[[/números-aleatóriosNúmeros Aleatórios (3)]]" #lime
+"[[/números-aleatóriosNúmeros Aleatórios (3)]]" #lime --> "[[/game-zero-a-cemGame Zero a Cem (0)]]" #pink
+"[[/funções-iFunções I (4)]]" #lime --> "[[/game-zero-a-cemGame Zero a Cem (0)]]" #pink
+"[[/conversãoConversão (0)]]" #pink --> "[[/argc-e-argvargc e argv (1)]]" #pink
+"[[/forfor (4)]]" #lime --> "[[/array-inicianteArray Iniciante (3)]]" #lime
+"[[/funções-iFunções I (4)]]" #lime --> "[[/array-inicianteArray Iniciante (3)]]" #lime
+"[[/array-inicianteArray Iniciante (3)]]" #lime --> "[[/array-avançadoArray avançado (1)]]" #lime
+"[[/array-avançadoArray avançado (1)]]" #lime --> "[[/array-expertArray Expert (5)]]" #pink
+"[[/array-avançadoArray avançado (1)]]" #lime --> "[[/stringsStrings (3)]]" #lime
+"[[/stringsStrings (3)]]" #lime --> "[[/strings-iiStrings II (0)]]" #pink
+"[[/ponteirosPonteiros (1)]]" #lime --> "[[/strings-iiStrings II (0)]]" #pink
+"[[/strings-iiStrings II (0)]]" #pink --> "[[/strings-expertStrings Expert (1)]]" #pink
+"[[/funções-iiFunções II (4)]]" #lime --> "[[/ponteirosPonteiros (1)]]" #lime
+"[[/funções-iFunções I (4)]]" #lime --> "[[/structsStructs (2)]]" #lime
+"[[/array-inicianteArray Iniciante (3)]]" #lime --> "[[/matrizesmatrizes (2)]]" #lime
+"[[/matrizesmatrizes (2)]]" #lime --> "[[/tecnicas-em-matrizestecnicas em matrizes (2)]]" #pink
+"[[/merged-tecniquemerged tecnique (2)]]" #lime --> "[[/tecnicas-em-matrizestecnicas em matrizes (2)]]" #pink
+"[[/ponteirosPonteiros (1)]]" #lime --> "[[/merged-tecniquemerged tecnique (2)]]" #lime
+"[[/array-inicianteArray Iniciante (3)]]" #lime --> "[[/merged-tecniquemerged tecnique (2)]]" #lime
+"[[/structsStructs (2)]]" #lime --> "[[/merged-tecniquemerged tecnique (2)]]" #lime
+"[[/seleção-básicaSeleção Básica (10)]]" #lime --> "[[/aula-24---enumAula 24 - enum (2)]]" #lime
+"[[/ponteirosPonteiros (1)]]" #lime --> "[[/ponteiros-iiPonteiros ii (2)]]" #pink
+"[[/ponteirosPonteiros (1)]]" #lime --> "[[/alocação-dinâmicaAlocação Dinâmica (0)]]" #pink
+"[[/alocação-dinâmicaAlocação Dinâmica (0)]]" #pink --> "[[/alocação-dinâmicaAlocação Dinâmica (2)]]" #pink
+"[[/ponteiros-iiPonteiros ii (2)]]" #pink --> "[[/arquivos-textoarquivos texto (1)]]" #lime
+"[[/arquivos-textoarquivos texto (1)]]" #lime --> "[[/arquivos-binarioarquivos binario (1)]]" #pink
+"[[/arquivos-textoarquivos texto (1)]]" #lime -> (*)
 @enduml
