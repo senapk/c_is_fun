@@ -2,7 +2,7 @@
 skinparam defaultFontName Hasklig
 skinparam defaulttextalignment left
 header
-    C is Fun links  [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/full_data.svg full_data]] [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_only.svg main_only]] [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_side.svg main_side]] [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_game.svg main_game]]
+C is Fun links:  [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/full_data.svg full_data]] [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_only.svg main_only]] [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_side.svg main_side]] [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_game.svg main_game]]
 end header
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação-types20 O que são linguagens de programação?  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#uso-do-bash-tools20 Uso do bash  (1)]]" #pink
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#uso-do-bash-tools20 Uso do bash  (1)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#configuração-do-ambiente-tools30 Configuração do Ambiente  (2)]]" #pink
@@ -57,7 +57,7 @@ end header
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante-types10 Array Iniciante  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-types10 Structs  (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime -> (*)
-legend top left
+legend bottom left
   ..types: 230
   ..tools: 110
   ..style: 20

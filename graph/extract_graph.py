@@ -147,7 +147,7 @@ def create_diag(entries, output, colors = None):
             else:
                 skills[s] += v
 
-    saida.append("legend top left")
+    saida.append("legend bottom left")
 
     for s in skills:
         name = s.rjust(7, ".")
