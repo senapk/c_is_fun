@@ -27,7 +27,6 @@ Clique para abrir a versão clicável:
 ### Makefile `+tools:30`<!-- l:tools_makefile c:pink r:tools_basic -->
 
 - [ ] [Vídeo de aprendizado](foo)
-
 - [ ] [O que é Makefile?](../wiki/makefile/makefile_intro.md)
 - [ ] [Makefile e a linguagem C](../wiki/makefile/makefile_c.md)
 - [ ] [Extras](../wiki/makefile/makefile_extra.md)
