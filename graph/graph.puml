@@ -1,70 +1,70 @@
 @startuml graph
 skinparam defaultFontName Hasklig
 skinparam defaulttextalignment left
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação O que são linguagens de programação? (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#uso-do-bash Uso do bash (1)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#uso-do-bash Uso do bash (1)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#configuração-do-ambiente Configuração do Ambiente (2)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação O que são linguagens de programação? (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#makefile Makefile (3)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação O que são linguagens de programação? (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código Primeiro código (6)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#entrada-e-saída---puts-printf-scanf Entrada e Saída - puts, printf, scanf (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings Strings (3)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código Primeiro código (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---estilo Clean Code - Estilo (1)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código Primeiro código (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---indentação Clean Code - Indentação (1)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código Primeiro código (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#manipulando-tipos Manipulando tipos (1)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código Primeiro código (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#casting-e-conversão Casting e Conversão (2)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código Primeiro código (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#conversão Conversão (0)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código Primeiro código (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#operações-básicas Operações Básicas (3)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#tko---ferramenta-de-testes TKO - Ferramenta de Testes (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#operações-básicas Operações Básicas (3)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#operações-básicas Operações Básicas (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#biblioteca-matemática Biblioteca matemática (1)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#operações-básicas Operações Básicas (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#entrada-e-saída---puts-printf-scanf Entrada e Saída - puts, printf, scanf (6)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings Strings (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#lendo-e-escrevendo-em-strings-sprintf-e-sscanf Lendo e escrevendo em strings sprintf e sscanf (0)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while While (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#tratamento-de-erros-de-entrada-fflush Tratamento de erros de entrada fflush (0)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while While (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#macros-include-define-if-ifdef-endif Macros: include, define, if, ifdef, endif (0)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação O que são linguagens de programação? (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#tko---ferramenta-de-testes TKO - Ferramenta de Testes (1)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#entrada-e-saída---puts-printf-scanf Entrada e Saída - puts, printf, scanf (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica Seleção Básica (10)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---estilo Clean Code - Estilo (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica Seleção Básica (10)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---indentação Clean Code - Indentação (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica Seleção Básica (10)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação O que são linguagens de programação? (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#debugando Debugando (1)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i Funções I (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-de-seleção-i Técnicas de seleção I (4)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-de-seleção-i Técnicas de seleção I (4)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-de-seleção-ii Técnicas de seleção II (6)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica Seleção Básica (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i Funções I (4)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i Funções I (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-ii Funções II (4)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica Seleção Básica (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while While (3)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while While (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#for for (4)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica Seleção Básica (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#números-aleatórios Números Aleatórios (3)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#números-aleatórios Números Aleatórios (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#game-zero-a-cem Game Zero a Cem (0)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i Funções I (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#game-zero-a-cem Game Zero a Cem (0)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#conversão Conversão (0)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#argc-e-argv argc e argv (1)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#for for (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante Array Iniciante (3)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i Funções I (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante Array Iniciante (3)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante Array Iniciante (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado Array avançado (1)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado Array avançado (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-expert Array Expert (5)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado Array avançado (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings Strings (3)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings Strings (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-ii Strings II (0)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros Ponteiros (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-ii Strings II (0)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-ii Strings II (0)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-expert Strings Expert (1)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-ii Funções II (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros Ponteiros (1)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i Funções I (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs Structs (2)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante Array Iniciante (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#matrizes Matrizes (2)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#matrizes Matrizes (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-em-matrizes Técnicas em matrizes (2)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique Merged tecnique (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-em-matrizes Técnicas em matrizes (2)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros Ponteiros (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique Merged tecnique (2)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante Array Iniciante (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique Merged tecnique (2)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs Structs (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#merged-tecnique Merged tecnique (2)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica Seleção Básica (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#aula-24---enum Aula 24 - enum (2)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros Ponteiros (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-ii Ponteiros ii (2)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros Ponteiros (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#alocação-dinâmica Alocação Dinâmica (0)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#alocação-dinâmica Alocação Dinâmica (0)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#alocação-dinâmica Alocação Dinâmica (2)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-ii Ponteiros ii (2)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-texto arquivos texto (1)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-texto arquivos texto (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-binario arquivos binario (1)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-texto arquivos texto (1)]]" #lime -> (*)
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação- O que são linguagens de programação?  (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#uso-do-bash- Uso do bash  (1)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#uso-do-bash- Uso do bash  (1)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#configuração-do-ambiente- Configuração do Ambiente  (2)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação- O que são linguagens de programação?  (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#makefile- Makefile  (3)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação- O que são linguagens de programação?  (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código- Primeiro código  (6)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#entrada-e-saída---puts-printf-scanf- Entrada e Saída - puts, printf, scanf  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings- Strings  (8)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código- Primeiro código  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---estilo- Clean Code - Estilo  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código- Primeiro código  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---indentação- Clean Code - Indentação  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código- Primeiro código  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#manipulando-tipos- Manipulando tipos  (1)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código- Primeiro código  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#casting-e-conversão- Casting e Conversão  (2)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código- Primeiro código  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#conversão- Conversão  (0)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código- Primeiro código  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#operações-básicas- Operações Básicas  (3)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#tko---ferramenta-de-testes- TKO - Ferramenta de Testes  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#operações-básicas- Operações Básicas  (3)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#operações-básicas- Operações Básicas  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#biblioteca-matemática- Biblioteca matemática  (1)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#operações-básicas- Operações Básicas  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#entrada-e-saída---puts-printf-scanf- Entrada e Saída - puts, printf, scanf  (6)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings- Strings  (8)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#lendo-e-escrevendo-em-strings-sprintf-e-sscanf- Lendo e escrevendo em strings sprintf e sscanf  (0)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while- While  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#tratamento-de-erros-de-entrada-fflush-- Tratamento de erros de entrada fflush   (0)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while- While  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#macros-include-define-if-ifdef-endif-- Macros: include, define, if, ifdef, endif   (0)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação- O que são linguagens de programação?  (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#tko---ferramenta-de-testes- TKO - Ferramenta de Testes  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#entrada-e-saída---puts-printf-scanf- Entrada e Saída - puts, printf, scanf  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica- Seleção Básica  (10)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---estilo- Clean Code - Estilo  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica- Seleção Básica  (10)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---indentação- Clean Code - Indentação  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica- Seleção Básica  (10)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação- O que são linguagens de programação?  (0)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#debugando- Debugando  (1)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i- Funções I  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-de-seleção-i- Técnicas de seleção I  (4)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-de-seleção-i- Técnicas de seleção I  (4)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-de-seleção-ii- Técnicas de seleção II  (6)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica- Seleção Básica  (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i- Funções I  (4)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i- Funções I  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-ii- Funções II  (4)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica- Seleção Básica  (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while- While  (3)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while- While  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#for- for  (4)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica- Seleção Básica  (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#números-aleatórios- Números Aleatórios  (3)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#números-aleatórios- Números Aleatórios  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#game-zero-a-cem- Game Zero a Cem  (0)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i- Funções I  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#game-zero-a-cem- Game Zero a Cem  (0)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#conversão- Conversão  (0)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#io-argc-e-argv- IO: argc e argv  (1)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#for- for  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante- Array Iniciante  (4)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i- Funções I  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante- Array Iniciante  (4)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante- Array Iniciante  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado- Array avançado  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado- Array avançado  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-expert- Array Expert  (7)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado- Array avançado  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings- Strings  (8)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings- Strings  (8)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-ii- Strings II  (3)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros- Ponteiros  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-ii- Strings II  (3)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-ii- Strings II  (3)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-expert- Strings Expert  (1)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-ii- Funções II  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros- Ponteiros  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i- Funções I  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs- Structs  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante- Array Iniciante  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#matrizes- Matrizes  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#matrizes- Matrizes  (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-em-matrizes- Técnicas em matrizes  (2)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced- Structs Advanced  (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-em-matrizes- Técnicas em matrizes  (2)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros- Ponteiros  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced- Structs Advanced  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante- Array Iniciante  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced- Structs Advanced  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs- Structs  (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced- Structs Advanced  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica- Seleção Básica  (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#aula-24---enum- Aula 24 - enum  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros- Ponteiros  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-ii- Ponteiros ii  (2)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros- Ponteiros  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#alocação-dinâmica-i- Alocação Dinâmica i  (2)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#alocação-dinâmica-i- Alocação Dinâmica i  (2)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#alocação-dinâmica-ii- Alocação Dinâmica ii  (2)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-ii- Ponteiros ii  (2)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-texto- arquivos texto  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-texto- arquivos texto  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-binario- arquivos binario  (1)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-binario- arquivos binario  (1)]]" #pink -> (*)
 legend top right
-  ..tools: 8
-  ..types: 13
-  ..style: 2
-  ..logic: 11
-  .....io: 4
-  .select: 10
-  .repeat: 7
-  project: 1
-  ..array: 2
+  ..types: 230
+  ..tools: 110
+  ..style: 20
+  ..logic: 180
+  .....io: 50
+  .select: 120
+  .repeat: 80
+  project: 10
+  ..array: 70
 end legend
 @enduml

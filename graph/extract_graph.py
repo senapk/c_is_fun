@@ -7,6 +7,10 @@ baseurl = "https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md"
 def rm_comments(title: str) -> str:
     if "<!--" in title and "-->" in title:
         title = title.split("<!--")[0] + title.split("-->")[1]
+
+    words = title.split("`")
+    if len(words) > 2:
+        title = "`".join(words[:-2])
     return title
 
 def get_md_link(title: str) -> str:
@@ -29,26 +33,43 @@ def get_md_link(title: str) -> str:
 
 class Entry:
     def __init__(self):
-        baseurl = ""
         self.line = ""
         self.label = ""
-        self.main = False
+        self.color = "yellow"
         self.requires = []
-        self.skills = []
+        self.skills = {} # skill: level
         self.count = 0
 
     def format(self):
-        color = "#lime" if self.main else "#pink"
         description = rm_comments(self.line)
         description = " ".join(description.split(" ")[1:])
         link = get_md_link(description)
         print(link)
         link = baseurl + "#" + link
-        return f"\"[[{link} {description} ({self.count})]]\" {color}"
+        return f"\"[[{link} {description} ({self.count})]]\" #{self.color}"
 
     def __str__(self):
-        return f"{self.label} {self.main} {self.requires} {self.count}"
+        return f"{self.label} #{self.color} {self.requires} {self.count}"
     
+def extract_skills(line: str):
+    try:
+        pieces = line.split("`")[-2]
+    except:
+        print("Erro ao carregar os skills entre as crases")
+        print(line)
+        exit(1)
+    skills = pieces.split(" ")
+    out = []
+    for s in skills:
+        try:
+            name, level = s.split(":")
+        except:
+            print("Erro ao carregar os skills no formato +skill:level")
+            print(line)
+            exit(1)
+        out.append((name[1:], int(level)))
+    return out
+
 def load_entries(file: str):
     entries = []
     lines = open(file).read().split("\n")
@@ -70,8 +91,7 @@ def load_entries(file: str):
         entry.line = line
         data = found[1].split(" -->")[0]
         pieces = data.split(" ")
-        if "t:main" in pieces:
-            entry.main = True
+
         for piece in pieces:
             try:
                 tag, value = piece.split(":")
@@ -82,9 +102,13 @@ def load_entries(file: str):
                 entry.label = value
             if tag == "r":
                 entry.requires.append(value)
-            if tag == "s":
-                entry.skills.append(value)
+            if tag == "c":
+                entry.color = value
+
+        entry.skills = extract_skills(entry.line)
+
         entries.append(entry)
+
     return entries
 
 def create_diag(entries):
@@ -97,21 +121,20 @@ def create_diag(entries):
     #saida.append("left to right direction")
 
     for e in entries:
-        token = "-->" if e.main else "-->"
+        token = "-->"
         for r in e.requires:
             saida.append(f"{map[r].format()} {token} {map[e.label].format()}")
 
-    main_list = [e for e in entries if e.main]
 
-    saida.append(f"{map[main_list[-1].label].format()} -> (*)")
+    saida.append(f"{map[entries[-1].label].format()} -> (*)")
 
     skills = {}
     for e in entries:
-        for s in e.skills:
+        for s, v in e.skills:
             if s not in skills:
-                skills[s] = 1
+                skills[s] = v
             else:
-                skills[s] += 1
+                skills[s] += v
 
     saida.append("legend top right")
     for s in skills:
@@ -126,7 +149,7 @@ def create_diag(entries):
 def main():
 
     parse = argparse.ArgumentParser()
-    parse.add_argument("file", help="File to extract graph")
+    parse.add_argument("file", type=str, help="File to extract graph")
     args = parse.parse_args()
 
     entries = load_entries(args.file)
