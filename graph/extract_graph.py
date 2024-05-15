@@ -118,6 +118,15 @@ def create_diag(entries, output, colors = None):
     saida.append("skinparam defaultFontName Hasklig")
 
     saida.append("skinparam defaulttextalignment left")
+
+    links  = " [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/full_data.svg full_data]]"
+    links += " [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_only.svg main_only]]"
+    links += " [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_side.svg main_side]]"
+    links += " [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_game.svg main_game]]"
+
+    saida.append("header")
+    saida.append("C is Fun links: " + links)
+    saida.append("end header")
     #saida.append("left to right direction")
 
     for e in entries:
@@ -139,19 +148,22 @@ def create_diag(entries, output, colors = None):
                 skills[s] += v
 
     saida.append("legend top left")
-    saida.append("    full_data: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/full_data.svg LINK]]")
-    saida.append("    main_only: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_only.svg LINK]]")
-    saida.append("    main_side: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_side.svg LINK]]")
-    saida.append("    main_game: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_game.svg LINK]]")
-
-
-
 
     for s in skills:
         name = s.rjust(7, ".")
         print(name)
         saida.append(f"  {name}: {skills[s]}")
     saida.append("end legend")
+
+    # saida.append("note top right")
+    # saida.append("    full_data: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/full_data.svg LINK]]")
+    # saida.append("    main_only: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_only.svg LINK]]")
+    # saida.append("    main_side: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_side.svg LINK]]")
+    # saida.append("    main_game: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_game.svg LINK]]")
+    # saida.append("end note")
+
+
+
     saida.append("@enduml")
 
     open(output + ".puml", "w").write("\n".join(saida))
