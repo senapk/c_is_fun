@@ -4,11 +4,11 @@
 
 ## Flow
 
-[Clique aqui](https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/graph.svg) e abra em uma nova aba para carregar links clicáveis.
+Clique para abrir a versão clicável:
 
-![_](graph.svg)
+[![_](graph.svg)](https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/graph.svg)
 
-### O que são linguagens de programação?<!-- l:tools_basic t:main s:tools -->
+### O que são linguagens de programação? `+types:20`<!-- l:tools_basic t:main -->
 
 - [x] [O que são algoritmos?](../wiki/intro/o_que_sao_algoritmos.md)
 - [x] [Exemplos de códigos e linguagens](../wiki/intro/exemplos.md)
@@ -16,22 +16,22 @@
 
 - [x] [IDE: Replit](../wiki/configure/replit.md)
 
-### Uso do bash<!-- l:tools_bash t:side r:tools_basic s:tools -->
+### Uso do bash `+tools:20`<!-- l:tools_bash t:side r:tools_basic -->
 
 - [ ] [Uso do Bash e Instalação do Git Bash](../wiki/configure/bash_git.md)
 
-### Configuração do Ambiente<!-- l:tools_local_ide r:tools_bash t:side s:tools -->
+### Configuração do Ambiente `+tools:30`<!-- l:tools_local_ide r:tools_bash t:side -->
 
 - [ ] [Instalação do C (Mingw)](../wiki/configure/cpp.md)
 - [ ] [IDE: Visual Studio Code (vscode)](../wiki/configure/vscode.md)
 
-### Makefile<!-- l:tools_makefile t:side r:tools_basic s:tools -->
+### Makefile `+tools:30`<!-- l:tools_makefile t:side r:tools_basic -->
 
 - [ ] filler
 - [ ] filler
 - [ ] filler
 
-### Primeiro código<!-- l:types_basic r:tools_basic t:main s:types -->
+### Primeiro código `+types:30`<!-- l:types_basic r:tools_basic t:main -->
 
 - [ ] [Primeiro código](../wiki/primeiro_codigo/primeiro_codigo.md)
 - [ ] [Compilando e Executando](../wiki/compilando/Readme.md)
@@ -40,7 +40,7 @@
 - [ ] [Variáveis](../wiki/variaveis/variaveis.md): Boas práticas
 - [ ] [Não tenha medo de erros](../wiki/erros/variaveis.md)
 
-### O tipo string<!-- l:string_novice t:main r:io_basic s:types -->
+### String não é um tipo primitivo `+types:20`<!-- l:string_novice t:main r:io_basic -->
 
 - [ ] [O tipo string](../wiki/string/tipo_string.md)
 
@@ -257,17 +257,17 @@
 - [ ] [Structs: Introdução](../wiki/structs/introducao.md)
 - [ ] [Structs: Exemplos](../wiki/structs/exemplos.md)
 
-### Matrizes<!-- l:matrix_novice t:main r:array_novice s:types -->
+### Matrizes `+types(20) +array(30)`<!-- l:matrix_novice t:main r:array_novice -->
 
 - [ ] [O que são matrizes e para que usar?](../wiki/matrizes/o_que_sao_matrizes.md)
 - [ ] [Noções básicas sobre matrizes: diagonais e outras propriedades](../wiki/matrizes/nocoes_basicas_de_matrizes.md)
 
-### Técnicas em matrizes<!-- l:matrix_advanced t:side r:matrix_novice r:structs_advanced s:select s:logic s:repeat s:array -->
+### Técnicas em matrizes `+select:20 +logic:20 +repeat:20 +array:30`<!-- l:matrix_advanced t:side r:matrix_novice r:structs_advanced -->
 
 - [ ] filler
 - [ ] filler 2
 
-### Merged tecnique<!-- l:structs_advanced t:main r:pointers_novice r:array_novice r:structs_novice s:select s:logic s:repeat s:array -->
+### Structs Advanced `+select[20] +logic[30] +repeat[10] +array[10]`<!-- l:structs_advanced t:main r:pointers_novice r:array_novice r:structs_novice -->
 
 - [ ] [Structs: Ponteiros e Referências](../wiki/structs/ponteiros_referencias.md)
 - [ ] [Structs: Funções e Métodos](../wiki/structs/funcoes_metodos.md)
