@@ -10,13 +10,17 @@
 
 ### Aula 01 - O que são linguagens de programação?
 
-- [x] [O que são algoritmos?](wiki/intro/o_que_sao_algoritmos.md)
+- tools_basic
+- types_basic
+
+
+<!-- - [x] [O que são algoritmos?](wiki/intro/o_que_sao_algoritmos.md)
 - [x] [Exemplos de códigos e linguagens](wiki/intro/exemplos.md)
 - [x] [Tipos de variáveis](wiki/variaveis/tipos_primitivos.md)
 - [x] [Sintaxe e linguagens C-Like](wiki/variaveis/sintaxe.md)
 - [x] [Aprenda a indentar](wiki/intro/indentacao.md)
 - [x] [Guia de Estilo](wiki/intro/estilo.md])
-- [x] [Exemplos de Código](wiki/intro/exemplos.md)
+- [x] [Exemplos de Código](wiki/intro/exemplos.md)-->
 
 ### Aula 02 - Primeiro código
 
