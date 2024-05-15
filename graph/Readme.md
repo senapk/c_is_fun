@@ -6,7 +6,7 @@
 
 Clique para abrir a versão clicável:
 
-[![_](graph.svg)](https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/graph.svg)
+[![_](full_data.svg)](https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/full_data.svg)
 
 ### O que são linguagens de programação? `+types:20`<!-- l:tools_basic c:lime -->
 
@@ -264,11 +264,6 @@ Clique para abrir a versão clicável:
 
 ### Jogo da Vida `+project:10`<!-- l:game_jogodavida c:cyan r:tools_rand r:matrix_advanced -->
 
-### Structs Advanced `+select:20 +logic:30 +repeat:10 +array:10`<!-- l:structs_advanced c:lime r:pointers_novice r:array_novice r:structs_novice -->
-
-- [ ] [Structs: Ponteiros e Referências](../wiki/structs/ponteiros_referencias.md)
-- [ ] [Structs: Funções e Métodos](../wiki/structs/funcoes_metodos.md)
-
 ### Cobrinha `+project:10`<!-- l:game_cobrinha c:cyan r:tools_rand r:structs_advanced -->
 
 ### Aula 24 - enum `+types:10`<!-- l:enum c:lime r:select_novice -->
@@ -276,7 +271,7 @@ Clique para abrir a versão clicável:
 - [ ] filler
 - [ ] filler 2
 
-### Ponteiros ii `+types:10 +logic:10`<!-- l:pointers_advanced c:pink r:pointers_novice -->
+### Ponteiros ii `+types:10 +logic:10`<!-- l:pointers_advanced c:lime r:pointers_novice -->
 
 - [ ] filler
 - [ ] filler 2
@@ -298,3 +293,8 @@ Clique para abrir a versão clicável:
 ### arquivos binario `+types:10 +logic:10`<!-- l:files_advanced c:pink r:files_novice -->
 
 - [ ] filler 2
+
+### Structs Advanced `+select:20 +logic:30 +repeat:10 +array:10`<!-- l:structs_advanced c:lime r:pointers_novice r:array_novice r:structs_novice -->
+
+- [ ] [Structs: Ponteiros e Referências](../wiki/structs/ponteiros_referencias.md)
+- [ ] [Structs: Funções e Métodos](../wiki/structs/funcoes_metodos.md)

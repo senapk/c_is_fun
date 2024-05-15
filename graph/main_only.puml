@@ -1,0 +1,49 @@
+@startuml main_only
+skinparam defaultFontName Hasklig
+skinparam defaulttextalignment left
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação-types20 O que são linguagens de programação?  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código-types30 Primeiro código  (6)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#entrada-e-saída---puts-printf-scanf-io10 Entrada e Saída - puts, printf, scanf  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-types10-select10 Strings  (8)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código-types30 Primeiro código  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---estilo-style10 Clean Code - Estilo  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código-types30 Primeiro código  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---indentação-style10 Clean Code - Indentação  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#primeiro-código-types30 Primeiro código  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#operações-básicas-logic10 Operações Básicas  (3)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#tko---ferramenta-de-testes-tools10 TKO - Ferramenta de Testes  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#operações-básicas-logic10 Operações Básicas  (3)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#operações-básicas-logic10 Operações Básicas  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#entrada-e-saída---puts-printf-scanf-io10 Entrada e Saída - puts, printf, scanf  (6)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#o-que-são-linguagens-de-programação-types20 O que são linguagens de programação?  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#tko---ferramenta-de-testes-tools10 TKO - Ferramenta de Testes  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#entrada-e-saída---puts-printf-scanf-io10 Entrada e Saída - puts, printf, scanf  (6)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica-select10 Seleção Básica  (10)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---estilo-style10 Clean Code - Estilo  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica-select10 Seleção Básica  (10)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#clean-code---indentação-style10 Clean Code - Indentação  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica-select10 Seleção Básica  (10)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica-select10 Seleção Básica  (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i-types10 Funções I  (4)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i-types10 Funções I  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-ii-logic10 Funções II  (4)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica-select10 Seleção Básica  (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while-repeat10 While  (3)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while-repeat10 While  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#for-repeat10 for  (4)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica-select10 Seleção Básica  (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#números-aleatórios-tools10 Números Aleatórios  (3)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#for-repeat10 for  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante-types10 Array Iniciante  (4)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i-types10 Funções I  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante-types10 Array Iniciante  (4)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante-types10 Array Iniciante  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado-logic10-select10-repeat10 Array avançado  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado-logic10-select10-repeat10 Array avançado  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-types10-select10 Strings  (8)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-ii-logic10 Funções II  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-types10 Ponteiros  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i-types10 Funções I  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-types10 Structs  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante-types10 Array Iniciante  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#matrizes-types20-array30 Matrizes  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica-select10 Seleção Básica  (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#aula-24---enum-types10 Aula 24 - enum  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-types10 Ponteiros  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-ii-types10-logic10 Ponteiros ii  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-ii-types10-logic10 Ponteiros ii  (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#arquivos-texto-types10-logic10 arquivos texto  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-types10 Ponteiros  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante-types10 Array Iniciante  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-types10 Structs  (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime -> (*)
+legend top right
+    full_data: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/full_data.svg LINK]]
+    main_only: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_only.svg LINK]]
+    main_side: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_side.svg LINK]]
+    main_game: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_game.svg LINK]]
+  ..types: 230
+  ..tools: 110
+  ..style: 20
+  ..logic: 180
+  .....io: 50
+  .select: 120
+  .repeat: 80
+  project: 40
+  ..array: 70
+end legend
+@enduml

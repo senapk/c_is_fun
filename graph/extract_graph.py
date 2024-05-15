@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import subprocess
 
 baseurl = "https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md"
 
@@ -110,10 +111,10 @@ def load_entries(file: str):
 
     return entries
 
-def create_diag(entries):
+def create_diag(entries, output, colors = None):
     map = {e.label: e for e in entries}
     saida = []
-    saida.append("@startuml graph")
+    saida.append(f"@startuml {output}")
     saida.append("skinparam defaultFontName Hasklig")
 
     saida.append("skinparam defaulttextalignment left")
@@ -121,6 +122,8 @@ def create_diag(entries):
 
     for e in entries:
         token = "-->"
+        if colors is not None and not e.color in colors:
+            continue
         for r in e.requires:
             saida.append(f"{map[r].format()} {token} {map[e.label].format()}")
 
@@ -135,7 +138,15 @@ def create_diag(entries):
             else:
                 skills[s] += v
 
-    saida.append("legend top right")
+    saida.append("legend top left")
+    saida.append("    full_data: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/full_data.svg LINK]]")
+    saida.append("    main_only: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_only.svg LINK]]")
+    saida.append("    main_side: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_side.svg LINK]]")
+    saida.append("    main_game: [[https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/main_game.svg LINK]]")
+
+
+
+
     for s in skills:
         name = s.rjust(7, ".")
         print(name)
@@ -143,18 +154,27 @@ def create_diag(entries):
     saida.append("end legend")
     saida.append("@enduml")
 
-    open("graph.puml", "w").write("\n".join(saida))
+    open(output + ".puml", "w").write("\n".join(saida))
 
 def main():
 
     parse = argparse.ArgumentParser()
-    parse.add_argument("file", type=str, help="File to extract graph")
+    parse.add_argument("--file", type=str, help="File to extract graph")
+    parse.add_argument("--output", type=str, help="Output file")
+    parse.add_argument("--colors", type=str, nargs="*", help="Colors to use in the graph")
     args = parse.parse_args()
+
+    if args.file is None:
+        args.file = "Readme.md"
+    if args.output is None:
+        args.output = "graph"
 
     entries = load_entries(args.file)
     for e in entries:
         print(e)
-    create_diag(entries)
+    create_diag(entries, args.output, args.colors)
+    subprocess.run(["plantuml", "-tsvg", args.output + ".puml"])
+
 
 
 if __name__ == "__main__":
