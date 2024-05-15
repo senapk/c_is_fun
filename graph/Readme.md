@@ -31,7 +31,7 @@ Clique para abrir a versão clicável:
 
 - [ ] [O que é Makefile?](../wiki/makefile/makefile_intro.md)
 - [ ] [Makefile e a linguagem C](../wiki/makefile/makefile_c.md)
-- [ ] [Extras](../wiki/makefile/makefile_extra)
+- [ ] [Extras](../wiki/makefile/makefile_extra.md)
 
 ### Primeiro código `+types:30`<!-- l:types_basic r:tools_basic t:main -->
 
