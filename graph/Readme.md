@@ -10,10 +10,10 @@ Clique para abrir a versão clicável:
 
 ### O que são linguagens de programação? `+types:20`<!-- l:tools_basic c:lime -->
 
-- [x] [O que são algoritmos?](../wiki/intro/o_que_sao_algoritmos.md)
-- [x] [Exemplos de códigos e linguagens](../wiki/intro/exemplos.md)
-- [x] [Ferramentas úteis](../wiki/configure/ferramentas_uteis.md) File Manager, Terminal, Text Editor
-- [x] [IDE: Replit](../wiki/configure/replit.md)
+- [ ] [O que são algoritmos?](../wiki/intro/o_que_sao_algoritmos.md)
+- [ ] [Exemplos de códigos e linguagens](../wiki/intro/exemplos.md)
+- [ ] [Ferramentas úteis](../wiki/configure/ferramentas_uteis.md) File Manager, Terminal, Text Editor
+- [ ] [IDE: Replit](../wiki/configure/replit.md)
 
 ### Uso do bash `+tools:20`<!-- l:tools_bash c:pink r:tools_basic -->
 
