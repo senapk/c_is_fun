@@ -7,10 +7,6 @@ baseurl = "https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md"
 def rm_comments(title: str) -> str:
     if "<!--" in title and "-->" in title:
         title = title.split("<!--")[0] + title.split("-->")[1]
-
-    words = title.split("`")
-    if len(words) > 2:
-        title = "`".join(words[:-2])
     return title
 
 def get_md_link(title: str) -> str:
@@ -44,6 +40,9 @@ class Entry:
         description = rm_comments(self.line)
         description = " ".join(description.split(" ")[1:])
         link = get_md_link(description)
+        words = description.split("`")
+        if len(words) > 2:
+            description = "`".join(words[:-2])
         print(link)
         link = baseurl + "#" + link
         return f"\"[[{link} {description} ({self.count})]]\" #{self.color}"
