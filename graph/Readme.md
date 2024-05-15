@@ -184,7 +184,7 @@ Clique para abrir a versão clicável:
 - [ ] [As funções `rand()` e `srand()`](../wiki/rand/rand_e_srand.md)
 - [ ] [Gerando números aleatórios com o Mersenne Twister](../wiki/mersenne/Readme.md)
 
-### Game Zero a Cem `+project:10`<!-- l:game_zero_cem c:pink r:tools_rand r:functions_novice -->
+### Game Zero a Cem `+project:10`<!-- l:game_zero_cem c:cyan r:tools_rand r:functions_novice -->
 
 ### IO: argc e argv `+io:10`<!-- l:io_argc_argv c:pink r:types_conversion -->
 
@@ -204,6 +204,8 @@ Clique para abrir a versão clicável:
   [@051 Pedra na Lua](https://github.com/qxcodefup/arcade/blob/master/base/051/Readme.md),
   [@058 Busca Intervalada](https://github.com/qxcodefup/arcade/blob/master/base/051/Readme.md),
   [@100 Pião Perto da Linha](https://github.com/qxcodefup/arcade/blob/master/base/100/Readme.md)
+
+### Blackjack `+project:10`<!-- l:game_blackjack c:cyan r:tools_rand r:array_advanced -->
 
 ### Array Expert `+logic:10 +select:10 +repeat:10`<!-- l:array_expert c:pink r:array_advanced -->
 
@@ -254,15 +256,20 @@ Clique para abrir a versão clicável:
 - [ ] [O que são matrizes e para que usar?](../wiki/matrizes/o_que_sao_matrizes.md)
 - [ ] [Noções básicas sobre matrizes: diagonais e outras propriedades](../wiki/matrizes/nocoes_basicas_de_matrizes.md)
 
+
 ### Técnicas em matrizes `+select:20 +logic:20 +repeat:20 +array:30`<!-- l:matrix_advanced c:pink r:matrix_novice r:structs_advanced -->
 
 - [ ] filler
 - [ ] filler 2
 
+### Jogo da Vida `+project:10`<!-- l:game_jogodavida c:cyan r:tools_rand r:matrix_advanced -->
+
 ### Structs Advanced `+select:20 +logic:30 +repeat:10 +array:10`<!-- l:structs_advanced c:lime r:pointers_novice r:array_novice r:structs_novice -->
 
 - [ ] [Structs: Ponteiros e Referências](../wiki/structs/ponteiros_referencias.md)
 - [ ] [Structs: Funções e Métodos](../wiki/structs/funcoes_metodos.md)
+
+### Cobrinha `+project:10`<!-- l:game_cobrinha c:cyan r:tools_rand r:structs_advanced -->
 
 ### Aula 24 - enum `+types:10`<!-- l:enum c:lime r:select_novice -->
 

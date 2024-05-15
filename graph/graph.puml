@@ -30,12 +30,14 @@ skinparam defaulttextalignment left
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica-select10 Seleção Básica  (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while-repeat10 While  (3)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#while-repeat10 While  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#for-repeat10 for  (4)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica-select10 Seleção Básica  (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#números-aleatórios-tools10 Números Aleatórios  (3)]]" #lime
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#números-aleatórios-tools10 Números Aleatórios  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#game-zero-a-cem-project10 Game Zero a Cem  (0)]]" #pink
-"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i-types10 Funções I  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#game-zero-a-cem-project10 Game Zero a Cem  (0)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#números-aleatórios-tools10 Números Aleatórios  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#game-zero-a-cem-project10 Game Zero a Cem  (0)]]" #cyan
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i-types10 Funções I  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#game-zero-a-cem-project10 Game Zero a Cem  (0)]]" #cyan
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#conversão-types10 Conversão  (0)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#io-argc-e-argv-io10 IO: argc e argv  (1)]]" #pink
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#for-repeat10 for  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante-types10 Array Iniciante  (4)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#funções-i-types10 Funções I  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante-types10 Array Iniciante  (4)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante-types10 Array Iniciante  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado-logic10-select10-repeat10 Array avançado  (1)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#números-aleatórios-tools10 Números Aleatórios  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#blackjack-project10 Blackjack  (0)]]" #cyan
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado-logic10-select10-repeat10 Array avançado  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#blackjack-project10 Blackjack  (0)]]" #cyan
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado-logic10-select10-repeat10 Array avançado  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-expert-logic10-select10-repeat10 Array Expert  (7)]]" #pink
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-avançado-logic10-select10-repeat10 Array avançado  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-types10-select10 Strings  (8)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-types10-select10 Strings  (8)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#strings-ii-select10 Strings II  (3)]]" #pink
@@ -46,9 +48,13 @@ skinparam defaulttextalignment left
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante-types10 Array Iniciante  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#matrizes-types20-array30 Matrizes  (2)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#matrizes-types20-array30 Matrizes  (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-em-matrizes-select20-logic20-repeat20-array30 Técnicas em matrizes  (2)]]" #pink
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-em-matrizes-select20-logic20-repeat20-array30 Técnicas em matrizes  (2)]]" #pink
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#números-aleatórios-tools10 Números Aleatórios  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#jogo-da-vida-project10 Jogo da Vida  (0)]]" #cyan
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#técnicas-em-matrizes-select20-logic20-repeat20-array30 Técnicas em matrizes  (2)]]" #pink --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#jogo-da-vida-project10 Jogo da Vida  (0)]]" #cyan
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-types10 Ponteiros  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#array-iniciante-types10 Array Iniciante  (4)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-types10 Structs  (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#números-aleatórios-tools10 Números Aleatórios  (3)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#cobrinha-project10 Cobrinha  (0)]]" #cyan
+"[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#structs-advanced-select20-logic30-repeat10-array10 Structs Advanced  (2)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#cobrinha-project10 Cobrinha  (0)]]" #cyan
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#seleção-básica-select10 Seleção Básica  (10)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#aula-24---enum-types10 Aula 24 - enum  (2)]]" #lime
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-types10 Ponteiros  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-ii-types10-logic10 Ponteiros ii  (2)]]" #pink
 "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#ponteiros-types10 Ponteiros  (1)]]" #lime --> "[[https://github.com/senapk/c_is_fun/blob/main/graph/Readme.md#alocação-dinâmica-i-types10-logic10 Alocação Dinâmica i  (2)]]" #pink
@@ -64,7 +70,7 @@ legend top right
   .....io: 50
   .select: 120
   .repeat: 80
-  project: 10
+  project: 40
   ..array: 70
 end legend
 @enduml
