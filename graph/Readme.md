@@ -84,6 +84,10 @@ Clique para abrir a versão clicável:
 
 ### Lendo e escrevendo em strings sprintf e sscanf `+io:10`<!-- l:io_string c:pink r:string_novice -->
 
+- [ ] [`sprintf` e `sscanf`](../wiki/string/sprintf_sscanf.md)
+- [ ] [Usando para Serialização e Desseliarização](../wiki/string/serializacao_c.md)
+- [ ] [Strings e Structs com o Seu @frutolino](foo)
+
 ### Tratamento de erros de entrada fflush  `+io:10`<!-- l:io_error c:pink r:repeat_novice -->
 
 ### Macros: include, define, if, ifdef, endif  `+io:10`<!-- l:tools_macros c:pink r:repeat_novice -->
