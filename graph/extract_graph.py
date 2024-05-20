@@ -74,6 +74,7 @@ def load_entries(file: str):
     entries = []
     lines = open(file).read().split("\n")
     for line in lines:
+        line = line.strip()
         if line.startswith("- [ ] "):
             if len(entries) == 0:
                 continue

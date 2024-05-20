@@ -1,39 +1,13 @@
-## Quests em Andamento
+  # Quests em Andamento
 
-- Aprendendo Seleção (3/10)
-- Utilizando Makefiles (2/3)
+  ## (0/4) O que são linguagens de programação? [marcar]
+  - 01 [x] O que são algoritmos?
+  - 02 [x] Exemplos de códigos e linguagens
+  - 03 [x] Ferramentas úteis File Manager, Terminal, Text Editor
+  - 04 [ ] IDE: Replit
 
-## Próximas Ações
+  # (0) Quests Disponíveis [a]ctivate
+  # (0) Quests Completas [c]omplete
+  # (0) Quests Ocultadas [h]ide
 
-- Aprendendo Seleção
-  - [ ] video: `if`
-- Utilizando Makefiles
-  - [ ] video: `make clean`
-
-## Quest Disponíveis
-
-- Config Local
-- Repetição
-- Ponteiros
-- Struct 
-
-## Quests Completas
-
-- Intro ao C (4/4)
-- Configuração Ambiente (3/3)
-
-## Skill Tree
-
-- Tools     - 3
-- Básico    - 2
-- Seleção   - 1
-- Repetição - 0
-- Funções   - 1
-- Ponteiros - 0
-- Vetores   - 0
-- Strings   - 0
-- Matrizes  - 0
-- Arquivos  - 0
-
-## Porcentagem do Curso - 12.5 %
-
+  Escolha opção: c

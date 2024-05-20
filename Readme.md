@@ -43,7 +43,7 @@
 ### Aula 04 - Operações Básicas
 
 - [x] [math.h (pow, sqrt)](wiki/biblioteca_math/Readme.md)
-- [x] [Problema da divisão de dois inteiros](wiki/problema_divisao_inteiros/problema_divisao_inteiros.md)
+- [x] [Problema da divisão de dois inteiros](wiki/problema_divisao_inteiros/Readme.md)
 - [x] [Entrada de dados básica com cin](wiki/entrada/Readme.md)
 - [ ] [Ferramenta de Testes: TKTest](wiki/tko/Readme.md)
 - [x] [Impressão formatada](wiki/impressao_formatada/Readme.md)
