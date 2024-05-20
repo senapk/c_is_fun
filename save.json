@@ -1,0 +1,17 @@
+{
+    "default_track": "",
+    "reps": {
+        "c": {
+            "from_file": "ReadmePlan.md",
+            "from_url": "",
+            "active_quests": [],
+            "done_tasks": [
+                "001",
+                "002",
+                "003",
+                "004"
+            ]
+        }
+    },
+    "file": "save.json"
+}

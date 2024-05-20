@@ -1,13 +1,6 @@
-a = [1, 2, 3, 4]
+import re
 
-for n in a:
-    n = n + 1
+# Linha de exemplo
+linha = '- [ ] `read:` [@senapk Texto sobre técnicas de if e else](../wiki/selecao/selecao_tecnica_agrupamento.md) <!-- s:ping:10 s:pong:20 -->'
 
-for i, n in enumerate(a):
-    a[i] = n + 1
-
-for i in range(len(a)):
-    a[i] = a[i] + 1
-
-print(a)
 
