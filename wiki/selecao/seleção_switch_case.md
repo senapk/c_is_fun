@@ -4,14 +4,14 @@
 - [**Introdução**](#introdução)
 - [**Funcionamento do `switch case`**](#funcionamento-do-switch-case)
 - [**Utilização do `switch case`**](#utilização-do-switch-case)
-- [**Exemplo em C++:**](#exemplo-em-c)
+- [**Exemplo em C:**](#exemplo-em-c)
 <!-- toc -->
 
 ## **Introdução**
 
 Em linguagens de programação, o controle de fluxo é essencial para tomar
 decisões com base em certas condições. Uma das estruturas de controle de
-fluxo disponíveis em C++ é o `switch`. O `switch` é usado para selecionar um
+fluxo disponíveis em C é o `switch`. O `switch` é usado para selecionar um
 bloco de código a ser executado com base no valor de uma expressão. Essa
 estrutura é especialmente útil quando você precisa comparar um valor com
 várias opções diferentes.
@@ -27,7 +27,7 @@ padrão (com o uso do `default`) para ser executado.
 
 A sintaxe geral do `switch` é a seguinte:
 
-```cpp
+```c
 switch (expressao) {
     case valor1:
         // Código a ser executado se a expressão for igual a valor1
@@ -56,58 +56,58 @@ facilita a manutenção, pois evita **aninhamentos excessivos** de `if-else`.
 definidas. O `switch` não pode ser usado com expressões mais complexas, como
 strings ou tipos flutuantes.
 
-## **Exemplo em C++:**
+## **Exemplo em C:**
 
 Vamos supor que temos um programa que recebe o número de um mês (de 1 a 12) e
 exibe o nome do mês correspondente.
 
-```cpp
-#include <iostream>
+```c
+#include <stdio.h>
 
 int main() {
     int mes;
-    std::cout << "Digite o número de um mês (1 a 12): ";
-    std::cin >> mes;
+    printf("Digite o número de um mês (1 a 12): ");
+    scanf("%d", &mes);
 
     switch (mes) {
         case 1:
-            std::cout << "Janeiro" << '\n';
+            printf("Janeiro\n");
             break;
         case 2:
-            std::cout << "Fevereiro" << '\n';
+            printf("Fevereiro\n");
             break;
         case 3:
-            std::cout << "Março" << '\n';
+            printf("Março\n");
             break;
         case 4:
-            std::cout << "Abril" << '\n';
+            printf("Abril\n");
             break;
         case 5:
-            std::cout << "Maio" << '\n';
+            printf("Maio\n");
             break;
         case 6:
-            std::cout << "Junho" << '\n';
+            printf("Junho\n");
             break;
         case 7:
-            std::cout << "Julho" << '\n';
+            printf("Julho\n");
             break;
         case 8:
-            std::cout << "Agosto" << '\n';
+            printf("Agosto\n");
             break;
         case 9:
-            std::cout << "Setembro" << '\n';
+            printf("Setembro\n");
             break;
         case 10:
-            std::cout << "Outubro" << '\n';
+            printf("Outubro\n");
             break;
         case 11:
-            std::cout << "Novembro" << '\n';
+            printf("Novembro\n");
             break;
         case 12:
-            std::cout << "Dezembro" << '\n';
+            printf("Dezembro\n");
             break;
         default:
-            std::cout << "Mês inválido!" << '\n';
+            printf("Mês inválido!\n");
             break;
     }
 
@@ -125,28 +125,28 @@ Exemplos de execução do código:
 
 - Exemplo 1
 
-```c++
+```c
 Digite o número de um mês (1 a 12): 5
 Maio
 ```
 
 - Exemplo 2
 
-```c++
+```c
 Digite o número de um mês (1 a 12): 12
 Dezembro 
 ```
 
 - Exemplo 3
 
-```c++
+```c
 Digite o número de um mês (1 a 12): 7
 Julho
 ```
 
 - Exemplo 4
 
-```c++
+```c
 Digite o número de um mês (1 a 12): 15
 Mês inválido!
 ```

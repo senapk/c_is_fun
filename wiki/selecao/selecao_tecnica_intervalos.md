@@ -4,7 +4,7 @@
 - [Introdução](#introdução)
 - [Como Implementar a Seleção Intervalada](#como-implementar-a-seleção-intervalada)
 - [Exemplo da Classificação de Faixa Etária](#exemplo-da-classificação-de-faixa-etária)
-- [Implementação em C++](#implementação-em-c)
+- [Implementação em C](#implementação-em-c)
 - [Código Equivalente](#código-equivalente)
 - [Programa Redundante](#programa-redundante)
 <!-- toc -->
@@ -58,9 +58,9 @@ Seguindo os passos de implementação citados:
 
 Uma maneira de implementar essas condições seria se aproveitar do fluxo da
 estrutura de seleção `if-else`. Tenha como exemplo o trecho de código em
-c++ abaixo:
+C abaixo:
 
-```c++
+```c
 if (idade >= 60){
     // Idoso
 } else if (idade >= 18){
@@ -82,33 +82,33 @@ segunda condição. Se a idade for maior que 18, como já sabemos que `idade < 6
 então então a classificação correta é `Adulto`. A partir daqui o código segue
 a mesma lógica para classificar os demais valores.
 
-## Implementação em C++
+## Implementação em C
 
 Veja abaixo uma implementação valida do problema da classificação de faixa
-etária em C++:
+etária em C:
 
-```c++
-#include <iostream>
+```c
+#include <stdio.h>
 
 int main() {
     int idade;
 
     // Solicita ao usuário que insira uma idade válida 
-    std::cout << "Digite uma idade válida: ";
-    std::cin >> idade;
+    printf("Digite uma idade válida: ");
+    scanf("%d", &idade);
     
     // Verifica em qual grupo a idade se encaixa
     if (idade >= 60){
-        std::cout << "Idoso" << "\n";
+        printf("Idoso\n");
     } else if (idade >= 18){
-        std::cout << "Adulto" << "\n";
+        printf("Adulto\n");
     } else if (idade >= 13){
-        std::cout << "Adolescente" << "\n";
+        printf("Adolescente\n");
     } else if (idade >= 0){
-        std::cout << "Criança" << "\n";
+        printf("Criança\n");
     } else {
         // Valor negativo
-        std::cout << "Idade inválida" << "\n";
+        printf("Idade inválida\n");
     }
 
     return 0;
@@ -124,35 +124,35 @@ Exemplos de execução do código:
 
 - exemplo 1
 
-```c++
+```c
 Digite uma idade válida: 6
 Criança
 ```
 
 - exemplo 2
 
-```c++
+```c
 Digite uma idade válida: 15
 Adolescente
 ```
 
 - exemplo 3
 
-```c++
+```c
 Digite uma idade válida: 23
 Adulto
 ```
 
 - exemplo 4
 
-```c++
+```c
 Digite uma idade válida: 72
 Idoso
 ```
 
 - exemplo 5
 
-```c++
+```c
 Digite uma idade válida: -10
 Idade inválida
 ```
@@ -161,17 +161,17 @@ Idade inválida
 
 Esse trecho de código é equivalente ao código anterior, porém trata os intervalos de forma inversa. Neste caso, a condição inicial é `idade < 0` e a condição final é `idade >= 60`.
 
-```c++
+```c
 if (idade < 0){
-    std::cout << "Inválido" << "\n";
+    printf("Inválido\n");
 } else if (idade < 13){
-    std::cout << "Criança" << "\n";
+    printf("Criança\n");
 } else if (idade < 18){
-    std::cout << "Adolescente" << "\n";
+    printf("Adolescente\n");
 } else if (idade < 60){
-    std::cout << "Adulto" << "\n";
+    printf("Adulto\n");
 } else {
-    std::cout << "Idoso" << "\n";
+    printf("Idoso\n");
 }
 ```
 
@@ -179,16 +179,16 @@ if (idade < 0){
 
 Mesmo que o código abaixo funcione, ele é redundante e não é uma boa prática de programação. A dupla verificação de `idade >= 0` é desnecessária, pois se a idade for menor que 0, o fluxo do programa não passará pela primeira condição e irá direto para a segunda condição.
 
-```c++
+```c
     if (idade < 0){
-        std::cout << "Inválido" << "\n";
+        printf("Inválido\n");
     } else if (idade >= 0 && idade < 13){
-        std::cout << "Criança" << "\n";
+        printf("Criança\n");
     } else if (idade >=13 && idade < 18){
-        std::cout << "Adolescente" << "\n";
+        printf("Adolescente\n");
     } else if (idade >=18 && idade < 60){
-        std::cout << "Adulto" << "\n";
+        printf("Adulto\n");
     } else {
-        std::cout << "Idoso" << "\n";
+        printf("Idoso\n");
     }
 ```

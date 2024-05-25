@@ -2,7 +2,7 @@
 
 <!-- toc -->
 - [Introdução](#introdução)
-- [Exemplos em C++](#exemplos-em-c)
+- [Exemplos em C](#exemplos-em-c)
   - [1. **Par ou Ímpar**](#1-par-ou-ímpar)
   - [2. **Jokenpô**](#2-jokenpô)
 - [Considerações Finais](#considerações-finais)
@@ -10,13 +10,13 @@
 
 ## Introdução
 
-O **agrupamento de estruturas condicionais aninhadas** é uma técnica avançada e poderosa na programação para resolver problemas mais complexos. À medida que os programas se tornam mais sofisticados, as necessidades de tomar decisões mais elaboradas também aumentam. Nesse contexto, o uso de múltiplas instruções `if` e `else` encadeadas na `linguagem C++` oferece uma maneira estruturada e organizada de abordar esses desafios.
+O **agrupamento de estruturas condicionais aninhadas** é uma técnica avançada e poderosa na programação para resolver problemas mais complexos. À medida que os programas se tornam mais sofisticados, as necessidades de tomar decisões mais elaboradas também aumentam. Nesse contexto, o uso de múltiplas instruções `if` e `else` encadeadas na linguagem C oferece uma maneira estruturada e organizada de abordar esses desafios.
 
 Quando um problema requer avaliação de múltiplas condições e tomadas de decisões com base em diferentes cenários, a utilização de estruturas condicionais aninhadas se torna uma escolha eficaz. Isso permite que o código seja mais modular, claro e legível, facilitando a manutenção e o entendimento do programa, mesmo em situações complexas.
 
-## Exemplos em C++
+## Exemplos em C
 
-Abaixo, temos os exemplos dos conhecidos jogos "Par ou Ímpar" e "Jokenpô". Vamos explorar esses exemplos para ilustrar o uso das técnicas de estruturas condicionais e agrupamento na `linguagem c++`.
+Abaixo, temos os exemplos dos conhecidos jogos "Par ou Ímpar" e "Jokenpô". Vamos explorar esses exemplos para ilustrar o uso das técnicas de estruturas condicionais e agrupamento na linguagem C.
 
 ### 1. **Par ou Ímpar**
 
@@ -28,25 +28,25 @@ Seja um jogo entre dois jogadores. As entradas são:
 
 Seu código deve informar quem ganhou o jogo.
 
-Exemplo abaixo na `linguagem c++`:
+Exemplo abaixo na linguagem C:
 
-```c++
-#include <iostream>
+```c
+#include <stdio.h>
+#include <string.h>
 
 int main() {
-    std::string opcao_jog1 {};
-    int num_jog1 {};
-    int num_jog2 {};
+    char opcao_jog1[10];
+    int num_jog1, num_jog2;
 
-    std::cin >> opcao_jog1 >> num_jog1 >> num_jog2;
+    scanf("%s %d %d", opcao_jog1, &num_jog1, &num_jog2);
 
     int numero = num_jog1 + num_jog2;
 
     // agora vamos agrupar TODOS os casos em que o jogador 1 venceu
-    if ((numero % 2 == 0 and opcao_jog1 == "par") or (numero % 2 != 0 and opcao_jog1 == "impar")) {
-        std::cout << "Jogador 1 venceu!" << std::endl;
+    if ((numero % 2 == 0 && strcmp(opcao_jog1, "par") == 0) || (numero % 2 != 0 && strcmp(opcao_jog1, "impar") == 0)) {
+        printf("Jogador 1 venceu!\n");
     } else {
-        std::cout << "Jogador 2 venceu!" << std::endl;
+        printf("Jogador 2 venceu!\n");
     }
 }
 ```
@@ -59,15 +59,15 @@ O jogo `Jokenpô`, também conhecido como Pedra, Papel e Tesoura, é um jogo sim
 
 Novamente vamos agrupar os casos em que o jogador 1 venceu:
 
-```c++
-if (jogador1 == jogador2) {
-    std::cout << "Empate!" << std::endl;
-} else if ((jogador1 == "pedra"   and jogador2 == "tesoura") or 
-           (jogador1 == "papel"   and jogador2 == "pedra") or 
-           (jogador1 == "tesoura" and jogador2 == "papel")) {
-    std::cout << "Jogador 1 venceu!" << std::endl;
+```c
+if (strcmp(jogador1, jogador2) == 0) {
+    printf("Empate!\n");
+} else if ((strcmp(jogador1, "pedra") == 0 && strcmp(jogador2, "tesoura") == 0) || 
+           (strcmp(jogador1, "papel") == 0 && strcmp(jogador2, "pedra") == 0) || 
+           (strcmp(jogador1, "tesoura") == 0 && strcmp(jogador2, "papel") == 0)) {
+    printf("Jogador 1 venceu!\n");
 } else {
-    std::cout << "Jogador 2 venceu!" << std::endl;
+    printf("Jogador 2 venceu!\n");
 }
 ```
 
@@ -83,7 +83,7 @@ Caso contrário, será exibida a mensagem "Jogador 2 venceu!"
 
 ## Considerações Finais
 
-Em conclusão, exploramos os exemplos dos jogos `Par ou Ímpar` e `Jokenpô` (Pedra, Papel e Tesoura) para ilustrar o uso das técnicas de estruturas condicionais em C++.
+Em conclusão, exploramos os exemplos dos jogos `Par ou Ímpar` e `Jokenpô` (Pedra, Papel e Tesoura) para ilustrar o uso das técnicas de estruturas condicionais em C.
 
 No par ou ímpar, utilizamos a técnica de agrupamento de estruturas condicionais aninhadas para resolver o problema de forma mais eficiente e elegante.
 
