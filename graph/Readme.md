@@ -61,8 +61,6 @@ Clique para abrir a versão clicável:
 - [ ] [Conversão entre tipos (casting)](../wiki/variaveis/casting.md)
 - [ ] [stoi stod strtol strtod]()
 
-### Conversão `+types:10`<!-- l:types_conversion c:pink r:types_basic -->
-
 ### Operações Básicas `+logic:10`<!-- l:types_operations c:lime r:types_basic r:tools_tko -->
 
 - [ ] [Atribuição e incremento](../wiki/atribuicao_incremento/Readme.md)
@@ -192,6 +190,7 @@ Clique para abrir a versão clicável:
 ### IO: argc e argv `+io:10`<!-- l:io_argc_argv c:pink r:types_conversion -->
 
 - [ ] [argc e argv](../wiki/argc_argv/Readme.md)
+- [ ] [Tópicos extras e boas práticas](../wiki/argc_argv/extra.md)
 
 ### Array Iniciante `+types:10`<!-- l:array_novice c:lime r:repeat_advanced r:functions_novice -->
 
