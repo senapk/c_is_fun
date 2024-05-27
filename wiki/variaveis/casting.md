@@ -7,15 +7,15 @@ Em C++, o casting é uma operação que permite converter explicitamente um valo
 - [Cast Tradicional do C](#cast-tradicional-do-c)
 <!-- toc -->
 
-## Conversões
+## Conversões implícitas
 
-Conversões acontecem naturalmente quando utilizamos o operador de atribuição. Vamos relembrar os tipos de dados padrão:
+Conversões acontecem naturalmente quando utilizamos o operador de atribuição. Essas conversões são chamadas de implícitas e serão mais aprofundadas no próximo arquivo, até lá, vamos relembrar os tipos de dados padrão:
 
-```c++
+```c
 5     //int
 5.4   //double
 3.6f  //float
-`a`   //char
+'a'   //char
 true  //boolean
 ```
 
@@ -23,37 +23,39 @@ Quando fazemos uma atribuição, ele vai tentar converter da melhor forma possí
 
 - Um ponto flutuante para inteiro vai perder a parte fracionada.
 
-```cpp
+```c
 int x = 5.53;   //double para int
 int y = 4.123f; //float para int
-std::cout << x << ", " << y; // 5, 4
+printf("%d, %d", x, y); // 5, 4
 ```
 
 - Um inteiro para ponto flutuante vai ser convertido sem perdas.
 
-```c++
+```c
 double x = 5;
-std::cout << x; //5.0
+printf("%lf", x); //5.0
 ```
 
-- Um inteiro para `char` vai ser convertido de acordo com a [tabela ASCII](../string/tabela_asc2.md).
+- Um inteiro para `char` vai ser convertido de acordo com a [tabela ASCII](../string/tabela_asc2.md). Definindo o tipo no printf como inteiro ou char altera o comportamento.
 
-```c++
-int x = `a`;
-std::cout << x; //97
+```c
+int x = 'a';
+printf("%d", x); //97
 
 char c = 97;
-std::cout << c; //'a';
+printf("%c", c); //'a';
 ```
 
 - Booleano `false` é qualquer valor zero. Todo o resto é convertido para `true`.
 
-```cpp
+```c
+#include <stdbool.h>
+
 bool f = 3;
-std::cout << f; //true
+printf("%d", f); //true (1)
 
 bool g = 0;
-std::cout << g; //false
+printf("%d", g); //false (0)
 ```
 
 ## Cast Tradicional do C

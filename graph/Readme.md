@@ -59,7 +59,8 @@ Clique para abrir a versão clicável:
 ### Casting e Conversão `+types:10`<!-- l:types_casting c:pink r:types_basic -->
 
 - [ ] [Conversão entre tipos (casting)](../wiki/variaveis/casting.md)
-- [ ] [stoi stod strtol strtod]()
+- [ ] [Conversão Implícita de tipos](../wiki/variaveis/implicit_casting.md)
+- [ ] [Conversões com `strtol` e `strtod`](../wiki/variaveis/strtol_strtod.md)
 
 ### Operações Básicas `+logic:10`<!-- l:types_operations c:lime r:types_basic r:tools_tko -->
 

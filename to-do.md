@@ -4,11 +4,11 @@
 - [x] ### Makefile `+tools:30`<!-- l:tools_makefile c:pink r:tools_basic -->
 - [x] ### Primeiro código `+types:30`<!-- l:types_basic r:tools_basic c:lime -->
 - [ ] ### String não é um tipo primitivo `+types:20`<!-- l:string_novice c:lime r:io_basic -->
-- [ ] ### Clean Code - Estilo `+style:10`<!-- l:style_guide c:lime r:types_basic -->
-- [ ] ### Clean Code - Indentação `+style:10`<!-- l:style_indentation c:lime r:types_basic -->
+- [x] ### Clean Code - Estilo `+style:10`<!-- l:style_guide c:lime r:types_basic -->
+- [x] ### Clean Code - Indentação `+style:10`<!-- l:style_indentation c:lime r:types_basic -->
 - [ ] ### Manipulando tipos `+types:10`<!-- l:types_modifiers c:pink r:types_basic -->
 - [x] ### Casting e Conversão `+types:10`<!-- l:types_casting c:pink r:types_basic -->
-- [ ] ### Operações Básicas `+logic:10`<!-- l:types_operations c:lime r:types_basic r:tools_tko -->
+- [x] ### Operações Básicas `+logic:10`<!-- l:types_operations c:lime r:types_basic r:tools_tko -->
 - [ ] ### Biblioteca matemática `+logic:10`<!-- l:tools_math.h c:pink r:types_operations -->
 - [ ] ### Entrada e Saída - puts, printf, scanf `+io:10`<!-- l:io_basic c:lime r:types_operations -->
 - [ ] ### Lendo e escrevendo em strings sprintf e sscanf `+io:10`<!-- l:io_string c:pink r:string_novice -->

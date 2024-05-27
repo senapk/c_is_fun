@@ -8,13 +8,13 @@
 
 ## Introdução
 
-Além do operador básico de atribuição, o `=`, no C++ temos como realizar uma atribuição e operação matemática ao mesmo tempo de maneira mais concisa com operadores especiais.
+Além do operador básico de atribuição, o `=`, em C temos como realizar uma atribuição e operação matemática ao mesmo tempo de maneira mais concisa com operadores especiais.
 
 ## Operadores de Atribuição
 
-O operador de atribuição básico em C++ é o `=`. Ele é usado para atribuir um valor a uma variável. A sintaxe é simples:
+O operador de atribuição básico em C é o `=`. Ele é usado para atribuir um valor a uma variável. A sintaxe é simples:
 
-```cpp
+```c
 int x = 10;
 ```
 
@@ -30,7 +30,7 @@ Além do operador de atribuição simples, existem operadores de atribuição co
 
 Aqui está um exemplo de uso do operador `+=`:
 
-```cpp
+```c
 int y = 5;
 y += 3; // Agora, y é igual a 8 (5 + 3)
 ```
@@ -43,14 +43,14 @@ Os operadores de incremento (`++`) e decremento (`--`) são utilizados para aume
 
 O operador de incremento `++` adiciona 1 ao valor da variável:
 
-```cpp
+```c
 int a = 3;
 a++; // Agora, a é igual a 4
 ```
 
 Da mesma forma, o operador de decremento `--` subtrai 1:
 
-```cpp
+```c
 int b = 8;
 b--; // Agora, b é igual a 7
 ```
@@ -59,7 +59,7 @@ b--; // Agora, b é igual a 7
 
 Por exemplo:
 
-```cpp
+```c
 int c = 5;
 int d = ++c; // Primeiro c é incrementado e depois d recebe o valor
 // Agora, c e d são iguais a 6
@@ -71,14 +71,13 @@ int f = e++; // f recebe o valor de e (5) e depois o incremento acontece
 
 O código acima é interpretado pelo compilador como:
 
-```cpp
+```c
 int c = 5;
 
-//int d = ++c; //incrementa antes e usa depois
+//int d = ++c; // incrementa antes e usa depois
 c += 1; int d = c;
 
-
 int e = 5;
-//int f = e++;  //usa antes e incrementa depois
+//int f = e++; // usa antes e incrementa depois
 int f = e; e += 1;
 ```

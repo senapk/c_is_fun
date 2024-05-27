@@ -9,11 +9,11 @@
 
 ## Introdução
 
-Neste texto, vamos discutir os operadores aritméticos em C++, que são utilizados para realizar operações matemáticas em variáveis numéricas. Em C++, os operadores aritméticos são símbolos especiais que permitem a realização de adições, subtrações, multiplicações, divisões e outras operações matemáticas com valores numéricos.
+Neste texto, vamos discutir os operadores aritméticos em C, que são utilizados para realizar operações matemáticas em variáveis numéricas. Em C, os operadores aritméticos são símbolos especiais que permitem a realização de adições, subtrações, multiplicações, divisões e outras operações matemáticas com valores numéricos.
 
 ## Operadores Básicos
 
-Aqui estão os operadores aritméticos básicos em C++:
+Aqui estão os operadores aritméticos básicos em C:
 
 1. **Adição `+`**: O operador de adição é utilizado para somar dois valores.
 
@@ -27,20 +27,20 @@ Aqui estão os operadores aritméticos básicos em C++:
 
 ## Ordem de Precedência
 
-É importante compreender a ordem de precedência dos operadores, pois ela determina a sequência em que as operações são realizadas. A ordem de precedência dos operadores aritméticos em C++ é a seguinte (do mais alto para o mais baixo):
+É importante compreender a ordem de precedência dos operadores, pois ela determina a sequência em que as operações são realizadas. A ordem de precedência dos operadores aritméticos em C é a seguinte (do mais alto para o mais baixo):
 
 1. Parênteses `()`
 2. Multiplicação `*`, Divisão `/` e Módulo `%`
 3. Adição `+` e Subtração `-`
 
-Veja que em um cálculo como `4 / 2 + 1` a leitura padrão do compilador é `(4 / 2) + 1` pois a divisão possui uma precedência maior que a soma, caso você queria alterar esse ordem, sempre é possível adicionar parênteses: `4 / (2 + 1)`, assim a soma será efetuada antes da divisão.
+Veja que em um cálculo como `4 / 2 + 1` a leitura padrão do compilador é `(4 / 2) + 1` pois a divisão possui uma precedência maior que a soma. Caso você queria alterar essa ordem, sempre é possível adicionar parênteses: `4 / (2 + 1)`, assim a soma será efetuada antes da divisão.
 
 ## Exemplos
 
-Vamos ver alguns exemplos de como utilizar os operadores aritméticos em C++:
+Vamos ver alguns exemplos de como utilizar os operadores aritméticos em C:
 
-```cpp
-#include <iostream>
+```c
+#include <stdio.h>
 
 int main() {
     int a = 10, b = 20, c = 5;
@@ -56,18 +56,18 @@ int main() {
     int resultado1 = a + b * c;      // Resultado: 60 (pois a multiplicação é realizada antes)
     int resultado2 = (a + b) * c;    // Resultado: 150 (pois a adição é realizada antes)
 
-    std::cout << "Soma: " << soma << '\n';
-    std::cout << "Subtração: " << subtracao << '\n';
-    std::cout << "Multiplicação: " << multiplicacao << '\n';
-    std::cout << "Divisão: " << divisao << '\n';
-    std::cout << "Resto: " << resto << '\n';
-    std::cout << "Resultado1: " << resultado1 << '\n';
-    std::cout << "Resultado2: " << resultado2 << '\n';
+    printf("Soma: %d\n", soma);
+    printf("Subtração: %d\n", subtracao);
+    printf("Multiplicação: %d\n", multiplicacao);
+    printf("Divisão: %d\n", divisao);
+    printf("Resto: %d\n", resto);
+    printf("Resultado1: %d\n", resultado1);
+    printf("Resultado2: %d\n", resultado2);
 
     return 0;
 }
 ```
 
-Neste exemplo, demonstramos algumas operações aritméticas simples utilizando os operadores em C++. Também mostramos como os parênteses podem ser usados para controlar a ordem de precedência das operações.
+Neste exemplo, demonstramos algumas operações aritméticas simples utilizando os operadores em C. Também mostramos como os parênteses podem ser usados para controlar a ordem de precedência das operações.
 
-Lembre-se de que os operadores aritméticos também podem ser aplicados em outros tipos numéricos, como ponto flutuante (float, double) e outros tipos personalizados, desde que o operador seja definido para esses tipos.
+Lembre-se de que os operadores aritméticos também podem ser aplicados em outros tipos numéricos, como ponto flutuante (`float`, `double`) e outros tipos personalizados, desde que o operador seja definido para esses tipos.
