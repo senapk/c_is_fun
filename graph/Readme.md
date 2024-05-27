@@ -71,13 +71,13 @@ Clique para abrir a versão clicável:
 ### Biblioteca matemática `+logic:10`<!-- l:tools_math.h c:pink r:types_operations -->
 
 - [ ] [math.h (pow, sqrt)](../wiki/biblioteca_math/Readme.md)
+- [ ] [@002 Pintando a casa](https://github.com/qxcodefup/arcade/blob/master/base/000/Readme.md)
 
 ### Entrada e Saída - puts, printf, scanf `+io:10`<!-- l:io_basic c:lime r:types_operations -->
 
 - [ ] [Entrada de dados básica com cin](../wiki/entrada/Readme.md)
 - [ ] [Impressão formatada](../wiki/impressao_formatada/Readme.md)
 - [ ] [@000 Operações Básicas](https://github.com/qxcodefup/arcade/blob/master/base/000/Readme.md)
-- [ ] [@002 Pintando a casa](https://github.com/qxcodefup/arcade/blob/master/base/000/Readme.md)
 - [ ] [@003 Opala Bebedor](https://github.com/qxcodefup/arcade/blob/master/base/003/Readme.md),
 - [ ] [@196 Comprando TV Parcelada](https://github.com/qxcodefup/arcade/blob/master/base/196/Readme.md)
 
