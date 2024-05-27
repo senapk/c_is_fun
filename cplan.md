@@ -8,31 +8,31 @@ Clique para abrir a versão clicável
 
 [![_](graph/full_data.svg)](https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/full_data.svg)
 
-### O que são linguagens de programação? <!-- @tools_basic t:main s:types:20 -->
+### O que são linguagens de programação? <!-- @tools_basic t:main s:types:20 g:Introdução -->
 
 - leitura
-  - [x] <!-- @001 -->[O que são algoritmos?](./wiki/intro/o_que_sao_algoritmos.md)
-  - [x] <!-- @002 -->[Exemplos de códigos e linguagens](./wiki/intro/exemplos.md)
-  - [x] <!-- @003 -->[Ferramentas úteis](./wiki/configure/ferramentas_uteis.md)
+  - [ ] <!-- @001 -->[O que são algoritmos?](./wiki/intro/o_que_sao_algoritmos.md)
+  - [ ] <!-- @002 -->[Exemplos de códigos e linguagens](./wiki/intro/exemplos.md)
+  - [ ] <!-- @003 -->[Ferramentas úteis](./wiki/configure/ferramentas_uteis.md)
   - [ ] <!-- @004 -->[IDE: Replit](./wiki/configure/replit.md)
 
-### Uso do bash <!-- @tools_bash r:tools_basic t:side s:tools:20 -->
+### Uso do bash <!-- @tools_bash r:tools_basic t:side s:tools:20 g:Introdução -->
 
 - [ ] <!-- @005 -->[Uso do Bash e Instalação do Git Bash](./wiki/configure/bash_git.md)
 
-### Configuração do Ambiente <!-- @tools_local_ide r:tools_bash t:side s:tools:30 -->
+### Configuração do Ambiente <!-- @tools_local_ide r:tools_bash t:side s:tools:30 g:Introdução -->
 
 - [ ] <!-- @006 -->[Instalação do C (Mingw)](./wiki/configure/cpp.md)
 - [ ] <!-- @007 -->[IDE: Visual Studio Code (vscode)](./wiki/configure/vscode.md)
 
-### Makefile <!-- @tools_makefile t:side r:tools_basic s:tools:30 -->
+### Makefile <!-- @tools_makefile t:side r:tools_basic s:tools:30 g:Introdução -->
 
 - [ ] <!-- @008 -->[Vídeo de aprendizado](graph/foo)
 - [ ] <!-- @009 -->[O que é Makefile?](./wiki/makefile/makefile_intro.md)
 - [ ] <!-- @010 -->[Makefile e a linguagem C](./wiki/makefile/makefile_c.md)
 - [ ] <!-- @011 -->[Extras](./wiki/makefile/makefile_extra.md)
 
-### Primeiro código <!-- @types_basic r:tools_basic t:main s:types:30 -->
+### Primeiro código <!-- @types_basic r:tools_basic t:main s:types:30 g:Introdução -->
 
 - [ ] <!-- @012 -->[Primeiro código](./wiki/primeiro_codigo/primeiro_codigo.md)
 - [ ] <!-- @013 -->[Compilando e Executando](./wiki/compilando/Readme.md)
@@ -41,7 +41,7 @@ Clique para abrir a versão clicável
 - [ ] <!-- @016 -->[Variáveis](./wiki/variaveis/variaveis.md)
 - [ ] <!-- @017 -->[Não tenha medo de erros](./wiki/erros/variaveis.md)
 
-### String não é um tipo primitivo <!-- @string_basic t:main r:io_basic s:types:20 -->
+### String não é um tipo primitivo <!-- @string_basic t:main r:io_basic s:types:20 g:Strings -->
 
 - [ ] <!-- @018 -->[O tipo string](./wiki/string/tipo_string.md)
 
@@ -85,7 +85,7 @@ Clique para abrir a versão clicável
 - [ ] [@opala bebedor](https://github.com/qxcodefup/arcade/blob/master/base/opala/Readme.md),
 - [ ] [@tv - Comprando parcelada](https://github.com/qxcodefup/arcade/blob/master/base/tv/Readme.md)
 
-### Lendo e escrevendo em strings sprintf e sscanf <!-- @io_string t:side r:string_novice s:io:10 -->
+### Lendo e escrevendo em strings sprintf e sscanf <!-- @io_string t:side r:string_novice s:io:10 g:Strings -->
 
 - [ ] <!-- @035 -->[filler](https://filler.com.br)
 
@@ -203,7 +203,7 @@ Clique para abrir a versão clicável
 - [ ] [@avesso Jogo do Avesso](https://github.com/qxcodefup/arcade/blob/master/base/078/Readme.md),
 - [ ] [@mediana Mediana](https://github.com/qxcodefup/arcade/blob/master/base/088/Readme.md)
 
-### Strings<!-- @string_novice c:lime r:array_advanced s:types:10 s:select:10 -->
+### Strings<!-- @string_novice c:lime r:array_advanced s:types:10 s:select:10 g:Strings -->
 
 - [ ] <!-- @086 -->[Tabela ASC](./wiki/string/tabela_asc2.md)
 - [ ] <!-- @087 -->[Manipulação de caracteres](./wiki/manipulacao_caracteres/Readme.md)
@@ -214,13 +214,13 @@ Clique para abrir a versão clicável
   - [ ] [@eribelton Eribelton e a Ascologia V1](https://github.com/qxcodefup/arcade/blob/master/base/173/Readme.md)
   - [ ] [@maiusculo Maiúsculo, Minusculo e Dígito!](https://github.com/qxcodefup/arcade/blob/master/base/104/Readme.md)
 
-### Strings II<!-- @string_advanced c:pink r:string_novice r:pointers_novice s:select:10 -->
+### Strings II<!-- @string_advanced c:pink r:string_novice r:pointers_novice s:select:10 g:Strings -->
 
 - [ ] [@xuxa LP da Xuxa - Inverter String](https://github.com/qxcodefup/arcade/blob/master/base/092/Readme.md),
 - [ ] [@valdiskey Valdiskey e a cifra V1!](https://github.com/qxcodefup/arcade/blob/master/base/174/Readme.md),
 - [ ] [@leds Contar Leds](https://github.com/qxcodefup/arcade/blob/master/base/096/Readme.md),
 
-### Strings Expert <!-- @string_expert c:pink r:string_advanced s:select:10 s:repeat:10 s:logic:10 -->
+### Strings Expert <!-- @string_expert c:pink r:string_advanced s:select:10 s:repeat:10 s:logic:10 g:Strings -->
 
 - [ ] [@alta Gritando em Caixa Alta](https://github.com/qxcodefup/arcade/blob/master/base/093/Readme.md),
 - [ ] [@mega Mega Jokenpo!](https://github.com/qxcodefup/arcade/blob/master/base/089/Readme.md),
@@ -236,12 +236,12 @@ Clique para abrir a versão clicável
 - [ ] <!-- @092 -->[Structs: Introdução](./wiki/structs/introducao.md)
 - [ ] <!-- @093 -->[Structs: Exemplos](./wiki/structs/exemplos.md)
 
-### Matrizes <!-- @matrix_novice c:lime r:array_novice s:types:20 s:array:30 -->
+### Matrizes <!-- @matrix_novice c:lime r:array_novice s:types:20 s:array:30 g:Matrizes -->
 
 - [ ] <!-- @094 -->[O que são matrizes e para que usar?](./wiki/matrizes/o_que_sao_matrizes.md)
 - [ ] <!-- @095 -->[Noções básicas sobre matrizes: diagonais e outras propriedades](./wiki/matrizes/nocoes_basicas_de_matrizes.md)
 
-### Técnicas em matrizes <!-- @matrix_advanced c:pink r:matrix_novice r:structs_advanced s:select:20 s:logic:20 s:repeat:20 s:array:30 -->
+### Técnicas em matrizes <!-- @matrix_advanced c:pink r:matrix_novice r:structs_advanced g:Matrizes s:select:20 s:logic:20 s:repeat:20 s:array:30 -->
 
 - [ ] <!-- @096 -->[filler](https://filler)
 - [ ] <!-- @097 -->[filler](https://filler)

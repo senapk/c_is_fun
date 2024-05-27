@@ -1,62 +1,126 @@
 @startuml graph
-skinparam defaultFontName Hasklig
-tools_basic #lime --> tools_bash #yellow
-tools_bash #yellow --> tools_local_ide #yellow
-tools_basic #lime --> tools_makefile #yellow
-tools_basic #lime --> types_basic #lime
-io_basic #lime --> string_basic #lime
-types_basic #lime --> style_guide #lime
-types_basic #lime --> style_indentation #lime
-types_basic #lime --> types_modifiers #yellow
-types_basic #lime --> types_casting #yellow
-types_basic #lime --> types_conversion #yellow
-types_basic #lime --> types_operations #lime
-tools_tko #lime --> types_operations #lime
-types_operations #lime --> tools_math.h #yellow
-types_operations #lime --> io_basic #lime
-string_novice #lime --> io_string #yellow
-repeat_novice #lime --> io_error #yellow
-repeat_novice #lime --> tools_macros #yellow
-tools_basic #lime --> tools_tko #lime
-tools_basic #lime --> tools_debug #yellow
-io_basic #lime --> select_novice #yellow
-functions_novice #lime --> select_advanced #yellow
-select_novice #yellow --> select_expert #yellow
-select_expert #yellow --> functions_novice #lime
-functions_novice #lime --> function_advanced #lime
-select_novice #yellow --> repeat_novice #lime
-repeat_novice #lime --> repeat_advanced #lime
-select_novice #yellow --> tools_rand #lime
-tools_rand #lime --> game_zero_cem #lime
-functions_novice #lime --> game_zero_cem #lime
-types_conversion #yellow --> io_argc_argv #lime
-repeat_advanced #lime --> array_novice #lime
-functions_novice #lime --> array_novice #lime
-array_novice #lime --> array_advanced #lime
-tools_rand #lime --> game_blackjack #lime
-array_advanced #lime --> game_blackjack #lime
-array_advanced #lime --> array_expert #lime
-array_advanced #lime --> string_novice #lime
-string_novice #lime --> string_advanced #lime
-pointers_novice #lime --> string_advanced #lime
-string_advanced #lime --> string_expert #lime
-function_advanced #lime --> pointers_novice #lime
-functions_novice #lime --> structs_novice #lime
-array_novice #lime --> matrix_novice #lime
-matrix_novice #lime --> matrix_advanced #lime
-structs_advanced #lime --> matrix_advanced #lime
-tools_rand #lime --> game_jogodavida #lime
-matrix_advanced #lime --> game_jogodavida #lime
-tools_rand #lime --> game_cobrinha #lime
-structs_advanced #lime --> game_cobrinha #lime
-select_novice #yellow --> enum #lime
-pointers_novice #lime --> pointers_advanced #lime
-pointers_novice #lime --> memory_novice #lime
-memory_novice #lime --> memory_advanced #lime
-pointers_advanced #lime --> files_novice #lime
-files_novice #lime --> files_advanced #lime
-pointers_novice #lime --> structs_advanced #lime
-array_novice #lime --> structs_advanced #lime
-structs_novice #lime --> structs_advanced #lime
-structs_advanced --> (*)
+digraph diag {
+  node [style="rounded,filled", shape=box]
+  "Início" -> "O que são linguagens de programação?:4"
+  "O que são linguagens de programação?:4" -> "Uso do bash:1"
+  "Uso do bash:1" -> "Configuração do Ambiente:2"
+  "O que são linguagens de programação?:4" -> "Makefile:4"
+  "O que são linguagens de programação?:4" -> "Primeiro código:6"
+  "Entrada e Saída - puts, printf, scanf:6" -> "String não é um tipo primitivo:1"
+  "Primeiro código:6" -> "Clean Code - Estilo:1"
+  "Primeiro código:6" -> "Clean Code - Indentação:1"
+  "Primeiro código:6" -> "Manipulando tipos:1"
+  "Primeiro código:6" -> "Casting e Conversão:2"
+  "Primeiro código:6" -> "Conversão:1"
+  "Primeiro código:6" -> "Operações Básicas:3"
+  "TKO - Ferramenta de Testes:1" -> "Operações Básicas:3"
+  "Operações Básicas:3" -> "Biblioteca matemática:1"
+  "Operações Básicas:3" -> "Entrada e Saída - puts, printf, scanf:6"
+  "Strings:7" -> "Lendo e escrevendo em strings sprintf e sscanf:1"
+  "While:4" -> "Tratamento de erros de entrada fflush:1"
+  "While:4" -> "Macros: include, define, if, ifdef, endif:1"
+  "O que são linguagens de programação?:4" -> "TKO - Ferramenta de Testes:1"
+  "O que são linguagens de programação?:4" -> "Debugando:1"
+  "Entrada e Saída - puts, printf, scanf:6" -> "Técnicas de seleção 0:1"
+  "Funções I:5" -> "Técnicas de seleção I:8"
+  "Técnicas de seleção 0:1" -> "Técnicas de seleção II:6"
+  "Técnicas de seleção II:6" -> "Funções I:5"
+  "Funções I:5" -> "Funções II:4"
+  "Técnicas de seleção 0:1" -> "While:4"
+  "While:4" -> "for:8"
+  "Técnicas de seleção 0:1" -> "Números Aleatórios:3"
+  "Números Aleatórios:3" -> "Game Zero a Cem:1"
+  "Funções I:5" -> "Game Zero a Cem:1"
+  "Conversão:1" -> "IO: argc e argv:1"
+  "for:8" -> "Array Iniciante:4"
+  "Funções I:5" -> "Array Iniciante:4"
+  "Array Iniciante:4" -> "Array avançado:4"
+  "Números Aleatórios:3" -> "Blackjack:1"
+  "Array avançado:4" -> "Blackjack:1"
+  "Array avançado:4" -> "Array Expert:6"
+  "Array avançado:4" -> "Strings:7"
+  "Strings:7" -> "Strings II:3"
+  "Ponteiros:1" -> "Strings II:3"
+  "Strings II:3" -> "Strings Expert:4"
+  "Funções II:4" -> "Ponteiros:1"
+  "Funções I:5" -> "Structs:2"
+  "Array Iniciante:4" -> "Matrizes:2"
+  "Matrizes:2" -> "Técnicas em matrizes:2"
+  "Structs Advanced:2" -> "Técnicas em matrizes:2"
+  "Números Aleatórios:3" -> "Jogo da Vida:1"
+  "Técnicas em matrizes:2" -> "Jogo da Vida:1"
+  "Números Aleatórios:3" -> "Cobrinha:1"
+  "Structs Advanced:2" -> "Cobrinha:1"
+  "Técnicas de seleção 0:1" -> "Enum:2"
+  "Ponteiros:1" -> "Ponteiros ii:2"
+  "Ponteiros:1" -> "Alocação Dinâmica i:2"
+  "Alocação Dinâmica i:2" -> "Alocação Dinâmica ii:2"
+  "Ponteiros ii:2" -> "arquivos texto:1"
+  "arquivos texto:1" -> "arquivos binario:1"
+  "Ponteiros:1" -> "Structs Advanced:2"
+  "Array Iniciante:4" -> "Structs Advanced:2"
+  "Structs:2" -> "Structs Advanced:2"
+  "O que são linguagens de programação?:4" [fillcolor=lime]
+  "Primeiro código:6" [fillcolor=lime]
+  "String não é um tipo primitivo:1" [fillcolor=lime]
+  "Clean Code - Estilo:1" [fillcolor=lime]
+  "Clean Code - Indentação:1" [fillcolor=lime]
+  "Operações Básicas:3" [fillcolor=lime]
+  "Entrada e Saída - puts, printf, scanf:6" [fillcolor=lime]
+  "TKO - Ferramenta de Testes:1" [fillcolor=lime]
+  "Funções I:5" [fillcolor=lime]
+  "Funções II:4" [fillcolor=lime]
+  "While:4" [fillcolor=lime]
+  "for:8" [fillcolor=lime]
+  "Números Aleatórios:3" [fillcolor=lime]
+  "Game Zero a Cem:1" [fillcolor=lime]
+  "IO: argc e argv:1" [fillcolor=lime]
+  "Array Iniciante:4" [fillcolor=lime]
+  "Array avançado:4" [fillcolor=lime]
+  "Blackjack:1" [fillcolor=lime]
+  "Array Expert:6" [fillcolor=lime]
+  "Strings:7" [fillcolor=lime]
+  "Strings II:3" [fillcolor=lime]
+  "Strings Expert:4" [fillcolor=lime]
+  "Ponteiros:1" [fillcolor=lime]
+  "Structs:2" [fillcolor=lime]
+  "Matrizes:2" [fillcolor=lime]
+  "Técnicas em matrizes:2" [fillcolor=lime]
+  "Jogo da Vida:1" [fillcolor=lime]
+  "Cobrinha:1" [fillcolor=lime]
+  "Enum:2" [fillcolor=lime]
+  "Ponteiros ii:2" [fillcolor=lime]
+  "Alocação Dinâmica i:2" [fillcolor=lime]
+  "Alocação Dinâmica ii:2" [fillcolor=lime]
+  "arquivos texto:1" [fillcolor=lime]
+  "arquivos binario:1" [fillcolor=lime]
+  "Structs Advanced:2" [fillcolor=lime]
+  subgraph cluster_Introdução {
+    label="Introdução"
+    style=filled
+    color=lightgrey
+    "O que são linguagens de programação?:4"
+    "Uso do bash:1"
+    "Configuração do Ambiente:2"
+    "Makefile:4"
+    "Primeiro código:6"
+  }
+  subgraph cluster_Strings {
+    label="Strings"
+    style=filled
+    color=lightgrey
+    "String não é um tipo primitivo:1"
+    "Lendo e escrevendo em strings sprintf e sscanf:1"
+    "Strings:7"
+    "Strings II:3"
+    "Strings Expert:4"
+  }
+  subgraph cluster_Matrizes {
+    label="Matrizes"
+    style=filled
+    color=lightgrey
+    "Matrizes:2"
+    "Técnicas em matrizes:2"
+  }
+}
 @enduml
