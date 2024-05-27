@@ -6,7 +6,7 @@
 
 Clique para abrir a versão clicável
 
-[![_](graph/full_data.svg)](https://raw.githubusercontent.com/senapk/c_is_fun/main/graph/full_data.svg)
+[![_](graph.svg)](https://raw.githubusercontent.com/senapk/c_is_fun/main/graph.svg)
 
 ### O que são linguagens de programação? <!-- @tools_basic t:main s:types:20 g:Introdução -->
 
