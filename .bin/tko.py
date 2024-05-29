@@ -25,6 +25,7 @@ from typing import List
 from shutil import which
 from typing import List, Tuple, Optional, Dict
 import math
+from typing import Optional, Dict, List
 import sys
 
 
@@ -195,13 +196,9 @@ class RepoSettings:
         self.url: str = ""
         self.file: str = ""
         self.cache: str = ""
-        self.active_quests: List[str] = []
-        self.done_tasks: List[str] = []
-        self.show_url: bool  = True
-        self.show_done: bool = True
-        self.show_init: bool = True
-        self.show_todo: bool = True
-        self.game_mode: bool = True
+        self.quests: Dict[str, str] = {}
+        self.tasks: Dict[str, str] = {}
+        self.view: List[str] = []
 
     def get_file(self) -> str:
         if self.file == "" or os.path.exists(self.file) == False:
@@ -227,40 +224,28 @@ class RepoSettings:
             "url": self.url,
             "file": self.file,
             "cache": self.cache,
-            "active_quests": self.active_quests,
-            "done_tasks": self.done_tasks,
-            "show_url": self.show_url,
-            "show_done": self.show_done,
-            "show_init": self.show_init,
-            "show_todo": self.show_todo,
-            "game_mode": self.game_mode
+            "quests": self.quests,
+            "tasks": self.tasks,
+            "view": self.view
         }
     
     def from_dict(self, data: Dict[str, Any]):
         self.url = data.get("url", "")
         self.file = data.get("file", "")
         self.cache = data.get("cache", "")
-        self.active_quests = data.get("active_quests", [])
-        self.done_tasks = data.get("done_tasks", [])
-        self.show_url = data.get("show_url", True)
-        self.show_done = data.get("show_done", True)
-        self.show_init = data.get("show_init", True)
-        self.show_todo = data.get("show_todo", True)
-        self.game_mode = data.get("game_mode", True)
+        self.quests = data.get("quests", {})
+        self.tasks = data.get("tasks", {})
+        self.view = data.get("view", [])
         return self
 
     def __str__(self) -> str:
         return (
-            f"URL: {self.url}\n"
-            f"File: {self.file}\n"
-            f"Cache: {self.cache}\n"
-            f"Active Quests: {self.active_quests}\n"
-            f"Done Tasks: {self.done_tasks}\n"
-            f"Show URL: {self.show_url}\n"
-            f"Show Done: {self.show_done}\n"
-            f"Show Init: {self.show_init}\n"
-            f"Show Todo: {self.show_todo}\n"
-            f"Game Mode: {self.game_mode}\n"
+            f"url: {self.url}\n"
+            f"file: {self.file}\n"
+            f"cache: {self.cache}\n"
+            f"Quests: {self.quests}\n"
+            f"Tasks: {self.tasks}\n"
+            f"View: {self.view}\n"
         )
 
 class LocalSettings:
@@ -305,6 +290,11 @@ class Settings:
         self.reps["ed"] = RepoSettings().set_url("https://github.com/qxcodeed/arcade/blob/master/Readme.md")
         self.reps["poo"] = RepoSettings().set_url("https://github.com/qxcodepoo/arcade/blob/master/Readme.md")
 
+    def get_repo(self, course: str) -> RepoSettings:
+        if course not in self.reps:
+            raise ValueError(f"Course {course} not found in settings")
+        return self.reps[course]
+    
     def to_dict(self) -> Dict[str, Any]:
         return {
             "reps": {k: v.to_dict() for k, v in self.reps.items()},
@@ -323,37 +313,27 @@ class Settings:
 
 class SettingsParser:
 
-    __settings_file: Optional[str] = None
+    user_settings_file: Optional[str] = None
 
-    def __init__(self, settings_file: Optional[str] = None):
-        if settings_file is not None:
-            SettingsParser.__settings_file = settings_file
+    def __init__(self):
         self.package_name = "tko"
-        self.filename = "settings.json"
-        if SettingsParser.__settings_file is None:
-            self.filename = os.path.abspath(self.filename) # backup for replit
+        default_filename = "settings.json"
+        if SettingsParser.user_settings_file is None:
+            self.settings_file = os.path.abspath(default_filename) # backup for replit, dont remove
         else:
-            self.filename = os.path.abspath(SettingsParser.__settings_file)
+            self.settings_file = os.path.abspath(SettingsParser.user_settings_file)
         self.settings = self.load_settings()
-
-    @staticmethod
-    def set_settings_file(settings_file: str):
-        SettingsParser.__settings_file = settings_file
-
-    @staticmethod
-    def get_settings_file() -> Optional[str]:
-        return SettingsParser.__settings_file
 
     def load_settings(self) -> Settings:
         try:
-            with open(self.filename, "r") as f:
+            with open(self.settings_file, "r") as f:
                 self.settings = Settings().from_dict(json.load(f))
                 return self.settings
         except (FileNotFoundError, json.decoder.JSONDecodeError) as e:
             return self.create_new_settings_file()
 
     def save_settings(self):
-        self.settings.save_to_json(self.filename)
+        self.settings.save_to_json(self.settings_file)
 
     def create_new_settings_file(self) -> Settings:
         self.settings = Settings()
@@ -363,7 +343,7 @@ class SettingsParser:
         return self.settings
 
     def get_settings_dir(self) -> str:
-        return os.path.dirname(self.filename)
+        return os.path.dirname(self.settings_file)
     
     def get_language(self) -> str:
         return self.settings.local.lang
@@ -2095,22 +2075,29 @@ bash_guide = """
 #!/usr/bin/env python3
 
 
-
 class Task:
 
   def __init__(self):
     self.line_number = 0
     self.line = ""
     self.key = ""
-    self.coding = False
-    self.remove_tko = False
-    self.done = False
+    self.grade = ""
     self.skills = []
     self.title = ""
     self.link = ""
 
+  def is_done(self):
+    return self.grade == "x" or self.grade == "7" or self.grade == "8" or self.grade == "9"
+  
+  def set_grade(self, grade):
+    valid = ["x", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    if grade in valid:
+      self.grade = grade
+    else:
+      print(f"Grade inválida: {grade}")
+
   def __str__(self):
-    return f"{self.line_number} : {self.key} : {self.done} : {self.title} : {self.skills} : {self.link}"
+    return f"{self.line_number} : {self.key} : {self.grade} : {self.title} : {self.skills} : {self.link}"
 
   @staticmethod
   def parse_titulo_link_html(line):
@@ -2168,8 +2155,6 @@ class Task:
     if line == "":
       return False
     line = line.lstrip()
-    # if not line.startswith("- [ ]") and not line.startswith("- [x]"):
-    #   return False
 
     titulo, link, html = Task.parse_titulo_link_html(line)
 
@@ -2216,7 +2201,7 @@ class Quest:
     return f"linha={self.line_number} : {self.key} : {self.title} : {self.skills} : {self.requires} : {self.mdlink} : {[t.key for t in self.tasks]}"
 
   def is_complete(self):
-    return all([t.done for t in self.tasks])
+    return all([t.is_done() for t in self.tasks])
 
   def is_reachable(self, cache):
     if self.key in cache:
@@ -2294,8 +2279,8 @@ def get_md_link(title: str) -> str:
 class Game:
 
   def __init__(self):
-    self.quests = {}
-    self.tasks = {}
+    self.quests: Dict[str, Quest] = {} # quests indexed by quest key
+    self.tasks: Dict[str, Task] = {}   # tasks  indexed by task key
 
   def load_quest(self, line, line_num):
     quest = Quest()
@@ -2397,7 +2382,6 @@ class Game:
     saida.append('  node [style="rounded,filled", shape=box]')
 
     def info(q):
-      color = "lime" if q.type == "main" else "yellow"
       return f"\"{q.title.strip()}:{len(q.tasks)}\""
 
     for q in self.quests.values():
@@ -2412,6 +2396,8 @@ class Game:
     for q in self.quests.values():
       if q.type == "main":
         saida.append(f"  {info(q)} [fillcolor=lime]")
+      else:
+        saida.append(f"  {info(q)} [fillcolor=pink]")
 
     groups = {}
     for q in self.quests.values():
@@ -2427,7 +2413,7 @@ class Game:
       saida.append(f"  subgraph cluster_{c[0].group} {{")
       saida.append(f"    label=\"{c[0].group}\"")
       saida.append(f"    style=filled")
-      saida.append(f"    color=lightgrey")
+      saida.append(f"    color=lightgray")
       for q in c:
         saida.append(f"    {info(q)}")
 
@@ -2445,26 +2431,49 @@ class Game:
 
 class Play:
 
-  def __init__(self, game: Game, rep, fnsave):
+  def __init__(self, game: Game, rep: RepoSettings, fnsave):
     self.fnsave = fnsave
     self.rep = rep
-    self.show_url = self.rep.show_url
-    self.show_done = self.rep.show_done
-    self.game = game
-    self.tasks = []
-    self.quests = {}  # option:quest
-    self.active = set(self.rep.active_quests)
+    self.show_link = "link" in self.rep.view
+    self.show_done = "done" in self.rep.view
+    self.show_init = "init" in self.rep.view
+    self.show_todo = "todo" in self.rep.view
+    self.show_cmds = "cmds" in self.rep.view
+
+    self.game: Game = game
+    self.tasks: List[Task] = []  # visible tasks  indexed by number
+    self.quests: Dict[str, Quest] = {} # visible quests indexed by letter
+    self.active: List[str] = [] # expanded quests
+
+    for k, v in self.rep.quests.items():
+      if "e" in v:
+        self.active.append(k)
+
     self.term_limit = 130
 
-    for t in game.tasks.values():
-      if t.key in self.rep.done_tasks:
-        t.done = True
+    for key, grade in rep.tasks.items():
+      if key in game.tasks:
+        game.tasks[key].set_grade(grade)
 
   def save_to_json(self):
-    self.rep.active_quests = list(self.active)
-    self.rep.done_tasks = [t.key for t in self.game.tasks.values() if t.done]
-    self.rep.show_url = self.show_url
-    self.rep.show_done = self.show_done
+    self.rep.quests = {}
+    for q in self.active:
+      self.rep.quests[q] = "e"
+    self.rep.tasks = {}
+    for t in self.game.tasks.values():
+      if t.grade != "":
+        self.rep.tasks[t.key] = t.grade
+    self.rep.view = []
+    if self.show_link:
+      self.rep.view.append("link")
+    if self.show_done:
+      self.rep.view.append("done")
+    if self.show_init:
+      self.rep.view.append("init")
+    if self.show_todo:
+      self.rep.view.append("todo")
+    if self.show_cmds:
+      self.rep.view.append("cmds")
     self.fnsave()
 
   @staticmethod
@@ -2535,7 +2544,7 @@ class Play:
     opening = "➡️"
     if q.key in self.active:
       opening = "⬇️"
-    done = len([t for t in q.tasks if t.done])
+    done = len([t for t in q.tasks if t.is_done()])
     size = len(q.tasks)
     if done > 9:
       done = "*"
@@ -2551,7 +2560,7 @@ class Play:
       resume = colour("y", text)
     entry = colour("b", entry) if q.type == "main" else colour("m", entry)
     qlink = ""
-    if self.show_url:
+    if self.show_link:
       if term_size > self.term_limit:
         qlink = " " + colour("c", q.mdlink)
       else:
@@ -2562,9 +2571,9 @@ class Play:
 
   def print_task(self, t, max_title, index, term_size):
     vindex = str(index).rjust(2, "0")
-    vdone = "x" if t.done else " "
+    vdone = "x" if t.is_done() else " "
     vlink = ""
-    if self.show_url:
+    if self.show_link:
       if t.key in t.title:
         vlink = colour("r", t.link)
       else:
@@ -2636,77 +2645,123 @@ class Play:
         expand.append(t)
     return expand
 
+  def clear(self):
+    subprocess.run("clear")
+    pass
+
   def take_actions(self, actions):
-    for t in actions:
-      if t == ":h" or t == ":help" or t == "?":
-        subprocess.run("clear")
-        self.show_help()
-      elif t == ":u" or t == ":url":
-        self.show_url = not self.show_url
-      elif t == ":a" or t == ":all":
-        self.show_done = not self.show_done
-      elif t == "<":
-        self.active = set()
-      elif t == ">":
-        self.update_reachable()
-        self.active = set([q.key for q in self.quests.values()])
-      else:
+    print(actions)
+    cmd = actions[0]
+    del actions[0]
+
+    if cmd == "<":
+      self.active = set()
+    elif cmd == ">":
+      self.update_reachable()
+      self.active = set([q.key for q in self.quests.values()])
+    elif cmd == "h" or cmd == "help":
+      self.clear()
+      self.show_help()
+    elif cmd == "c" or cmd == "cmds":
+      self.show_cmds = not self.show_cmds
+    elif cmd == "v" or cmd == "view":
+      for t in actions:
+        if t == "d" or t == "done":
+          self.show_done = not self.show_done
+        elif t == "i" or t == "init":
+          self.show_init = not self.show_init
+        elif t == "t" or t == "todo":
+          self.show_todo = not self.show_todo
+        elif t == "c" or t == "cmds":
+          self.show_cmds = not self.show_cmds
+        elif t == "l" or t == "link":
+          self.show_link = not self.show_link
+    elif cmd == "f" or cmd == "fold":
+      for t in actions:
+        t = t.upper()
+        if t in self.quests:
+          key = self.quests[t].key
+          if key not in self.active:
+            self.active.add(key)
+          else:
+            self.active.remove(key)
+        else:
+          print(f"{t} não processado")
+    elif cmd == "m" or cmd == "mark":
+      for t in actions:
         try:  # number
           t = int(t)
           if t >= 0 and t < len(self.tasks):
-            self.tasks[t].done = not self.tasks[t].done
-        except:  # letter
-          t = t.upper()
-          if t in self.quests:
-            key = self.quests[t].key
-            if key not in self.active:
-              self.active.add(key)
+            v = self.tasks[t].grade
+            if v == "x":
+              self.tasks[t].grade = ""
             else:
-              self.active.remove(key)
-          else:
-            print(f"{t} não processado")
+              self.tasks[t].grade = "x"
+        except:
+          print(f"{t} não processado")
 
   def show_help(self):
-    print("Digite os números ou intervalo das tarefas para (marcar/desmarcar), exemplo:")
-    print(colour("g", "$ ") + "1 2 5-6")
-    print("Digite as letras ou intervalo das quests para (expandir/colapsar), exemplo:")
-    print(colour("g", "$ ") + "a c d-g")
-    print("Digite > para expandir todas as quests")
-    print(colour("g", "$ ") + ">")
-    print("Digite < para colapsar todas as quests")
-    print(colour("g", "$ ") + "<")
-    print("Digite :a ou :all para mostrar/esconder as quests completas")
-    print(colour("g", "$ ") + ":all")
-    print("Digite :u ou :url para mostrar/esconder as urls")
-    print(colour("g", "$ ") + ":url")
-    print("Digite :h ou :help para mostrar a ajuda")
-    print(colour("g", "$ ") + ":h")
-    print("Digite :q ou :quit para sair")
-    print(colour("g", "$ ") + ":q")
-    print("Digite enter para continuar")
+    print("Digite " + colour("r", "t") + " os números ou intervalo das tarefas para (marcar/desmarcar), exemplo:")
+    print(colour("g", "play $ ") + "t 1 3-5")
     input()
+
+  def show_header(self):
+      self.clear()
+      if self.show_cmds:
+        print("# Digite " + colour("y", "c") + " para " + colour("y", "ocultar") + " a ajuda" + " ║       " + colour("g", "AÇÃO EXECUTADA") + "         ║      " + colour("g", "EXEMPLO DE USO"))
+      else:
+        print("# Digite " + colour("y", "c") + " para " + colour("g", "mostrar") + " a ajuda" )
+      vfilter = colour("r", "view")
+      vdone   = colour("g" if self.show_done else "y", "done")
+      vinit   = colour("g" if self.show_init else "y", "init")
+      vtodo   = colour("g" if self.show_todo else "y", "todo")
+      vlink   = colour("g" if self.show_link else "y", "link")
+      extra = ""
+      if self.show_cmds:
+        extra = "   ║ " + colour("c", "mostrar | ocultar   opções") + "   ║ " + colour("r", "v link") + " para ver os links"
+      print(f"  {vfilter} {vdone}, {vinit}, {vtodo}, {vlink}{extra}" )
+      if self.show_cmds:  
+        ccmds   = colour("r", "cmds") + "                          ║ " + colour("c", "mostrar | ocultar   comandos") + " ║ " + colour("r", "c")
+        vnum    = colour("r", "mark") + " " + colour("g", "<números>") + "                ║ " + colour("c", "marcar  | desmarcar tarefas") + "  ║ " + colour("r", "t 1 3-5")
+        vlet    = colour("r", "fold") + " " + colour("g", "<letras>")  + "                 ║ " + colour("c", "expandir| contrair  quests") + "   ║ " + colour("r", "f a b-c")
+  #      vfold   = colour("r", "<") + " ou " + colour("r", ">") + colour("y", "(expandir todas /contrair todas)")
+        print(f"  {ccmds}" ) 
+        print(f"  {vnum}")
+        print(f"  {vlet}")
+
+
+        vhelp   = colour("r", "help")  + "                          ║ " + colour("c", "mostrar o help") + "               ║ " + colour("r", "h")
+        vclose  = colour("r", "quit")  + "                          ║ " + colour("c", "sair") + "                         ║ " + colour("r", "q")
+        print(f"  {vhelp}" )
+        print(f"  {vclose}" )
+        print(colour("y", "  Dica: você pode digitar apenas a primeira letra do comando ao invés do comando completo."))
+
+      self.show_tasks()
+      print("\n" + colour("g", "play $") + " ", end="")
+
+      # f fold     <quest>        | c colapsar
+      # a archieve <quest>        | a arquivar
+      #                           |
+      # m mark   <task>         | m marcar
+      # g grade    <task> <value> | g graduar
+      #                           |
+      # v view     <task>         | v ver
+      # d down     <task>         | b baixar
+      #                           |
+      # q quit                    | s sair
+      # s show     <options>      | f filtrar
+      # cmds       
+
 
   def play(self):
     while True:
-      subprocess.run("clear")
-      vnum    = colour("g", "números") + "(marcar)"
-      vlet    = colour("g", "letras") + "(expandir)"
-      vfold   = colour("g", "<") + " ou " + colour("g", ">") + "(expandir todas)"
-      vhelp   = colour("c", ":h") + colour("g", "elp")
-      vclose  = colour("c", ":q") + colour("g", "uit")
-      vdone   = colour("c", ":d") + colour("g", "one") + ("[x]" if self.show_done else "[ ]")
-      vinit   = colour("c", ":i") + colour("g", "nit") + ("[x]" if self.show_done else "[ ]")
-      vtodo   = colour("c", ":t") + colour("g", "odo") + ("[x]" if self.show_done else "[ ]") 
-      vlink   = colour("c", ":l") + colour("g", "ink") + ("[x]" if self.show_url else "[ ]")
-      print(f"Digite: {vnum}, {vlet}, {vfold}, {vhelp} ou {vclose}.")
-      print(f"Filtro: {vdone}, {vinit}, {vtodo}, {vlink}, {vlink}")
-      self.show_tasks()
-      print("\n" + colour("g", "$") + " ", end="")
+      self.show_header()
       line = input()
-      if ":q" in line or ":quit" in line:
+      if "quit".startswith(line):
         break
       actions = self.expand_range(line)
       self.take_actions(actions)
+
       self.save_to_json()
 
 __version__ = "0.4.3"
@@ -2714,9 +2769,59 @@ __version__ = "0.4.3"
 
 
 
+class MRep:
+    @staticmethod
+    def list(args):
+        sp = SettingsParser()
+        settings = sp.load_settings()
+        print("SettingsFile:", sp.settings_file)
+        print("Repositories:")
+        for key in settings.reps:
+            print(key, end="")
+            if settings.reps[key].url:
+                print(f" - {settings.reps[key].url}")
+            else:
+                print(f" - {settings.reps[key].file}")
+
+    @staticmethod
+    def add(args):
+        sp = SettingsParser()
+        settings = sp.load_settings()
+        if args.url:
+            rep = RepoSettings().set_url(args.url)
+        elif args.file:
+            rep = RepoSettings().set_file(args.file)
+        settings.reps[args.alias] = rep
+        sp.save_settings()
+    
+    @staticmethod
+    def rm(args):
+        sp = SettingsParser()
+        settings = sp.load_settings()
+        if args.alias in settings.reps:
+            settings.reps.pop(args.alias)
+            sp.save_settings()
+        else:
+            print("Repository not found.")
+
+    @staticmethod
+    def reset(args):
+        sp = SettingsParser()
+        sp.settings = Settings()
+        sp.save_settings()
+
+    @staticmethod
+    def graph(args):
+        sp = SettingsParser()
+        settings = sp.load_settings()
+        rep = settings.get_repo(args.alias)
+        file = rep.get_file()
+        game = Game()
+        game.parse_file(file)
+        game.check_cycle()
+        game.generate_graph("graph")
 
 class Main:
-
     @staticmethod
     def run(args):
         PatternLoader.pattern = args.pattern
@@ -2783,54 +2888,9 @@ class Main:
             settings.local.lang = "ask"
             print("Language extension will be asked always.")
         if args.show:
-            print(SettingsParser.get_settings_file())
+            print(sp.get_settings_file())
             print(str(settings.local))
         sp.save_settings()
-
-    @staticmethod
-    def repo(args):
-        sp = SettingsParser()
-        settings = sp.load_settings()
-
-        if args.list:
-            print("listing all repositories")
-            for rep in settings.reps:
-                value = settings.reps[rep]
-                print(f"{rep}: ", end="")
-                if value.url != "":
-                    print(f"url: {settings.reps[rep].url}")
-                else:
-                    print(f"file: {settings.reps[rep].file}")
-        if args.add:
-            print("adding repo", args.add)
-            if args.url:
-                print("url", args.url)
-                rep = RepoSettings().set_url(args.url)
-                settings.reps[args.add] = rep
-                sp.save_settings()
-            elif args.file:
-                print("file", args.file)
-                rep = RepoSettings().set_file(args.file)
-                print(str(rep))
-                settings.reps[args.add] = rep
-                sp.save_settings()
-            else:
-                print("no url or file selected as source for the repository.")
-        if args.rm:
-            print("removing repo", args.rm)
-            settings.reps.pop(args.rm)
-        if args.graph:
-            print("generating graph.puml", args.graph)
-            rep = settings.reps[args.graph]
-            file = rep.get_file()
-            game = Game()
-            game.parse_file(file)
-            game.check_cycle()
-            game.generate_graph("graph")
-        if args.reset:
-            print("resetting all repositories to factory default.")
-            sp.settings = Settings()
-            sp.save_settings()
 
     @staticmethod
     def play(args):
@@ -2838,40 +2898,48 @@ class Main:
             print("playing repo", args.repo)
             sp = SettingsParser()
             settings = sp.load_settings()
-            repo = settings.reps[args.repo]
+            repo = settings.get_repo(args.repo)
             game = Game()
             file = repo.get_file()
             game.parse_file(file)
             #passsing a lambda function to the play class to save the settings
             play = Play(game, repo, lambda: sp.save_settings())
             play.play()
-            
-
-
-    # @staticmethod
-    # def rebuild(args):
-    #     if args.width is not None:
-    #         Report.set_terminal_size(args.width)
-    #     PatternLoader.pattern = args.pattern
-    #     manip = Param.Manip().set_unlabel(args.unlabel).set_to_sort(args.sort).set_to_number(args.number)
-    #     Actions.update(args.target_list, manip, args.cmd)
-    #     return 0
-
-    # @staticmethod
-    # def update(_args):
-    #     Down.update()
 
     @staticmethod
     def down(args):
         Down.entry_unpack(args.course, args.activity, args.language)
 
-    @staticmethod
-    def main():
+class Parser:
+    def __init__(self):
+        self.parser = argparse.ArgumentParser(prog='tko', description='A tool for competitive programming.')        
+        self.subparsers = self.parser.add_subparsers(title='subcommands', help='help for subcommand.')
+        self.add_parser_args()
+        self.add_parent_basic()
+        self.add_parent_manip()
+        self.add_parser_run()
+        self.add_parser_build()
+        self.add_parser_down()
+        self.add_parser_config()
+        self.add_parser_repo()
+        self.add_parser_play()
+
+    def add_parser_args(self):
+        self.parser.add_argument('-c', metavar='CONFIG_FILE', type=str, help='config json file.')
+        self.parser.add_argument('-w', metavar='WIDTH', type=int, help="terminal width.")
+        self.parser.add_argument('-v', action='store_true', help='show version.')
+        self.parser.add_argument('-g', action='store_true', help='show tko simple guide.')
+        self.parser.add_argument('-b', action='store_true', help='show bash simple guide.')
+        self.parser.add_argument('-m', action='store_true', help='monochromatic.')
+
+    def add_parent_basic(self):
         parent_basic = argparse.ArgumentParser(add_help=False)
         parent_basic.add_argument('--index', '-i', metavar="I", type=int, help='run a specific index.')
         parent_basic.add_argument('--pattern', '-p', metavar="P", type=str, default='@.in @.sol',
                                   help='pattern load/save a folder, default: "@.in @.sol"')
-
+        self.parent_basic = parent_basic
+    
+    def add_parent_manip(self):
         parent_manip = argparse.ArgumentParser(add_help=False)
         parent_manip.add_argument('--width', '-w', type=int, help="term width.")
         parent_manip.add_argument('--unlabel', '-u', action='store_true', help='remove all labels.')
@@ -2879,19 +2947,10 @@ class Main:
         parent_manip.add_argument('--sort', '-s', action='store_true', help="sort test cases by input size.")
         parent_manip.add_argument('--pattern', '-p', metavar="@.in @.out", type=str, default='@.in @.sol',
                                   help='pattern load/save a folder, default: "@.in @.sol"')
+        self.parent_manip = parent_manip
 
-        parser = argparse.ArgumentParser(prog='tko', description='A tool for competitive programming.')
-        parser.add_argument('-c', metavar='CONFIG_FILE', type=str, help='config json file.')
-        parser.add_argument('-w', metavar='WIDTH', type=int, help="terminal width.")
-        parser.add_argument('-v', action='store_true', help='show version.')
-        parser.add_argument('-g', action='store_true', help='show tko simple guide.')
-        parser.add_argument('-b', action='store_true', help='show bash simple guide.')
-        parser.add_argument('-m', action='store_true', help='monochromatic.')
-        
-        subparsers = parser.add_subparsers(title='subcommands', help='help for subcommand.')
-
-        # run
-        parser_r = subparsers.add_parser('run', parents=[parent_basic], help='run with test cases.')
+    def add_parser_run(self):
+        parser_r = self.subparsers.add_parser('run', parents=[self.parent_basic], help='run with test cases.')
         parser_r.add_argument('target_list', metavar='T', type=str, nargs='*', help='solvers, test cases or folders.')
         parser_r.add_argument('--filter', '-f', action='store_true', help='filter solver in temp dir before run')
         parser_r.add_argument('--compact', '-c', action='store_true', help='Dont show case descriptions in failures')
@@ -2907,22 +2966,22 @@ class Main:
         group.add_argument('--sideby', '-s', action='store_true', help="diff mode side-by-side.")
         parser_r.set_defaults(func=Main.run)
 
-        # build
-        parser_b = subparsers.add_parser('build', parents=[parent_manip], help='build a test target.')
+    def add_parser_build(self):
+        parser_b = self.subparsers.add_parser('build', parents=[self.parent_manip], help='build a test target.')
         parser_b.add_argument('target', metavar='T_OUT', type=str, help='target to be build.')
         parser_b.add_argument('target_list', metavar='T', type=str, nargs='+', help='input test targets.')
         parser_b.add_argument('--force', '-f', action='store_true', help='enable overwrite.')
         parser_b.set_defaults(func=Main.build)
 
-        # down
-        parser_d = subparsers.add_parser('down', help='download problem from repository.')
+    def add_parser_down(self):
+        parser_d = self.subparsers.add_parser('down', help='download problem from repository.')
         parser_d.add_argument('course', type=str, nargs='?', help=" [ fup | ed | poo ].")
         parser_d.add_argument('activity', type=str, nargs='?', help="activity @label.")
         parser_d.add_argument('--language', '-l', type=str, nargs='?', help="[ c | cpp | js | ts | py | java ]")
         parser_d.set_defaults(func=Main.down)
 
-        # settings
-        parser_s = subparsers.add_parser('config', help='settings tool.')
+    def add_parser_config(self):
+        parser_s = self.subparsers.add_parser('config', help='settings tool.')
         parser_s.add_argument('--show',  '-s', action='store_true', help='show current settings.')
 
         g_encoding = parser_s.add_mutually_exclusive_group()
@@ -2943,46 +3002,50 @@ class Main:
         g_lang.add_argument("--lang", '-l', metavar='ext', type=str, help="set default language extension.")
         g_lang.add_argument("--ask", action='store_true', help='ask language extension every time.')
 
-        parser_repo = subparsers.add_parser('repo', help='manipulate repositories.')
-        repo_actions = parser_repo.add_mutually_exclusive_group()
-        repo_actions.add_argument("--list", action='store_true', help="list all repositories.")
-        repo_actions.add_argument("--add",  metavar='repo', type=str, help="alias of the repository to be added.")
-        repo_actions.add_argument("--rm", metavar='repo', type=str, help="alias of the repository to be removed.")
-        repo_actions.add_argument("--reset", action='store_true', help="reset all repositories to factory default.")
-        repo_actions.add_argument("--graph", '-g', metavar='repo', type=str, help="generate graph of the repository.")
-        
-        init_source = parser_repo.add_mutually_exclusive_group()
-        init_source.add_argument("--url", type=str, help="add a repository url to the settings file.")
-        init_source.add_argument("--file", type=str, help="add a repository file to the settings file.")
+    def add_parser_repo(self):
+        parser_repo = self.subparsers.add_parser('repo', help='manipulate repositories.')
+        subpar_repo = parser_repo.add_subparsers(title='subcommands', help='help for subcommand.')
 
-        parser_repo.set_defaults(func=Main.repo)
+        repo_list = subpar_repo.add_parser('list', help='list all repositories')
+        repo_list.set_defaults(func=MRep.list)
 
-        parser_play = subparsers.add_parser('play', help='play a repository.')
-        parser_play.add_argument('repo', metavar='T', type=str, help='repository to be played.')
-        parser_play.set_defaults(func=Main.play)
+        repo_add = subpar_repo.add_parser('add', help='add a repository.')
+        repo_add.add_argument('alias', metavar='alias', type=str, help='alias of the repository to be added.')
+        repo_add.add_argument('--url', type=str, help='add a repository url to the settings file.')
+        repo_add.add_argument('--file', type=str, help='add a repository file to the settings file.')
+        repo_add.set_defaults(func=MRep.add)
 
-        parser_s.set_defaults(func=Main.settings)
+        repo_rm = subpar_repo.add_parser('rm', help='remove a repository.')
+        repo_rm.add_argument('alias', metavar='alias', type=str, help='alias of the repository to be removed.')
+        repo_rm.set_defaults(func=MRep.rm)
 
-        args = parser.parse_args()
+        repo_reset = subpar_repo.add_parser('reset', help='reset all repositories to factory default.')
+        repo_reset.set_defaults(func=MRep.reset)
+
+        repo_graph = subpar_repo.add_parser('graph', help='generate graph of the repository.')
+        repo_graph.add_argument('alias', metavar='alias', type=str, help='alias of the repository to be graphed.')
+        repo_graph.set_defaults(func=MRep.graph)
+
+    def add_parser_play(self):
+        parser_p = self.subparsers.add_parser('play', help='play a game.')
+        parser_p.add_argument('repo', metavar='repo', type=str, help='repository to be played.')
+        parser_p.set_defaults(func=Main.play)
+
+    def main(self):
+        args = self.parser.parse_args()
 
         if len(sys.argv) == 1:
-            parser.print_help()
+            self.parser.print_help()
             return
-
-        # setting general settings options
         if args.w is not None:
             Report.set_terminal_size(args.width)
-
         if args.c:
-            SettingsParser.set_settings_file(args.c)
-        
+            SettingsParser.user_settings_file = args.c
         settings = SettingsParser().load_settings()
-
         if settings.local.ascii:
             symbols.set_ascii()
         else:
             symbols.set_unicode()
-
         if not args.m and settings.local.color:
             Color.enabled = True
             symbols.set_colors()
@@ -3000,12 +3063,16 @@ class Main:
             except ValueError as e:
                 print(str(e))
 
-
-if __name__ == '__main__':
+def main():
     try:
-        Main.main()
+        parser = Parser()
+        parser.main()
         sys.exit(0)
     except KeyboardInterrupt:
         print("\n\nKeyboard Interrupt")
         sys.exit(1)
+
+if __name__ == '__main__':
+    main()
+
 

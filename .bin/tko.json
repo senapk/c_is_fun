@@ -1,0 +1,53 @@
+{
+    "reps": {
+        "fup": {
+            "url": "https://github.com/qxcodefup/arcade/blob/master/Readme.md",
+            "file": "",
+            "cache": "",
+            "quests": {},
+            "tasks": {},
+            "view": []
+        },
+        "ed": {
+            "url": "https://github.com/qxcodeed/arcade/blob/master/Readme.md",
+            "file": "",
+            "cache": "",
+            "quests": {},
+            "tasks": {},
+            "view": []
+        },
+        "poo": {
+            "url": "https://github.com/qxcodepoo/arcade/blob/master/Readme.md",
+            "file": "",
+            "cache": "",
+            "quests": {},
+            "tasks": {},
+            "view": []
+        },
+        "cisfun": {
+            "url": "",
+            "file": "/home/runner/cisfun/cplan.md",
+            "cache": "",
+            "quests": {},
+            "tasks": {
+                "algor": "x",
+                "excod": "x",
+                "ferru": "x",
+                "idere": "x"
+            },
+            "view": [
+                "link",
+                "done",
+                "init",
+                "todo"
+            ]
+        }
+    },
+    "local": {
+        "lang": "ask",
+        "ascii": false,
+        "color": true,
+        "updown": true,
+        "sideto_min": 60
+    }
+}

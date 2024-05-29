@@ -6,121 +6,95 @@ digraph diag {
   "Uso do bash:1" -> "Configuração do Ambiente:2"
   "O que são linguagens de programação?:4" -> "Makefile:4"
   "O que são linguagens de programação?:4" -> "Primeiro código:6"
-  "Entrada e Saída - puts, printf, scanf:6" -> "String não é um tipo primitivo:1"
+  "Entrada e Saída - puts, printf, scanf:5" -> "String não é um tipo primitivo:1"
   "Primeiro código:6" -> "Clean Code - Estilo:1"
   "Primeiro código:6" -> "Clean Code - Indentação:1"
   "Primeiro código:6" -> "Manipulando tipos:1"
-  "Primeiro código:6" -> "Casting e Conversão:2"
-  "Primeiro código:6" -> "Conversão:1"
+  "Primeiro código:6" -> "Casting e Conversão:3"
   "Primeiro código:6" -> "Operações Básicas:3"
   "TKO - Ferramenta de Testes:1" -> "Operações Básicas:3"
-  "Operações Básicas:3" -> "Biblioteca matemática:1"
-  "Operações Básicas:3" -> "Entrada e Saída - puts, printf, scanf:6"
-  "Strings:7" -> "Lendo e escrevendo em strings sprintf e sscanf:1"
-  "While:4" -> "Tratamento de erros de entrada fflush:1"
-  "While:4" -> "Macros: include, define, if, ifdef, endif:1"
+  "Operações Básicas:3" -> "Biblioteca matemática:2"
+  "Operações Básicas:3" -> "Entrada e Saída - puts, printf, scanf:5"
+  "Strings:6" -> "Lendo e escrevendo em strings sprintf e sscanf:3"
   "O que são linguagens de programação?:4" -> "TKO - Ferramenta de Testes:1"
+  "Entrada e Saída - puts, printf, scanf:5" -> "Seleção Básica:10"
+  "Clean Code - Estilo:1" -> "Seleção Básica:10"
+  "Clean Code - Indentação:1" -> "Seleção Básica:10"
   "O que são linguagens de programação?:4" -> "Debugando:1"
-  "Entrada e Saída - puts, printf, scanf:6" -> "Técnicas de seleção 0:1"
   "Funções I:5" -> "Técnicas de seleção I:8"
-  "Técnicas de seleção 0:1" -> "Técnicas de seleção II:6"
-  "Técnicas de seleção II:6" -> "Funções I:5"
+  "Técnicas de seleção I:8" -> "Técnicas de seleção II:10"
+  "Seleção Básica:10" -> "Funções I:5"
   "Funções I:5" -> "Funções II:4"
-  "Técnicas de seleção 0:1" -> "While:4"
+  "Seleção Básica:10" -> "While:4"
   "While:4" -> "for:8"
-  "Técnicas de seleção 0:1" -> "Números Aleatórios:3"
-  "Números Aleatórios:3" -> "Game Zero a Cem:1"
-  "Funções I:5" -> "Game Zero a Cem:1"
-  "Conversão:1" -> "IO: argc e argv:1"
+  "Seleção Básica:10" -> "Números Aleatórios:3"
+  "Strings:6" -> "IO: argc e argv:2"
   "for:8" -> "Array Iniciante:4"
   "Funções I:5" -> "Array Iniciante:4"
   "Array Iniciante:4" -> "Array avançado:4"
-  "Números Aleatórios:3" -> "Blackjack:1"
-  "Array avançado:4" -> "Blackjack:1"
   "Array avançado:4" -> "Array Expert:6"
-  "Array avançado:4" -> "Strings:7"
-  "Strings:7" -> "Strings II:3"
+  "Array avançado:4" -> "Strings:6"
+  "Strings:6" -> "Strings II:3"
   "Ponteiros:1" -> "Strings II:3"
-  "Strings II:3" -> "Strings Expert:4"
   "Funções II:4" -> "Ponteiros:1"
-  "Funções I:5" -> "Structs:2"
+  "Funções I:5" -> "Structs:1"
   "Array Iniciante:4" -> "Matrizes:2"
-  "Matrizes:2" -> "Técnicas em matrizes:2"
-  "Structs Advanced:2" -> "Técnicas em matrizes:2"
-  "Números Aleatórios:3" -> "Jogo da Vida:1"
-  "Técnicas em matrizes:2" -> "Jogo da Vida:1"
-  "Números Aleatórios:3" -> "Cobrinha:1"
-  "Structs Advanced:2" -> "Cobrinha:1"
-  "Técnicas de seleção 0:1" -> "Enum:2"
-  "Ponteiros:1" -> "Ponteiros ii:2"
-  "Ponteiros:1" -> "Alocação Dinâmica i:2"
-  "Alocação Dinâmica i:2" -> "Alocação Dinâmica ii:2"
-  "Ponteiros ii:2" -> "arquivos texto:1"
-  "arquivos texto:1" -> "arquivos binario:1"
+  "Matrizes:2" -> "Técnicas em matrizes:1"
+  "Structs Advanced:2" -> "Técnicas em matrizes:1"
   "Ponteiros:1" -> "Structs Advanced:2"
   "Array Iniciante:4" -> "Structs Advanced:2"
-  "Structs:2" -> "Structs Advanced:2"
+  "Structs:1" -> "Structs Advanced:2"
   "O que são linguagens de programação?:4" [fillcolor=lime]
+  "Uso do bash:1" [fillcolor=pink]
+  "Configuração do Ambiente:2" [fillcolor=pink]
+  "Makefile:4" [fillcolor=pink]
   "Primeiro código:6" [fillcolor=lime]
   "String não é um tipo primitivo:1" [fillcolor=lime]
   "Clean Code - Estilo:1" [fillcolor=lime]
   "Clean Code - Indentação:1" [fillcolor=lime]
+  "Manipulando tipos:1" [fillcolor=pink]
+  "Casting e Conversão:3" [fillcolor=pink]
   "Operações Básicas:3" [fillcolor=lime]
-  "Entrada e Saída - puts, printf, scanf:6" [fillcolor=lime]
+  "Biblioteca matemática:2" [fillcolor=pink]
+  "Entrada e Saída - puts, printf, scanf:5" [fillcolor=lime]
+  "Lendo e escrevendo em strings sprintf e sscanf:3" [fillcolor=pink]
   "TKO - Ferramenta de Testes:1" [fillcolor=lime]
+  "Seleção Básica:10" [fillcolor=lime]
+  "Debugando:1" [fillcolor=pink]
+  "Técnicas de seleção I:8" [fillcolor=pink]
+  "Técnicas de seleção II:10" [fillcolor=pink]
   "Funções I:5" [fillcolor=lime]
   "Funções II:4" [fillcolor=lime]
   "While:4" [fillcolor=lime]
   "for:8" [fillcolor=lime]
   "Números Aleatórios:3" [fillcolor=lime]
-  "Game Zero a Cem:1" [fillcolor=lime]
-  "IO: argc e argv:1" [fillcolor=lime]
+  "IO: argc e argv:2" [fillcolor=pink]
   "Array Iniciante:4" [fillcolor=lime]
   "Array avançado:4" [fillcolor=lime]
-  "Blackjack:1" [fillcolor=lime]
-  "Array Expert:6" [fillcolor=lime]
-  "Strings:7" [fillcolor=lime]
-  "Strings II:3" [fillcolor=lime]
-  "Strings Expert:4" [fillcolor=lime]
+  "Array Expert:6" [fillcolor=pink]
+  "Strings:6" [fillcolor=lime]
+  "Strings II:3" [fillcolor=pink]
   "Ponteiros:1" [fillcolor=lime]
-  "Structs:2" [fillcolor=lime]
+  "Structs:1" [fillcolor=lime]
   "Matrizes:2" [fillcolor=lime]
-  "Técnicas em matrizes:2" [fillcolor=lime]
-  "Jogo da Vida:1" [fillcolor=lime]
-  "Cobrinha:1" [fillcolor=lime]
-  "Enum:2" [fillcolor=lime]
-  "Ponteiros ii:2" [fillcolor=lime]
-  "Alocação Dinâmica i:2" [fillcolor=lime]
-  "Alocação Dinâmica ii:2" [fillcolor=lime]
-  "arquivos texto:1" [fillcolor=lime]
-  "arquivos binario:1" [fillcolor=lime]
+  "Técnicas em matrizes:1" [fillcolor=pink]
   "Structs Advanced:2" [fillcolor=lime]
   subgraph cluster_Introdução {
     label="Introdução"
     style=filled
-    color=lightgrey
+    color=lightgray
     "O que são linguagens de programação?:4"
     "Uso do bash:1"
     "Configuração do Ambiente:2"
-    "Makefile:4"
-    "Primeiro código:6"
   }
-  subgraph cluster_Strings {
-    label="Strings"
+  subgraph cluster_Básico {
+    label="Básico"
     style=filled
-    color=lightgrey
-    "String não é um tipo primitivo:1"
-    "Lendo e escrevendo em strings sprintf e sscanf:1"
-    "Strings:7"
-    "Strings II:3"
-    "Strings Expert:4"
-  }
-  subgraph cluster_Matrizes {
-    label="Matrizes"
-    style=filled
-    color=lightgrey
-    "Matrizes:2"
-    "Técnicas em matrizes:2"
+    color=lightgray
+    "Entrada e Saída - puts, printf, scanf:5"
+    "Lendo e escrevendo em strings sprintf e sscanf:3"
+    "TKO - Ferramenta de Testes:1"
+    "Seleção Básica:10"
   }
 }
 @enduml
