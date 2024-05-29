@@ -1,48 +1,48 @@
-- [x] ### O que são linguagens de programação? `+types:20`<!-- l:tools_basic c:lime -->
-- [x] ### Uso do bash `+tools:20`<!-- l:tools_bash c:pink r:tools_basic -->
-- [x] ### Configuração do Ambiente `+tools:30`<!-- l:tools_local_ide r:tools_bash c:pink -->
-- [x] ### Makefile `+tools:30`<!-- l:tools_makefile c:pink r:tools_basic -->
-- [x] ### Primeiro código `+types:30`<!-- l:types_basic r:tools_basic c:lime -->
-- [ ] ### String não é um tipo primitivo `+types:20`<!-- l:string_novice c:lime r:io_basic -->
-- [x] ### Clean Code - Estilo `+style:10`<!-- l:style_guide c:lime r:types_basic -->
-- [x] ### Clean Code - Indentação `+style:10`<!-- l:style_indentation c:lime r:types_basic -->
-- [ ] ### Manipulando tipos `+types:10`<!-- l:types_modifiers c:pink r:types_basic -->
-- [x] ### Casting e Conversão `+types:10`<!-- l:types_casting c:pink r:types_basic -->
-- [x] ### Operações Básicas `+logic:10`<!-- l:types_operations c:lime r:types_basic r:tools_tko -->
-- [ ] ### Biblioteca matemática `+logic:10`<!-- l:tools_math.h c:pink r:types_operations -->
-- [ ] ### Entrada e Saída - puts, printf, scanf `+io:10`<!-- l:io_basic c:lime r:types_operations -->
-- [ ] ### Lendo e escrevendo em strings sprintf e sscanf `+io:10`<!-- l:io_string c:pink r:string_novice -->
-- [ ] ### Tratamento de erros de entrada fflush  `+io:10`<!-- l:io_error c:pink r:repeat_novice -->
-- [ ] ### Macros: include, define, if, ifdef, endif  `+io:10`<!-- l:tools_macros c:pink r:repeat_novice -->
-- [ ] ### TKO - Ferramenta de Testes `+tools:10`<!-- l:tools_tko c:lime r:tools_basic -->
-- [x] ### Seleção Básica `+select:10`<!-- l:select_novice c:lime r:io_basic r:style_guide r:style_indentation -->
-- [ ] ### Debugando `+tools:10`<!-- l:tools_debug c:pink r:tools_basic -->
-- [ ] ### Técnicas de seleção I `+select:10 +logic:10`<!-- l:select_advanced c:pink r:functions_novice -->
-- [ ] ### Técnicas de seleção II `+select:10 +logic:10`<!-- l:select_expert c:pink r:select_advanced -->
-- [ ] ### Funções I `+types:10`<!-- l:functions_novice c:lime r:select_novice -->
-- [ ] ### Funções II `+logic:10`<!-- l:function_advanced c:lime r:functions_novice -->
-- [ ] ### While `+repeat:10`<!-- l:repeat_novice c:lime r:select_novice -->
-- [ ] ### for `+repeat:10`<!-- l:repeat_advanced c:lime r:repeat_novice -->
-- [ ] ### Números Aleatórios `+tools:10`<!-- l:tools_rand c:lime r:select_novice -->
-- [ ] ### Game Zero a Cem `+project:10`<!-- l:game_zero_cem c:cyan r:tools_rand r:functions_novice -->
-- [x] ### IO: argc e argv `+io:10`<!-- l:io_argc_argv c:pink r:types_conversion -->
-- [ ] ### Array Iniciante `+types:10`<!-- l:array_novice c:lime r:repeat_advanced r:functions_novice -->
-- [ ] ### Array avançado `+logic:10 +select:10 +repeat:10`<!-- l:array_advanced c:lime r:array_novice -->
-- [ ] ### Blackjack `+project:10`<!-- l:game_blackjack c:cyan r:tools_rand r:array_advanced -->
-- [ ] ### Array Expert `+logic:10 +select:10 +repeat:10`<!-- l:array_expert c:pink r:array_advanced -->
-- [x] ### Strings `+types:10 +select:10`<!-- l:string_novice c:lime r:array_advanced -->
-- [ ] ### Strings II `+select:10`<!-- l:string_advanced c:pink r:string_novice r:pointers_novice -->
-- [ ] ### Strings Expert `+select:10 +repeat:10 +logic:10`<!-- l:string_expert c:pink r:string_advanced -->
-- [ ] ### Ponteiros `+types:10`<!-- l:pointers_novice c:lime r:function_advanced -->
-- [ ] ### Structs `+types:10`<!-- l:structs_novice c:lime r:functions_novice -->
-- [ ] ### Matrizes `+types:20 +array:30`<!-- l:matrix_novice c:lime r:array_novice -->
-- [ ] ### Técnicas em matrizes `+select:20 +logic:20 +repeat:20 +array:30`<!-- l:matrix_advanced c:pink r:matrix_novice r:structs_advanced -->
-- [ ] ### Jogo da Vida `+project:10`<!-- l:game_jogodavida c:cyan r:tools_rand r:matrix_advanced -->
-- [ ] ### Cobrinha `+project:10`<!-- l:game_cobrinha c:cyan r:tools_rand r:structs_advanced -->
-- [ ] ### Aula 24 - enum `+types:10`<!-- l:enum c:lime r:select_novice -->
-- [ ] ### Ponteiros ii `+types:10 +logic:10`<!-- l:pointers_advanced c:lime r:pointers_novice -->
-- [ ] ### Alocação Dinâmica i `+types:10 +logic:10`<!-- l:memory_novice c:pink r:pointers_novice -->
-- [ ] ### Alocação Dinâmica ii `+types:10 +logic:10`<!-- l:memory_advanced c:pink r:memory_novice -->
-- [ ] ### arquivos texto `+types:10 +logic:10`<!-- l:files_novice c:lime r:pointers_advanced -->
-- [ ] ### arquivos binario `+types:10 +logic:10`<!-- l:files_advanced c:pink r:files_novice -->
-- [ ] ### Structs Advanced `+select:20 +logic:30 +repeat:10 +array:10`<!-- l:structs_advanced c:lime r:pointers_novice r:array_novice r:structs_novice -->
+- [x] ### O que são linguagens de programação? <!-- @tools_basic t:main g:Introdução -->
+- [x] ### Uso do bash <!-- @tools_bash t:side r:tools_basic g:Introdução -->
+- [x] ### Configuração do Ambiente <!-- @tools_local_ide r:tools_bash t:side g:Introdução -->
+- [x] ### Makefile <!-- @tools_makefile t:side r:tools_basic -->
+- [x] ### Primeiro código <!-- @types_basic r:tools_basic t:main -->
+- [ ] ### Strings em C: Arrays de `char` <!-- @string_trivial t:main r:io_basic -->
+- [ ] ### Clean Code - Estilo <!-- @style_guide t:main r:types_basic -->
+- [ ] ### Clean Code - Indentação <!-- @style_indentation t:main r:types_basic -->
+- [ ] ### Manipulando tipos <!-- @types_modifiers t:side r:types_basic -->
+- [ ] ### Casting e Conversão <!-- @types_casting t:side r:types_basic -->
+- [ ] ### Operações Básicas <!-- @types_operations t:main r:types_basic r:tools_tko -->
+- [ ] ### Biblioteca matemática <!-- @tools_math.h t:side r:types_operations -->
+- [ ] ### Entrada e Saída - puts, printf, scanf <!-- @io_basic t:main r:types_operations g:Básico -->
+- [ ] ### Lendo e escrevendo em strings sprintf e sscanf <!-- @io_string t:side r:string_novice g:Básico -->
+- [ ] ### Tratamento de erros de entrada fflush  <!-- @io_error t:side r:repeat_novice -->
+- [ ] ### Macros: include, define, if, ifdef, endif  <!-- @tools_macros t:side r:repeat_novice -->
+- [ ] ### TKO - Ferramenta de Testes <!-- @tools_tko t:main r:tools_basic g:Básico -->
+- [ ] ### Seleção Básica <!-- @select_novice t:main r:io_basic r:style_guide r:style_indentation g:Básico -->
+- [ ] ### Debugando <!-- @tools_debug t:side r:tools_basic -->
+- [ ] ### Técnicas de seleção I <!-- @select_advanced t:side r:functions_novice -->
+- [ ] ### Técnicas de seleção II <!-- @select_expert t:side r:select_advanced -->
+- [ ] ### Funções I <!-- @functions_novice t:main r:select_novice -->
+- [ ] ### Funções II <!-- @function_advanced t:main r:functions_novice -->
+- [ ] ### While <!-- @repeat_novice t:main r:select_novice -->
+- [ ] ### for <!-- @repeat_advanced t:main r:repeat_novice -->
+- [ ] ### Números Aleatórios <!-- @tools_rand t:main r:select_novice -->
+- [ ] ### Game Zero a Cem <!-- @game_zero_cem c:cyan r:tools_rand r:functions_novice -->
+- [ ] ### IO: argc e argv <!-- @io_argc_argv t:side r:string_novice -->
+- [ ] ### Array Iniciante <!-- @array_novice t:main r:repeat_advanced r:functions_novice -->
+- [ ] ### Array avançado <!-- @array_advanced t:main r:array_novice -->
+- [ ] ### Blackjack <!-- @game_blackjack c:cyan r:tools_rand r:array_advanced -->
+- [ ] ### Array Expert <!-- @array_expert t:side r:array_advanced -->
+- [ ] ### Strings <!-- @string_novice t:main r:array_advanced -->
+- [ ] ### Strings II <!-- @string_advanced t:side r:string_novice r:pointers_novice -->
+- [ ] ### Strings Expert <!-- @string_expert t:side r:string_advanced -->
+- [ ] ### Ponteiros <!-- @pointers_novice t:main r:function_advanced -->
+- [ ] ### Structs <!-- @structs_novice t:main r:functions_novice -->
+- [ ] ### Matrizes <!-- @matrix_novice t:main r:array_novice -->
+- [ ] ### Técnicas em matrizes <!-- @matrix_advanced t:side r:matrix_novice r:structs_advanced -->
+- [ ] ### Jogo da Vida <!-- @game_jogodavida c:cyan r:tools_rand r:matrix_advanced -->
+- [ ] ### Cobrinha <!-- @game_cobrinha c:cyan r:tools_rand r:structs_advanced -->
+- [ ] ### Aula 24 - enum <!-- @enum t:main r:select_novice -->
+- [ ] ### Ponteiros ii <!-- @pointers_advanced t:main r:pointers_novice -->
+- [ ] ### Alocação Dinâmica i <!-- @memory_novice t:side r:pointers_novice -->
+- [ ] ### Alocação Dinâmica ii <!-- @memory_advanced t:side r:memory_novice -->
+- [ ] ### arquivos texto <!-- @files_novice t:main r:pointers_advanced -->
+- [ ] ### arquivos binario <!-- @files_advanced t:side r:files_novice -->
+- [ ] ### Structs Advanced <!-- @structs_advanced t:main r:pointers_novice r:array_novice r:structs_novice -->

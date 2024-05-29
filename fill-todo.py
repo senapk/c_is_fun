@@ -11,7 +11,7 @@ def compare_lines(line, file):
 count = 1
 changed = 0
 
-lines = open('graph/Readme.md').read().split("\n")
+lines = open('cplan.md').read().split("\n")
 output = []
 
 todolines = open('to-do.md').read().split("\n")

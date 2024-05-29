@@ -40,9 +40,9 @@ Clique para abrir a versão clicável
 - [ ] <!-- @varia -->[Variáveis](wiki/variaveis/variaveis.md): Boas práticas
 - [ ] <!-- @nmede -->[Não tenha medo de erros](wiki/erros/variaveis.md)
 
-### String não é um tipo primitivo <!-- @string_trivial t:main r:io_basic -->
+### Strings em C: Array de `char` <!-- @string_trivial t:main r:io_basic -->
 
-- [ ] <!-- @otstr -->[O tipo string](wiki/string/tipo_string.md)
+- [ ] <!-- @otstr -->[Strings em C](wiki/string/tipo_string.md)
 
 ### Clean Code - Estilo <!-- @style_guide t:main r:types_basic -->
 
@@ -81,7 +81,7 @@ Clique para abrir a versão clicável
 - [ ] [@003 Opala Bebedor](https://github.com/qxcodefup/arcade/blob/master/base/003/Readme.md),
 - [ ] [@196 Comprando TV Parcelada](https://github.com/qxcodefup/arcade/blob/master/base/196/Readme.md)
 
-### Lendo e escrevendo em strings sprintf e sscanf <!-- @io_string t:side r:string_novice g:Básico -->
+### Manipulando strings com `sprintf` e `sscanf` <!-- @io_string t:side r:string_novice g:Básico -->
 
 - [ ] <!-- @sprin -->[Básico sobre `sprintf` e `sscanf`](wiki/string/sprintf_sscanf.md)
 - [ ] <!-- @seria -->[Usando para Serialização e Desseliarização](wiki/string/serializacao_c.md)
@@ -210,10 +210,10 @@ Clique para abrir a versão clicável
 
 ### Strings <!-- @string_novice t:main r:array_advanced -->
 
-- [ ] <!-- @ascii -->[Tabela ASC](wiki/string/tabela_asc2.md)
+- [ ] <!-- @ascii -->[Tabela ASCII](wiki/string/tabela_asc2.md)
 - [ ] <!-- @manca -->[Manipulação de caracteres](wiki/manipulacao_caracteres/Readme.md)
 - [ ] <!-- @mestr -->[Métodos da classe string](wiki/metodos_string/metodos_string.md)
-- [ ] <!-- @metoe -->[Métodos  e ](wiki/split_join/Readme.)
+- [ ] <!-- @metoe -->[Métodos  e ](wiki/split_join/Readme.md)
 - [ ] Exercícios Classe:
 - [ ] [@173 Eribelton e a Ascologia V1](https://github.com/qxcodefup/arcade/blob/master/base/173/Readme.md),
 - [ ] [@104 Maiúsculo, Minusculo e Dígito!](https://github.com/qxcodefup/arcade/blob/master/base/104/Readme.md)
