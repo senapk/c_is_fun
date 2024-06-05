@@ -1,5 +1,25 @@
 # Adendos ao Makefile
 
+<!-- toc -->
+- [Variáveis Automáticas](#variáveis-automáticas)
+  - [Exemplo](#exemplo)
+- [Diretivas `include`](#diretivas-include)
+  - [Exemplo](#exemplo)
+- [Regras Implícitas](#regras-implícitas)
+  - [Exemplo](#exemplo)
+- [Funções no Makefile](#funções-no-makefile)
+  - [Função `wildcard`](#função-wildcard)
+  - [Função `patsubst`](#função-patsubst)
+- [Diretivas de Condicionais](#diretivas-de-condicionais)
+  - [Exemplo](#exemplo)
+- [Phony Targets](#phony-targets)
+  - [Exemplo](#exemplo)
+- [Diretivas `$(shell ...)`](#diretivas-shell-)
+  - [Exemplo](#exemplo)
+- [Conclusão](#conclusão)
+<!-- toc -->
+
+
 ## Variáveis Automáticas
 
 No Makefile, você pode utilizar variáveis automáticas para simplificar as regras. Algumas das mais comuns incluem:

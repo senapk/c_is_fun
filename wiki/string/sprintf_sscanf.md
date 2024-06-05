@@ -1,5 +1,20 @@
 # Trabalhando com Strings em C: `sprintf` e `sscanf`
 
+<!-- toc -->
+- [Introdução](#introdução)
+- [Parte 1: Escrevendo em Strings com `sprintf`](#parte-1-escrevendo-em-strings-com-sprintf)
+  - [O que é `sprintf`?](#o-que-é-sprintf)
+  - [Sintaxe](#sintaxe)
+  - [Exemplo de Uso](#exemplo-de-uso)
+  - [Detalhes Importantes](#detalhes-importantes)
+- [Parte 2: Lendo Strings com `sscanf`](#parte-2-lendo-strings-com-sscanf)
+  - [O que é `sscanf`?](#o-que-é-sscanf)
+  - [Sintaxe](#sintaxe)
+  - [Exemplo de Uso](#exemplo-de-uso)
+  - [Detalhes Importantes](#detalhes-importantes)
+- [Código Completo](#código-completo)
+<!-- toc -->
+
 ## Introdução
 
 Manipular strings é uma tarefa comum em programação, especialmente em C, onde as funções `sprintf` e `sscanf` desempenham papéis cruciais. A primeira parte deste guia abordará a função `sprintf`, que é utilizada para escrever dados em uma string. A segunda parte se concentrará na função `sscanf`, usada para ler dados de uma string.

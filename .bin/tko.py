@@ -25,7 +25,8 @@ from typing import List
 from shutil import which
 from typing import List, Tuple, Optional, Dict
 import math
-from typing import Optional, Dict, List
+from typing import Optional, Dict, List, Tuple
+from typing import Dict, List
 import sys
 
 
@@ -41,12 +42,14 @@ class Title:
         return title
 
 class RemoteCfg:
-    def __init__(self):
+    def __init__(self, url: Optional[str] = None):
         self.user = ""
         self.repo = ""
         self.branch = ""
         self.folder = ""
         self.file = ""
+        if url is not None:
+            self.from_url(url)
 
     def from_url(self, url: str):
         if url.startswith("https://raw.githubusercontent.com/"):
@@ -198,18 +201,32 @@ class RepoSettings:
         self.cache: str = ""
         self.quests: Dict[str, str] = {}
         self.tasks: Dict[str, str] = {}
-        self.view: List[str] = []
+        self.view: List[str] = ["done", "init", "link", "todo"]
 
     def get_file(self) -> str:
-        if self.file == "" or os.path.exists(self.file) == False:
-            if self.url != "":
-                # download file from url to tempfile
+        # arquivo existe e é local
+        if self.file != "" and os.path.exists(self.file) and self.url == "":
+            return self.file
+        
+        # arquivo não existe e é remoto
+        if self.url != "" and (self.file == "" or not os.path.exists(self.file)):
                 with tempfile.NamedTemporaryFile(delete=False) as f:
-                    self.file = f.name
-                    cfg = RemoteCfg()
-                    cfg.from_url(self.url)
-                    cfg.download_absolute(self.file)
-        return self.file
+                    filename = f.name
+                    cfg = RemoteCfg(self.url)
+                    cfg.download_absolute(filename)
+                return filename
+
+        # arquivo é local com url remota
+        if self.file != "" and os.path.exists(self.file) and self.url != "":
+            content = open(self.file).read()
+            content = Absolute.relative_to_absolute(content, RemoteCfg(self.url))
+            with tempfile.NamedTemporaryFile(delete=False) as f:
+                filename = f.name
+                f.write(content.encode("utf-8"))
+            return filename
+
+        raise ValueError("fail: file not found or invalid settings to download repository file")
+        
 
     def set_file(self, file: str):
         self.file = os.path.abspath(file)
@@ -310,6 +327,20 @@ class Settings:
         with open(file, "w") as f:
             json.dump(self.to_dict(), f, indent=4)
 
+    def __str__(self):
+        output = []
+        output.append("Repositories:")
+        maxlen = max([len(key) for key in self.reps])
+        for key in self.reps:
+            prefix = f"- {key.ljust(maxlen)}"
+            if self.reps[key].file and self.reps[key].url:
+                output.append(f"{prefix} : dual   : {self.reps[key].url} ; {self.reps[key].file}")
+            elif self.reps[key].url:
+                output.append(f"{prefix} : remote : {self.reps[key].url}")
+            else:
+                output.append(f"{prefix} : local  : {self.reps[key].file}")
+        return "\n".join(output)
+
 
 class SettingsParser:
 
@@ -348,18 +379,6 @@ class SettingsParser:
     def get_language(self) -> str:
         return self.settings.local.lang
 
-    def get_repository(self, course: str) -> Optional[str]:
-        rep = self.settings.reps.get(course, None)
-        if rep is not None:
-            if rep.url != "":
-                print(rep.url)
-                cfg = RemoteCfg()
-                cfg.from_url(rep.url)
-                cfg.file = ""
-                git_raw = "https://raw.githubusercontent.com"
-                url = f"{git_raw}/{cfg.user}/{cfg.repo}/{cfg.branch}/base/"
-                print("debug:", url)
-                return url
 
 
 
@@ -447,7 +466,7 @@ class Color:
 
   @staticmethod
   def remove_colors(text: str) -> str:
-    for color in Color.__map.values():
+    for color in Color.map.values():
       text = text.replace(color, '')
     return text
 
@@ -457,6 +476,9 @@ class Color:
 
 def colour(color: str, text: str) -> str:
   return (Color.map[color] + text + Color.map["reset"])
+
+def colour_bold(color: str, text: str) -> str:
+  return (Color.map["bold"] + Color.map[color] + text + Color.map["reset"])
 
 
 class __Symbols:
@@ -536,6 +558,25 @@ class __Symbols:
         self.equalbar    = colour("g", self.equalbar)
 
 symbols = __Symbols()
+
+class GSym:
+  check = "✓" #"✅" "☑" "🮱"
+  uncheck = "✗" # "❎" "☐" "🯀"
+  vcheck = "☑" # "@" # "☑"
+  vuncheck = "☐" # "#" # "☐"
+  numbers = ["𝟬","𝟭","𝟮","𝟯","𝟰","𝟱","𝟲","𝟳","𝟴","𝟵"]
+
+def green(text):
+  return colour("g", text)
+
+def red(text):
+  return colour("r", text)
+
+def yellow(text):
+  return colour("y", text)
+
+def cyan(text):
+  return colour("c", text)
 
 
 class Report:
@@ -1004,17 +1045,17 @@ class Down:
     #         print("No .info file found, skipping update...")
 
     @staticmethod
-    def create_file(content, path, label=""):
+    def __create_file(content, path, label=""):
         with open(path, "w") as f:
             f.write(content)
         print(path, label)
 
     @staticmethod
-    def unpack_json(loaded, destiny, lang: str):
+    def __unpack_json(loaded, destiny, lang: str):
         # extracting all files to folder
         for entry in loaded["upload"]:
             if entry["name"] == "vpl_evaluate.cases":
-                Down.compare_and_save(entry["contents"], os.path.join(destiny, "cases.tio"))
+                Down.__compare_and_save(entry["contents"], os.path.join(destiny, "cases.tio"))
 
         # for entry in loaded["keep"]:
         #    Down.compare_and_save(entry["contents"], os.path.join(destiny, entry["name"]))
@@ -1027,10 +1068,10 @@ class Down:
             if lang in loaded["draft"]:
                 for file in loaded["draft"][lang]:
                     path = os.path.join(destiny, file["name"])
-                    Down.create_file(file["contents"], path, "(Draft)")
+                    Down.__create_file(file["contents"], path, "(Draft)")
 
     @staticmethod
-    def compare_and_save(content, path):
+    def __compare_and_save(content, path):
         if not os.path.exists(path):
             with open(path, "w", encoding="utf-8") as f:
                 f.write(content.encode("utf-8").decode("utf-8"))
@@ -1044,7 +1085,7 @@ class Down:
                 print(path + " (Unchanged)")
     
     @staticmethod
-    def down_problem_def(destiny, cache_url) -> Tuple[str, str]:
+    def __down_problem_def(destiny, cache_url) -> Tuple[str, str]:
         # downloading Readme
         readme = os.path.join(destiny, "Readme.md")
         [tempfile, __content] = urllib.request.urlretrieve(cache_url + "Readme.md")
@@ -1054,7 +1095,7 @@ class Down:
         except:
             content = open(tempfile).read()
 
-        Down.compare_and_save(content, readme)
+        Down.__compare_and_save(content, readme)
         
         # downloading mapi
         mapi = os.path.join(destiny, "mapi.json")
@@ -1062,7 +1103,7 @@ class Down:
         return readme, mapi
 
     @staticmethod
-    def create_problem_folder(_course, activity):
+    def __create_problem_folder(_course, activity):
         # create dir
         destiny = activity
         if not os.path.exists(destiny):
@@ -1072,29 +1113,42 @@ class Down:
 
         return destiny
 
+
     @staticmethod
-    def entry_unpack(course: str, activity: str, language: Optional[str]) -> None:
-        course_url = SettingsParser().get_repository(course)
-        if course_url is None:
-            print("fail: course", course, "not found")
+    def download_problem(course: str, activity: str, language: Optional[str]) -> bool:
+        sp = SettingsParser()
+        settings = sp.load_settings()
+        rep = settings.get_repo(course)
+        # if rep.url == "":
+        #     print("fail: course", course, "is not a remote course")
+        #     return False
+        file = rep.get_file()
+        item = Game(file).get_task(activity)
+        if not item.link.startswith("http"):
+            print("fail: link for activity is not a remote link")
             return
-        
-        index_url = course_url + activity + "/"
-        cache_url = index_url + ".cache/"
-        
+        cfg = RemoteCfg(item.link)
+        cache_url = os.path.dirname(cfg.get_raw_url()) + "/.cache/"
+    
+        # rep = reps[course]
+        # cfg = RemoteCfg()
+        # cfg.from_url(rep.url)
+        # url = cfg.get_raw_url()
+        # basedir = os.path.dirname(url) + "/base/" 
+        # index_url = basedir + activity + "/"
+        # cache_url = index_url + ".cache/"
 
         # downloading Readme
         try:
-            destiny = Down.create_problem_folder(course, activity)
-            print("debug", cache_url)
-            [_readme_path, mapi_path] = Down.down_problem_def(destiny, cache_url)
+            destiny = Down.__create_problem_folder(course, activity)
+            #print("debug", cache_url)
+            [_readme_path, mapi_path] = Down.__down_problem_def(destiny, cache_url)
         except urllib.error.HTTPError:
-            print("fail: activity not found in course")
+            print("fail: activity not found in course url")
             # verifi if destiny folder is empty and remove it
             if len(os.listdir(destiny)) == 0:
                 os.rmdir(destiny)
-
-            return
+            return False
 
         with open(mapi_path) as f:
             loaded_json = json.load(f)
@@ -1110,8 +1164,12 @@ class Down:
                 language = input()
                 ask_ext = True
         
-        Down.unpack_json(loaded_json, destiny, language)
+        Down.__unpack_json(loaded_json, destiny, language)
+        Down.__download_drafts(loaded_json, destiny, language, cache_url, ask_ext)
+        return True
 
+    @staticmethod
+    def __download_drafts(loaded_json, destiny, language, cache_url, ask_ext):
         if len(loaded_json["required"]) == 1:  # you already have the students file
             return
 
@@ -1136,25 +1194,6 @@ class Down:
         
         if ask_ext:
             print("\nYou can choose default extension with command\n$ tko config -l <extension>")
-
-        # download all files in folder with the same extension or compatible
-        # try:
-        #     filelist = os.path.join(index, "filelist.txt")
-        #     urllib.request.urlretrieve(cache_url + "filelist.txt", filelist)
-        #     files = open(filelist, "r").read().splitlines()
-        #     os.remove(filelist)
-
-        #     for file in files:
-        #         filename = os.path.basename(file)
-        #         fext = filename.split(".")[-1]
-        #         if fext == ext or ((fext == "h" or fext == "hpp") and ext == "cpp") or ((fext == "h" and ext == "c")):
-        #             filepath = os.path.join(index, filename)
-        #             # urllib.request.urlretrieve(index_url + file, filepath)
-        #             [tempfile, _content] = urllib.request.urlretrieve(index_url + file)
-        #             Down.compare_and_save(open(tempfile).read(), filepath)
-        # except urllib.error.HTTPError:
-        #     return
-
 
 
 
@@ -2075,694 +2114,1089 @@ bash_guide = """
 #!/usr/bin/env python3
 
 
+
 class Task:
+    def __init__(self):
+        self.line_number = 0
+        self.line = ""
+        self.key = ""
+        self.grade = ""
+        self.skills = []
+        self.title = ""
+        self.link = ""
 
-  def __init__(self):
-    self.line_number = 0
-    self.line = ""
-    self.key = ""
-    self.grade = ""
-    self.skills = []
-    self.title = ""
-    self.link = ""
+    def get_grade(self):
+        if self.grade == "":
+            return red(GSym.uncheck)
+        if self.grade == "x":
+            return green(GSym.check)
+        number = int(self.grade)
+        if number < 7:
+            return red(GSym.numbers[number])
+        return yellow(GSym.numbers[number])
 
-  def is_done(self):
-    return self.grade == "x" or self.grade == "7" or self.grade == "8" or self.grade == "9"
-  
-  def set_grade(self, grade):
-    valid = ["x", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    if grade in valid:
-      self.grade = grade
-    else:
-      print(f"Grade inválida: {grade}")
+    def get_percent(self):
+        if self.grade == "":
+            return 0
+        if self.grade == "x":
+            return 100
+        return int(self.grade) * 10
 
-  def __str__(self):
-    return f"{self.line_number} : {self.key} : {self.grade} : {self.title} : {self.skills} : {self.link}"
+    def is_done(self):
+        return (
+            self.grade == "x"
+            or self.grade == "7"
+            or self.grade == "8"
+            or self.grade == "9"
+        )
 
-  @staticmethod
-  def parse_titulo_link_html(line):
-    # Regex para extrair o título e o link
-    titulo_link_regex = r'\s*-.*\[(.*?)\](\(.+?\))'
-    titulo_link_match = re.search(titulo_link_regex, line)
+    def set_grade(self, grade):
+        valid = ["", "x", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        if grade in valid:
+            self.grade = grade
+            return
+        if grade == "0":
+            self.grade = ""
+            return
+        if grade == "10":
+            self.grade = "x"
+            return
+        print(f"Grade inválida: {grade}")
 
-    # Regex para extrair as tags
-    html_regex = r'<!--\s*(.*?)\s*-->'
-    html_match = re.search(html_regex, line)
+    def __str__(self):
+        return f"{self.line_number} : {self.key} : {self.grade} : {self.title} : {self.skills} : {self.link}"
 
-    # Inicializa as variáveis de título, link e html
-    titulo = None
-    link = None
-    html = []
+    @staticmethod
+    def parse_titulo_link_html(line):
+        # Regex para extrair o título e o link
+        titulo_link_regex = r"\s*-.*\[(.*?)\](\(.+?\))"
+        titulo_link_match = re.search(titulo_link_regex, line)
 
-    # Extrai título e link
-    if titulo_link_match:
-      titulo = titulo_link_match.group(1).strip()
-      link = titulo_link_match.group(2).strip('()')
+        # Regex para extrair as tags
+        html_regex = r"<!--\s*(.*?)\s*-->"
+        html_match = re.search(html_regex, line)
 
-    # Extrai html
-    if html_match:
-      html_raw = html_match.group(1).strip()
-      html = [tag.strip() for tag in html_raw.split()]
+        # Inicializa as variáveis de título, link e html
+        titulo = None
+        link = None
+        html = []
 
-    return titulo, link, html
+        # Extrai título e link
+        if titulo_link_match:
+            titulo = titulo_link_match.group(1).strip()
+            link = titulo_link_match.group(2).strip("()")
 
-  # coding tasks
-  def set_key_from_title(self, titulo, html):
-    title_key = titulo.split("@")[1]
-    title_key = title_key.split(" ")[0]
-    title_key = title_key.split(":")[0]
-    title_key = title_key.split("/")[0]
-    self.key = title_key
-    self.skills = html
-    self.coding = True
+        # Extrai html
+        if html_match:
+            html_raw = html_match.group(1).strip()
+            html = [tag.strip() for tag in html_raw.split()]
 
-  # non coding tasks
-  def set_key_from_html(self, titulo, html):
-    html_key = [t for t in html if t.startswith("@")][0]
-    html_key = html_key.split("@")[1]
-    self.key = html_key
-    self.coding = False
-    self.skills = [t[2:] for t in html if t.startswith("s:")]
+        return titulo, link, html
 
-  def process_link(self, baseurl):
-    if self.link.startswith("http"):
-      return
-    if self.link.startswith("./"):
-      self.link = self.link[2:]
-    self.link = baseurl + self.link
+    # coding tasks
+    def set_key_from_title(self, titulo, html):
+        title_key = titulo.split("@")[1]
+        title_key = title_key.split(" ")[0]
+        title_key = title_key.split(":")[0]
+        title_key = title_key.split("/")[0]
+        self.key = title_key
+        self.skills = html
+        self.coding = True
 
-  def parse_task(self, line, line_num):
-    if line == "":
-      return False
-    line = line.lstrip()
+    # non coding tasks
+    def set_key_from_html(self, html):
+        html_key = [t for t in html if t.startswith("@")][0]
+        html_key = html_key.split("@")[1]
+        self.key = html_key
+        self.coding = False
+        self.skills = [t[2:] for t in html if t.startswith("s:")]
 
-    titulo, link, html = Task.parse_titulo_link_html(line)
+    def process_link(self, base_file):
+        if self.link.startswith("http"):
+            return
+        if self.link.startswith("./"):
+            self.link = self.link[2:]
 
-    if titulo is None:
-      return False
+        # todo trocar / por \\ se windows
 
-    self.line = line
-    self.line_number = line_num
-    self.title = titulo
-    self.link = link
+        self.link = base_file + self.link
 
-    self.process_link(link)
+    def parse_task(self, line, line_num):
+        if line == "":
+            return False
+        line = line.lstrip()
 
-    try:
-      self.set_key_from_title(titulo, html)
-      return True
-    except:
-      pass
-    try:
-      self.set_key_from_html(titulo, html)
-      return True
-    except:
-      pass
+        titulo, link, html = Task.parse_titulo_link_html(line)
 
-    return False
+        if titulo is None:
+            return False
+
+        self.line = line
+        self.line_number = line_num
+        self.title = titulo
+        self.link = link
+
+        try:
+            self.set_key_from_title(titulo, html)
+            return True
+        except:
+            pass
+        try:
+            self.set_key_from_html(html)
+            return True
+        except:
+            pass
+
+        return False
 
 
 class Quest:
+    def __init__(self):
+        self.line_number = 0
+        self.line = ""
+        self.key = ""
+        self.title = ""
+        self.mdlink = ""
+        self.tasks = []
+        self.skills = []
+        self.group = ""
+        self.requires = []
+        self.requires_ptr = []
+        self.type = "main"
 
-  def __init__(self):
-    self.line_number = 0
-    self.line = ""
-    self.key = ""
-    self.title = ""
-    self.mdlink = ""
-    self.tasks = []
-    self.skills = []
-    self.group = ""
-    self.requires = []
-    self.requires_ptr = []
-    self.type = "main"
+    def __str__(self):
+        return f"linha={self.line_number} : {self.key} : {self.title} : {self.skills} : {self.requires} : {self.mdlink} : {[t.key for t in self.tasks]}"
 
-  def __str__(self):
-    return f"linha={self.line_number} : {self.key} : {self.title} : {self.skills} : {self.requires} : {self.mdlink} : {[t.key for t in self.tasks]}"
+    def is_complete(self):
+        return all([t.is_done() for t in self.tasks])
 
-  def is_complete(self):
-    return all([t.is_done() for t in self.tasks])
+    def get_percent(self):
+        total = len(self.tasks)
+        if total == 0:
+            return 0
+        done = sum([t.get_percent() for t in self.tasks])
+        return done // total
 
-  def is_reachable(self, cache):
-    if self.key in cache:
-      return cache[self.key]
-
-    if len(self.requires_ptr) == 0:
-      cache[self.key] = True
-      return True
-    cache[self.key] = all(
-        [r.is_complete() and r.is_reachable(cache) for r in self.requires_ptr])
-    return cache[self.key]
-
-  def parse_quest(self, line, line_num):
-    pattern = r'^#+\s*(.*?)<!--\s*(.*?)\s*-->\s*$'
-    match = re.match(pattern, line)
-    titulo = None
-    tags = []
-
-    if match:
-      titulo = match.group(1)
-      tags_raw = match.group(2).strip()
-      tags = [tag.strip() for tag in tags_raw.split()]
-    else:
-      pattern = r'^#+\s*(.*?)\s*$'
-      match = re.match(pattern, line)
-      if match:
-        titulo = match.group(1)
-        tags.append("@" + get_md_link(titulo))
-      else:
+    def in_progress(self):
+        if self.is_complete():
+            return False
+        for t in self.tasks:
+            if t.grade != "":
+                return True
         return False
 
-    try:
-      key = [t[1:] for t in tags if t.startswith("@")][0]
-      self.line = line
-      self.line_number = line_num
-      self.title = titulo
-      self.skills = [t[2:] for t in tags if t.startswith("s:")]
-      self.requires = [t[2:] for t in tags if t.startswith("r:")]
-      self.mdlink = "#" + get_md_link(titulo)
-      groups = [t[2:] for t in tags if t.startswith("g:")]
-      if len(groups) > 0:
-        self.group = groups[0]
-      else:
-        self.group = ""
-      type = [t for t in tags if t.startswith("t:")]
-      if len(type) > 0:
-        self.type = type[0][2:]
-      self.key = key
-      return True
-    except Exception as e:
-      print(e)
-      return False
+    def not_started(self):
+        if self.is_complete():
+            return False
+        if self.in_progress():
+            return False
+        return True
+
+    def is_reachable(self, cache):
+        if self.key in cache:
+            return cache[self.key]
+
+        if len(self.requires_ptr) == 0:
+            cache[self.key] = True
+            return True
+        cache[self.key] = all(
+            [r.is_complete() and r.is_reachable(cache) for r in self.requires_ptr]
+        )
+        return cache[self.key]
+
+    def parse_quest(self, line, line_num):
+        pattern = r"^#+\s*(.*?)<!--\s*(.*?)\s*-->\s*$"
+        match = re.match(pattern, line)
+        titulo = None
+        tags = []
+
+        if match:
+            titulo = match.group(1)
+            tags_raw = match.group(2).strip()
+            tags = [tag.strip() for tag in tags_raw.split()]
+        else:
+            pattern = r"^#+\s*(.*?)\s*$"
+            match = re.match(pattern, line)
+            if match:
+                titulo = match.group(1)
+                tags.append("@" + get_md_link(titulo))
+            else:
+                return False
+
+        try:
+            key = [t[1:] for t in tags if t.startswith("@")][0]
+            self.line = line
+            self.line_number = line_num
+            self.title = titulo
+            self.skills = [t[2:] for t in tags if t.startswith("s:")]
+            self.requires = [t[2:] for t in tags if t.startswith("r:")]
+            self.mdlink = "#" + get_md_link(titulo)
+            groups = [t[2:] for t in tags if t.startswith("g:")]
+            if len(groups) > 0:
+                self.group = groups[0]
+            else:
+                self.group = ""
+            type = [t for t in tags if t.startswith("t:")]
+            if len(type) > 0:
+                self.type = type[0][2:]
+            self.key = key
+            return True
+        except Exception as e:
+            print(e)
+            return False
 
 
 def rm_comments(title: str) -> str:
-  if "<!--" in title and "-->" in title:
-    title = title.split("<!--")[0] + title.split("-->")[1]
-  return title
+    if "<!--" in title and "-->" in title:
+        title = title.split("<!--")[0] + title.split("-->")[1]
+    return title
 
 
 def get_md_link(title: str) -> str:
-  if title is None:
-    return ""
-  title = title.lower()
-  out = ''
-  for c in title:
-    if c == ' ' or c == '-':
-      out += '-'
-    elif c == '_':
-      out += '_'
-    elif c.isalnum():
-      out += c
-  return out
+    if title is None:
+        return ""
+    title = title.lower()
+    out = ""
+    for c in title:
+        if c == " " or c == "-":
+            out += "-"
+        elif c == "_":
+            out += "_"
+        elif c.isalnum():
+            out += c
+    return out
+
 
 class Game:
+    def __init__(self, file: Optional[str] = None):
+        self.clusters: Dict[str, List[Quest]] = {}  # quests indexed by group
+        self.clusters[""] = []
+        self.cluster_order: List[str] = [""]  # order of clusters
+        self.quests: Dict[str, Quest] = {}  # quests indexed by quest key
+        self.tasks: Dict[str, Task] = {}  # tasks  indexed by task key
+        if file is not None:
+            self.parse_file(file)
 
-  def __init__(self):
-    self.quests: Dict[str, Quest] = {} # quests indexed by quest key
-    self.tasks: Dict[str, Task] = {}   # tasks  indexed by task key
+    def get_task(self, key: str) -> Task:
+        if key in self.tasks:
+            return self.tasks[key]
+        raise Exception(f"fail: task {key} not found in course definition")
 
-  def load_quest(self, line, line_num):
-    quest = Quest()
-    if not quest.parse_quest(line, line_num + 1):
-      return (False, None)
-    if quest.key in self.quests:
-      print(f"Quest {quest.key} já existe")
-      print(quest)
-      print(self.quests[quest.key])
-      exit(1)
-    self.quests[quest.key] = quest
-    return (True, quest)
+    def load_group(self, line, line_num) -> Tuple[bool, Optional[str]]:
+        pattern = r"^#+\s*(.*?)<!--\s*(.*?)\s*-->\s*$"
+        match = re.match(pattern, line)
+        titulo = None
+        tags = []
 
-  def load_task(self, line, line_num, last_quest):
-    task = Task()
-    if not task.parse_task(line, line_num + 1):
-      return False
-    if last_quest is None:
-      print(f"Task {task.key} não está dentro de uma quest")
-      print(task)
-      exit(1)
-    last_quest.tasks.append(task)
-    if task.key in self.tasks:
-      print(f"Task {task.key} já existe")
-      print(task)
-      print(self.tasks[task.key])
-      exit(1)
-    self.tasks[task.key] = task
-    return True
+        if match:
+            titulo = match.group(1)
+            tags_raw = match.group(2).strip()
+            tags = [tag.strip() for tag in tags_raw.split(" ")]
+            if "group" in tags:
+                return (True, titulo)
+        return (False, None)
 
-  # Verificar se todas as quests requeridas existem e adiciona o ponteiro
-  # Verifica se todas as quests tem tarefas
-  def validate_requirements(self):
-    #remove all quests without tasks
-    valid_quests = {}
-    for k, q in self.quests.items():
-      if len(q.tasks) > 0:
-        valid_quests[k] = q
+    def load_quest(self, line, line_num) -> Tuple[bool, Optional[Quest]]:
+        quest = Quest()
+        if not quest.parse_quest(line, line_num + 1):
+            return (False, None)
+        if quest.key in self.quests:
+            print(f"Quest {quest.key} já existe")
+            print(quest)
+            print(self.quests[quest.key])
+            exit(1)
+        self.quests[quest.key] = quest
+        return (True, quest)
 
-    self.quests = valid_quests
+    def load_task(self, line, line_num, last_quest) -> bool:
+        task = Task()
+        if not task.parse_task(line, line_num + 1):
+            return False
+        if last_quest is None:
+            print(f"Task {task.key} não está dentro de uma quest")
+            print(task)
+            exit(1)
+        last_quest.tasks.append(task)
+        if task.key in self.tasks:
+            print(f"Task {task.key} já existe")
+            print(task)
+            print(self.tasks[task.key])
+            exit(1)
+        self.tasks[task.key] = task
+        return True
 
-    # for q in self.quests.values():
-    #   if len(q.tasks) == 0:
-    #     print(f"Quest {q.key} não tem tarefas")
-    #     exit(1)
+    # Verificar se todas as quests requeridas existem e adiciona o ponteiro
+    # Verifica se todas as quests tem tarefas
+    def validate_requirements(self):
 
-    for q in self.quests.values():
-      for r in q.requires:
-        if r in self.quests:
-          q.requires_ptr.append(self.quests[r])
-        else:
-          print(f"Quest\n{str(q)}\nrequer {r} que não existe")
-          exit(1)
+        # verify is there are keys repeated between quests, tasks and groups
 
-    #check if there is a cycle
+        keys = [k for k in self.clusters.keys()] +\
+               [k for k in self.quests.keys()] +\
+               [k for k in self.tasks.keys()]
 
-  def check_cycle(self):
+        # print chaves repetidas
+        for k in keys:
+            if keys.count(k) > 1:
+                print(f"Chave repetida: {k}")
+                exit(1)
 
-    def dfs(q, visited):
-      if len(visited) > 0:
-        if visited[0] == q.key:
-          print(f"Cycle detected: {visited}")
-          exit(1)
-      if q.key in visited:
-        return
-      visited.append(q.key)
-      for r in q.requires_ptr:
-        dfs(r, visited)
+        # remove all quests without tasks
+        valid_quests = {}
+        for k, q in self.quests.items():
+            if len(q.tasks) > 0:
+                valid_quests[k] = q
 
-    for q in self.quests.values():
-      visited = []
-      dfs(q, visited)
+        self.quests = valid_quests
 
-  def parse_file(self, file):
-    lines = open(file).read().split("\n")
-    last_quest = None
-    for index, line in enumerate(lines):
-      found, quest = self.load_quest(line, index)
-      if found:
-        last_quest = quest
-      else:
-        self.load_task(line, index, last_quest)
-    self.validate_requirements()
+        # for q in self.quests.values():
+        #   if len(q.tasks) == 0:
+        #     print(f"Quest {q.key} não tem tarefas")
+        #     exit(1)
 
-  def get_reachable_quests(self):
-    # cache needs to be reseted before each call
-    cache = {}
-    return [q for q in self.quests.values() if q.is_reachable(cache)]
+        for q in self.quests.values():
+            for r in q.requires:
+                if r in self.quests:
+                    q.requires_ptr.append(self.quests[r])
+                else:
+                    print(f"Quest\n{str(q)}\nrequer {r} que não existe")
+                    exit(1)
 
-  def show_quests(self):
-    print( f"Quests de Entrada: {[q.key for q in self.quests.values() if len(q.requires) == 0]}" )
-    print(f"Total de quests: {len(self.quests)}")
-    print("\n".join([str(q) for q in self.quests.values()]))
+        # check if there is a cycle
 
-  def generate_graph(self, output):
-    saida = []
-    saida.append(f"@startuml {output}")
-    saida.append("digraph diag {")
-    saida.append('  node [style="rounded,filled", shape=box]')
+    def check_cycle(self):
+        def dfs(q, visited):
+            if len(visited) > 0:
+                if visited[0] == q.key:
+                    print(f"Cycle detected: {visited}")
+                    exit(1)
+            if q.key in visited:
+                return
+            visited.append(q.key)
+            for r in q.requires_ptr:
+                dfs(r, visited)
 
-    def info(q):
-      return f"\"{q.title.strip()}:{len(q.tasks)}\""
+        for q in self.quests.values():
+            visited = []
+            dfs(q, visited)
 
-    for q in self.quests.values():
-      token = "->"
-      if len(q.requires_ptr) > 0:
-        for r in q.requires_ptr:
-          saida.append(f"  {info(r)} {token} {info(q)}")
-      else:
-        v = "  \"Início\""
-        saida.append(f"{v} {token} {info(q)}")
+    def parse_file(self, file):
+        lines = open(file).read().split("\n")
+        last_quest = None
+        active_group = ""
+        for index, line in enumerate(lines):
+            found, group = self.load_group(line, index)
+            if found:
+                active_group = group
+                continue
 
-    for q in self.quests.values():
-      if q.type == "main":
-        saida.append(f"  {info(q)} [fillcolor=lime]")
-      else:
-        saida.append(f"  {info(q)} [fillcolor=pink]")
+            found, quest = self.load_quest(line, index)
+            if found:
+                last_quest = quest
+                quest.group = active_group
+                if quest.group not in self.clusters:
+                    self.clusters[quest.group] = []
+                    self.cluster_order.append(quest.group)
+                self.clusters[quest.group].append(quest)
+                continue
 
-    groups = {}
-    for q in self.quests.values():
-      if q.group == "":
-        continue
-      if q.group not in groups:
-        groups[q.group] = []
-      groups[q.group].append(q)
+            self.load_task(line, index, last_quest)
 
-    for c in groups.values():
-      if c == "":
-        continue
-      saida.append(f"  subgraph cluster_{c[0].group} {{")
-      saida.append(f"    label=\"{c[0].group}\"")
-      saida.append(f"    style=filled")
-      saida.append(f"    color=lightgray")
-      for q in c:
-        saida.append(f"    {info(q)}")
+        self.validate_requirements()
+        for t in self.tasks.values():
+            t.process_link(os.path.dirname(file) + "/")
 
-      saida.append("  }")
+    def get_reachable_quests(self):
+        # cache needs to be reseted before each call
+        cache = {}
+        return [q for q in self.quests.values() if q.is_reachable(cache)]
 
-    saida.append("}")
-    saida.append("@enduml")
-    saida.append("")
+    def show_quests(self):
+        print(
+            f"Quests de Entrada: {[q.key for q in self.quests.values() if len(q.requires) == 0]}"
+        )
+        print(f"Total de quests: {len(self.quests)}")
+        print(f"Total de tarefas: {len(self.tasks)}")
+        print(f"Total de clusters: {len(self.clusters)}")
+        # print("\n".join([str(q) for q in self.quests.values()]))
 
-    open(output + ".puml", "w").write("\n".join(saida))
-    subprocess.run(["plantuml", output + ".puml", "-tsvg"])
+    def generate_graph(self, output):
+        saida = []
+        saida.append(f"@startuml {output}")
+        saida.append("digraph diag {")
+        saida.append('  node [style="rounded,filled", shape=box]')
 
+        def info(q):
+            return f'"{q.title.strip()}:{len(q.tasks)}"'
+
+        for q in self.quests.values():
+            token = "->"
+            if len(q.requires_ptr) > 0:
+                for r in q.requires_ptr:
+                    saida.append(f"  {info(r)} {token} {info(q)}")
+            else:
+                v = '  "Início"'
+                saida.append(f"{v} {token} {info(q)}")
+
+        for q in self.quests.values():
+            if q.type == "main":
+                saida.append(f"  {info(q)} [fillcolor=lime]")
+            else:
+                saida.append(f"  {info(q)} [fillcolor=pink]")
+
+        groups = {}
+        for q in self.quests.values():
+            if q.group == "":
+                continue
+            if q.group not in groups:
+                groups[q.group] = []
+            groups[q.group].append(q)
+
+        for c in groups.values():
+            if c == "":
+                continue
+            saida.append(f"  subgraph cluster_{c[0].group} {{")
+            saida.append(f'    label="{c[0].group}"')
+            saida.append(f"    style=filled")
+            saida.append(f"    color=lightgray")
+            for q in c:
+                saida.append(f"    {info(q)}")
+
+            saida.append("  }")
+
+        saida.append("}")
+        saida.append("@enduml")
+        saida.append("")
+
+        open(output + ".puml", "w").write("\n".join(saida))
+        subprocess.run(["plantuml", output + ".puml", "-tsvg"])
 
 
 
 class Play:
+    cluster_prefix = "'"
 
-  def __init__(self, game: Game, rep: RepoSettings, fnsave):
-    self.fnsave = fnsave
-    self.rep = rep
-    self.show_link = "link" in self.rep.view
-    self.show_done = "done" in self.rep.view
-    self.show_init = "init" in self.rep.view
-    self.show_todo = "todo" in self.rep.view
-    self.show_cmds = "cmds" in self.rep.view
+    def __init__(self, game: Game, rep: RepoSettings, repo_alias: str, fnsave):
+        self.fnsave = fnsave
+        self.repo_alias = repo_alias
+        self.help_options = 4
+        self.help_index = 0
+        self.rep = rep
+        self.show_link = "link" in self.rep.view
+        self.show_done = "done" in self.rep.view
+        self.show_init = "init" in self.rep.view
+        self.show_todo = "todo" in self.rep.view
 
-    self.game: Game = game
-    self.tasks: List[Task] = []  # visible tasks  indexed by number
-    self.quests: Dict[str, Quest] = {} # visible quests indexed by letter
-    self.active: List[str] = [] # expanded quests
-
-    for k, v in self.rep.quests.items():
-      if "e" in v:
-        self.active.append(k)
-
-    self.term_limit = 130
-
-    for key, grade in rep.tasks.items():
-      if key in game.tasks:
-        game.tasks[key].set_grade(grade)
-
-  def save_to_json(self):
-    self.rep.quests = {}
-    for q in self.active:
-      self.rep.quests[q] = "e"
-    self.rep.tasks = {}
-    for t in self.game.tasks.values():
-      if t.grade != "":
-        self.rep.tasks[t.key] = t.grade
-    self.rep.view = []
-    if self.show_link:
-      self.rep.view.append("link")
-    if self.show_done:
-      self.rep.view.append("done")
-    if self.show_init:
-      self.rep.view.append("init")
-    if self.show_todo:
-      self.rep.view.append("todo")
-    if self.show_cmds:
-      self.rep.view.append("cmds")
-    self.fnsave()
-
-  @staticmethod
-  def calc_letter(index_letter):
-    unit = index_letter % 26
-    ten = index_letter // 26
-    if ten == 0:
-      return chr(ord("A") + unit)
-    return chr(ord("A") + ten - 1) + chr(ord("A") + unit)
-
-  @staticmethod
-  def calc_index(letter):
-    letter = letter.upper()
-    if len(letter) == 1:
-      return ord(letter) - ord("A")
-    return (ord(letter[0]) - ord("A") + 1) * 26 + (ord(letter[1]) - ord("A"))
-
-  def update_reachable(self):
-    quests = self.game.get_reachable_quests()
-    reach_keys = []
-    reach_keys = [q.key for q in quests]
-    menu_keys = [q.key for q in self.quests.values()]
-
-    for key in menu_keys:
-      if key not in reach_keys:
-        self.quests = {}
-        break
-
-    if len(self.quests) == 0:
-      index_letter = 0
-      for q in quests:
-        letter = self.calc_letter(index_letter)
-        self.quests[letter] = q
-        index_letter += 1
-    else:
-      index_letter = len(self.quests.keys())
-      for q in quests:
-        if q.key not in menu_keys:
-          letter = self.calc_letter(index_letter)
-          self.quests[letter] = q
-          index_letter += 1
-
-    self.active = set([k for k in self.active if k in reach_keys])
-
-    # if len(self.quests.values()) == 1:
-    #     for q in self.quests.values():
-    #         self.active.add(q.key)
-
-
-  def calculate_pad(self):
-    titles = []
-    keys = self.quests.keys()
-    for key in keys:
-      q = self.quests[key]
-      titles.append(q.title)
-      if q.key not in self.active:
-        continue
-      for t in q.tasks:
-        titles.append(t.title)
-    max_title = 10
-    if (len(titles) > 0):
-      max_title = max([len(t) for t in titles])
-    return max_title
-
-
-  def print_quest(self, entry, q, max_title, term_size):
-    resume = ""
-    opening = "➡️"
-    if q.key in self.active:
-      opening = "⬇️"
-    done = len([t for t in q.tasks if t.is_done()])
-    size = len(q.tasks)
-    if done > 9:
-      done = "*"
-    if size > 9:
-      size = "*"
-    text = f"[{str(done)}/{str(size)}]"
-    space = " " if len(entry) == 1 else ""
-    if done == size:
-      resume = colour("g", text)
-    elif done == 0:
-      resume = colour("r", text)
-    else:
-      resume = colour("y", text)
-    entry = colour("b", entry) if q.type == "main" else colour("m", entry)
-    qlink = ""
-    if self.show_link:
-      if term_size > self.term_limit:
-        qlink = " " + colour("c", q.mdlink)
-      else:
-        qlink = "\n      " + colour("c", q.mdlink)
-    if not self.show_done and done == size:
-      return
-    print(f"{opening} {entry}{space}{resume} {q.title.ljust(max_title)}")
-
-  def print_task(self, t, max_title, index, term_size):
-    vindex = str(index).rjust(2, "0")
-    vdone = "x" if t.is_done() else " "
-    vlink = ""
-    if self.show_link:
-      if t.key in t.title:
-        vlink = colour("r", t.link)
-      else:
-        vlink = colour("y", t.link)
-      if term_size > self.term_limit:
-        vlink = " " + vlink
-      else:
-        vlink = "\n      " + vlink
-    print(f"  {vindex} [{vdone}] {t.title.strip().ljust(max_title + 1)}{vlink}")
-
-  def sort_keys(self, keys):
-    single = [k for k in keys if len(k) == 1]
-    double = [k for k in keys if len(k) == 2]
-    return sorted(single) + sorted(double)
-
-  def show_tasks(self):
-    term_size = shutil.get_terminal_size().columns
-    self.tasks = []
-
-    self.update_reachable()
-    max_title = self.calculate_pad()
-    index = 0
-    for entry in self.sort_keys(self.quests.keys()):
-      q = self.quests[entry]
-      self.print_quest(entry, q, max_title, term_size)
-      if q.key not in self.active:
-        continue
-      if not self.show_done and q.is_complete():
-        continue
-      for t in q.tasks:
-        self.print_task(t, max_title, index, term_size)
-        index += 1
-        self.tasks.append(t)
-
-  @staticmethod
-  def get_num_num(s):
-    pattern = r'^(\d+)-(\d+)$'
-    match = re.match(pattern, s)
-    if match:
-      return int(match.group(1)), int(match.group(2))
-    else:
-      return (None, None)
-
-  @staticmethod
-  def get_letter_letter(s):
-    pattern =r'([a-zA-Z]+)-([a-zA-Z]+)'
-    match = re.match(pattern, s)
-    if match:
-      print(match.group(1), match.group(2))
-      return match.group(1), match.group(2)
-    return (None, None)
-
-  def expand_range(self, line):
-    line = line.replace(" - ", "-")
-    actions = line.split()
-
-    expand = []
-    for t in actions:
-      (start_number, end_number) = self.get_num_num(t)
-      (start_letter, end_letter) = self.get_letter_letter(t)
-      if start_number is not None and end_number is not None:
-        expand += list(range(start_number, end_number + 1))
-      elif start_letter is not None and end_letter is not None:
-        start_index = self.calc_index(start_letter)
-        end_index = self.calc_index(end_letter)
-        print(start_index, end_index)
-        expand += [self.calc_letter(i) for i in range(start_index, end_index + 1)]
-      else:
-        expand.append(t)
-    return expand
-
-  def clear(self):
-    subprocess.run("clear")
-    pass
-
-  def take_actions(self, actions):
-    print(actions)
-    cmd = actions[0]
-    del actions[0]
-
-    if cmd == "<":
-      self.active = set()
-    elif cmd == ">":
-      self.update_reachable()
-      self.active = set([q.key for q in self.quests.values()])
-    elif cmd == "h" or cmd == "help":
-      self.clear()
-      self.show_help()
-    elif cmd == "c" or cmd == "cmds":
-      self.show_cmds = not self.show_cmds
-    elif cmd == "v" or cmd == "view":
-      for t in actions:
-        if t == "d" or t == "done":
-          self.show_done = not self.show_done
-        elif t == "i" or t == "init":
-          self.show_init = not self.show_init
-        elif t == "t" or t == "todo":
-          self.show_todo = not self.show_todo
-        elif t == "c" or t == "cmds":
-          self.show_cmds = not self.show_cmds
-        elif t == "l" or t == "link":
-          self.show_link = not self.show_link
-    elif cmd == "f" or cmd == "fold":
-      for t in actions:
-        t = t.upper()
-        if t in self.quests:
-          key = self.quests[t].key
-          if key not in self.active:
-            self.active.add(key)
-          else:
-            self.active.remove(key)
+        help = [v for v in self.rep.view if v.startswith("help_")]
+        if len(help) > 0:
+            self.help_index = int(help[0][5:])
+            if self.help_index >= self.help_options:
+                self.help_index = 0
         else:
-          print(f"{t} não processado")
-    elif cmd == "m" or cmd == "mark":
-      for t in actions:
-        try:  # number
-          t = int(t)
-          if t >= 0 and t < len(self.tasks):
-            v = self.tasks[t].grade
-            if v == "x":
-              self.tasks[t].grade = ""
+            self.help_index = 0
+
+        self.show_perc = "perc" in self.rep.view
+        self.show_fold = "fold" in self.rep.view
+        self.show_hack = "hack" in self.rep.view
+        self.show_view = "view" in self.rep.view
+
+        if not self.show_done and not self.show_init and not self.show_todo:
+            self.show_done = True
+            self.show_init = True
+            self.show_todo = True
+
+        self.game: Game = game
+
+        self.clusters: Dict[str, str] = self.find_cluster_keys()
+        self.clusters_keys = {}
+        for k, v in self.clusters.items():
+            self.clusters_keys[v] = k
+        self.tasks: Dict[str, Task] = {}  # visible tasks  indexed by upper letter
+        self.quests: Dict[str, Quest] = {}  # visible quests indexed by number
+        self.active: List[str] = []  # expanded quests
+
+        for k, v in self.rep.quests.items():
+            if "e" in v:
+                self.active.append(k)
+
+        self.term_limit = 130
+
+        for key, grade in rep.tasks.items():
+            if key in game.tasks:
+                game.tasks[key].set_grade(grade)
+
+    def read_link(self, link):
+        if link.endswith(".md"):
+            if link.startswith("https"):
+                with tempfile.NamedTemporaryFile(delete=False) as f:
+                    file = f.name
+                    cfg = RemoteCfg()
+                    cfg.from_url(link)
+                    cfg.download_absolute(file)
+                    link = file
+                    # verify is subprocess succeeds
+            result = subprocess.run(["glow", "-p", link])
+            if result.returncode != 0:
+                print(f"Erro ao abrir o arquivo {link}")
+                print("Verifique se o arquivo está no formato markdown")
+                input("Digite enter para continuar")
+
+    def down_task(self, task: Task):
+        if task.key in task.title:
+            print(f"Tarefa de código {task.key}")
+            cmd = red(f"tko down {self.repo_alias} {task.key}")
+            print(f"Baixando com o comando {cmd}")
+            result = Down.download_problem(self.repo_alias, task.key, None)
+            # result = subprocess.run(["tko", "down", self.repo_alias, task.key])
+            if result:
+                pasta = red(f"{os.getcwd()}/{task.key}/Readme.md")
+                print(f"Tarefa baixada na pasta {pasta}")
+        else:
+            print(f"Essa não é uma tarefa de código")
+        input("Digite enter para continuar")
+
+    def save_to_json(self):
+        self.rep.quests = {}
+        for q in self.active:
+            self.rep.quests[q] = "e"
+        self.rep.tasks = {}
+        for t in self.game.tasks.values():
+            if t.grade != "":
+                self.rep.tasks[t.key] = t.grade
+        self.rep.view = []
+        if self.show_link:
+            self.rep.view.append("link")
+        if self.show_perc:
+            self.rep.view.append("perc")
+        if self.show_fold:
+            self.rep.view.append("fold")
+        if self.show_hack:
+            self.rep.view.append("hack")
+        if self.show_view:
+            self.rep.view.append("view")
+        if self.show_done:
+            self.rep.view.append("done")
+        if self.show_init:
+            self.rep.view.append("init")
+        if self.show_todo:
+            self.rep.view.append("todo")
+
+        self.rep.view.append(f"help_{self.help_index}")
+
+        self.fnsave()
+
+    @staticmethod
+    def calc_letter(index_letter):
+        unit = index_letter % 26
+        ten = index_letter // 26
+        if ten == 0:
+            return chr(ord("A") + unit)
+        return chr(ord("A") + ten - 1) + chr(ord("A") + unit)
+
+    @staticmethod
+    def calc_index(letter):
+        letter = letter.upper()
+        if len(letter) == 1:
+            return ord(letter) - ord("A")
+        return (ord(letter[0]) - ord("A") + 1) * 26 + (ord(letter[1]) - ord("A"))
+
+    def update_reachable(self):
+        quests = []
+        if self.show_hack:
+            quests = self.game.quests.values()
+        else:
+            quests = self.game.get_reachable_quests()
+
+        reach_keys = []
+        reach_keys = [q.key for q in quests]
+        menu_keys = [q.key for q in self.quests.values()]
+
+        for key in menu_keys:
+            if key not in reach_keys:
+                self.quests = {}
+                break
+
+        if len(self.quests) == 0:
+            index = 0
+            for q in quests:
+                self.quests[str(index)] = q
+                index += 1
+        else:
+            index = len(self.quests.keys())
+            for q in quests:
+                if q.key not in menu_keys:
+                    self.quests[str(index)] = q
+                    index += 1
+
+        # self.active = set([k for k in self.active if k in reach_keys])
+
+        # if len(self.quests.values()) == 1:
+        #     for q in self.quests.values():
+        #         self.active.add(q.key)
+
+    def calculate_pad(self):
+        titles = []
+        keys = self.quests.keys()
+        for key in keys:
+            q = self.quests[key]
+            titles.append(q.title)
+            if q.key not in self.active:
+                continue
+            for t in q.tasks:
+                titles.append(t.title)
+        max_title = 10
+        if len(titles) > 0:
+            max_title = max([len(t) for t in titles])
+        return max_title
+
+    def to_show_quest(self, quest: Quest):
+        if quest.is_complete() and not self.show_done:
+            return False
+        if quest.not_started() and not self.show_todo:
+            return False
+        if quest.in_progress() and not self.show_init:
+            return False
+        return True
+
+    def str_quest(self, entry, q, max_title, term_size) -> str:
+        resume = ""
+        opening = "➡️"
+        if q.key in self.active:
+            opening = "⬇️"
+        done = len([t for t in q.tasks if t.is_done()])
+        size = len(q.tasks)
+        if done > 9:
+            done = "*"
+        if size > 9:
+            size = "*"
+        if self.show_perc:
+            text = f"{str(q.get_percent()).rjust(2)}%"
+            if q.get_percent() == 100:
+                text = GSym.check * 3
+        else:
+            text = f"{str(done)}/{str(size)}"
+        space = " " if len(entry) == 1 else ""
+        if q.get_percent() == 100:
+            resume = cyan(text)
+        elif q.is_complete():
+            resume = green(text)
+        elif q.in_progress():
+            resume = yellow(text)
+        else:
+            resume = red(text)
+        entry = colour("b", entry) if q.type == "main" else colour("m", entry)
+        qlink = ""
+        if self.show_link:
+            if term_size > self.term_limit:
+                qlink = " " + colour("c", q.mdlink)
             else:
-              self.tasks[t].grade = "x"
-        except:
-          print(f"{t} não processado")
+                qlink = "\n      " + colour("c", q.mdlink)
+        if not self.to_show_quest(q):
+            return ""
+        title = q.title
+        if self.show_link and term_size > self.term_limit:
+            title = title.strip().ljust(max_title + 1)
+        extra = ""
+        if self.show_fold:
+            extra = ""
+        title = title.strip()
+        return f"{space}{entry} {opening} {resume} {extra}{title}"
 
-  def show_help(self):
-    print("Digite " + colour("r", "t") + " os números ou intervalo das tarefas para (marcar/desmarcar), exemplo:")
-    print(colour("g", "play $ ") + "t 1 3-5")
-    input()
+    def str_task(self, t, max_title, letter, term_size) -> str:
+        vindex = str(letter).rjust(2, " ")
+        vdone = t.get_grade()
+        vlink = ""
+        title = t.title
+        if self.show_link:
+            if t.key in t.title:
+                vlink = red(t.link)
+            else:
+                vlink = yellow(t.link)
+            if term_size > self.term_limit:
+                title = t.title.strip().ljust(max_title + 1)
+                vlink = " " + vlink
+            else:
+                vlink = "\n" + vlink
+        extra = ""
+        if self.show_fold:
+            extra = ""
+        title = colour("uline", title)
+        return f"  {vindex}  {vdone}  {extra}{title}{vlink}"
 
-  def show_header(self):
-      self.clear()
-      if self.show_cmds:
-        print("# Digite " + colour("y", "c") + " para " + colour("y", "ocultar") + " a ajuda" + " ║       " + colour("g", "AÇÃO EXECUTADA") + "         ║      " + colour("g", "EXEMPLO DE USO"))
-      else:
-        print("# Digite " + colour("y", "c") + " para " + colour("g", "mostrar") + " a ajuda" )
-      vfilter = colour("r", "view")
-      vdone   = colour("g" if self.show_done else "y", "done")
-      vinit   = colour("g" if self.show_init else "y", "init")
-      vtodo   = colour("g" if self.show_todo else "y", "todo")
-      vlink   = colour("g" if self.show_link else "y", "link")
-      extra = ""
-      if self.show_cmds:
-        extra = "   ║ " + colour("c", "mostrar | ocultar   opções") + "   ║ " + colour("r", "v link") + " para ver os links"
-      print(f"  {vfilter} {vdone}, {vinit}, {vtodo}, {vlink}{extra}" )
-      if self.show_cmds:  
-        ccmds   = colour("r", "cmds") + "                          ║ " + colour("c", "mostrar | ocultar   comandos") + " ║ " + colour("r", "c")
-        vnum    = colour("r", "mark") + " " + colour("g", "<números>") + "                ║ " + colour("c", "marcar  | desmarcar tarefas") + "  ║ " + colour("r", "t 1 3-5")
-        vlet    = colour("r", "fold") + " " + colour("g", "<letras>")  + "                 ║ " + colour("c", "expandir| contrair  quests") + "   ║ " + colour("r", "f a b-c")
-  #      vfold   = colour("r", "<") + " ou " + colour("r", ">") + colour("y", "(expandir todas /contrair todas)")
-        print(f"  {ccmds}" ) 
-        print(f"  {vnum}")
-        print(f"  {vlet}")
+    def sort_keys(self, keys):
+        single = [k for k in keys if len(str(k)) == 1]
+        double = [k for k in keys if len(str(k)) == 2]
+        return sorted(single) + sorted(double)
+
+    def print_cluster(self, cluster_name: str, lines: List[str]):
+        cluster_key = self.clusters_keys[cluster_name]
+        opening = "➡️"
+        if cluster_name in self.active:
+            opening = "⬇️"
+        intro = [Color.remove_colors(l).strip().split(" ")[0] for l in lines]
+        quests = [v for v in intro if v.isdigit()]
+        total = len(quests)
+        init = yellow(str(len([v for v in quests if self.quests[v].in_progress()])))
+        done = green(str(len([v for v in quests if self.quests[v].is_complete()])))
+        todo = red(str(len([v for v in quests if self.quests[v].not_started()])))
+        margin = len(cluster_key)
+        title = colour_bold("red", cluster_name.strip()[:margin]) + colour("bold", cluster_name.strip()[margin:])
+        if total > 0:
+            print(f" {opening} {done}/{init}/{todo} {title}")
+            if cluster_name in self.active:
+                for line in lines:
+                    print(line)
+
+    def find_cluster_keys(self) -> Dict[str, str]:
+        data = sorted(self.game.cluster_order)
+        keys = []
+        for cluster in data:
+            i = 2
+            while (True):
+                key = cluster[:i]
+                if key not in keys:
+                    keys.append(key)
+                    break
+                i += 1
+        output = {}
+        for k, v in zip(keys, data):
+            output[k] = v
+        return output
 
 
-        vhelp   = colour("r", "help")  + "                          ║ " + colour("c", "mostrar o help") + "               ║ " + colour("r", "h")
-        vclose  = colour("r", "quit")  + "                          ║ " + colour("c", "sair") + "                         ║ " + colour("r", "q")
-        print(f"  {vhelp}" )
-        print(f"  {vclose}" )
-        print(colour("y", "  Dica: você pode digitar apenas a primeira letra do comando ao invés do comando completo."))
 
-      self.show_tasks()
-      print("\n" + colour("g", "play $") + " ", end="")
+    def show_options(self):
+        term_size = shutil.get_terminal_size().columns
+        max_title = self.calculate_pad()
+        index = 0
 
-      # f fold     <quest>        | c colapsar
-      # a archieve <quest>        | a arquivar
-      #                           |
-      # m mark   <task>         | m marcar
-      # g grade    <task> <value> | g graduar
-      #                           |
-      # v view     <task>         | v ver
-      # d down     <task>         | b baixar
-      #                           |
-      # q quit                    | s sair
-      # s show     <options>      | f filtrar
-      # cmds       
+        clusters: Dict[str, List[str]] = {}
 
+        for entry in self.sort_keys(self.quests.keys()):
+            quest_output: List[str] = []
+            q = self.quests[entry]
+            quest_output.append(self.str_quest(entry, q, max_title, term_size))
+            if q.key in self.active and self.to_show_quest(q):
+                for t in q.tasks:
+                    letter = self.calc_letter(index)
+                    quest_output.append(self.str_task(t, max_title, letter, term_size))
+                    index += 1
+                    self.tasks[letter] = t
 
-  def play(self):
-    while True:
-      self.show_header()
-      line = input()
-      if "quit".startswith(line):
-        break
-      actions = self.expand_range(line)
-      self.take_actions(actions)
+            if self.show_fold:
+                if len(quest_output) > 0:
+                    if q.group not in clusters:
+                        clusters[q.group] = []
+                    clusters[q.group] += [line for line in quest_output if line != ""]
+            else:
+                for line in quest_output:
+                    if line != "":
+                        print(line)
 
-      self.save_to_json()
+        if self.show_fold:
+            for group in self.game.cluster_order:
+                if group in clusters.keys():
+                    self.print_cluster(group, clusters[group])
+        return
+
+    @staticmethod
+    def get_num_num(s):
+        pattern = r"^(\d+)-(\d+)$"
+        match = re.match(pattern, s)
+        if match:
+            return int(match.group(1)), int(match.group(2))
+        else:
+            return (None, None)
+
+    @staticmethod
+    def get_letter_letter(s):
+        pattern = r"([a-zA-Z]+)-([a-zA-Z]+)"
+        match = re.match(pattern, s)
+        if match:
+            print(match.group(1), match.group(2))
+            return match.group(1), match.group(2)
+        return (None, None)
+
+    def expand_range(self, line) -> List[str]:
+        line = line.replace(" - ", "-")
+        actions = line.split()
+
+        expand = []
+        for t in actions:
+            (start_number, end_number) = self.get_num_num(t)
+            (start_letter, end_letter) = self.get_letter_letter(t)
+            if start_number is not None and end_number is not None:
+                expand += list(range(start_number, end_number + 1))
+            elif start_letter is not None and end_letter is not None:
+                start_index = self.calc_index(start_letter)
+                end_index = self.calc_index(end_letter)
+                print(start_index, end_index)
+                limits = range(start_index, end_index + 1)
+                expand += [self.calc_letter(i) for i in limits]
+            else:
+                expand.append(t)
+        return expand
+
+    def clear(self):
+        subprocess.run("clear")
+        pass
+
+    def is_number(self, s):
+        try:
+            int(s)
+            return True
+        except ValueError:
+            return False
+
+    def process_colapse(self):
+        all_tasks_closed = True
+        for v in self.active:
+            if v not in self.clusters.values():
+                all_tasks_closed = False
+                break
+        if all_tasks_closed:
+            self.active = []
+        else:
+            self.active = [q for q in self.active if q in self.clusters.values()]
+
+    def process_expand(self):
+        self.update_reachable()
+        # verify if all clusters are expanded
+        all_clusters_expanded = True
+        for k in self.clusters.values():
+            if k not in self.active:
+                all_clusters_expanded = False
+                break
+        clusters = [k for k in self.clusters.values()]
+        if all_clusters_expanded:
+            quests = [q.key for q in self.quests.values()]
+            self.active = quests + clusters
+        else:
+            self.active = self.active + clusters
+
+    def process_down(self, actions):
+        for t in actions[1:]:
+            if t in self.tasks:
+                self.down_task(self.tasks[t])
+            else:
+                print(f"Tarefa {t} não encontrada")
+                input()
+
+    def process_clusters(self, actions):
+        for t in actions:
+            if t in self.clusters:
+                key = self.clusters[t]
+                if key not in self.active:
+                    print(f"Expandindo {key}")
+                    self.active.append(key)
+                else:
+                    print(f"Contraindo {key}")
+                    self.active.remove(key)
+            else:
+                print(f"{t} não processado")
+                input("Digite enter para continuar")
+
+    def process_quests(self, actions):
+        for t in actions:
+            if not self.is_number(t) or not t in self.quests:
+                print(f"{t} não processado")
+                input("Digite enter para continuar")
+            else:
+                key = self.quests[t].key
+                if key not in self.active:
+                    self.active.append(key)
+                    continue
+                else:
+                    self.active.remove(key)
+                    continue
+    
+    def process_tasks(self, actions):
+        for t in actions:
+            letter = "".join([c for c in t if c.isupper() and not c.isdigit()])
+            number = "".join([c for c in t if c.isdigit()])
+            if letter in self.tasks:
+                t = self.tasks[letter]
+                if len(number) > 0:
+                    t.set_grade(number)
+                else:
+                    if t.grade == "":
+                        t.set_grade("x")
+                    else:
+                        t.set_grade("")
+            else:
+                print(f"{t} não processado")
+                input("Digite enter para continuar")
+    
+    def process_see(self, actions):
+        if len(actions) > 1:
+            if actions[1] in self.tasks:
+                # print(self.tasks[actions[1]].link)
+                self.read_link(self.tasks[actions[1]].link)
+            else:
+                print(f"{actions[1]} não processado")
+                input("Digite enter para continuar")
+
+    def take_actions(self, actions):
+        if len(actions) == 0:
+            return
+        cmd = actions[0]
+
+        if cmd == "<":
+            self.process_colapse()
+
+        elif cmd == ">":
+            self.process_expand()
+
+        elif cmd == "m" or cmd == "man":
+            self.clear()
+            self.show_help()
+        elif cmd == "c" or cmd == "cmd":
+            self.help_index = (self.help_index + 1) % self.help_options
+        elif cmd == "f" or cmd == "full":
+            self.show_done = True
+            self.show_init = True
+            self.show_todo = True
+        elif cmd == "i" or cmd == "init":
+            self.show_done = False
+            self.show_init = True
+            self.show_todo = False
+        elif cmd == "d" or cmd == "done":
+            self.show_done = True
+            self.show_init = False
+            self.show_todo = False
+        elif cmd == "t" or cmd == "todo":
+            self.show_done = False
+            self.show_init = False
+            self.show_todo = True
+        elif cmd == "l" or cmd == "link":
+            self.show_link = not self.show_link
+        elif cmd == "p" or cmd == "perc":
+            self.show_perc = not self.show_perc
+        elif cmd == "j" or cmd == "join":
+            self.show_fold = not self.show_fold
+        elif cmd == "h" or cmd == "hack":
+            self.show_hack = not self.show_hack
+        elif cmd == "v" or cmd == "view":
+            self.show_view = not self.show_view
+        elif cmd == "g" or cmd == "get":
+            self.process_down(actions)
+        elif len(cmd) >= 2 and cmd[0].isupper() and cmd[1].islower():
+            self.process_clusters(actions)
+        elif self.is_number(cmd):
+            self.process_quests(actions)
+        elif cmd[0].isupper():
+            self.process_tasks(actions)
+        elif cmd == "s" or cmd == "see":
+            self.process_see(actions)
+        else:
+            print(f"{cmd} não processado")
+            input("Digite enter para continuar")
+
+    def show_help(self):
+        print(
+            "Digite "
+            + red("t")
+            + " os números ou intervalo das tarefas para (marcar/desmarcar), exemplo:"
+        )
+        print(green("play $ ") + "t 1 3-5")
+        input("Digite enter para continuar")
+
+    def show_header(self):
+        self.clear()
+        ball = self.show_done and self.show_init and self.show_todo
+        show_ajuda = green("Digite ") + red("c") + green(" para ajuda")
+
+        full_count = len([q for q in self.quests.values()])
+        done_count = len([q for q in self.quests.values() if q.is_complete()])
+        init_count = len([q for q in self.quests.values() if q.in_progress()])
+        todo_count = len([q for q in self.quests.values() if q.not_started()])
+
+        def checkbox(value):
+            return green(GSym.vcheck) if value else yellow(GSym.vuncheck)
+
+        vall = red("full") + (green(GSym.vcheck) if ball else yellow(GSym.vuncheck))
+        vdone = "(" + str(done_count).rjust(2, "0") + ")" + red("done") + checkbox(not ball and self.show_done)
+        vinit = "(" + str(init_count).rjust(2, "0") + ")" + red("init") + checkbox(not ball and self.show_init)
+        vtodo = "(" + str(todo_count).rjust(2, "0") + ")" + red("todo") + checkbox(not ball and self.show_todo)
+        vlink = red("link") + ( checkbox(self.show_link) )
+        vperc = red("perc") + ( checkbox(self.show_perc) )
+        vjoin = red("join") + ( checkbox(self.show_fold) )
+        vhack = red("hack") + ( checkbox(self.show_hack) )
+
+        nomes_verm = green("Os nomes em vermelho são comandos")
+        prime_letr = green("Basta a primeira letra do comando")
+        cluster = red("<LETRA><letra>") + cyan(" {Re Ve} ") + yellow("(Ver Grupo)")
+        numeros = red("<Número>") + cyan(" {3 5} ") + yellow("(Ver Quest)")
+        todas = red("<") + " ou " + red(">") + yellow(" (Ocultar/Revelar Tudo)")
+        letras = red("<LETRA>") + cyan(" {A C-E}") + yellow("(Marcar Tarefa)")
+        graduar = red("<LETRA><Valor>") + cyan(" {A0 B5} ") + yellow("(Dar nota)")
+        read = red("see <LETRA>") + cyan(" {s B}") + yellow(" (Ler no terminal)")
+        down = red("get <LETRA>") + cyan(" {g B}") + yellow(" (Baixar tarefa)")
+        cmds = red("cmd") + yellow("  (Visualizar os comandos)")
+        manu = red("man") + yellow("  (Mostrar manual detalhado)")
+        sair = red("quit") + yellow(" (Sair do programa)")
+
+        sall  = red("full") + yellow(" (Mostrar todas as tarefas)")
+        sdone = red("done") + yellow(" (Mostrar tarefas concluídas)")
+        sinit = red("init") + yellow(" (Mostrar tarefas em andamento)")
+        stodo = red("todo") + yellow(" (Mostrar tarefas não iniciadas)")
+        fold  = red("join") + yellow(" (Juntar em categorias)")
+        link  = red("link") + yellow(" (Mostrar links das tarefas)")
+        hack  = red("hack") + yellow(" (Desabilita o modo jogo)")
+        perc  = red("perc") + yellow(" (Mostrar porcentagens)")
+
+        indicadores = f"{vall} {vdone} {vinit} {vtodo}"
+        visoes = f"{vjoin}     {vlink}     {vperc}     {vhack}"
+
+        elementos = []
+        if self.help_index == 0:
+            intro = show_ajuda + " (1/2/3)" + green(" - ") + red("view") + checkbox(self.show_view)
+            elementos = [ intro ] + ([ indicadores, visoes ] if self.show_view else [])
+        elif self.help_index == 1:
+            intro = show_ajuda + " (" + yellow("1") + "/2/3)" + green(" - ") + red("view") + checkbox(self.show_view)
+            elementos = [ intro ] + ([ indicadores, visoes ] if self.show_view else [])
+            elementos += [ nomes_verm, prime_letr, todas, cluster, numeros, letras, graduar ]
+        elif self.help_index == 2:
+            intro = show_ajuda + " (1/" + yellow("2") + "/3)" + green(" - ") + red("view") + checkbox(self.show_view)
+            elementos = [ intro ] + ([ indicadores, visoes ] if self.show_view else [])
+            elementos += [ cmds, manu, down, read, sair ]
+        elif self.help_index == 3:
+            intro = show_ajuda + " (1/2/" + yellow("3") + ")" + green(" - ") + red("view") + checkbox(self.show_view)
+            elementos = [ intro ] + ([ indicadores, visoes ] if self.show_view else [])
+            elementos += [sall, sdone, sinit, stodo, fold, perc, link, hack ]
+        self.print_elementos(elementos)
+
+    def print_elementos(self, elementos):
+        term_size = shutil.get_terminal_size().columns
+        maxlen = max([len(Color.remove_colors(t)) for t in elementos])
+        qtd = term_size // (maxlen + 3)
+
+        count = 0
+        for i in range(len(elementos)):
+            print(Color.ljust(elementos[i], maxlen), end="")
+            count += 1
+            if count >= qtd:
+                count = 0
+                print("")
+            elif i < len(elementos) - 1:
+                print(" ║ ", end="")
+        if count != 0:
+            print("")
+        print("")
+
+    def play(self):
+        while True:
+            self.tasks = {}
+            self.update_reachable()
+            self.show_header()
+            self.show_options()
+            print("\n" + green("play$") + " ", end="")
+            line = input()
+            if line != "" and "quit".startswith(line):
+                break
+            actions = self.expand_range(line)
+            self.take_actions(actions)
+            self.save_to_json()
 
 __version__ = "0.4.3"
 
@@ -2774,14 +3208,8 @@ class MRep:
     def list(args):
         sp = SettingsParser()
         settings = sp.load_settings()
-        print("SettingsFile:", sp.settings_file)
-        print("Repositories:")
-        for key in settings.reps:
-            print(key, end="")
-            if settings.reps[key].url:
-                print(f" - {settings.reps[key].url}")
-            else:
-                print(f" - {settings.reps[key].file}")
+        print(f"SettingsFile\n- {sp.settings_file}")
+        print(str(settings))
 
     @staticmethod
     def add(args):
@@ -2903,12 +3331,12 @@ class Main:
             file = repo.get_file()
             game.parse_file(file)
             #passsing a lambda function to the play class to save the settings
-            play = Play(game, repo, lambda: sp.save_settings())
+            play = Play(game, repo, args.repo, lambda: sp.save_settings())
             play.play()
 
     @staticmethod
     def down(args):
-        Down.entry_unpack(args.course, args.activity, args.language)
+        Down.download_problem(args.course, args.activity, args.language)
 
 class Parser:
     def __init__(self):

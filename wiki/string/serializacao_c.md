@@ -1,5 +1,12 @@
 # Serialização e Desserialização com `sscanf` e `sprintf`
 
+<!-- toc -->
+  - [Serialização com `sprintf`](#serialização-com-sprintf)
+  - [Desserialização com `sscanf`](#desserialização-com-sscanf)
+  - [Considerações Importantes](#considerações-importantes)
+  - [Exemplo Avançado com Delimitadores](#exemplo-avançado-com-delimitadores)
+<!-- toc -->
+
 A serialização de objetos em C pode ser feita utilizando as funções `sprintf` e `sscanf`, que são funções padrão da biblioteca C para formatar e analisar strings respectivamente. Estas funções permitem converter dados entre strings e tipos de dados mais complexos, facilitando a serialização e desserialização de objetos.
 
 ### Serialização com `sprintf`
