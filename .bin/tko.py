@@ -433,72 +433,78 @@ class Runner:
 
 
 
+
 class Color:
-  enabled = True
-  map = {
-      "red"    : '\u001b[31m',
-      "r"      : '\u001b[31m',
-      "green"  : '\u001b[32m',
-      "g"      : '\u001b[32m',
-      "yellow" : '\u001b[33m',
-      "y"      : '\u001b[33m',
-      "blue"   : '\u001b[34m',
-      "b"      : '\u001b[34m',
-      "magenta": '\u001b[35m',
-      "m"      : '\u001b[35m',
-      "cyan"   : '\u001b[36m',
-      "c"      : '\u001b[36m',
-      "white"  : '\u001b[37m',
-      "w"      : '\u001b[37m',
-      "reset"  : '\u001b[0m',
-      "bold"   : '\u001b[1m',
-      "uline"  : '\u001b[4m'
-  }
+    enabled = True
+    map = {
+        "red": "\u001b[31m",
+        "r": "\u001b[31m",
+        "green": "\u001b[32m",
+        "g": "\u001b[32m",
+        "yellow": "\u001b[33m",
+        "y": "\u001b[33m",
+        "blue": "\u001b[34m",
+        "b": "\u001b[34m",
+        "magenta": "\u001b[35m",
+        "m": "\u001b[35m",
+        "cyan": "\u001b[36m",
+        "c": "\u001b[36m",
+        "white": "\u001b[37m",
+        "w": "\u001b[37m",
+        "reset": "\u001b[0m",
+        "bold": "\u001b[1m",
+        "uline": "\u001b[4m",
+    }
 
-  @staticmethod
-  def ljust(text: str, width: int) -> str:
-    return text + ' ' * (width - Color.len(text))
+    @staticmethod
+    def ljust(text: str, width: int) -> str:
+        return text + " " * (width - Color.len(text))
 
-  @staticmethod
-  def center(text: str, width: int, filler: str) -> str:
-    return filler * ((width - Color.len(text)) // 2) + text + filler * (
-        (width - Color.len(text) + 1) // 2)
+    @staticmethod
+    def center(text: str, width: int, filler: str) -> str:
+        return (
+            filler * ((width - Color.len(text)) // 2)
+            + text
+            + filler * ((width - Color.len(text) + 1) // 2)
+        )
 
-  @staticmethod
-  def remove_colors(text: str) -> str:
-    for color in Color.map.values():
-      text = text.replace(color, '')
-    return text
+    @staticmethod
+    def remove_colors(text: str) -> str:
+        for color in Color.map.values():
+            text = text.replace(color, "")
+        return text
 
-  @staticmethod
-  def len(text):
-    return len(Color.remove_colors(text))
+    @staticmethod
+    def len(text):
+        return len(Color.remove_colors(text))
+
 
 def colour(color: str, text: str) -> str:
-  return (Color.map[color] + text + Color.map["reset"])
+    return Color.map[color] + text + Color.map["reset"]
+
 
 def colour_bold(color: str, text: str) -> str:
-  return (Color.map["bold"] + Color.map[color] + text + Color.map["reset"])
+    return Color.map["bold"] + Color.map[color] + text + Color.map["reset"]
 
 
 class __Symbols:
     def __init__(self):
-        self.opening     = ""
-        self.neutral     = ""
-        self.success     = ""
-        self.failure     = ""
-        self.wrong       = ""
+        self.opening = ""
+        self.neutral = ""
+        self.success = ""
+        self.failure = ""
+        self.wrong = ""
         self.compilation = ""
-        self.execution   = ""
-        self.unequal     = ""
-        self.equalbar    = ""
-        self.hbar        = ""
-        self.vbar        = ""
-        self.whitespace  = ""  # interpunct
-        self.newline     = ""  # carriage return
-        self.cfill       = ""
-        self.tab         = ""
-        self.arrow_up    = ""
+        self.execution = ""
+        self.unequal = ""
+        self.equalbar = ""
+        self.hbar = ""
+        self.vbar = ""
+        self.whitespace = ""  # interpunct
+        self.newline = ""  # carriage return
+        self.cfill = ""
+        self.tab = ""
+        self.arrow_up = ""
 
         self.ascii = False
         self.set_unicode()
@@ -509,74 +515,95 @@ class __Symbols:
     def set_ascii(self):
         self.ascii = True
 
-        self.opening     = "=> "
-        self.neutral     = "."
-        self.success     = "S"
-        self.failure     = "X"
-        self.wrong       = "W"
+        self.opening = "=> "
+        self.neutral = "."
+        self.success = "S"
+        self.failure = "X"
+        self.wrong = "W"
         self.compilation = "C"
-        self.execution   = "E"
-        self.unequal     = "#"
-        self.equalbar    = "|"
-        self.hbar        = "─"
-        self.vbar        = "│"
-        self.whitespace  = "\u2E31"  # interpunct
-        self.newline     = "\u21B5"  # carriage return
-        self.cfill       = "_"
-        self.tab         = "    "
-        self.arrow_up    = "A"
+        self.execution = "E"
+        self.unequal = "#"
+        self.equalbar = "|"
+        self.hbar = "─"
+        self.vbar = "│"
+        self.whitespace = "\u2E31"  # interpunct
+        self.newline = "\u21B5"  # carriage return
+        self.cfill = "_"
+        self.tab = "    "
+        self.arrow_up = "A"
 
     def set_unicode(self):
         self.ascii = False
 
-        self.opening     = "=> "
-        self.neutral     = "»"
-        self.success     = "✓"
-        self.failure     = "✗"
-        self.wrong       = "ω"
+        self.opening = "=> "
+        self.neutral = "»"
+        self.success = "✓"
+        self.failure = "✗"
+        self.wrong = "ω"
         self.compilation = "ϲ"
-        self.execution   = "ϵ"
-        self.unequal     = "├"
-        self.equalbar    = "│"
-        self.hbar        = "─"
-        self.vbar        = "│"
-        self.whitespace  = "\u2E31"  # interpunct
-        self.newline     = "\u21B5"  # carriage return
-        self.cfill       = "_"
-        self.tab         = "    "
-        self.arrow_up    = "↑"
+        self.execution = "ϵ"
+        self.unequal = "├"
+        self.equalbar = "│"
+        self.hbar = "─"
+        self.vbar = "│"
+        self.whitespace = "\u2E31"  # interpunct
+        self.newline = "\u21B5"  # carriage return
+        self.cfill = "_"
+        self.tab = "    "
+        self.arrow_up = "↑"
 
     def set_colors(self):
-        self.opening     = colour("b", self.opening)
-        self.neutral     = colour("b", self.neutral)
-        self.success     = colour("g", self.success)
-        self.failure     = colour("r", self.failure)
-        self.wrong       = colour("r", self.wrong)
+        self.opening = colour("b", self.opening)
+        self.neutral = colour("b", self.neutral)
+        self.success = colour("g", self.success)
+        self.failure = colour("r", self.failure)
+        self.wrong = colour("r", self.wrong)
         self.compilation = colour("y", self.compilation)
-        self.execution   = colour("y", self.execution)
-        self.unequal     = colour("r", self.unequal)
-        self.equalbar    = colour("g", self.equalbar)
+        self.execution = colour("y", self.execution)
+        self.unequal = colour("r", self.unequal)
+        self.equalbar = colour("g", self.equalbar)
+
 
 symbols = __Symbols()
 
+
 class GSym:
-  check = "✓" #"✅" "☑" "🮱"
-  uncheck = "✗" # "❎" "☐" "🯀"
-  vcheck = "☑" # "@" # "☑"
-  vuncheck = "☐" # "#" # "☐"
-  numbers = ["𝟬","𝟭","𝟮","𝟯","𝟰","𝟱","𝟲","𝟳","𝟴","𝟵"]
+    check = "✓"    # "✔"
+    uncheck = "✗"  # "✘"
+
+    opcheck = "ⴲⵔ"
+    # opcheck = "✔▢"
+    # opcheck = "🞕🞖" # erro Pedro
+    # opcheck = "🟘🟗" # erro Pedro
+
+
+    # oprightdown = "→↓"
+    oprightdown = "➡️⬇️"    # azuzinho
+    # oprightdown = "🠊🠋" # erro Pedro
+    # oprightdown = "⮞⮟" # erro Pedro
+
+    vcheck = opcheck[0]
+    vuncheck = opcheck[1]
+    right = "➡️"
+    down = "⬇️"
+
+    numbers = "0123456789***********"
+
 
 def green(text):
-  return colour("g", text)
+    return colour("g", text)
+
 
 def red(text):
-  return colour("r", text)
+    return colour("r", text)
+
 
 def yellow(text):
-  return colour("y", text)
+    return colour("y", text)
+
 
 def cyan(text):
-  return colour("c", text)
+    return colour("c", text)
 
 
 class Report:
@@ -606,7 +633,12 @@ class Report:
         Report.__term_width = value
 
     @staticmethod
-    def centralize(text, sep=' ', left_border: Optional[str] = None, right_border: Optional[str] = None) -> str:
+    def centralize(
+        text,
+        sep=" ",
+        left_border: Optional[str] = None,
+        right_border: Optional[str] = None,
+    ) -> str:
         if left_border is None:
             left_border = sep
         if right_border is None:
@@ -2167,85 +2199,112 @@ class Task:
         return f"{self.line_number} : {self.key} : {self.grade} : {self.title} : {self.skills} : {self.link}"
 
     @staticmethod
-    def parse_titulo_link_html(line):
-        # Regex para extrair o título e o link
-        titulo_link_regex = r"\s*-.*\[(.*?)\](\(.+?\))"
-        titulo_link_match = re.search(titulo_link_regex, line)
+    def parse_item_with_link(line) -> Tuple[bool, str, str]:
+        pattern = r"\ *-.*\[(.*?)\]\((.+?)\)"
+        match = re.match(pattern, line)
+        if match:
+            return (True, match.group(1), match.group(2))
+        return (False, "", "")
+    
+    @staticmethod
+    def parse_task_with_link(line) -> Tuple[bool, str, str]:
+        pattern = r"\ *- \[ \].*\[(.*?)\]\((.+?)\)"
+        match = re.match(pattern, line)
+        if match:
+            return (True, match.group(1), match.group(2))
+        return (False, "", "")
+    
 
-        # Regex para extrair as tags
-        html_regex = r"<!--\s*(.*?)\s*-->"
-        html_match = re.search(html_regex, line)
+    def load_html_tags(self, line) -> Tuple[bool, List[str]]:
+        pattern = r"<!--\s*(.*?)\s*-->"
+        match = re.match(pattern, line)
+        if not match:
+            return (False, [])
+        tags_raw = match.group(1).strip()
+        tags = [tag.strip() for tag in tags_raw.split()]
+        for t in tags:
+            if t.startswith("s:"):
+                self.skills.append(t[2:])
+            elif t.startswith("@"):
+                self.key = t[1:]
 
-        # Inicializa as variáveis de título, link e html
-        titulo = None
-        link = None
-        html = []
+    @staticmethod
+    def parse_arroba_from_title_link(titulo, link) -> Tuple[bool, str]:
+        pattern = r"@(\w+)"
+        match = re.match(pattern, titulo)
+        if not match:
+            return (False, "")
+        key = match.group(1)
+        if not "key/Readme.md" in link:
+            return (False, "")
+        return (True, key)
 
-        # Extrai título e link
-        if titulo_link_match:
-            titulo = titulo_link_match.group(1).strip()
-            link = titulo_link_match.group(2).strip("()")
-
-        # Extrai html
-        if html_match:
-            html_raw = html_match.group(1).strip()
-            html = [tag.strip() for tag in html_raw.split()]
-
-        return titulo, link, html
-
-    # coding tasks
-    def set_key_from_title(self, titulo, html):
-        title_key = titulo.split("@")[1]
-        title_key = title_key.split(" ")[0]
-        title_key = title_key.split(":")[0]
-        title_key = title_key.split("/")[0]
-        self.key = title_key
-        self.skills = html
-        self.coding = True
-
-    # non coding tasks
-    def set_key_from_html(self, html):
-        html_key = [t for t in html if t.startswith("@")][0]
-        html_key = html_key.split("@")[1]
-        self.key = html_key
-        self.coding = False
-        self.skills = [t[2:] for t in html if t.startswith("s:")]
 
     def process_link(self, base_file):
         if self.link.startswith("http"):
             return
         if self.link.startswith("./"):
             self.link = self.link[2:]
-
         # todo trocar / por \\ se windows
-
         self.link = base_file + self.link
 
-    def parse_task(self, line, line_num):
+    # - [Titulo com @palavra em algum lugar](link/@palavra/Readme.md) <!-- tag1 tag2 tag3 -->
+    def parse_coding_task(self, line, line_num):
         if line == "":
             return False
         line = line.lstrip()
 
-        titulo, link, html = Task.parse_titulo_link_html(line)
+        found, titulo, link = Task.parse_task_with_link(line)
+        if not found:
+            return False
 
-        if titulo is None:
+        found, key = Task.parse_arroba_from_title_link(titulo, link)
+        if not found:
             return False
 
         self.line = line
         self.line_number = line_num
+        self.key = key
         self.title = titulo
         self.link = link
 
-        try:
-            self.set_key_from_title(titulo, html)
+        self.load_html_tags(line)
+
+        return True
+    
+
+    # se com - [ ], não precisa das tags dentro do html, o key será dado pelo título
+    # se tiver as tags dentro do html, se alguma começar com @, o key será dado por ela
+    # - [ ] [Título](link)
+    # - [ ] [Título](link) <!-- tag1 tag2 tag3 -->
+    # - [Título](link) <!-- tag1 tag2 tag3 -->
+    def parse_reading_task(self, line, line_num):
+        if line == "":
+            return False
+        line = line.lstrip()
+
+        
+        found, titulo, link = Task.parse_task_with_link(line)
+        if found:
+            self.key = link
+            self.title = titulo
+            self.link = link
+            self.line = line
+            self.line_number = line_num
+            self.load_html_tags(line)
             return True
-        except:
-            pass
-        try:
-            self.set_key_from_html(html)
+        
+        found, titulo, link = Task.parse_item_with_link(line)
+        self.key = ""
+        if found:
+            self.load_html_tags(line)
+            if self.key == "":
+                return False
+            self.title = titulo
+            self.link = link
+            self.line = line
+            self.line_number = line_num
             return True
-        except:
-            pass
 
         return False
 
@@ -2409,9 +2468,17 @@ class Game:
         return (True, quest)
 
     def load_task(self, line, line_num, last_quest) -> bool:
-        task = Task()
-        if not task.parse_task(line, line_num + 1):
+        if line == "":
             return False
+        task = Task()
+        found = False
+        if task.parse_reading_task(line, line_num + 1):
+            found = True
+        if task.parse_coding_task(line, line_num + 1):
+            found = True
+        if not found:
+            return False
+        
         if last_quest is None:
             print(f"Task {task.key} não está dentro de uma quest")
             print(task)
@@ -2596,7 +2663,7 @@ class Play:
             self.help_index = 0
 
         self.show_perc = "perc" in self.rep.view
-        self.show_fold = "fold" in self.rep.view
+        self.show_fold = not "unfold" in self.rep.view
         self.show_hack = "hack" in self.rep.view
         self.show_view = "view" in self.rep.view
 
@@ -2668,8 +2735,8 @@ class Play:
             self.rep.view.append("link")
         if self.show_perc:
             self.rep.view.append("perc")
-        if self.show_fold:
-            self.rep.view.append("fold")
+        if not self.show_fold:
+            self.rep.view.append("unfold")
         if self.show_hack:
             self.rep.view.append("hack")
         if self.show_view:
@@ -2758,17 +2825,20 @@ class Play:
             return False
         return True
 
+    def get_number(self, value):
+        if value >= 0 and value <= 20:
+            return GSym.numbers[value]
+        return "*"
+
     def str_quest(self, entry, q, max_title, term_size) -> str:
         resume = ""
-        opening = "➡️"
+        opening = GSym.right
         if q.key in self.active:
-            opening = "⬇️"
+            opening = GSym.down
         done = len([t for t in q.tasks if t.is_done()])
         size = len(q.tasks)
-        if done > 9:
-            done = "*"
-        if size > 9:
-            size = "*"
+        done = self.get_number(done)
+        size = self.get_number(size)
         if self.show_perc:
             text = f"{str(q.get_percent()).rjust(2)}%"
             if q.get_percent() == 100:
@@ -2820,7 +2890,7 @@ class Play:
         extra = ""
         if self.show_fold:
             extra = ""
-        title = colour("uline", title)
+#        title = colour("uline", title)
         return f"  {vindex}  {vdone}  {extra}{title}{vlink}"
 
     def sort_keys(self, keys):
@@ -2830,15 +2900,15 @@ class Play:
 
     def print_cluster(self, cluster_name: str, lines: List[str]):
         cluster_key = self.clusters_keys[cluster_name]
-        opening = "➡️"
+        opening = GSym.right
         if cluster_name in self.active:
-            opening = "⬇️"
+            opening = GSym.down
         intro = [Color.remove_colors(l).strip().split(" ")[0] for l in lines]
         quests = [v for v in intro if v.isdigit()]
         total = len(quests)
-        init = yellow(str(len([v for v in quests if self.quests[v].in_progress()])))
-        done = green(str(len([v for v in quests if self.quests[v].is_complete()])))
-        todo = red(str(len([v for v in quests if self.quests[v].not_started()])))
+        init = yellow(self.get_number(len([v for v in quests if self.quests[v].in_progress()])))
+        done = green(self.get_number(len([v for v in quests if self.quests[v].is_complete()])))
+        todo = red(self.get_number(len([v for v in quests if self.quests[v].not_started()])))
         margin = len(cluster_key)
         title = colour_bold("red", cluster_name.strip()[:margin]) + colour("bold", cluster_name.strip()[margin:])
         if total > 0:
@@ -2938,7 +3008,7 @@ class Play:
         return expand
 
     def clear(self):
-        subprocess.run("clear")
+        # subprocess.run("clear")
         pass
 
     def is_number(self, s):
@@ -3142,7 +3212,7 @@ class Play:
         stodo = red("todo") + yellow(" (Mostrar tarefas não iniciadas)")
         fold  = red("join") + yellow(" (Juntar em categorias)")
         link  = red("link") + yellow(" (Mostrar links das tarefas)")
-        hack  = red("hack") + yellow(" (Desabilita o modo jogo)")
+        hack  = red("hack") + yellow(" (Dá acesso a todas as tarefas)")
         perc  = red("perc") + yellow(" (Mostrar porcentagens)")
 
         indicadores = f"{vall} {vdone} {vinit} {vtodo}"

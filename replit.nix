@@ -1,5 +1,7 @@
 { pkgs }: {
 	deps = [
+   pkgs.iproute
+   pkgs.openssh
 		pkgs.bat
 		pkgs.glow
 		pkgs.plantuml
