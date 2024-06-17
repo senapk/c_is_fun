@@ -10,7 +10,6 @@
   - [`double`](#double)
 - [Tipo Booleano](#tipo-booleano)
   - [`bool`](#bool)
-- [Uso do `auto` para inferir tipo](#uso-do-auto-para-inferir-tipo)
 - [Curiosidade 1 - imprecisão](#curiosidade-1---imprecisão)
 - [Curiosidade 2 - `sizeof`](#curiosidade-2---sizeof)
 <!-- toc -->

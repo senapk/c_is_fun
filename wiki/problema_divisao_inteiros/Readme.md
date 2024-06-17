@@ -1,6 +1,7 @@
 ## O problema da divisão de dois inteiros
 
 <!-- toc -->
+- [O problema da divisão de dois inteiros](#o-problema-da-divisão-de-dois-inteiros)
 - [Introdução](#introdução)
 - [Exemplo do problema](#exemplo-do-problema)
 - [Resolvendo o problema](#resolvendo-o-problema)

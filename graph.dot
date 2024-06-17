@@ -1,0 +1,69 @@
+digraph diag {
+  node [penwidth=1, style="rounded,filled", shape=box]
+  "Início" -> "Operações: impressão formatada\n0 / 9"
+  "Início" -> "Operações: Biblioteca Math\n0 / 4"
+  "Início" -> "Seleção: Manipulação\n0 / 9"
+  "Início" -> "Seleção: Biblioteca Math\n0 / 6"
+  "Início" -> "Seleção: Lógica\n0 / 9"
+  "Início" -> "Seleção: Operador de módulo\n0 / 7"
+  "Início" -> "Seleção: Listas circulares\n0 / 6"
+  "Início" -> "Seleção: Intervalos\n0 / 3"
+  "Início" -> "Seleção: Busca e Contagem\n0 / 5"
+  "Início" -> "Seleção: Conversão\n0 / 3"
+  "Início" -> "Repetição: Básico\n0 / 4"
+  "Início" -> "Repetição: Técnicas de controle\n0 / 6"
+  "Início" -> "Repetição: Math\n0 / 6"
+  "Início" -> "Vetores: Busca\n0 / 5"
+  "Início" -> "Vetores: Contagem\n0 / 5"
+  "Início" -> "Vetores: Conversão\n0 / 4"
+  "Início" -> "Vetores: Manipulação\n0 / 8"
+  "Início" -> "Vetores: Proximidade\n0 / 7"
+  "Início" -> "Vetores: Ordenação\n0 / 5"
+  "Início" -> "Vetores: Lógica\n0 / 9"
+  "Início" -> "Vetores: Math\n0 / 2"
+  "Início" -> "Strings I\n0 / 9"
+  "Início" -> "Strings II\n0 / 9"
+  "Início" -> "Strings III\n0 / 9"
+  "Início" -> "Strings IV\n0 / 9"
+  "Início" -> "Strings V\n0 / 6"
+  "Início" -> "Strings VI\n0 / 5"
+  "Início" -> "Matrizes I\n0 / 7"
+  "Início" -> "Matrizes II\n0 / 8"
+  "Início" -> "Ponteiros\n0 / 6"
+  "Início" -> "Recursão\n0 / 2"
+  "Início" -> "Structs\n0 / 8"
+  "Início" -> "Em construção\n0 / 2"
+  "Operações: impressão formatada\n0 / 9" [shape=box, color=red, penwidth=3, fillcolor=lightblue]
+  "Operações: Biblioteca Math\n0 / 4" [shape=box, color=red, penwidth=3, fillcolor=lightblue]
+  "Seleção: Manipulação\n0 / 9" [shape=box, color=red, penwidth=3, fillcolor=pink]
+  "Seleção: Biblioteca Math\n0 / 6" [shape=box, color=red, penwidth=3, fillcolor=pink]
+  "Seleção: Lógica\n0 / 9" [shape=box, color=red, penwidth=3, fillcolor=pink]
+  "Seleção: Operador de módulo\n0 / 7" [shape=box, color=red, penwidth=3, fillcolor=pink]
+  "Seleção: Listas circulares\n0 / 6" [shape=box, color=red, penwidth=3, fillcolor=pink]
+  "Seleção: Intervalos\n0 / 3" [shape=box, color=red, penwidth=3, fillcolor=pink]
+  "Seleção: Busca e Contagem\n0 / 5" [shape=box, color=red, penwidth=3, fillcolor=pink]
+  "Seleção: Conversão\n0 / 3" [shape=box, color=red, penwidth=3, fillcolor=pink]
+  "Repetição: Básico\n0 / 4" [shape=box, color=red, penwidth=3, fillcolor=lightgreen]
+  "Repetição: Técnicas de controle\n0 / 6" [shape=box, color=red, penwidth=3, fillcolor=lightgreen]
+  "Repetição: Math\n0 / 6" [shape=box, color=red, penwidth=3, fillcolor=lightgreen]
+  "Vetores: Busca\n0 / 5" [shape=box, color=red, penwidth=3, fillcolor=cyan]
+  "Vetores: Contagem\n0 / 5" [shape=box, color=red, penwidth=3, fillcolor=cyan]
+  "Vetores: Conversão\n0 / 4" [shape=box, color=red, penwidth=3, fillcolor=cyan]
+  "Vetores: Manipulação\n0 / 8" [shape=box, color=red, penwidth=3, fillcolor=cyan]
+  "Vetores: Proximidade\n0 / 7" [shape=box, color=red, penwidth=3, fillcolor=cyan]
+  "Vetores: Ordenação\n0 / 5" [shape=box, color=red, penwidth=3, fillcolor=cyan]
+  "Vetores: Lógica\n0 / 9" [shape=box, color=red, penwidth=3, fillcolor=cyan]
+  "Vetores: Math\n0 / 2" [shape=box, color=red, penwidth=3, fillcolor=cyan]
+  "Strings I\n0 / 9" [shape=box, color=red, penwidth=3, fillcolor=gold]
+  "Strings II\n0 / 9" [shape=box, color=red, penwidth=3, fillcolor=gold]
+  "Strings III\n0 / 9" [shape=box, color=red, penwidth=3, fillcolor=gold]
+  "Strings IV\n0 / 9" [shape=box, color=red, penwidth=3, fillcolor=gold]
+  "Strings V\n0 / 6" [shape=box, color=red, penwidth=3, fillcolor=gold]
+  "Strings VI\n0 / 5" [shape=box, color=red, penwidth=3, fillcolor=gold]
+  "Matrizes I\n0 / 7" [shape=box, color=red, penwidth=3, fillcolor=yellow]
+  "Matrizes II\n0 / 8" [shape=box, color=red, penwidth=3, fillcolor=yellow]
+  "Ponteiros\n0 / 6" [shape=box, color=red, penwidth=3, fillcolor=orange]
+  "Recursão\n0 / 2" [shape=box, color=red, penwidth=3, fillcolor=orange]
+  "Structs\n0 / 8" [shape=box, color=red, penwidth=3, fillcolor=orange]
+  "Em construção\n0 / 2" [shape=box, color=red, penwidth=3, fillcolor=orange]
+}

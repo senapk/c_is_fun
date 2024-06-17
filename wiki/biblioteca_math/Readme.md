@@ -1,6 +1,7 @@
 ## A biblioteca `math.h` em C
 
 <!-- toc -->
+- [A biblioteca `math.h` em C](#a-biblioteca-mathh-em-c)
 - [Introdução](#introdução)
 - [Principais funções](#principais-funções)
   - [Função `pow`](#função-pow)

@@ -3,6 +3,9 @@
 <!-- toc -->
 - [Compilando e executando](#compilando-e-executando)
 - [Explicando as flags](#explicando-as-flags)
+  - [-Wall (Ativar todos os avisos padrão)](#-wall-ativar-todos-os-avisos-padrão)
+  - [-Wextra (Ativar mais avisos além dos habilitados por -Wall)](#-wextra-ativar-mais-avisos-além-dos-habilitados-por--wall)
+  - [-Werror (Tratar avisos como erros)](#-werror-tratar-avisos-como-erros)
 <!-- toc -->
 
 ## Compilando e executando
