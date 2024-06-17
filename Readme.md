@@ -2,248 +2,313 @@
 
 - [Instruções aos Monitores](wiki/intro/instrucoes_monitores.md)
 
-## Vídeo Aulas do Youtube
+## Flow
 
-- [Playlist](https://youtube.com/playlist?list=PLpaKFn4Q4GMOBAeqC1S5_Fna_Y5XaOQS2&si=9MTRX0hUc8vGCLdl)
+Clique para abrir a versão clicável
 
-## Bloco - Introdução
+[![_](graph.svg)](https://raw.githubusercontent.com/senapk/c_is_fun/main/graph.svg)
 
-### Aula 01 - O que são linguagens de programação?
+## Ferramentas <!-- group -->
 
-- tools_basic
-- types_basic
+### Uso do bash <!-- @tools_bash opt r:tools_basic -->
 
+- [ ] [Uso do Bash e Instalação do Git Bash](wiki/configure/bash_git.md)
 
-<!-- - [x] [O que são algoritmos?](wiki/intro/o_que_sao_algoritmos.md)
-- [x] [Exemplos de códigos e linguagens](wiki/intro/exemplos.md)
-- [x] [Tipos de variáveis](wiki/variaveis/tipos_primitivos.md)
-- [x] [Sintaxe e linguagens C-Like](wiki/variaveis/sintaxe.md)
-- [x] [Aprenda a indentar](wiki/intro/indentacao.md)
-- [x] [Guia de Estilo](wiki/intro/estilo.md])
-- [x] [Exemplos de Código](wiki/intro/exemplos.md)-->
+### Configuração do Ambiente <!-- @tools_local_ide r:tools_bash opt -->
 
-### Aula 02 - Primeiro código
+- [ ] [Instalação do C (Mingw)](wiki/configure/mingw.md)
+- [ ] [IDE: Visual Studio Code (vscode)](wiki/configure/vscode.md)
 
-- [x] [IDE: VSCode](wiki/configure/vscode.md)
-- [x] [Instalando o MinGW](wiki/configure/mingw.md)
-- [x] [Compilando e Executando](wiki/compilando/Readme.md)
-- [x] [Primeiro Código](wiki/intro/primeiro_codigo.md)
-- [x] [Primeiro Exercício: L0 - Soma @tres inteiros](https://github.com/qxcodefup/arcade/blob/master/base/tres/Readme.md)
+### Makefile <!-- @tools_makefile opt r:tools_basic -->
 
-### Aula 03 - Entendendo melhor os tipos
+- [ ] [Vídeo de aprendizado](foo)
+- [ ] [O que é Makefile?](wiki/makefile/makefile_intro.md)
+- [ ] [Makefile e a linguagem C](wiki/makefile/makefile_c.md)
+- [ ] [Extras](wiki/makefile/makefile_extra.md)
 
-- [x] [Tipos de dados primitivos](wiki/variaveis/tipos_primitivos.md)
-- [ ] [O tipo string](wiki/string/tipo_string.md)
-- [x] [Limites e Modificadores de tipo](wiki/modificadores/modificadores.md)
-- [x] [Conversão entre tipos (casting)](wiki/variaveis/casting.md)
-- [x] [Variáveis](wiki/variaveis/variaveis.md): Boas práticas
-- [x] [Operações aritméticas +, -, *, /](wiki/operacoes/operacoes.md)
-- [x] [Não tenha medo de erros](wiki/erros/variaveis.md)
+### Macros: include, define, if, ifdef, endif  <!-- @tools_macros opt r:repeat_novice -->
 
-### Aula 04 - Operações Básicas
+- [ ] [Macros e onde aplicar](wiki/macros/macro_introducao.md)
+- [ ] [Macros e Multiplataforma](wiki/macros/macro_multiplataforma.md)
 
-- [x] [math.h (pow, sqrt)](wiki/biblioteca_math/Readme.md)
-- [x] [Problema da divisão de dois inteiros](wiki/problema_divisao_inteiros/Readme.md)
-- [x] [Entrada de dados básica com cin](wiki/entrada/Readme.md)
+### TKO - Ferramenta de Testes <!-- @tools_tko r:tools_basic g:Básico -->
+
 - [ ] [Ferramenta de Testes: TKTest](wiki/tko/Readme.md)
-- [x] [Impressão formatada](wiki/impressao_formatada/Readme.md)
-- [ ] Exercícios Resolvidos:
- [@000 Operações Básicas](https://github.com/qxcodefup/arcade/blob/master/base/000/Readme.md)
-- [ ] Exercícios Classe:
- [@002 Pintando a casa](https://github.com/qxcodefup/arcade/blob/master/base/000/Readme.md)
-- [ ] Exercícios Casa:
- [@003 Opala Bebedor](https://github.com/qxcodefup/arcade/blob/master/base/003/Readme.md),
- [@196 Comprando TV Parcelada](https://github.com/qxcodefup/arcade/blob/master/base/196/Readme.md)
 
-## Bloco - Seleção
+## Introdução <!-- group -->
 
-### Aula 05 - Seleção Básica
+### O que são linguagens de programação? <!-- @tools_basic -->
 
-- [x] [Atribuição e incremento](wiki/atribuicao_incremento/Readme.md)
-- [x] [Estruturas de seleção](wiki/selecao/selecao_if_else.md)
-- [x] [Técnica da seleção intervalada](wiki/selecao/selecao_tecnica_intervalos.md)
-- [x] [Operador ternário](wiki/operadores/ternario.md)
-- [ ] Exercícios Resolvidos:
- [@015 Calculadora Numérica](https://github.com/qxcodefup/arcade/blob/master/base/015/Readme.md),
- [@155 Plantação de Morangos](https://github.com/qxcodefup/arcade/blob/master/base/155/Readme.md)
-- [ ] Exercícios Classe:
- [@026 Positivo, Nulo ou Negativo?](https://github.com/qxcodefup/arcade/blob/master/base/026/Readme.md),
- [@031 Fiquei de Final](https://github.com/qxcodefup/arcade/blob/master/base/031/Readme.md)
-- [ ] Exercícios Casa:
- [@203 Cláusulas de Guarda](https://github.com/qxcodefup/arcade/blob/master/base/203/Readme.md),
- [@040 Está Trabalhando ou Não?](https://github.com/qxcodefup/arcade/blob/master/base/040/Readme.md),
- [@164 Triângulo de Varetas](https://github.com/qxcodefup/arcade/blob/master/base/164/Readme.md)
+- [ ] [O que são algoritmos?](wiki/intro/o_que_sao_algoritmos.md)
+- [ ] [Exemplos de códigos e linguagens](wiki/intro/exemplos.md)
+- [ ] [Ferramentas úteis](wiki/configure/ferramentas_uteis.md) File Manager, Terminal, Text Editor
+- [ ] [IDE: Replit](wiki/configure/replit.md)
 
-### Aula 06 - Debugando
+### Primeiro código <!-- @types_basic r:tools_basic -->
 
-- [x] [Debugando o primeiro código](wiki/debugando/intro.md)
+- [ ] [Primeiro código](wiki/primeiro_codigo/primeiro_codigo.md)
+- [ ] [Compilando e Executando](wiki/compilando/Readme.md)
+- [ ] [Segundo código](wiki/intro/segundo_codigo.md)
+- [ ] [Tipos de dados primitivos](wiki/variaveis/tipos_primitivos.md)
+- [ ] [Variáveis](wiki/variaveis/variaveis.md): Boas práticas
+- [ ] [Não tenha medo de erros](wiki/erros/variaveis.md)
 
-### Aula 07 - Técnicas de seleção I
+### Strings em C: Array de `char` <!-- @string_trivial r:io_basic -->
 
-- [x] [Operadores lógicos &&, ||, ==, ()](wiki/operadores/logicos.md)
-- [x] [Técnicas de if e else](wiki/selecao/selecao_tecnica_agrupamento.md)
-- [ ] Exercícios Classe:
-  [@014 Quantos são Iguais?](https://github.com/qxcodefup/arcade/blob/master/base/014/Readme.md),
-  [@021 Aumento de Salário](https://github.com/qxcodefup/arcade/blob/master/base/021/Readme.md),
-- [ ] Exercícios Casa:
-  [@023 Jokenpo das Tartarugas!](https://github.com/qxcodefup/arcade/blob/master/base/023/Readme.md)
-  [@183 Criança ou Múmia](https://github.com/qxcodefup/arcade/blob/master/base/183/Readme.md),
-  [@156 Jogo de Par ou Ímpar](https://github.com/qxcodefup/arcade/blob/master/base/156/Readme.md),
-  [@194 Nota Cortada](https://github.com/qxcodefup/arcade/blob/master/base/194/Readme.md)
+- [ ] [Strings em C](wiki/string/tipo_string.md)
 
-### Aula 08 - Técnicas de seleção II
+### Clean Code - Estilo <!-- @style_guide r:types_basic -->
 
-- [x] [Switch case](wiki/selecao/seleção_switch_case.md)
-- [x] [Operador de módulo](wiki/operadores/modulo.md)
-- [x] [Exercícios de módulo](wiki/exercicios_modulo/Readme.md)
-- [ ] Exercícios Resolvidos:
-  [@022 Teleférico](https://github.com/qxcodefup/arcade/blob/master/base/022/Readme.md)
-- [ ] Exercícios Classe:
-  [@025 Ambos Divisíveis](https://github.com/qxcodefup/arcade/blob/master/base/025/Readme.md),
-  [@005 Ladrão de Goiabas](https://github.com/qxcodefup/arcade/blob/master/base/005/Readme.md),
-- [ ] Exercícios Casa:
-  [@029 Quiz do Harry Potter](https://github.com/qxcodefup/arcade/blob/master/base/029/Readme.md),
-  [@062 Ângulo Cartesiano](https://github.com/qxcodefup/arcade/blob/master/base/062/Readme.md)
-  [@028 Cabeça da Cobra](https://github.com/qxcodefup/arcade/blob/master/base/028/Readme.md),
-  [@034 Formiga da Bundona](https://github.com/qxcodefup/arcade/blob/master/base/034/Readme.md)
+- [ ] [Guia de estilo de escrita](wiki/intro/estilo.md)
 
-## Bloco - Funções
+### Clean Code - Indentação <!-- @style_indentation r:types_basic -->
 
-### Aula 09 - Funções I
+- [ ] [Aprenda a indentar](wiki/intro/indentacao.md)
+
+### Manipulando tipos <!-- @types_modifiers opt r:types_basic -->
+
+- [ ] [Limites e Modificadores de tipo](wiki/modificadores/modificadores.md)
+
+### Casting e Conversão <!-- @types_casting opt r:types_basic -->
+
+- [ ] [Conversão entre tipos (casting)](wiki/variaveis/casting.md)
+- [ ] [Conversão Implícita de tipos](wiki/variaveis/implicit_casting.md)
+- [ ] [Conversões com  e ](wiki/variaveis/strtol_strtod.md)
+
+### Operações Básicas <!-- @types_operations r:types_basic r:tools_tko -->
+
+- [ ] [Atribuição e incremento](wiki/atribuicao_incremento/Readme.md) 
+- [ ] [Operações aritméticas s:, -, *, /](wiki/operacoes/operacoes.md)
+- [ ] [Problema da divisão de dois inteiros](wiki/problema_divisao_inteiros/problema_divisao_inteiros.md)
+
+### Biblioteca matemática <!-- @tools_math.h opt r:types_operations -->
+
+- [ ] [math.h (pow, sqrt)](wiki/biblioteca_math/Readme.md)
+- [ ] [@pintando a casa](https://github.com/qxcodefup/arcade/blob/master/base/000/Readme.md)
+
+## Entrada e Saída <!-- group -->
+
+### Entrada e Saída - puts, printf, scanf <!-- @io_basic r:types_operations g:Básico -->
+
+- [ ] [Entrada de dados básica com cin](wiki/entrada/Readme.md)
+- [ ] [Impressão formatada](wiki/impressao_formatada/Readme.md)
+- [ ] [L1 - @operacoes básicas](https://github.com/qxcodefup/arcade/blob/master/base/operacoes/Readme.md)
+- [ ] [L2 - @opala bebedor](https://github.com/qxcodefup/arcade/blob/master/base/opala/Readme.md)
+
+### Manipulando strings com `sprintf` e `sscanf` <!-- @io_string opt r:string_novice g:Básico -->
+
+- [ ] [Básico sobre `sprintf` e `sscanf`](wiki/string/sprintf_sscanf.md)
+- [ ] [Usando para Serialização e Desseliarização](wiki/string/serializacao_c.md)
+- [ ] [Strings e Structs com o Seu @frutolino](wiki/atividades/@frutolino/Readme.md)
+
+### Tratamento de erros de entrada fflush  <!-- @io_error opt r:repeat_novice -->
+
+- [ ] [argc e argv](wiki/argc_argv/Readme.md)
+
+
+### IO: argc e argv <!-- @io_argc_argv opt r:string_novice -->
+
+- [ ] [Tópicos extras e boas práticas](wiki/argc_argv/extra.md)
+
+## Seleção <!-- group -->
+
+### Seleção Básica <!-- @select_novice r:io_basic r:style_guide r:style_indentation g:Básico -->
+
+- [ ] [Estruturas de seleção](wiki/selecao/selecao_if_else.md)
+- [ ] [Técnica da seleção intervalada](wiki/selecao/selecao_tecnica_intervalos.md)
+- [ ] [Operador ternário](wiki/operadores/ternario.md)
+- [ ] resolvido: [L1 - @calculadora Numérica](https://github.com/qxcodefup/arcade/blob/master/base/calculadora/Readme.md)
+- [ ] resolvido: [L1 - Plantação de @morangos](https://github.com/qxcodefup/arcade/blob/master/base/morangos/Readme.md)
+- [ ] [L1 - @chaves - Positivo, Nulo ou Negativo?](https://github.com/qxcodefup/arcade/blob/master/base/chaves/Readme.md),
+- [ ] [L1 - Cláusulas de @guarda](https://github.com/qxcodefup/arcade/blob/master/base/guarda/Readme.md)
+- [ ] [L2 - Fiquei de @final](https://github.com/qxcodefup/arcade/blob/master/base/final/Readme.md)
+- [ ] [L2 - Está @trabalhando ou não](https://github.com/qxcodefup/arcade/blob/master/base/trabalhando/Readme.md)
+- [ ] [L2 - Triângulo de @varetas](https://github.com/qxcodefup/arcade/blob/master/base/varetas/Readme.md)
+
+### Debugando <!-- @tools_debug opt r:tools_basic -->
+
+- [ ] [Debugando o primeiro código](wiki/debugando/intro.md)
+
+### Técnicas de seleção I <!-- @select_advanced opt r:functions_novice -->
+
+- [ ] [Operadores lógicos &&, ||, ==, ()](wiki/operadores/logicos.md)
+- [ ] [Técnicas de if e else](wiki/selecao/selecao_tecnica_agrupamento.md)
+- [ ] [L1 - @quantos são iguais](https://github.com/qxcodefup/arcade/blob/master/base/quantos/Readme.md)
+- [ ] [L2 - Aumento de @salario](https://github.com/qxcodefup/arcade/blob/master/base/salario/Readme.md)
+- [ ] [L2 - @jokenpo das tartarugas](https://github.com/qxcodefup/arcade/blob/master/base/jokenpo/Readme.md)
+- [ ] [L2 - Criança ou @mumia](https://github.com/qxcodefup/arcade/blob/master/base/mumia/Readme.md)
+- [ ] [L2 - Jogo de par ou @impar - OBI 2016 - F1P1](https://github.com/qxcodefup/arcade/blob/master/base/impar/Readme.md)
+- [ ] [L2 - Nota @cortada - OBI 2019 F1P1](https://github.com/qxcodefup/arcade/blob/master/base/cortada/Readme.md)
+
+### Técnicas de seleção II <!-- @select_expert opt r:select_advanced -->
+
+- [ ] [Switch case](wiki/selecao/seleção_switch_case.md)
+- [ ] [Operador de módulo](wiki/operadores/modulo.md)
+- [ ] [Exercícios de módulo](wiki/exercicios_modulo/Readme.md)
+- [ ] [L1 - Ambos @divisiveis](https://github.com/qxcodefup/arcade/blob/master/base/divisiveis/Readme.md)
+- [ ] [L2 - @teleferico - OBI 2017 - Fase 1](https://github.com/qxcodefup/arcade/blob/master/base/teleferico/Readme.md)
+- [ ] [L2 - Ladrão de @goiabas](https://github.com/qxcodefup/arcade/blob/master/base/goiabas/Readme.md)
+- [ ] [L2 - @quiz do Harry Potter](https://github.com/qxcodefup/arcade/blob/master/base/quiz/Readme.md)
+- [ ] [L2 - Removendo @loops no ângulo Cartesiano](https://github.com/qxcodefup/arcade/blob/master/base/loops/Readme.md)
+- [ ] [L2 - Cabeça da @cobra](https://github.com/qxcodefup/arcade/blob/master/base/cobra/Readme.md)
+- [ ] [L3 - Formiga da @bundona](https://github.com/qxcodefup/arcade/blob/master/base/bundona/Readme.md)
+
+## Funções <!-- group -->
+
+### Funções I <!-- @functions_novice r:select_novice -->
 
 - [ ] [Variáveis locais e globais](wiki/variaveis/variaveis_locais_e_globais.md)
 - [ ] [Tratando Conflitos de Nomes com Namespaces](wiki/conflitos_e_namespaces/Readme.md)
 - [ ] [Funções: parâmetros e retornos](wiki/funcao/parametros_e_retornos.md)
-- [ ] Exercícios Classe:
-  [@091 MMC](https://github.com/qxcodefup/arcade/blob/master/base/091/Readme.md),
-  [@072 Soldados PMG!](https://github.com/qxcodefup/arcade/blob/master/base/072/Readme.md)
+- [ ] [L2 - @mmc](https://github.com/qxcodefup/arcade/blob/master/base/mmc/Readme.md)
+- [ ] [L2 - Soldados @pmg](https://github.com/qxcodefup/arcade/blob/master/base/pmg/Readme.md)
 
-### Aula 10 - Funções II
+### Funções II <!-- @function_advanced r:functions_novice -->
 
 - [ ] [Retornando no meio da função](wiki/funcao/retornando_no_meio_da_funcao.md)
 - [ ] [Debugando em funções](wiki/debugando/funcoes.md)
 - [ ] [Variáveis estáticas em funções](wiki/variaveis/variaveis_estaticas_em_funcoes.md)
 - [ ] [Valores default em funções](wiki/variaveis/valores_default_em_funcoes.md)
 
-## Bloco - Repetição
+## Repetição <!-- group -->
 
-### Aula 11 - While
+### While <!-- @repeat_novice r:select_novice -->
 
-- [x] [while(true), continue e break](wiki/repeticao/while_break_continue.md)
-- [ ] Exercícios Classe:
-  [@045 Soma dos Pares](https://github.com/qxcodefup/arcade/blob/master/base/045/Readme.md)
-- [ ] Exercícios Casa:
-  [@013 Sapatos para 3](https://github.com/qxcodefup/arcade/blob/master/base/013/Readme.md),
-  [@053 Fuga em Helicóptero](https://github.com/qxcodefup/arcade/blob/master/base/053/Readme.md)
+- [ ] [while(true), continue e break](wiki/repeticao/while_break_continue.md)
+- [ ] [L1 - Soma dos @pares](https://github.com/qxcodefup/arcade/blob/master/base/pares/Readme.md)
+- [ ] [L1 - @sapatos para 3](https://github.com/qxcodefup/arcade/blob/master/base/sapatos/Readme.md)
+- [ ] [L2 - @fuga em helicóptero - OBI 2016](https://github.com/qxcodefup/arcade/blob/master/base/fuga/Readme.md)
 
-### Aula 12 - for
+### for <!-- @repeat_advanced r:repeat_novice -->
 
 - [ ] [Aula 13 - Uso do for](wiki/repeticao/repeticao_for.md)
-- [ ] Exercícios Resolvidos:
-  [@046 Jogo da Concentração](https://github.com/qxcodefup/arcade/blob/master/base/046/Readme.md),
-  [@090 Primo](https://github.com/qxcodefup/arcade/blob/master/base/090/Readme.md)
-- [ ] Exercícios Classe:
-  [@047 Ônibus Lotado](https://github.com/qxcodefup/arcade/blob/master/base/047/Readme.md)
-- [ ] Exercícios Casa:
-  [@189 Fatores de um número](https://github.com/qxcodefup/arcade/blob/master/base/189/Readme.md),
-  [@049 Sapinho 1 no Poço](https://github.com/qxcodefup/arcade/blob/master/base/049/Readme.md),
-  [@059 Sapinho 2 Morrendo no Poço](https://github.com/qxcodefup/arcade/blob/master/base/059/Readme.md),
-  [@054 Quebrador de Copos](https://github.com/qxcodefup/arcade/blob/master/base/054/Readme.md)
+- [ ] [L2 - Jogo da @concentracao](https://github.com/qxcodefup/arcade/blob/master/base/concentracao/Readme.md),
+- [ ] [L2 - É @primo](https://github.com/qxcodefup/arcade/blob/master/base/primo/Readme.md)
+- [ ] [L2 - Ônibus @lotado](https://github.com/qxcodefup/arcade/blob/master/base/lotado/Readme.md)
+- [ ] [L2 - @fatores de um número](https://github.com/qxcodefup/arcade/blob/master/base/fatores/Readme.md),
+- [ ] [L2 - @sapinho 1 no Poço](https://github.com/qxcodefup/arcade/blob/master/base/sapinho/Readme.md),
+- [ ] [L3 - Sapinho 2 morrendo no @poco](https://github.com/qxcodefup/arcade/blob/master/base/poco/Readme.md),
+- [ ] [L3 - Quebrador de @copos](https://github.com/qxcodefup/arcade/blob/master/base/copos/Readme.md)
 
-### Aula 13 - Números Aleatórios
+## Jogos <!-- group -->
+
+### Números Aleatórios <!-- @tools_rand r:select_novice -->
 
 - [ ] [Números Aleatórios: Introdução](wiki/rand/num_aleatorios_introducao.md)
-- [ ] [As funções `rand()` e `srand()`](wiki/rand/rand_e_srand.md)
-- [ ] [Gerando números aleatórios com o Mersenne Twister](wiki/mersenne/Readme.md)
-- [ ] [argc e argv](wiki/argc_argv/Readme.md)
+- [ ] [As funções  e ](wiki/rand/rand_e_srand.md)
 
-## Bloco - Listas
+### Game Zero a Cem <!-- @game_zero_cem c:cyan r:tools_rand r:functions_novice -->
 
-### Aula 14
+
+## Vetores <!-- group -->
+
+### Array Iniciante <!-- @array_novice r:repeat_advanced r:functions_novice -->
 
 - [ ] [Array simples](wiki/array_simples/Readme.md)
-- [ ] Exercícios Resolvidos:
-  [@060 Casamento](https://github.com/qxcodefup/arcade/blob/master/base/060/Readme.md)
-- [ ] Exercícios Classe:
-  [@055 Contagem](https://github.com/qxcodefup/arcade/blob/master/base/055/Readme.md),
-  [@056 Calça Apertada](https://github.com/qxcodefup/arcade/blob/master/base/056/Readme.md)
-- [ ] Exercícios Casa:
-  [@048 Cabo de Guerra Jedi](https://github.com/qxcodefup/arcade/blob/master/base/048/Readme.md),
-  [@051 Pedra na Lua](https://github.com/qxcodefup/arcade/blob/master/base/051/Readme.md),
-  [@058 Busca Intervalada](https://github.com/qxcodefup/arcade/blob/master/base/051/Readme.md),
-  [@100 Pião Perto da Linha](https://github.com/qxcodefup/arcade/blob/master/base/100/Readme.md)
+- [ ] [L1 - @casamento](https://github.com/qxcodefup/arcade/blob/master/base/casamento/Readme.md)
+- [ ] [L1 - @contagem](https://github.com/qxcodefup/arcade/blob/master/base/contagem/Readme.md)
+- [ ] [L1 - Calça @apertada](https://github.com/qxcodefup/arcade/blob/master/base/apertada/Readme.md)
 
-### Aula 15
+### Array avançado <!-- @array_advanced r:array_novice -->
+
+- [ ] [L2 - Cabo de Guerra @jedi](https://github.com/qxcodefup/arcade/blob/master/base/jedi/Readme.md)
+- [ ] [L3 - @pedra na lua](https://github.com/qxcodefup/arcade/blob/master/base/pedra/Readme.md)
+- [ ] [L2 - @busca Intervalada](https://github.com/qxcodefup/arcade/blob/master/base/busca/Readme.md)
+- [ ] [L3 - @piao perto da linha](https://github.com/qxcodefup/arcade/blob/master/base/piao/Readme.md)
+
+### Blackjack <!-- @game_blackjack c:cyan r:tools_rand r:array_advanced -->
+
+### Array Expert <!-- @array_expert opt r:array_advanced -->
 
 - [ ] [Vector](wiki/vetores/vector.md)
 - [ ] [For Indexado](wiki/repeticao/for_indexado.md)
 - [ ] Exercícios Casa:
-  [@068 Fila do RU](https://github.com/qxcodefup/arcade/blob/master/base/068/Readme.md),
-  [@061 Invertendo Vetor](https://github.com/qxcodefup/arcade/blob/master/base/061/Readme.md),
-  [@078 Jogo do Avesso](https://github.com/qxcodefup/arcade/blob/master/base/078/Readme.md),
-  [@088 Mediana](https://github.com/qxcodefup/arcade/blob/master/base/088/Readme.md)
+- [ ] [L2 - @fila do RU - Separar Pares e Ímpares](https://github.com/qxcodefup/arcade/blob/master/base/fila/Readme.md)
+- [ ] [L2 - @invertendo vetor](https://github.com/qxcodefup/arcade/blob/master/base/invertendo/Readme.md)
+- [ ] [L2 - Jogo do @avesso](https://github.com/qxcodefup/arcade/blob/master/base/avesso/Readme.md)
+- [ ] [L2 - @mediana](https://github.com/qxcodefup/arcade/blob/master/base/mediana/Readme.md)
 
-### Aula 16
+## Strings <!-- groups -->
 
-- [ ] [Cópia e Referência](wiki/copia_e_referencia/Readme.md)
-- [ ] [For-each e loops com referência](wiki/repeticao/foreach.md)
+### Strings I <!-- @string_novice r:array_advanced -->
 
-## Bloco - Texto
+- [ ] [Tabela ASCII](wiki/string/tabela_asc2.md)
+- [ ] [Manipulação de caracteres](wiki/manipulacao_caracteres/Readme.md)
+- [ ] [Métodos da classe string](wiki/metodos_string/metodos_string.md)
+- [ ] [Métodos  e ](wiki/split_join/Readme.md)
+- [ ] [L1 - Eribelton e a @ascologia V1 - Somar Asc](https://github.com/qxcodefup/arcade/blob/master/base/ascologia/Readme.md),
 
-### Aula 17
+### Strings II <!-- @string_advanced opt r:string_novice r:pointers_novice -->
 
-- [Tabela ASC](wiki/string/tabela_asc2.md)
-- [Manipulação de caracteres](wiki/manipulacao_caracteres/Readme.md)
-- [Métodos da classe string](wiki/metodos_string/metodos_string.md)
-- [ ] [Métodos `split()` e `join()`](wiki/split_join/Readme.md)
-- [ ] [Stringstream e Manipulação de Streams](wiki/string/stringstream.md)
-- [ ] Exercícios Classe:
-  [@173 Eribelton e a Ascologia V1](https://github.com/qxcodefup/arcade/blob/master/base/173/Readme.md),
-  [@104 Maiúsculo, Minusculo e Dígito!](https://github.com/qxcodefup/arcade/blob/master/base/104/Readme.md)
-- [ ] Exercícios Casa:
-  [@092 LP da Xuxa - Inverter String](https://github.com/qxcodefup/arcade/blob/master/base/092/Readme.md),
-  [@174 Valdiskey e a cifra V1!](https://github.com/qxcodefup/arcade/blob/master/base/174/Readme.md),
-  [@096 Contar Leds](https://github.com/qxcodefup/arcade/blob/master/base/096/Readme.md),
-  [@093 Gritando em Caixa Alta](https://github.com/qxcodefup/arcade/blob/master/base/093/Readme.md),
-  [@089 Mega Jokenpo!](https://github.com/qxcodefup/arcade/blob/master/base/089/Readme.md),
-  [@114 MeU WoRd QuEbRoU](https://github.com/qxcodefup/arcade/blob/master/base/114/Readme.md),
-  [@103 Separe Pneumatocito](https://github.com/qxcodefup/arcade/blob/master/base/103/Readme.md)
+- [ ] [L1 - LP da @xuxa - Inverter String](https://github.com/qxcodefup/arcade/blob/master/base/xuxa/Readme.md)
+- [ ] [L1 - @valdiskley e a cifra V1](https://github.com/qxcodefup/arcade/blob/master/base/valdiskley/Readme.md)
+- [ ] [L2 - Contar @leds](https://github.com/qxcodefup/arcade/blob/master/base/leds/Readme.md)
 
-## Bloco - Structs
+### Strings Expert <!-- @string_expert opt r:string_advanced -->
 
-### Aula 18
+- [ ] [L2 - @gritando em Caixa Alta - Invertendo o Case da frase](https://github.com/qxcodefup/arcade/blob/master/base/gritando/Readme.md)
+- [ ] [L2 - @jokenpozao de 9](https://github.com/qxcodefup/arcade/blob/master/base/jokenpozao/Readme.md)
+- [ ] [L3 - MeU @word QuEbRoU - formatação de case](https://github.com/qxcodefup/arcade/blob/master/base/word/Readme.md)
+- [ ] [L3 - Separe Pneumatócito - @silabas](https://github.com/qxcodefup/arcade/blob/master/base/silabas/Readme.md)
 
-- [ ] [structs construtores com {}](wiki/struct/structs.md)
+## Extra <!-- groups -->
 
-### Aula 19
+### Ponteiros <!-- @pointers_novice r:function_advanced -->
 
-- [ ] [Iteradores](wiki/iteradores/Readme.md)
-- vetores de structs
+- [ ] [Ponteiros: Introdução](wiki/ponteiros/introducao.md)
 
-### Aula 20
+### Structs <!-- @structs_novice r:functions_novice -->
 
-- tipos de passagem de parâmetros
-  - cópias, referências e referências constantes
+- [ ] [Structs: Introdução](wiki/structs/introducao.md)
+- [ ] [Structs: Exemplos](wiki/structs/exemplos.md)
 
-## Bloco 07 - Texto
+## Matrizes <!-- groups -->
 
-### Aula 21 matrizes
+### Matrizes <!-- @matrix_novice r:array_novice -->
 
 - [ ] [O que são matrizes e para que usar?](wiki/matrizes/o_que_sao_matrizes.md)
 - [ ] [Noções básicas sobre matrizes: diagonais e outras propriedades](wiki/matrizes/nocoes_basicas_de_matrizes.md)
 
-### Aula 22 tecnicas em matrizes
 
-## Bloco 08 - avançado
+### Técnicas em matrizes <!-- @matrix_advanced opt r:matrix_novice r:structs_advanced -->
 
-### Aula 23 - ponteiros
+- [ ]  [filler](https:filler.com.br)
 
-### Aula 24 - enum
+### Jogo da Vida <!-- @game_jogodavida c:cyan r:tools_rand r:matrix_advanced -->
 
-### Aula 25 - arquivos
+### Cobrinha <!-- @game_cobrinha c:cyan r:tools_rand r:structs_advanced -->
 
-### Aula 26 - funções lambda
+### Aula 24 - enum <!-- @enum r:select_novice -->
 
-### Aula 27 - templates
+- [ ] filler
+- [ ] filler 2
 
-### Aula 28 - biblioteca algorithm find, sort, reverse, shuffle
+### Ponteiros ii <!-- @pointers_advanced r:pointers_novice -->
+
+- [ ] filler
+- [ ] filler 2
+
+### Alocação Dinâmica i <!-- @memory_novice opt r:pointers_novice -->
+
+- [ ] filler
+- [ ] filler 2
+
+### Alocação Dinâmica ii <!-- @memory_advanced opt r:memory_novice -->
+
+- [ ] filler
+- [ ] filler 2
+
+### arquivos texto <!-- @files_novice r:pointers_advanced -->
+
+- [ ] filler
+
+### arquivos binario <!-- @files_advanced opt r:files_novice -->
+
+- [ ] filler 2
+
+## Structs <!-- groups -->
+
+### Structs Advanced <!-- @structs_advanced r:pointers_novice r:array_novice r:structs_novice -->
+
+- [ ] [Structs: Ponteiros e Referências](wiki/structs/ponteiros_referencias.md)
+- [ ] [Structs: Funções e Métodos](wiki/structs/funcoes_metodos.md)
