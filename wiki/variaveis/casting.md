@@ -3,7 +3,7 @@
 Em C++, o casting é uma operação que permite converter explicitamente um valor de um tipo para outro. Isso é útil quando queremos garantir que um determinado valor seja tratado como outro tipo.
 
 <!-- toc -->
-- [Conversões](#conversões)
+- [Conversões implícitas](#conversões-implícitas)
 - [Cast Tradicional do C](#cast-tradicional-do-c)
 <!-- toc -->
 

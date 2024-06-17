@@ -10,9 +10,6 @@
   - [Inicialização Direta](#inicialização-direta)
   - [Inicialização com Tamanho Especificado](#inicialização-com-tamanho-especificado)
   - [Inicialização Caracter a Caracter](#inicialização-caracter-a-caracter)
-- [Leitura de Strings do Teclado](#leitura-de-strings-do-teclado)
-  - [Leitura com `%s`](#leitura-com-s)
-  - [Leitura com `%[^\n]`](#leitura-com-n)
 - [Conclusão](#conclusão)
 <!-- toc -->
 

@@ -1,10 +1,14 @@
-run = "/home/runner/${REPL_SLUG}/.bin/play.py -c /home/runner/${REPL_SLUG}/.bin/play.json"
-entrypoint = "main.c"
-hidden = ["main", "main-debug", "**/*.o", "**/*.d", ".ccls-cache", "Makefile"]
-modules = ["python-3.10:v25-20230920-d4ad2e4"]
+run = "cat /home/runner/${REPL_SLUG}/.bin/msg.txt"
+
+hidden = ["main", "main-debug", "**/*.o", "**/*.d", ".*", "Makefile"]
 
 [nix]
 channel = "stable-22_11"
+
+[env]
+CPATH = "/home/runner/${REPL_SLUG}/.include"
+LD_LIBRARY_PATH = "/home/runner/${REPL_SLUG}/.include"
+CPLUS_INCLUDE_PATH = "/home/runner/${REPL_SLUG}/.include"
 
 [gitHubImport]
 requiredFiles = [".replit", "replit.nix", ".ccls-cache"]
@@ -54,7 +58,7 @@ name = "g++ - Build and debug active file"
 program = "./main-debug"
 request = "launch"
 setupCommands = [
-	{ description = "Enable pretty-printing for gdb", ignoreFailures = true, text = "-enable-pretty-printing" },
+	{ description = "Enable pretty-printing for gdb", ignoreFailures = true, text = "-enable-pretty-printing" }
 ]
 stopAtEntry = false
 type = "cppdbg"
