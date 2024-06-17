@@ -11,7 +11,7 @@
 
 ## Introdução
 
-Em linguagem C++, o `argc` e `argv` são **parâmetros especiais** usados para
+Em linguagem C, o `argc` e `argv` são **parâmetros especiais** usados para
 lidar com argumentos da linha de comando. Quando você executa um programa a
 partir da linha de comando, pode passar **argumentos adicionais** para esse
 programa. O `argc` representa o **número de argumentos** passados, e o `argv` é
@@ -37,11 +37,11 @@ uma string que contém o **nome do programa** em execução, e os elementos segu
 Neste exemplo, criaremos um programa simples que recebe argumentos da linha de
 comando e conta quantos argumentos foram passados.
 
-```cpp
-#include <iostream>
+```c
+#include <stdio.h>
 
 int main(int argc, char* argv[]) {
-    std::cout << "Número de argumentos passados: " << argc << '\n';
+    printf("Número de argumentos passados: %d\n", argc);
     return 0;
 }
 ```
@@ -49,13 +49,13 @@ int main(int argc, char* argv[]) {
 Funcionamento:
 Se você compilar e executar o programa da seguinte forma:
 
-```cpp
+```sh
 ./contagem_argumentos arg1 arg2 arg3
 ```
 
 A saída será:
 
-```cpp
+```sh
 Número de argumentos passados: 4
 ```
 
@@ -67,13 +67,13 @@ O valor de `argc` será 4, pois foram passados quatro argumentos:
 Neste exemplo, criaremos um programa que imprime todos os argumentos passados
 na linha de comando.
 
-```cpp
-#include <iostream>
+```c
+#include <stdio.h>
 
 int main(int argc, char* argv[]) {
-    std::cout << "Argumentos passados:\n";
+    printf("Argumentos passados:\n");
     for (int i = 0; i < argc; ++i) {
-        std::cout << "Argumento " << i << ": " << argv[i] << '\n';
+        printf("Argumento %d: %s\n", i, argv[i]);
     }
     return 0;
 }
@@ -82,13 +82,13 @@ int main(int argc, char* argv[]) {
 Funcionamento:
 Se você compilar e executar o programa da seguinte forma:
 
-```cpp
+```sh
 ./imprimir_argumentos abacaxi morango banana
 ```
 
 A saída será:
 
-```cpp
+```sh
 Argumentos passados:
 Argumento 0: ./imprimir_argumentos
 Argumento 1: abacaxi
@@ -101,24 +101,24 @@ Argumento 3: banana
 Neste exemplo, criaremos um programa que recebe argumentos numéricos da linha
 de comando e realiza a soma desses números.
 
-```cpp
-#include <iostream>
-#include <cstdlib>
+```c
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char* argv[]) {
-    //Error: poucos argumentos passados
+    // Erro: poucos argumentos passados
     if (argc < 3) {
-        std::cerr << "Uso: " << argv[0] << " <número1> <número2> ..." << '\n';
+        fprintf(stderr, "Uso: %s <número1> <número2> ...\n", argv[0]);
         return 1;
     }
 
     int soma = 0;
     for (int i = 1; i < argc; ++i) {
-        int numero = std::atoi(argv[i]);
+        int numero = atoi(argv[i]);
         soma += numero;
     }
 
-    std::cout << "Soma dos números: " << soma << '\n';
+    printf("Soma dos números: %d\n", soma);
     return 0;
 }
 ```
@@ -126,13 +126,13 @@ int main(int argc, char* argv[]) {
 Funcionamento:
 Se você compilar e executar o programa da seguinte forma:
 
-```cpp
+```sh
 ./soma_numeros 10 20 30
 ```
 
 A saída será:
 
-```cpp
+```sh
 Soma dos números: 60
 ```
 
@@ -141,7 +141,7 @@ exibe o resultado na tela.
 
 ---
 
-Em resumo o `argc` e `argv` possibilitam que os programas sejam mais **interativos
+Em resumo, o `argc` e `argv` possibilitam que os programas sejam mais **interativos
 e personalizáveis**, permitindo que os usuários forneçam informações específicas
 durante a execução do programa. Os argumentos podem ser utilizados para **configurar
 o comportamento do programa**, realizar operações específicas ou processar dados

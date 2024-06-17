@@ -1,0 +1,104 @@
+{
+    "reps": {
+        "fup": {
+            "url": "https://github.com/qxcodefup/arcade/blob/master/Readme.md",
+            "file": "",
+            "cache": "",
+            "quests": {
+                "op_math": "e",
+                "Opera\u00e7\u00f5es B\u00e1sicas ": "e",
+                "Sele\u00e7\u00e3o ": "e"
+            },
+            "tasks": {
+                "tres": "x",
+                "pintando": "x",
+                "opala": "x",
+                "tv": "x",
+                "bala": "x",
+                "ou": "x",
+                "positivo": "x",
+                "multiplo": "x",
+                "nulo": "x",
+                "calculadora": "x",
+                "impedido": "x",
+                "final": "x",
+                "trabalhando": "x",
+                "maximo": "x",
+                "chaves": "x",
+                "arredondar": "x"
+            },
+            "view": [
+                "view",
+                "done",
+                "init",
+                "todo",
+                "help_0"
+            ]
+        },
+        "ed": {
+            "url": "https://github.com/qxcodeed/arcade/blob/master/Readme.md",
+            "file": "",
+            "cache": "",
+            "quests": {},
+            "tasks": {},
+            "view": [
+                "done",
+                "init",
+                "todo",
+                "help_0"
+            ]
+        },
+        "poo": {
+            "url": "https://github.com/qxcodepoo/arcade/blob/master/Readme.md",
+            "file": "",
+            "cache": "",
+            "quests": {},
+            "tasks": {
+                "animal": "8",
+                "carro": "9",
+                "calculadora": "7",
+                "relogio": "x",
+                "motoca": "x",
+                "budega": "x",
+                "pula-pula": "x",
+                "lapiseira": "x",
+                "tabuleiro": "x"
+            },
+            "view": [
+                "link",
+                "fold",
+                "done",
+                "init",
+                "todo",
+                "help_0"
+            ]
+        },
+        "cisfun": {
+            "url": "",
+            "file": "/home/runner/cisfun/cplan.md",
+            "cache": "",
+            "quests": {},
+            "tasks": {
+                "wiki/intro/o_que_sao_algoritmos.md": "x",
+                "wiki/intro/exemplos.md": "x",
+                "wiki/configure/ferramentas_uteis.md": "x",
+                "wiki/configure/replit.md": "x"
+            },
+            "view": [
+                "hack",
+                "view",
+                "done",
+                "init",
+                "todo",
+                "help_0"
+            ]
+        }
+    },
+    "local": {
+        "lang": "ask",
+        "ascii": false,
+        "color": true,
+        "updown": true,
+        "sideto_min": 60
+    }
+}

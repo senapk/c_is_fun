@@ -1,5 +1,20 @@
 # Makefile: O Que É e Para Que Serve
 
+<!-- toc -->
+- [Estrutura Básica de um Makefile](#estrutura-básica-de-um-makefile)
+  - [Exemplo Simples](#exemplo-simples)
+- [Vantagens de Usar um Makefile](#vantagens-de-usar-um-makefile)
+  - [1. Automação da Compilação](#1-automação-da-compilação)
+  - [2. Gestão de Dependências](#2-gestão-de-dependências)
+  - [3. Portabilidade](#3-portabilidade)
+  - [4. Flexibilidade](#4-flexibilidade)
+- [Utilização Comum](#utilização-comum)
+  - [Compilação de Código](#compilação-de-código)
+  - [Construção de Projetos Complexos](#construção-de-projetos-complexos)
+  - [Execução de Tarefas Repetitivas](#execução-de-tarefas-repetitivas)
+- [Conclusão](#conclusão)
+<!-- toc -->
+
 Um **Makefile** é um arquivo utilizado pelo utilitário **make**, amplamente empregado em desenvolvimento de software para automatizar a compilação de programas e a gestão de projetos. O Makefile contém um conjunto de diretrizes sobre como construir e gerenciar o projeto. Ele é essencial para desenvolvedores que trabalham com grandes projetos de software, pois simplifica e acelera processos complexos.
 
 ## Estrutura Básica de um Makefile

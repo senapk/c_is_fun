@@ -1,5 +1,17 @@
 # Makefile para Compilação de Código em C
 
+<!-- toc -->
+- [Estrutura do Makefile](#estrutura-do-makefile)
+- [Descrição dos Alvos e Variáveis](#descrição-dos-alvos-e-variáveis)
+  - [Variáveis](#variáveis)
+  - [Alvos](#alvos)
+- [Como Usar o Makefile](#como-usar-o-makefile)
+  - [Compilação](#compilação)
+  - [Limpeza](#limpeza)
+  - [Execução](#execução)
+- [Conclusão](#conclusão)
+<!-- toc -->
+
 Este Makefile é projetado para compilar programas em C com uma série de flags de compilação úteis, incluindo `-Wall`, `-Wextra`, entre outras. Ele também demonstra a organização de dependências e a criação de alvos para limpar arquivos gerados durante a compilação.
 
 ## Estrutura do Makefile
