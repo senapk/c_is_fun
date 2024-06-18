@@ -1,7 +1,9 @@
 # Macros para Aplicativos Multiplataforma em C/C++
+
 Explore como utilizar macros para facilitar o desenvolvimento de aplicativos multiplataforma em C/C++.
 
-## Sumário
+<!-- toc -->
+
 - [Introdução](#introdução)
 - [Desafios do Desenvolvimento Multiplataforma](#desafios-do-desenvolvimento-multiplataforma)
 - [Uso de Macros para Detecção de Plataforma](#uso-de-macros-para-detecção-de-plataforma)
@@ -10,10 +12,14 @@ Explore como utilizar macros para facilitar o desenvolvimento de aplicativos mul
 - [Boas Práticas no Uso de Macros Multiplataforma](#boas-práticas-no-uso-de-macros-multiplataforma)
 - [Conclusão](#conclusão)
 
+<!-- toc -->
+
 ## Introdução
+
 O desenvolvimento de aplicativos multiplataforma em C/C++ pode ser complexo devido às diferenças entre sistemas operacionais e ambientes de compilação. Macros são uma ferramenta essencial para lidar com essas diferenças, permitindo que o mesmo código-fonte seja compilado e executado em várias plataformas.
 
 ## Desafios do Desenvolvimento Multiplataforma
+
 Desenvolver para múltiplas plataformas envolve lidar com:
 
 - Diferenças na API e nas bibliotecas padrão.
@@ -22,9 +28,11 @@ Desenvolver para múltiplas plataformas envolve lidar com:
 - Especificidades de cada sistema operacional.
 
 ## Uso de Macros para Detecção de Plataforma
+
 Macros podem ser usadas para detectar a plataforma em que o código está sendo compilado e ajustar a lógica do programa conforme necessário.
 
 Exemplo:
+
 ```c
 #ifdef _WIN32
     // Código específico para Windows
@@ -39,12 +47,15 @@ Exemplo:
     #error "Plataforma não suportada"
 #endif
 ```
+
 Este exemplo mostra como usar macros predefinidas para detectar o sistema operacional e ajustar o comportamento do código de acordo.
 
 ## Configuração Condicional de Código
+
 A configuração condicional de código permite que trechos de código específicos sejam incluídos ou excluídos com base na plataforma.
 
 Exemplo:
+
 ```c
 #ifdef _WIN32
     #include <windows.h>
@@ -62,13 +73,17 @@ Exemplo:
         // Implementação para macOS
     }
 #endif
+
 ```
+
 Dessa forma, o mesmo arquivo fonte pode conter implementações específicas para diferentes plataformas.
 
 ## Inclusão Condicional de Bibliotecas
+
 Plataformas diferentes podem exigir a inclusão de diferentes bibliotecas. As macros permitem gerenciar essas inclusões de forma eficaz.
 
 Exemplo:
+
 ```c
 #ifdef _WIN32
     #include <windows.h>
@@ -80,16 +95,19 @@ Exemplo:
     #include <sys/socket.h>
     #include <netinet/in.h>
 #endif
+
 ```
 Isso garante que as bibliotecas corretas sejam incluídas para a plataforma específica, evitando erros de compilação.
 
 ## Boas Práticas no Uso de Macros Multiplataforma
+
 - **Centralize Definições:** Coloque todas as definições de macros relacionadas a plataformas em um único arquivo de cabeçalho.
 - **Documente Macros:** Documente claramente o propósito e o uso de cada macro para facilitar a manutenção.
 - **Teste Extensivamente:** Teste o código em todas as plataformas alvo para garantir que as diferenças específicas sejam tratadas corretamente.
 - **Minimize o Uso de Macros:** Use macros apenas quando necessário e considere funções inline ou classes para lógica mais complexa.
 
 Exemplo de boas práticas:
+
 ```c
 // multiplatform.h
 #ifndef MULTIPLATFORM_H
@@ -109,8 +127,11 @@ Exemplo de boas práticas:
 #endif
 
 #endif // MULTIPLATFORM_H
+
 ```
+
 Isso mantém o código organizado e facilita a adição de novas plataformas no futuro.
 
 ## Conclusão
+
 Macros são uma ferramenta poderosa no desenvolvimento de aplicativos multiplataforma em C/C++. Elas permitem a detecção da plataforma, a configuração condicional de código e a inclusão de bibliotecas apropriadas. Seguir boas práticas garante que o código seja limpo, legível e fácil de manter, facilitando o suporte a múltiplas plataformas de forma eficaz.

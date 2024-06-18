@@ -2,23 +2,22 @@
 
 <!-- toc -->
 - [Variáveis Automáticas](#variáveis-automáticas)
-  - [Exemplo](#exemplo)
+  - [Exemplo 1](#exemplo-1)
 - [Diretivas `include`](#diretivas-include)
-  - [Exemplo](#exemplo)
+  - [Exemplo 2](#exemplo-2)
 - [Regras Implícitas](#regras-implícitas)
   - [Exemplo](#exemplo)
 - [Funções no Makefile](#funções-no-makefile)
   - [Função `wildcard`](#função-wildcard)
   - [Função `patsubst`](#função-patsubst)
 - [Diretivas de Condicionais](#diretivas-de-condicionais)
-  - [Exemplo](#exemplo)
+  - [Exemplo 3](#exemplo-3)
 - [Phony Targets](#phony-targets)
-  - [Exemplo](#exemplo)
+  - [Exemplo 4](#exemplo-4)
 - [Diretivas `$(shell ...)`](#diretivas-shell-)
-  - [Exemplo](#exemplo)
+  - [Exemplo 5](#exemplo-5)
 - [Conclusão](#conclusão)
 <!-- toc -->
-
 
 ## Variáveis Automáticas
 
@@ -28,7 +27,7 @@ No Makefile, você pode utilizar variáveis automáticas para simplificar as reg
 - `$<`: O primeiro item na lista de dependências.
 - `$^`: A lista de todas as dependências, sem duplicatas.
 
-### Exemplo
+### Exemplo 1
 
 ```makefile
 programa: main.o utils.o
@@ -41,7 +40,7 @@ Aqui, `$@` será substituído por `programa` e `$^` por `main.o utils.o`.
 
 Você pode dividir seu Makefile em vários arquivos e usar a diretiva `include` para incorporá-los. Isso é útil para projetos grandes.
 
-### Exemplo
+### Exemplo 2
 
 ```makefile
 include paths.mk
@@ -92,7 +91,7 @@ OBJ = $(patsubst %.c, %.o, $(SRC))
 
 Você pode adicionar condicionais ao seu Makefile para compilar código de maneira diferente com base em certas condições.
 
-### Exemplo
+### Exemplo 3
 
 ```makefile
 DEBUG ?= 0
@@ -107,7 +106,7 @@ endif
 
 Alvos fictícios (phony targets) são utilizados para definir comandos que não correspondem a arquivos reais. Isso evita conflitos se houver arquivos com os mesmos nomes dos alvos.
 
-### Exemplo
+### Exemplo 4
 
 ```makefile
 .PHONY: clean all
@@ -122,7 +121,7 @@ clean:
 
 Você pode executar comandos do shell e capturar sua saída com a função `$(shell ...)`.
 
-### Exemplo
+### Exemplo 5
 
 ```makefile
 DATE := $(shell date +%Y-%m-%d)

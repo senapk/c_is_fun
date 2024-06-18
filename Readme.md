@@ -2,38 +2,9 @@
 
 - [Instruções aos Monitores](wiki/intro/instrucoes_monitores.md)
 
-## Flow
-
 Clique para abrir a versão clicável
 
 [![_](graph.svg)](https://raw.githubusercontent.com/senapk/c_is_fun/main/graph.svg)
-
-## Ferramentas <!-- group -->
-
-### Uso do bash <!-- @tools_bash opt r:tools_basic -->
-
-- [ ] [Uso do Bash e Instalação do Git Bash](wiki/configure/bash_git.md)
-
-### Configuração do Ambiente <!-- @tools_local_ide r:tools_bash opt -->
-
-- [ ] [Instalação do C (Mingw)](wiki/configure/mingw.md)
-- [ ] [IDE: Visual Studio Code (vscode)](wiki/configure/vscode.md)
-
-### Makefile <!-- @tools_makefile opt r:tools_basic -->
-
-- [ ] [Vídeo de aprendizado](foo)
-- [ ] [O que é Makefile?](wiki/makefile/makefile_intro.md)
-- [ ] [Makefile e a linguagem C](wiki/makefile/makefile_c.md)
-- [ ] [Extras](wiki/makefile/makefile_extra.md)
-
-### Macros: include, define, if, ifdef, endif  <!-- @tools_macros opt r:repeat_novice -->
-
-- [ ] [Macros e onde aplicar](wiki/macros/macro_introducao.md)
-- [ ] [Macros e Multiplataforma](wiki/macros/macro_multiplataforma.md)
-
-### TKO - Ferramenta de Testes <!-- @tools_tko r:tools_basic g:Básico -->
-
-- [ ] [Ferramenta de Testes: TKTest](wiki/tko/Readme.md)
 
 ## Introdução <!-- group -->
 
@@ -53,49 +24,63 @@ Clique para abrir a versão clicável
 - [ ] [Variáveis](wiki/variaveis/variaveis.md): Boas práticas
 - [ ] [Não tenha medo de erros](wiki/erros/variaveis.md)
 
-### Strings em C: Array de `char` <!-- @string_trivial r:io_basic -->
+### Montando seu setup local <!-- @local opt r:tools_basic t:7 -->
 
-- [ ] [Strings em C](wiki/string/tipo_string.md)
+- [ ] [Uso do Bash e Instalação do Git Bash](wiki/configure/bash_git.md)
+- [ ] [Instalação do C (Mingw)](wiki/configure/mingw.md)
+- [ ] [IDE: Visual Studio Code (vscode)](wiki/configure/vscode.md)
+- [ ] [Práticando com as ferramentas](wiki/configure/praticando.md)
 
-### Clean Code - Estilo <!-- @style_guide r:types_basic -->
+### TKO - Ferramenta de Testes <!-- @tko r:tools_basic -->
 
-- [ ] [Guia de estilo de escrita](wiki/intro/estilo.md)
+- [ ] [Ferramenta de Testes: TKO](wiki/tko/Readme.md)
+- [ ] [tko down - Baixando as atividades do repositórios](wiki/tko/repositorios.md)
+- [ ] [tko run - Rodando livremente e com os casos de teste](wiki/tko/tko_run.md)
+- [ ] [tko play - Marcando o que foi feito no modo jogo](wiki/tko/tko_play.md)
 
-### Clean Code - Indentação <!-- @style_indentation r:types_basic -->
+### Biblioteca para desenhos <!-- @tools_draw opt r:tools_basic -->
+
+- [ ] [Biblioteca para desenhos XPaint](wiki/draw/draw.md)
+
+### Técnicas de Debug <!-- @tools_debug opt r:select_novice -->
+
+- [ ] [Debugando o primeiro código](wiki/debugando/intro.md)
+- [ ] [Encontre o erro nesses códigos usando debug](wiki/debugando/erros.md) TODO
+- [ ] [Como debugar um código com entrada e saída variáveis](wiki/debugando/io.md) TODO
+
+### Clean Code <!-- @style r:types_basic -->
 
 - [ ] [Aprenda a indentar](wiki/intro/indentacao.md)
+- [ ] [Treinando indentação](wiki/intro/indentacao_treino.md)
+- [ ] [Guia de estilo de escrita](wiki/intro/estilo.md)
+- [ ] [Treinando estilo de escrita](wiki/intro/estilo_treino.md)
 
-### Manipulando tipos <!-- @types_modifiers opt r:types_basic -->
+### Tipos e casting <!-- @types_casting opt r:types_basic -->
 
 - [ ] [Limites e Modificadores de tipo](wiki/modificadores/modificadores.md)
-
-### Casting e Conversão <!-- @types_casting opt r:types_basic -->
-
 - [ ] [Conversão entre tipos (casting)](wiki/variaveis/casting.md)
 - [ ] [Conversão Implícita de tipos](wiki/variaveis/implicit_casting.md)
-- [ ] [Conversões com  e ](wiki/variaveis/strtol_strtod.md)
+- [ ] [Conversões com strings](wiki/variaveis/strtol_strtod.md)
+- [ ] [Strings em C](wiki/string/tipo_string.md)
 
-### Operações Básicas <!-- @types_operations r:types_basic r:tools_tko -->
+## Entrada e Saída <!-- group -->
+
+### Operações Básicas <!-- @types_operations r:types_basic r:tko -->
 
 - [ ] [Atribuição e incremento](wiki/atribuicao_incremento/Readme.md) 
 - [ ] [Operações aritméticas s:, -, *, /](wiki/operacoes/operacoes.md)
 - [ ] [Problema da divisão de dois inteiros](wiki/problema_divisao_inteiros/problema_divisao_inteiros.md)
-
-### Biblioteca matemática <!-- @tools_math.h opt r:types_operations -->
-
 - [ ] [math.h (pow, sqrt)](wiki/biblioteca_math/Readme.md)
 - [ ] [@pintando a casa](https://github.com/qxcodefup/arcade/blob/master/base/000/Readme.md)
 
-## Entrada e Saída <!-- group -->
-
-### Entrada e Saída - puts, printf, scanf <!-- @io_basic r:types_operations g:Básico -->
+### Entrada e Saída - puts, printf, scanf <!-- @io_basic r:types_operations -->
 
 - [ ] [Entrada de dados básica com cin](wiki/entrada/Readme.md)
 - [ ] [Impressão formatada](wiki/impressao_formatada/Readme.md)
 - [ ] [L1 - @operacoes básicas](https://github.com/qxcodefup/arcade/blob/master/base/operacoes/Readme.md)
 - [ ] [L2 - @opala bebedor](https://github.com/qxcodefup/arcade/blob/master/base/opala/Readme.md)
 
-### Manipulando strings com `sprintf` e `sscanf` <!-- @io_string opt r:string_novice g:Básico -->
+### Manipulando strings com `sprintf` e `sscanf` <!-- @io_string opt r:string_novice -->
 
 - [ ] [Básico sobre `sprintf` e `sscanf`](wiki/string/sprintf_sscanf.md)
 - [ ] [Usando para Serialização e Desseliarização](wiki/string/serializacao_c.md)
@@ -105,14 +90,13 @@ Clique para abrir a versão clicável
 
 - [ ] [argc e argv](wiki/argc_argv/Readme.md)
 
-
 ### IO: argc e argv <!-- @io_argc_argv opt r:string_novice -->
 
 - [ ] [Tópicos extras e boas práticas](wiki/argc_argv/extra.md)
 
 ## Seleção <!-- group -->
 
-### Seleção Básica <!-- @select_novice r:io_basic r:style_guide r:style_indentation g:Básico -->
+### Seleção Básica <!-- @select_novice r:io_basic r:style -->
 
 - [ ] [Estruturas de seleção](wiki/selecao/selecao_if_else.md)
 - [ ] [Técnica da seleção intervalada](wiki/selecao/selecao_tecnica_intervalos.md)
@@ -125,11 +109,7 @@ Clique para abrir a versão clicável
 - [ ] [L2 - Está @trabalhando ou não](https://github.com/qxcodefup/arcade/blob/master/base/trabalhando/Readme.md)
 - [ ] [L2 - Triângulo de @varetas](https://github.com/qxcodefup/arcade/blob/master/base/varetas/Readme.md)
 
-### Debugando <!-- @tools_debug opt r:tools_basic -->
-
-- [ ] [Debugando o primeiro código](wiki/debugando/intro.md)
-
-### Técnicas de seleção I <!-- @select_advanced opt r:functions_novice -->
+### Técnicas de seleção I <!-- @select_advanced opt r:functions -->
 
 - [ ] [Operadores lógicos &&, ||, ==, ()](wiki/operadores/logicos.md)
 - [ ] [Técnicas de if e else](wiki/selecao/selecao_tecnica_agrupamento.md)
@@ -153,23 +133,6 @@ Clique para abrir a versão clicável
 - [ ] [L2 - Cabeça da @cobra](https://github.com/qxcodefup/arcade/blob/master/base/cobra/Readme.md)
 - [ ] [L3 - Formiga da @bundona](https://github.com/qxcodefup/arcade/blob/master/base/bundona/Readme.md)
 
-## Funções <!-- group -->
-
-### Funções I <!-- @functions_novice r:select_novice -->
-
-- [ ] [Variáveis locais e globais](wiki/variaveis/variaveis_locais_e_globais.md)
-- [ ] [Tratando Conflitos de Nomes com Namespaces](wiki/conflitos_e_namespaces/Readme.md)
-- [ ] [Funções: parâmetros e retornos](wiki/funcao/parametros_e_retornos.md)
-- [ ] [L2 - @mmc](https://github.com/qxcodefup/arcade/blob/master/base/mmc/Readme.md)
-- [ ] [L2 - Soldados @pmg](https://github.com/qxcodefup/arcade/blob/master/base/pmg/Readme.md)
-
-### Funções II <!-- @function_advanced r:functions_novice -->
-
-- [ ] [Retornando no meio da função](wiki/funcao/retornando_no_meio_da_funcao.md)
-- [ ] [Debugando em funções](wiki/debugando/funcoes.md)
-- [ ] [Variáveis estáticas em funções](wiki/variaveis/variaveis_estaticas_em_funcoes.md)
-- [ ] [Valores default em funções](wiki/variaveis/valores_default_em_funcoes.md)
-
 ## Repetição <!-- group -->
 
 ### While <!-- @repeat_novice r:select_novice -->
@@ -179,7 +142,7 @@ Clique para abrir a versão clicável
 - [ ] [L1 - @sapatos para 3](https://github.com/qxcodefup/arcade/blob/master/base/sapatos/Readme.md)
 - [ ] [L2 - @fuga em helicóptero - OBI 2016](https://github.com/qxcodefup/arcade/blob/master/base/fuga/Readme.md)
 
-### for <!-- @repeat_advanced r:repeat_novice -->
+### Usando o For <!-- @repeat_advanced r:repeat_novice -->
 
 - [ ] [Aula 13 - Uso do for](wiki/repeticao/repeticao_for.md)
 - [ ] [L2 - Jogo da @concentracao](https://github.com/qxcodefup/arcade/blob/master/base/concentracao/Readme.md),
@@ -190,19 +153,9 @@ Clique para abrir a versão clicável
 - [ ] [L3 - Sapinho 2 morrendo no @poco](https://github.com/qxcodefup/arcade/blob/master/base/poco/Readme.md),
 - [ ] [L3 - Quebrador de @copos](https://github.com/qxcodefup/arcade/blob/master/base/copos/Readme.md)
 
-## Jogos <!-- group -->
+## Arrays <!-- group -->
 
-### Números Aleatórios <!-- @tools_rand r:select_novice -->
-
-- [ ] [Números Aleatórios: Introdução](wiki/rand/num_aleatorios_introducao.md)
-- [ ] [As funções  e ](wiki/rand/rand_e_srand.md)
-
-### Game Zero a Cem <!-- @game_zero_cem c:cyan r:tools_rand r:functions_novice -->
-
-
-## Vetores <!-- group -->
-
-### Array Iniciante <!-- @array_novice r:repeat_advanced r:functions_novice -->
+### Array Iniciante <!-- @array_novice r:repeat_advanced r:functions -->
 
 - [ ] [Array simples](wiki/array_simples/Readme.md)
 - [ ] [L1 - @casamento](https://github.com/qxcodefup/arcade/blob/master/base/casamento/Readme.md)
@@ -216,26 +169,23 @@ Clique para abrir a versão clicável
 - [ ] [L2 - @busca Intervalada](https://github.com/qxcodefup/arcade/blob/master/base/busca/Readme.md)
 - [ ] [L3 - @piao perto da linha](https://github.com/qxcodefup/arcade/blob/master/base/piao/Readme.md)
 
-### Blackjack <!-- @game_blackjack c:cyan r:tools_rand r:array_advanced -->
-
 ### Array Expert <!-- @array_expert opt r:array_advanced -->
 
 - [ ] [Vector](wiki/vetores/vector.md)
 - [ ] [For Indexado](wiki/repeticao/for_indexado.md)
-- [ ] Exercícios Casa:
 - [ ] [L2 - @fila do RU - Separar Pares e Ímpares](https://github.com/qxcodefup/arcade/blob/master/base/fila/Readme.md)
 - [ ] [L2 - @invertendo vetor](https://github.com/qxcodefup/arcade/blob/master/base/invertendo/Readme.md)
 - [ ] [L2 - Jogo do @avesso](https://github.com/qxcodefup/arcade/blob/master/base/avesso/Readme.md)
 - [ ] [L2 - @mediana](https://github.com/qxcodefup/arcade/blob/master/base/mediana/Readme.md)
 
-## Strings <!-- groups -->
+## Strings <!-- group -->
 
 ### Strings I <!-- @string_novice r:array_advanced -->
 
 - [ ] [Tabela ASCII](wiki/string/tabela_asc2.md)
 - [ ] [Manipulação de caracteres](wiki/manipulacao_caracteres/Readme.md)
 - [ ] [Métodos da classe string](wiki/metodos_string/metodos_string.md)
-- [ ] [Métodos  e ](wiki/split_join/Readme.md)
+- [ ] [Métodos  e](wiki/split_join/Readme.md)
 - [ ] [L1 - Eribelton e a @ascologia V1 - Somar Asc](https://github.com/qxcodefup/arcade/blob/master/base/ascologia/Readme.md),
 
 ### Strings II <!-- @string_advanced opt r:string_novice r:pointers_novice -->
@@ -251,52 +201,85 @@ Clique para abrir a versão clicável
 - [ ] [L3 - MeU @word QuEbRoU - formatação de case](https://github.com/qxcodefup/arcade/blob/master/base/word/Readme.md)
 - [ ] [L3 - Separe Pneumatócito - @silabas](https://github.com/qxcodefup/arcade/blob/master/base/silabas/Readme.md)
 
-## Extra <!-- groups -->
+## Outros Tipos <!-- group -->
 
-### Ponteiros <!-- @pointers_novice r:function_advanced -->
+### Enum <!-- @enum r:functions -->
 
-- [ ] [Ponteiros: Introdução](wiki/ponteiros/introducao.md)
+- [ ] [Enum: Introdução](wiki/enum/introducao.md)
 
-### Structs <!-- @structs_novice r:functions_novice -->
+### Structs <!-- @structs_novice r:enum -->
 
 - [ ] [Structs: Introdução](wiki/structs/introducao.md)
 - [ ] [Structs: Exemplos](wiki/structs/exemplos.md)
 
-## Matrizes <!-- groups -->
+### Structs Advanced <!-- @structs_advanced r:pointers_novice r:array_novice r:structs_novice -->
 
-### Matrizes <!-- @matrix_novice r:array_novice -->
+- [ ] [Structs: Ponteiros e Referências](wiki/structs/ponteiros_referencias.md)
+- [ ] [Structs: Funções e Métodos](wiki/structs/funcoes_metodos.md)
+
+### Matrizes básico <!-- @matrix_novice r:array_novice -->
 
 - [ ] [O que são matrizes e para que usar?](wiki/matrizes/o_que_sao_matrizes.md)
 - [ ] [Noções básicas sobre matrizes: diagonais e outras propriedades](wiki/matrizes/nocoes_basicas_de_matrizes.md)
-
 
 ### Técnicas em matrizes <!-- @matrix_advanced opt r:matrix_novice r:structs_advanced -->
 
 - [ ]  [filler](https:filler.com.br)
 
-### Jogo da Vida <!-- @game_jogodavida c:cyan r:tools_rand r:matrix_advanced -->
+## Modularizando <!-- group -->
 
-### Cobrinha <!-- @game_cobrinha c:cyan r:tools_rand r:structs_advanced -->
+### Funções I <!-- @functions r:select_novice -->
 
-### Aula 24 - enum <!-- @enum r:select_novice -->
+- [ ] [Variáveis locais e globais](wiki/variaveis/variaveis_locais_e_globais.md)
+- [ ] [Tratando Conflitos de Nomes com Namespaces](wiki/conflitos_e_namespaces/Readme.md)
+- [ ] [Funções: parâmetros e retornos](wiki/funcao/parametros_e_retornos.md)
+- [ ] [L2 - @mmc](https://github.com/qxcodefup/arcade/blob/master/base/mmc/Readme.md)
+- [ ] [L2 - Soldados @pmg](https://github.com/qxcodefup/arcade/blob/master/base/pmg/Readme.md)
 
-- [ ] filler
-- [ ] filler 2
+### Funções II <!-- @function_advanced r:functions -->
+
+- [ ] [Retornando no meio da função](wiki/funcao/retornando_no_meio_da_funcao.md)
+- [ ] [Debugando em funções](wiki/debugando/funcoes.md)
+- [ ] [Variáveis estáticas em funções](wiki/variaveis/variaveis_estaticas_em_funcoes.md)
+- [ ] [Valores default em funções](wiki/variaveis/valores_default_em_funcoes.md)
+
+### Criando um projeto modular <!-- @modular opt r:functions -->
+
+- [ ] [Criando um projeto modular](wiki/modular/modular.md)
+
+### Makefile <!-- @makefile opt r:modular -->
+
+- [ ] [O que é Makefile?](wiki/makefile/makefile_intro.md)
+- [ ] [Makefile e a linguagem C](wiki/makefile/makefile_c.md)
+- [ ] [Extras](wiki/makefile/makefile_extra.md)
+
+### Macros: Preprocessador  <!-- @macros opt r:modular -->
+
+- [ ] [Vídeos sobre diretivas](https://www.youtube.com/watch?v=asDaFDq8VSs)
+- [ ] [Macros e onde aplicar](wiki/macros/macro_introducao.md)
+- [ ] [Macros e Multiplataforma](wiki/macros/macro_multiplataforma.md)
+
+
+### Recursividade
+
+### Ponteiros <!-- @pointers_novice r:function_advanced -->
+
+- [ ] [Ponteiros: Introdução](wiki/ponteiros/introducao.md)
 
 ### Ponteiros ii <!-- @pointers_advanced r:pointers_novice -->
+
+- [ ] [Ponteiros e Funções](wiki/ponteiros/funcoes.md)
 
 - [ ] filler
 - [ ] filler 2
 
 ### Alocação Dinâmica i <!-- @memory_novice opt r:pointers_novice -->
 
-- [ ] filler
-- [ ] filler 2
+- [ ] [Alocação Dinâmica: Introdução](wiki/alocacao_dinamica/introducao.md)
 
 ### Alocação Dinâmica ii <!-- @memory_advanced opt r:memory_novice -->
 
-- [ ] filler
-- [ ] filler 2
+- [ ] [Strings, Matrizes e Strucs](wiki/alocacao_dinamica/funcoes_ponteiros.md)
 
 ### arquivos texto <!-- @files_novice r:pointers_advanced -->
 
@@ -306,9 +289,25 @@ Clique para abrir a versão clicável
 
 - [ ] filler 2
 
-## Structs <!-- groups -->
+## Jogos <!-- group -->
 
-### Structs Advanced <!-- @structs_advanced r:pointers_novice r:array_novice r:structs_novice -->
+### Números Aleatórios <!-- @tools_rand r:select_novice -->
 
-- [ ] [Structs: Ponteiros e Referências](wiki/structs/ponteiros_referencias.md)
-- [ ] [Structs: Funções e Métodos](wiki/structs/funcoes_metodos.md)
+- [ ] [Números Aleatórios: Introdução](wiki/rand/num_aleatorios_introducao.md)
+- [ ] [As funções e](wiki/rand/rand_e_srand.md)
+
+### Game Zero a Cem <!-- @game_zero_cem c:cyan r:tools_rand r:functions -->
+
+- [ ] [L1 - @zero a cem](wiki/game_zero_cem/Readme.md)
+
+### Jogo da Vida <!-- @game_jogodavida c:cyan r:tools_rand r:matrix_advanced -->
+
+- [ ] [L2 - @jogo da vida](wiki/game_jogodavida/Readme.md)
+
+### Blackjack <!-- @game_blackjack c:cyan r:tools_rand r:array_advanced -->
+
+- [ ] [L2 - @blackjack](wiki/game_blackjack/Readme.md)
+
+### Cobrinha <!-- @game_cobrinha c:cyan r:tools_rand r:structs_advanced -->
+
+- [ ] [L2 - @cobrinha](wiki/game_cobrinha/Readme.md)
