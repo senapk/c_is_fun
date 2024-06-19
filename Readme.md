@@ -15,14 +15,14 @@ Clique para abrir a versão clicável
 - [ ] [Ferramentas úteis](wiki/configure/ferramentas_uteis.md) File Manager, Terminal, Text Editor
 - [ ] [IDE: Replit](wiki/configure/replit.md)
 
-### Primeiro código <!-- @types_basic r:tools_basic -->
+### Primeiro código <!-- @types_basic r:tools_basic t:7 -->
 
 - [ ] [Primeiro código](wiki/primeiro_codigo/primeiro_codigo.md)
 - [ ] [Compilando e Executando](wiki/compilando/Readme.md)
 - [ ] [Segundo código](wiki/intro/segundo_codigo.md)
 - [ ] [Tipos de dados primitivos](wiki/variaveis/tipos_primitivos.md)
 - [ ] [Variáveis](wiki/variaveis/variaveis.md): Boas práticas
-- [ ] [Não tenha medo de erros](wiki/erros/variaveis.md)
+- [ ] [Não tenha medo de erros](wiki/erros/variaveis.md) <!-- opt -->
 
 ### Montando seu setup local <!-- @local opt r:tools_basic t:7 -->
 
