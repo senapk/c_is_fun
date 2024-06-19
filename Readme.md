@@ -29,7 +29,7 @@ Clique para abrir a versão clicável
 - [ ] [Uso do Bash e Instalação do Git Bash](wiki/configure/bash_git.md)
 - [ ] [Instalação do C (Mingw)](wiki/configure/mingw.md)
 - [ ] [IDE: Visual Studio Code (vscode)](wiki/configure/vscode.md)
-- [ ] [Práticando com as ferramentas](wiki/configure/praticando.md)
+- [ ] [Praticando com as ferramentas](wiki/configure/praticando.md)
 
 ### TKO - Ferramenta de Testes <!-- @tko r:tools_basic -->
 
@@ -51,13 +51,14 @@ Clique para abrir a versão clicável
 ### Clean Code <!-- @style r:types_basic -->
 
 - [ ] [Aprenda a indentar](wiki/intro/indentacao.md)
-- [ ] [Treinando indentação](wiki/intro/indentacao_treino.md)
+- [ ] [Treinando indentação](wiki/intro/indentacao_treino.md) TODO
 - [ ] [Guia de estilo de escrita](wiki/intro/estilo.md)
-- [ ] [Treinando estilo de escrita](wiki/intro/estilo_treino.md)
+- [ ] [Treinando estilo de escrita](wiki/intro/estilo_treino.md) 
 
 ### Tipos e casting <!-- @types_casting opt r:types_basic -->
 
-- [ ] [Limites e Modificadores de tipo](wiki/modificadores/modificadores.md)
+- [ ] [Limites e Modificadores de tipo](wiki/modificadores/modificadores.md) TODO
+- [ ] [Testando tipos e modificadores](wiki/modificadores/testando.md) TODO 
 - [ ] [Conversão entre tipos (casting)](wiki/variaveis/casting.md)
 - [ ] [Conversão Implícita de tipos](wiki/variaveis/implicit_casting.md)
 - [ ] [Conversões com strings](wiki/variaveis/strtol_strtod.md)
@@ -69,13 +70,13 @@ Clique para abrir a versão clicável
 
 - [ ] [Atribuição e incremento](wiki/atribuicao_incremento/Readme.md) 
 - [ ] [Operações aritméticas s:, -, *, /](wiki/operacoes/operacoes.md)
-- [ ] [Problema da divisão de dois inteiros](wiki/problema_divisao_inteiros/problema_divisao_inteiros.md)
+- [ ] [Problema da divisão de dois inteiros](wiki/problema_divisao_inteiros/Readme.md)
 - [ ] [math.h (pow, sqrt)](wiki/biblioteca_math/Readme.md)
 - [ ] [@pintando a casa](https://github.com/qxcodefup/arcade/blob/master/base/000/Readme.md)
 
-### Entrada e Saída - puts, printf, scanf <!-- @io_basic r:types_operations -->
+### Entrada e Saída - puts, printf, scanf <!-- @io_basic r:types_operations --> TODO
 
-- [ ] [Entrada de dados básica com cin](wiki/entrada/Readme.md)
+- [ ] [Entrada de dados básica com cin](wiki/entrada/Readme.md) 
 - [ ] [Impressão formatada](wiki/impressao_formatada/Readme.md)
 - [ ] [L1 - @operacoes básicas](https://github.com/qxcodefup/arcade/blob/master/base/operacoes/Readme.md)
 - [ ] [L2 - @opala bebedor](https://github.com/qxcodefup/arcade/blob/master/base/opala/Readme.md)
@@ -100,7 +101,7 @@ Clique para abrir a versão clicável
 
 - [ ] [Estruturas de seleção](wiki/selecao/selecao_if_else.md)
 - [ ] [Técnica da seleção intervalada](wiki/selecao/selecao_tecnica_intervalos.md)
-- [ ] [Operador ternário](wiki/operadores/ternario.md)
+- [ ] [Operador ternário](wiki/operadores/ternario.md) TODO
 - [ ] resolvido: [L1 - @calculadora Numérica](https://github.com/qxcodefup/arcade/blob/master/base/calculadora/Readme.md)
 - [ ] resolvido: [L1 - Plantação de @morangos](https://github.com/qxcodefup/arcade/blob/master/base/morangos/Readme.md)
 - [ ] [L1 - @chaves - Positivo, Nulo ou Negativo?](https://github.com/qxcodefup/arcade/blob/master/base/chaves/Readme.md),
@@ -111,7 +112,7 @@ Clique para abrir a versão clicável
 
 ### Técnicas de seleção I <!-- @select_advanced opt r:functions -->
 
-- [ ] [Operadores lógicos &&, ||, ==, ()](wiki/operadores/logicos.md)
+- [ ] [Operadores lógicos &&, ||, ==, ()](wiki/operadores/logicos.md) TODO
 - [ ] [Técnicas de if e else](wiki/selecao/selecao_tecnica_agrupamento.md)
 - [ ] [L1 - @quantos são iguais](https://github.com/qxcodefup/arcade/blob/master/base/quantos/Readme.md)
 - [ ] [L2 - Aumento de @salario](https://github.com/qxcodefup/arcade/blob/master/base/salario/Readme.md)
@@ -123,8 +124,8 @@ Clique para abrir a versão clicável
 ### Técnicas de seleção II <!-- @select_expert opt r:select_advanced -->
 
 - [ ] [Switch case](wiki/selecao/seleção_switch_case.md)
-- [ ] [Operador de módulo](wiki/operadores/modulo.md)
-- [ ] [Exercícios de módulo](wiki/exercicios_modulo/Readme.md)
+- [ ] [Operador de módulo](wiki/operadores/modulo.md) TODO
+- [ ] [Exercícios de módulo](wiki/exercicios_modulo/Readme.md) TODO
 - [ ] [L1 - Ambos @divisiveis](https://github.com/qxcodefup/arcade/blob/master/base/divisiveis/Readme.md)
 - [ ] [L2 - @teleferico - OBI 2017 - Fase 1](https://github.com/qxcodefup/arcade/blob/master/base/teleferico/Readme.md)
 - [ ] [L2 - Ladrão de @goiabas](https://github.com/qxcodefup/arcade/blob/master/base/goiabas/Readme.md)
@@ -137,14 +138,14 @@ Clique para abrir a versão clicável
 
 ### While <!-- @repeat_novice r:select_novice -->
 
-- [ ] [while(true), continue e break](wiki/repeticao/while_break_continue.md)
+- [ ] [while(true), continue e break](wiki/repeticao/while_break_continue.md) TODO
 - [ ] [L1 - Soma dos @pares](https://github.com/qxcodefup/arcade/blob/master/base/pares/Readme.md)
 - [ ] [L1 - @sapatos para 3](https://github.com/qxcodefup/arcade/blob/master/base/sapatos/Readme.md)
 - [ ] [L2 - @fuga em helicóptero - OBI 2016](https://github.com/qxcodefup/arcade/blob/master/base/fuga/Readme.md)
 
 ### Usando o For <!-- @repeat_advanced r:repeat_novice -->
 
-- [ ] [Aula 13 - Uso do for](wiki/repeticao/repeticao_for.md)
+- [ ] [Aula 13 - Uso do for](wiki/repeticao/repeticao_for.md) TODO
 - [ ] [L2 - Jogo da @concentracao](https://github.com/qxcodefup/arcade/blob/master/base/concentracao/Readme.md),
 - [ ] [L2 - É @primo](https://github.com/qxcodefup/arcade/blob/master/base/primo/Readme.md)
 - [ ] [L2 - Ônibus @lotado](https://github.com/qxcodefup/arcade/blob/master/base/lotado/Readme.md)
@@ -157,7 +158,7 @@ Clique para abrir a versão clicável
 
 ### Array Iniciante <!-- @array_novice r:repeat_advanced r:functions -->
 
-- [ ] [Array simples](wiki/array_simples/Readme.md)
+- [ ] [Array simples](wiki/array_simples/Readme.md) TODO
 - [ ] [L1 - @casamento](https://github.com/qxcodefup/arcade/blob/master/base/casamento/Readme.md)
 - [ ] [L1 - @contagem](https://github.com/qxcodefup/arcade/blob/master/base/contagem/Readme.md)
 - [ ] [L1 - Calça @apertada](https://github.com/qxcodefup/arcade/blob/master/base/apertada/Readme.md)
@@ -171,8 +172,8 @@ Clique para abrir a versão clicável
 
 ### Array Expert <!-- @array_expert opt r:array_advanced -->
 
-- [ ] [Vector](wiki/vetores/vector.md)
-- [ ] [For Indexado](wiki/repeticao/for_indexado.md)
+- [ ] [Vector](wiki/vetores/vector.md) TODO
+- [ ] [For Indexado](wiki/repeticao/for_indexado.md) TODO
 - [ ] [L2 - @fila do RU - Separar Pares e Ímpares](https://github.com/qxcodefup/arcade/blob/master/base/fila/Readme.md)
 - [ ] [L2 - @invertendo vetor](https://github.com/qxcodefup/arcade/blob/master/base/invertendo/Readme.md)
 - [ ] [L2 - Jogo do @avesso](https://github.com/qxcodefup/arcade/blob/master/base/avesso/Readme.md)
@@ -184,7 +185,7 @@ Clique para abrir a versão clicável
 
 - [ ] [Tabela ASCII](wiki/string/tabela_asc2.md)
 - [ ] [Manipulação de caracteres](wiki/manipulacao_caracteres/Readme.md)
-- [ ] [Métodos da classe string](wiki/metodos_string/metodos_string.md)
+- [ ] [Métodos da classe string](wiki/metodos_string/metodos_string.md) REMOVER?
 - [ ] [Métodos  e](wiki/split_join/Readme.md)
 - [ ] [L1 - Eribelton e a @ascologia V1 - Somar Asc](https://github.com/qxcodefup/arcade/blob/master/base/ascologia/Readme.md),
 
@@ -205,22 +206,22 @@ Clique para abrir a versão clicável
 
 ### Enum <!-- @enum r:functions -->
 
-- [ ] [Enum: Introdução](wiki/enum/introducao.md)
+- [ ] [Enum: Introdução](wiki/enum/introducao.md) TODO
 
 ### Structs <!-- @structs_novice r:enum -->
 
-- [ ] [Structs: Introdução](wiki/structs/introducao.md)
-- [ ] [Structs: Exemplos](wiki/structs/exemplos.md)
+- [ ] [Structs: Introdução](wiki/structs/introducao.md) TODO
+- [ ] [Structs: Exemplos](wiki/structs/exemplos.md) TODO
 
 ### Structs Advanced <!-- @structs_advanced r:pointers_novice r:array_novice r:structs_novice -->
 
-- [ ] [Structs: Ponteiros e Referências](wiki/structs/ponteiros_referencias.md)
-- [ ] [Structs: Funções e Métodos](wiki/structs/funcoes_metodos.md)
+- [ ] [Structs: Ponteiros e Referências](wiki/structs/ponteiros_referencias.md) TODO
+- [ ] [Structs: Funções e Métodos](wiki/structs/funcoes_metodos.md) TODO
 
 ### Matrizes básico <!-- @matrix_novice r:array_novice -->
 
-- [ ] [O que são matrizes e para que usar?](wiki/matrizes/o_que_sao_matrizes.md)
-- [ ] [Noções básicas sobre matrizes: diagonais e outras propriedades](wiki/matrizes/nocoes_basicas_de_matrizes.md)
+- [ ] [O que são matrizes e para que usar?](wiki/matrizes/o_que_sao_matrizes.md) TODO
+- [ ] [Noções básicas sobre matrizes: diagonais e outras propriedades](wiki/matrizes/nocoes_basicas_de_matrizes.md) TODO
 
 ### Técnicas em matrizes <!-- @matrix_advanced opt r:matrix_novice r:structs_advanced -->
 
@@ -230,22 +231,22 @@ Clique para abrir a versão clicável
 
 ### Funções I <!-- @functions r:select_novice -->
 
-- [ ] [Variáveis locais e globais](wiki/variaveis/variaveis_locais_e_globais.md)
-- [ ] [Tratando Conflitos de Nomes com Namespaces](wiki/conflitos_e_namespaces/Readme.md)
-- [ ] [Funções: parâmetros e retornos](wiki/funcao/parametros_e_retornos.md)
+- [ ] [Variáveis locais e globais](wiki/variaveis/variaveis_locais_e_globais.md) TODO
+- [ ] [Tratando Conflitos de Nomes com Namespaces](wiki/conflitos_e_namespaces/Readme.md) TODO
+- [ ] [Funções: parâmetros e retornos](wiki/funcao/parametros_e_retornos.md) TODO
 - [ ] [L2 - @mmc](https://github.com/qxcodefup/arcade/blob/master/base/mmc/Readme.md)
 - [ ] [L2 - Soldados @pmg](https://github.com/qxcodefup/arcade/blob/master/base/pmg/Readme.md)
 
 ### Funções II <!-- @function_advanced r:functions -->
 
-- [ ] [Retornando no meio da função](wiki/funcao/retornando_no_meio_da_funcao.md)
-- [ ] [Debugando em funções](wiki/debugando/funcoes.md)
-- [ ] [Variáveis estáticas em funções](wiki/variaveis/variaveis_estaticas_em_funcoes.md)
-- [ ] [Valores default em funções](wiki/variaveis/valores_default_em_funcoes.md)
+- [ ] [Retornando no meio da função](wiki/funcao/retornando_no_meio_da_funcao.md) TODO
+- [ ] [Debugando em funções](wiki/debugando/funcoes.md) TODO
+- [ ] [Variáveis estáticas em funções](wiki/variaveis/variaveis_estaticas_em_funcoes.md) TODO
+- [ ] [Valores default em funções](wiki/variaveis/valores_default_em_funcoes.md) TODO
 
 ### Criando um projeto modular <!-- @modular opt r:functions -->
 
-- [ ] [Criando um projeto modular](wiki/modular/modular.md)
+- [ ] [Criando um projeto modular](wiki/modular/modular.md) TODO
 
 ### Makefile <!-- @makefile opt r:modular -->
 
@@ -264,22 +265,22 @@ Clique para abrir a versão clicável
 
 ### Ponteiros <!-- @pointers_novice r:function_advanced -->
 
-- [ ] [Ponteiros: Introdução](wiki/ponteiros/introducao.md)
+- [ ] [Ponteiros: Introdução](wiki/ponteiros/introducao.md) TODO
 
 ### Ponteiros ii <!-- @pointers_advanced r:pointers_novice -->
 
-- [ ] [Ponteiros e Funções](wiki/ponteiros/funcoes.md)
+- [ ] [Ponteiros e Funções](wiki/ponteiros/funcoes.md) TODO
 
 - [ ] filler
 - [ ] filler 2
 
 ### Alocação Dinâmica i <!-- @memory_novice opt r:pointers_novice -->
 
-- [ ] [Alocação Dinâmica: Introdução](wiki/alocacao_dinamica/introducao.md)
+- [ ] [Alocação Dinâmica: Introdução](wiki/alocacao_dinamica/introducao.md) TODO
 
 ### Alocação Dinâmica ii <!-- @memory_advanced opt r:memory_novice -->
 
-- [ ] [Strings, Matrizes e Strucs](wiki/alocacao_dinamica/funcoes_ponteiros.md)
+- [ ] [Strings, Matrizes e Strucs](wiki/alocacao_dinamica/funcoes_ponteiros.md) TODO
 
 ### arquivos texto <!-- @files_novice r:pointers_advanced -->
 
@@ -294,7 +295,7 @@ Clique para abrir a versão clicável
 ### Números Aleatórios <!-- @tools_rand r:select_novice -->
 
 - [ ] [Números Aleatórios: Introdução](wiki/rand/num_aleatorios_introducao.md)
-- [ ] [As funções e](wiki/rand/rand_e_srand.md)
+- [ ] [As funções e](wiki/rand/rand_e_srand.md) TODO
 
 ### Game Zero a Cem <!-- @game_zero_cem c:cyan r:tools_rand r:functions -->
 
