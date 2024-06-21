@@ -17,7 +17,7 @@ Clique para abrir a versão clicável
 
 ### Primeiro código <!-- @types_basic r:tools_basic t:7 -->
 
-- [ ] [Primeiro código](wiki/primeiro_codigo/primeiro_codigo.md)
+- [ ] [Primeiro código](wiki/intro/primeiro_codigo.md)
 - [ ] [Compilando e Executando](wiki/compilando/Readme.md)
 - [ ] [Segundo código](wiki/intro/segundo_codigo.md)
 - [ ] [Tipos de dados primitivos](wiki/variaveis/tipos_primitivos.md)
@@ -53,7 +53,7 @@ Clique para abrir a versão clicável
 - [ ] [Aprenda a indentar](wiki/intro/indentacao.md)
 - [ ] [Treinando indentação](wiki/intro/indentacao_treino.md) TODO
 - [ ] [Guia de estilo de escrita](wiki/intro/estilo.md)
-- [ ] [Treinando estilo de escrita](wiki/intro/estilo_treino.md) 
+- [ ] [Treinando estilo de escrita](wiki/intro/estilo_treino.md)
 
 ### Tipos e casting <!-- @types_casting opt r:types_basic -->
 
@@ -76,7 +76,7 @@ Clique para abrir a versão clicável
 
 ### Entrada e Saída - puts, printf, scanf <!-- @io_basic r:types_operations --> TODO
 
-- [ ] [Entrada de dados básica com cin](wiki/entrada/Readme.md) 
+- [ ] [Entrada de dados básica com cin](wiki/entrada/Readme.md)
 - [ ] [Impressão formatada](wiki/impressao_formatada/Readme.md)
 - [ ] [L1 - @operacoes básicas](https://github.com/qxcodefup/arcade/blob/master/base/operacoes/Readme.md)
 - [ ] [L2 - @opala bebedor](https://github.com/qxcodefup/arcade/blob/master/base/opala/Readme.md)
@@ -259,7 +259,6 @@ Clique para abrir a versão clicável
 - [ ] [Vídeos sobre diretivas](https://www.youtube.com/watch?v=asDaFDq8VSs)
 - [ ] [Macros e onde aplicar](wiki/macros/macro_introducao.md)
 - [ ] [Macros e Multiplataforma](wiki/macros/macro_multiplataforma.md)
-
 
 ### Recursividade
 
