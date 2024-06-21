@@ -30,6 +30,8 @@ class TocMaker:
                 out += '-'
             elif c == '_':
                 out += '_'
+            elif c == '\\':
+                pass
             elif c.isalnum():
                 out += c
         return out
@@ -40,7 +42,7 @@ class TocMaker:
 
     @staticmethod
     def __get_content(line: str) -> str:
-        return " ".join(line.split(" ")[1:])
+        return " ".join(line.split(" ")[1:]).replace("\\", "\\\\")
 
     @staticmethod
     def __remove_code_fences(content: str) -> str:
@@ -76,8 +78,11 @@ class Toc:
             subst = r"<!-- toc -->\n" + new_toc + r"\n<!-- toc -->"
         else:
             subst = r"<!-- toc -->\n<!-- toc -->"
-        return re.sub(regex, subst, content, 0, re.MULTILINE | re.DOTALL)
-
+        try:
+            return re.sub(regex, subst, content, 0, re.MULTILINE | re.DOTALL)
+        except Exception as e:
+            print("error:", e)
+            return content
 
 
 class Load:
@@ -217,6 +222,7 @@ def main():
         if not result:
             continue
         updated = original
+        print(target) #db
         updated_toc = Toc.execute(updated, action)
         if updated != updated_toc:
             print("toc updated:", target)
